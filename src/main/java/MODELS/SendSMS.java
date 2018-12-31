@@ -16,4 +16,5 @@ public class SendSMS {
     
     private static String ToNumber;
     private String FromNumber="+12563776488";
+    private String Body;
 }
