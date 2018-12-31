@@ -5,6 +5,7 @@
  */
 package VUES.ACCOUNT;
 
+import MODELS.SendSMS;
 import javax.swing.JOptionPane;
 
 /**
@@ -27,11 +28,18 @@ public class CreateAccountStep1 extends javax.swing.JFrame {
         telephone.setText(State.getTel());
     }
 
+    private void sendAnSMS() {
+        int code = (int) (Math.random() * 10000);
+        State.setCheck(code);
+        SendSMS sms = new SendSMS("+212" + State.getTel(), "code de verification est : " + code);
+    }
+
     private void getInfos() {
-        if (nom.getText().length() != 0 && prenom.getText().length() != 0 && telephone.getText().length() == 10) {
+        if (nom.getText().length() != 0 && prenom.getText().length() != 0 && telephone.getText().length() == 9) {
             State.setNom(nom.getText());
             State.setPrenom(prenom.getText());
             State.setTel(telephone.getText());
+            sendAnSMS();
             new CreateAccountStep2().setVisible(true);
             dispose();
         } else {

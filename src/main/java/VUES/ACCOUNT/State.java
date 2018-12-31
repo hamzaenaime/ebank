@@ -29,6 +29,15 @@ public class State {
     private static Boolean active;
     private static String date_fermeture;
     private static String profession;
+    private static int check;
+
+    public static int getCheck() {
+        return check;
+    }
+
+    public static void setCheck(int check) {
+        State.check = check;
+    }
 
     public static String getProfession() {
         return profession;
