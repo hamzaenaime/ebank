@@ -23,12 +23,13 @@ public class SendSMS {
     
     public SendSMS(String ToNumber,String Body){
         this.ToNumber = ToNumber;
+        this.Body   =   Body;
         
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
         Message message = Message.creator(
-                new com.twilio.type.PhoneNumber("+212625647473"),
+                new com.twilio.type.PhoneNumber(ToNumber.toString()),
                 new com.twilio.type.PhoneNumber(FromNumber.toString()),
-                "Hello Ayoub! How are you doing!")
+                Body.toString())
             .create();
 
         System.out.println(message.getSid());
