@@ -5,6 +5,9 @@
  */
 package MODELS;
 
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
 /**
  *
  * @author dell
@@ -14,7 +17,22 @@ public class SendSMS {
     public static final String ACCOUNT_SID = "AC41205ef605c974170e6786aff62ef7f5";
     public static final String AUTH_TOKEN = "5a4210a6eb454b5d7c732f233ffc78d4";
     
-    private static String ToNumber;
-    private String FromNumber="+12563776488";
+    private String ToNumber;
+    private static String FromNumber="+12563776488";
     private String Body;
+    
+    public SendSMS(String ToNumber,String Body){
+        this.ToNumber = ToNumber;
+        
+        Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+        Message message = Message.creator(
+                new com.twilio.type.PhoneNumber("+212625647473"),
+                new com.twilio.type.PhoneNumber(FromNumber.toString()),
+                "Hello Ayoub! How are you doing!")
+            .create();
+
+        System.out.println(message.getSid());
+    }
+            
+            
 }
