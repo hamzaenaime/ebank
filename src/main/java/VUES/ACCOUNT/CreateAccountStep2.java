@@ -5,6 +5,8 @@
  */
 package VUES.ACCOUNT;
 
+import MODELS.SendSMS;
+
 /**
  *
  * @author hamza
@@ -16,9 +18,16 @@ public class CreateAccountStep2 extends javax.swing.JFrame {
      */
     public CreateAccountStep2() {
         initComponents();
+        sendAnSMS();
         /*
         here where we gonna put the twilio function that send a sms to the user
          */
+    }
+
+    private void sendAnSMS() {
+        int code = (int) (Math.random() * 10000);
+        State.setCheck(code);
+        SendSMS sms = new SendSMS("+212" + State.getTel(), "code de verification est : " + code);
     }
 
     /**
@@ -35,6 +44,8 @@ public class CreateAccountStep2 extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         previous = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        resent = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,25 +72,39 @@ public class CreateAccountStep2 extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setText("didn't receive message validation ? ");
+
+        resent.setText("reenvoyer le code");
+        resent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resentActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(134, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(previous)
-                        .addGap(34, 34, 34)
-                        .addComponent(jButton1)
-                        .addGap(37, 37, 37)
-                        .addComponent(jButton2)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(105, 105, 105)
-                        .addComponent(confirmation_code, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(161, 161, 161))))
+                .addComponent(jLabel1)
+                .addGap(105, 105, 105)
+                .addComponent(confirmation_code, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(161, 161, 161))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(resent)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(previous)
+                .addGap(34, 34, 34)
+                .addComponent(jButton1)
+                .addGap(37, 37, 37)
+                .addComponent(jButton2)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,11 +113,14 @@ public class CreateAccountStep2 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(confirmation_code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
-                    .addComponent(previous))
+                    .addComponent(previous)
+                    .addComponent(resent, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -117,6 +145,10 @@ public class CreateAccountStep2 extends javax.swing.JFrame {
         new CreateAccountStep1().setVisible(true);
         dispose();
     }//GEN-LAST:event_previousActionPerformed
+
+    private void resentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resentActionPerformed
+        sendAnSMS();
+    }//GEN-LAST:event_resentActionPerformed
 
     /**
      * @param args the command line arguments
@@ -159,6 +191,8 @@ public class CreateAccountStep2 extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton previous;
+    private javax.swing.JButton resent;
     // End of variables declaration//GEN-END:variables
 }
