@@ -53,6 +53,11 @@ public class Login extends javax.swing.JFrame {
         });
 
         jLabel3.setText("Mot De Passe Oublier ?");
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
 
         jButton2.setText("Creer Un Compte");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -136,6 +141,11 @@ public class Login extends javax.swing.JFrame {
         new CreateAccountStep1().setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // TODO add your handling code here:
+        new PasswordResetStep1().setVisible(true);
+    }//GEN-LAST:event_jLabel3MouseClicked
 
     /**
      * @param args the command line arguments

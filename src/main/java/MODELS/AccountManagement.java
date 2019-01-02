@@ -7,8 +7,11 @@ package MODELS;
  */
 import DAO.Dao;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -55,6 +58,31 @@ public class AccountManagement {
             System.err.println("probleme dans la requette d'ajouter un compte courant !! " + ex.getMessage());
         }
 
+    }
+
+    public void passwordReset(int numcompte, String password) {
+        String req = "update client set password='" + password + "' where cin=(select cin from compte where numcompte=" + numcompte + ")";
+        try {
+            st = connection.createStatement();
+            st.executeUpdate(req);
+        } catch (SQLException ex) {
+            System.err.println("problem sql !!" + ex.getMessage());
+        }
+    }
+
+    public Boolean NumCompteExist(int numcompte) {
+        String req = "select * from compte where numcompte=" + numcompte;
+        try {
+            st = connection.createStatement();
+            ResultSet res = st.executeQuery(req);
+            if (res.next()) {
+                return true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountManagement.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return false;
     }
 
     //i choose to seperate update methodes
