@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\hamza\Desktop\java\ebank\src\main\java\TEST\testPdf.java
 C:\Users\hamza\Desktop\java\ebank\src\main\java\VUES\ACCOUNT\CreateAccountStep3.java
 C:\Users\hamza\Desktop\java\ebank\src\main\java\VUES\AUTH\PasswordResetStep3.java
@@ -17,3 +18,23 @@ C:\Users\hamza\Desktop\java\ebank\src\main\java\MODELS\AccountManagement.java
 C:\Users\hamza\Desktop\java\ebank\src\main\java\VUES\State.java
 C:\Users\hamza\Desktop\java\ebank\src\main\java\VUES\dashboardapp\home.java
 C:\Users\hamza\Desktop\java\ebank\src\main\java\VUES\dashboardapp\Acueil.java
+=======
+C:\Users\dell\Desktop\Projects\ebank\src\main\java\VUES\dashboardapp\task.java
+C:\Users\dell\Desktop\Projects\ebank\src\main\java\MODELS\Connect.java
+C:\Users\dell\Desktop\Projects\ebank\src\main\java\DAO\Dao.java
+C:\Users\dell\Desktop\Projects\ebank\src\main\java\VUES\ACCOUNT\CreateAccountStep3.java
+C:\Users\dell\Desktop\Projects\ebank\src\main\java\VUES\AUTH\Login.java
+C:\Users\dell\Desktop\Projects\ebank\src\main\java\VUES\ACCOUNT\CreateAccountStep2.java
+C:\Users\dell\Desktop\Projects\ebank\src\main\java\MODELS\AccountManagement.java
+C:\Users\dell\Desktop\Projects\ebank\src\main\java\VUES\dashboardapp\payment.java
+C:\Users\dell\Desktop\Projects\ebank\src\main\java\MODELS\SendSMS.java
+C:\Users\dell\Desktop\Projects\ebank\src\main\java\TEST\testPdf.java
+C:\Users\dell\Desktop\Projects\ebank\src\main\java\VUES\AUTH\PasswordResetStep2.java
+C:\Users\dell\Desktop\Projects\ebank\src\main\java\VUES\dashboardapp\mail.java
+C:\Users\dell\Desktop\Projects\ebank\src\main\java\VUES\State.java
+C:\Users\dell\Desktop\Projects\ebank\src\main\java\TEST\Test.java
+C:\Users\dell\Desktop\Projects\ebank\src\main\java\VUES\AUTH\PasswordResetStep1.java
+C:\Users\dell\Desktop\Projects\ebank\src\main\java\VUES\ACCOUNT\CreateAccountStep1.java
+C:\Users\dell\Desktop\Projects\ebank\src\main\java\VUES\AUTH\PasswordResetStep3.java
+C:\Users\dell\Desktop\Projects\ebank\src\main\java\VUES\dashboardapp\home.java
+>>>>>>> d91fb7eed803356968b00475a9fb1bf0c857ff66
