@@ -15,13 +15,13 @@ import javax.swing.*;
  *
  * @author KeepToo
  */
-public class Home extends javax.swing.JFrame  {
+public class Acueil extends javax.swing.JFrame  {
     
 
     /**
      * Creates new form Home
      */
-    public Home() {
+    public Acueil() {
         initComponents();
         container.setLayout(new FlowLayout());
         container.add(new home());
@@ -662,7 +662,7 @@ public class Home extends javax.swing.JFrame  {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Home().setVisible(true);  
+                new Acueil().setVisible(true);  
                 
             }
         });
