@@ -5,8 +5,6 @@
  */
 package VUES.dashboardapp;
 
-
-
 import java.awt.Color;
 import java.awt.FlowLayout;
 import javax.swing.*;
@@ -15,8 +13,7 @@ import javax.swing.*;
  *
  * @author KeepToo
  */
-public class Acueil extends javax.swing.JFrame  {
-    
+public class Acueil extends javax.swing.JFrame {
 
     /**
      * Creates new form Home
@@ -26,9 +23,7 @@ public class Acueil extends javax.swing.JFrame  {
         container.setLayout(new FlowLayout());
         container.add(new home());
 //        jLabel6.setVisible(false);
-        
-     
-        
+
     }
 
     /**
@@ -490,57 +485,48 @@ public class Acueil extends javax.swing.JFrame  {
         onLeaveClick(Button2);
         onLeaveClick(Button3);
         onLeaveClick(Button4);
-        
+
         //indicators
         Indicator1.setOpaque(true);
         Indicator2.setOpaque(false);
         Indicator3.setOpaque(false);
         Indicator4.setOpaque(false);
-        
 
-        show("home") ;
-        
-       
-        
+        show("home");
+
     }//GEN-LAST:event_Button1MouseClicked
 
     private void Button2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button2MouseClicked
         // TODO add your handling code here:
         onClick(Button2);
-         onLeaveClick(Button1);
+        onLeaveClick(Button1);
         onLeaveClick(Button3);
         onLeaveClick(Button4);
 //        this.actionPerformed(e);
-        
-         //indicators
+
+        //indicators
         Indicator1.setOpaque(false);
         Indicator2.setOpaque(true);
         Indicator3.setOpaque(false);
         Indicator4.setOpaque(false);
-        
-        
-      
 
-
-        
-        show("mail") ;
+        show("mail");
     }//GEN-LAST:event_Button2MouseClicked
 
     private void Button3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button3MouseClicked
         // TODO add your handling code here:
         onClick(Button3);
-         onLeaveClick(Button2);
+        onLeaveClick(Button2);
         onLeaveClick(Button1);
         onLeaveClick(Button4);
 
-        
-         //indicators
+        //indicators
         Indicator1.setOpaque(false);
         Indicator2.setOpaque(false);
         Indicator3.setOpaque(true);
         Indicator4.setOpaque(false);
-        
-        show("payment") ;
+
+        show("payment");
     }//GEN-LAST:event_Button3MouseClicked
 
     private void Button4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button4MouseClicked
@@ -549,33 +535,31 @@ public class Acueil extends javax.swing.JFrame  {
         onLeaveClick(Button2);
         onLeaveClick(Button3);
         onLeaveClick(Button1);
-         //indicators
+        //indicators
         Indicator1.setOpaque(false);
         Indicator2.setOpaque(false);
         Indicator3.setOpaque(false);
         Indicator4.setOpaque(true);
-        
-        
-            container.removeAll();
-            this.container.add(new home());
-            this.container.revalidate();
-            validate(); 
-        
-       
-        show("task") ;
+
+        container.removeAll();
+        this.container.add(new home());
+        this.container.revalidate();
+        validate();
+
+        show("task");
     }//GEN-LAST:event_Button4MouseClicked
 
     private void jPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MousePressed
         // TODO add your handling code here:
-          xx = evt.getX();
+        xx = evt.getX();
         xy = evt.getY();
     }//GEN-LAST:event_jPanel2MousePressed
 
     private void jPanel2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseDragged
         // TODO add your handling code here:
-         int x = evt.getXOnScreen();
+        int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
-        this.setLocation(x-xx,y-xy);
+        this.setLocation(x - xx, y - xy);
     }//GEN-LAST:event_jPanel2MouseDragged
 
     private void jPanel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseEntered
@@ -586,7 +570,7 @@ public class Acueil extends javax.swing.JFrame  {
 
     private void jPanel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseExited
         // TODO add your handling code here:
-        jPanel5.setBackground(new Color(253,222,249));
+        jPanel5.setBackground(new Color(253, 222, 249));
         //        jLabel6.setVisible(false);
     }//GEN-LAST:event_jPanel3MouseExited
 
@@ -599,53 +583,46 @@ public class Acueil extends javax.swing.JFrame  {
         System.exit(0);
     }//GEN-LAST:event_btn_closeMouseClicked
 
-    int xx ,xy;
-    
-       
+    int xx, xy;
+
     //bad idea
-    
-    
-     private void onClick(JPanel panel)
-    {
+    private void onClick(JPanel panel) {
         panel.setBackground(new Color(205, 136, 205));
-        
-        
+
     }
-    
-     private void onLeaveClick(JPanel panel)
-    {
-        panel.setBackground(new Color(252,230,252));
+
+    private void onLeaveClick(JPanel panel) {
+        panel.setBackground(new Color(252, 230, 252));
     }
-     
-     
-    private void show(String nom){
-        
-            container.removeAll();
-            javax.swing.JPanel panelToShow  = new javax.swing.JPanel();
-            
-            if (nom.equals("home"))
+
+    private void show(String nom) {
+
+        container.removeAll();
+        javax.swing.JPanel panelToShow = new javax.swing.JPanel();
+
+        if (nom.equals("home")) {
             panelToShow = new home();
-            
-            if (nom.equals("payment"))
+        }
+
+        if (nom.equals("payment")) {
             panelToShow = new payment();
-            
-            if (nom.equals("mail"))
+        }
+
+        if (nom.equals("mail")) {
             panelToShow = new mail();
-            
-            if (nom.equals("task"))
+        }
+
+        if (nom.equals("task")) {
             panelToShow = new task();
-            
-           
-            
-            this.container.add(panelToShow) ;
-            this.container.revalidate();
-            validate(); 
-            this.container.repaint();
-            
-            System.out.println(container.getSize());
+        }
+
+        this.container.add(panelToShow);
+        this.container.revalidate();
+        validate();
+        this.container.repaint();
+
+        System.out.println(container.getSize());
     }
-     
-    
 
     /**
      * @param args the command line arguments
@@ -656,19 +633,18 @@ public class Acueil extends javax.swing.JFrame  {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        
+
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Acueil().setVisible(true);  
-                
+                new Acueil().setVisible(true);
+
             }
         });
     }
-    
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Button1;
     private javax.swing.JPanel Button2;
@@ -701,8 +677,5 @@ public class Acueil extends javax.swing.JFrame  {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel8;
     // End of variables declaration//GEN-END:variables
-
-    
-
 
 }
