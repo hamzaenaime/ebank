@@ -52,16 +52,17 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-<<<<<<< HEAD
-        jLabel3.setText("Mot De Passe Oublier ?");
+        jLabel3.setText("Mot de passe oublier ?");
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
             }
         });
-=======
-        jLabel3.setText("Mot de passe oublier ?");
->>>>>>> c170ea231ed602e1f457f3ddb8e330ac7ec30946
+        jLabel3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jLabel3KeyPressed(evt);
+            }
+        });
 
         email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,6 +153,11 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         new PasswordResetStep1().setVisible(true);
     }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jLabel3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel3KeyPressed
+        // TODO add your handling code here:
+        new PasswordResetStep1().setVisible(true);
+    }//GEN-LAST:event_jLabel3KeyPressed
 
     /**
      * @param args the command line arguments
