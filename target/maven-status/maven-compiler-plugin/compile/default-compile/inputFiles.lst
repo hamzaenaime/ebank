@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\dell\Desktop\Projects\ebank\src\main\java\MODELS\Connect.java
 C:\Users\dell\Desktop\Projects\ebank\src\main\java\VUES\ACCOUNT\State.java
 C:\Users\dell\Desktop\Projects\ebank\src\main\java\VUES\AUTH\PasswordResetStep2.java
@@ -10,3 +11,22 @@ C:\Users\dell\Desktop\Projects\ebank\src\main\java\TEST\Test.java
 C:\Users\dell\Desktop\Projects\ebank\src\main\java\VUES\AUTH\PasswordResetStep1.java
 C:\Users\dell\Desktop\Projects\ebank\src\main\java\MODELS\SendSMS.java
 C:\Users\dell\Desktop\Projects\ebank\src\main\java\VUES\ACCOUNT\CreateAccountStep1.java
+=======
+/home/taoufik/NetBeansProjects/ebank/src/main/java/VUES/dashboardapp/Home.java
+/home/taoufik/NetBeansProjects/ebank/src/main/java/VUES/ACCOUNT/CreateAccountStep2.java
+/home/taoufik/NetBeansProjects/ebank/src/main/java/VUES/dashboardapp/task.java
+/home/taoufik/NetBeansProjects/ebank/src/main/java/VUES/ACCOUNT/CreateAccountStep3.java
+/home/taoufik/NetBeansProjects/ebank/src/main/java/VUES/dashboardapp/payment.java
+/home/taoufik/NetBeansProjects/ebank/src/main/java/VUES/dashboardapp/mail.java
+/home/taoufik/NetBeansProjects/ebank/src/main/java/MODELS/SendSMS.java
+/home/taoufik/NetBeansProjects/ebank/src/main/java/MODELS/AccountManagement.java
+/home/taoufik/NetBeansProjects/ebank/src/main/java/VUES/AUTH/Login.java
+/home/taoufik/NetBeansProjects/ebank/src/main/java/DAO/Dao.java
+/home/taoufik/NetBeansProjects/ebank/src/main/java/VUES/dashboardapp/home.java
+/home/taoufik/NetBeansProjects/ebank/src/main/java/VUES/ACCOUNT/State.java
+/home/taoufik/NetBeansProjects/ebank/src/main/java/TEST/Test.java
+/home/taoufik/NetBeansProjects/ebank/src/main/java/VUES/AUTH/PasswordResetStep2.java
+/home/taoufik/NetBeansProjects/ebank/src/main/java/MODELS/Connect.java
+/home/taoufik/NetBeansProjects/ebank/src/main/java/VUES/ACCOUNT/CreateAccountStep1.java
+/home/taoufik/NetBeansProjects/ebank/src/main/java/VUES/AUTH/PasswordResetStep1.java
+>>>>>>> c170ea231ed602e1f457f3ddb8e330ac7ec30946
