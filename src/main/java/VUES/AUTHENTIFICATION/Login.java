@@ -22,8 +22,10 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         container.setLayout(new FlowLayout());
+
+        step3.disable();
+        step2.disable();
         container.add(new Connecter());
-//        jLabel6.setVisible(false);
 
     }
 
@@ -57,6 +59,11 @@ public class Login extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         btn_close = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        step1 = new javax.swing.JLabel();
+        step2 = new javax.swing.JLabel();
+        step3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         container = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -332,23 +339,82 @@ public class Login extends javax.swing.JFrame {
 
         jLabel6.setToolTipText("");
 
+        step1.setText("Step 1");
+        step1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                step1MouseClicked(evt);
+            }
+        });
+
+        step2.setText("Step 2");
+        step2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                step2MouseClicked(evt);
+            }
+        });
+        step2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                step2KeyPressed(evt);
+            }
+        });
+
+        step3.setText("Step 3");
+        step3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                step3MouseClicked(evt);
+            }
+        });
+
+        jLabel2.setText(">>");
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
+
+        jLabel3.setText(">>");
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
         jPanel15Layout.setHorizontalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel15Layout.createSequentialGroup()
                 .addGap(63, 63, 63)
                 .addComponent(jLabel6)
-                .addContainerGap(687, Short.MAX_VALUE))
-            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addGap(74, 74, 74)
+                .addComponent(step1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(69, 69, 69)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
+                .addComponent(step2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(72, 72, 72)
+                .addComponent(jLabel2)
+                .addGap(126, 126, 126)
+                .addComponent(step3, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(72, 72, 72))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(28, 28, 28)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(step1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(step2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(step3, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addGap(59, 59, 59)
                 .addComponent(jLabel6)
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 170));
@@ -364,7 +430,7 @@ public class Login extends javax.swing.JFrame {
             .addGap(0, 320, Short.MAX_VALUE)
         );
 
-        jPanel2.add(container, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 730, 320));
+        jPanel2.add(container, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 730, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 750, 580));
 
@@ -423,6 +489,7 @@ public class Login extends javax.swing.JFrame {
         validate();
 
         show("task");
+
     }//GEN-LAST:event_Button4MouseClicked
 
     private void Button2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button2MouseClicked
@@ -440,6 +507,7 @@ public class Login extends javax.swing.JFrame {
         Indicator4.setOpaque(false);
 
         show("mail");
+
     }//GEN-LAST:event_Button2MouseClicked
 
     private void connectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_connectMouseClicked
@@ -456,7 +524,65 @@ public class Login extends javax.swing.JFrame {
         Indicator4.setOpaque(false);
 
         show("Connecter");
+
     }//GEN-LAST:event_connectMouseClicked
+
+    private void step1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_step1MouseClicked
+        // TODO add your handling code here:
+        container.removeAll();
+        container.add(new RegistreStep1());
+        this.container.revalidate();
+        //validate();
+        this.container.repaint();
+    }//GEN-LAST:event_step1MouseClicked
+
+    private void step2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_step2KeyPressed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_step2KeyPressed
+
+    private void step2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_step2MouseClicked
+        // TODO add your handling code here:
+        if (step3.isEnabled()) {
+            container.removeAll();
+            container.add(new RegistreStep2());
+            this.container.revalidate();
+            this.container.repaint();
+        }
+    }//GEN-LAST:event_step2MouseClicked
+
+    private void step3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_step3MouseClicked
+        // TODO add your handling code here:
+        if (step3.isEnabled()) {
+            container.removeAll();
+            container.add(new RegistreStep3());
+            this.container.revalidate();
+            this.container.repaint();
+        }
+
+    }//GEN-LAST:event_step3MouseClicked
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // TODO add your handling code here:
+        //SendAnSMS()
+        container.removeAll();
+        container.add(new RegistreStep2());
+        this.container.revalidate();
+        this.container.repaint();
+        step2.enable();
+
+    }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+
+        // TODO add your handling code here:
+        container.removeAll();
+        container.add(new RegistreStep3());
+        container.revalidate();
+        container.repaint();
+        step3.enable();
+
+    }//GEN-LAST:event_jLabel2MouseClicked
 
     int xx, xy;
 
@@ -470,7 +596,7 @@ public class Login extends javax.swing.JFrame {
         panel.setBackground(new Color(252, 230, 252));
     }
 
-    private void show(String nom) {
+    public void show(String nom) {
 
         container.removeAll();
         javax.swing.JPanel panelToShow = new javax.swing.JPanel();
@@ -481,6 +607,10 @@ public class Login extends javax.swing.JFrame {
 
         if (nom.equals("Registre")) {
             panelToShow = new RegistreStep1();
+        }
+        if (nom.equals("RegistreStep2")) {
+            panelToShow = new RegistreStep2();
+            System.out.println("from Login");
         }
 
         if (nom.equals("mail")) {
@@ -493,10 +623,10 @@ public class Login extends javax.swing.JFrame {
 
         this.container.add(panelToShow);
         this.container.revalidate();
-        validate();
+        //validate();
         this.container.repaint();
 
-        System.out.println(container.getSize());
+        //System.out.println(container.getSize());
     }
 
     /**
@@ -532,7 +662,9 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel connect;
     private javax.swing.JPanel container;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
@@ -543,6 +675,9 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JLabel passwordReset;
     private javax.swing.JLabel registre;
+    private javax.swing.JLabel step1;
+    private javax.swing.JLabel step2;
+    private javax.swing.JLabel step3;
     // End of variables declaration//GEN-END:variables
 
 }
