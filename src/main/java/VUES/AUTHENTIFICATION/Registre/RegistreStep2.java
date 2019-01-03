@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package VUES.AUTHENTIFICATION;
+package VUES.AUTHENTIFICATION.Registre;
 
 import VUES.State;
 import javax.swing.JOptionPane;

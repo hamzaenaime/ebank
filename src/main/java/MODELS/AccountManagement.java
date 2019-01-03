@@ -85,6 +85,21 @@ public class AccountManagement {
         return false;
     }
 
+    public Boolean cinExist(String cin) {
+        String req = "select * from client where cin='" + cin + "'";
+        try {
+            st = connection.createStatement();
+            ResultSet res = st.executeQuery(req);
+            if (res.next()) {
+                return true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountManagement.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return false;
+    }
+
     //i choose to seperate update methodes
     // every field in client has its own update methode
     //fields that can update are
