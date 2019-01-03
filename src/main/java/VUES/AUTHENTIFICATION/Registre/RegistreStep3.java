@@ -68,18 +68,14 @@ public class RegistreStep3 extends javax.swing.JPanel {
         ville = new javax.swing.JTextField();
         address = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        password = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        confirmation = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         profession = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
         day = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         month = new javax.swing.JComboBox<>();
-        jLabel7 = new javax.swing.JLabel();
         year = new javax.swing.JComboBox<>();
         cin = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -95,13 +91,9 @@ public class RegistreStep3 extends javax.swing.JPanel {
 
         jLabel4.setText("Date de naissance :");
 
-        jLabel5.setText("Mot de passe :");
-
         jLabel6.setText("CIN : ");
 
         month.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre" }));
-
-        jLabel7.setText("Confirmer Mot de passe :");
 
         cin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,31 +125,26 @@ public class RegistreStep3 extends javax.swing.JPanel {
                         .addGap(113, 113, 113)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel7))))
-                .addGap(47, 47, 47)
+                            .addComponent(jLabel4))))
+                .addGap(72, 72, 72)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(day, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(40, 40, 40)
                                 .addComponent(month, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                                 .addComponent(year, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(cin)
                             .addComponent(email)
                             .addComponent(ville)
                             .addComponent(address)
-                            .addComponent(profession)
-                            .addComponent(confirmation)
-                            .addComponent(password))
-                        .addGap(167, 167, 167))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(profession))
+                        .addGap(167, 167, 167))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,17 +175,9 @@ public class RegistreStep3 extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(profession, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
-                    .addComponent(confirmation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                .addGap(51, 51, 51)
                 .addComponent(jButton1)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -207,7 +186,7 @@ public class RegistreStep3 extends javax.swing.JPanel {
     }//GEN-LAST:event_cinActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (cin.getText().length() != 0 && email.getText().length() != 0 && ville.getText().length() != 0 && address.getText().length() != 0 && profession.getText().length() != 0 && password.getText().length() != 0 && confirmation.getText().length() != 0) {
+        if (cin.getText().length() != 0 && email.getText().length() != 0 && ville.getText().length() != 0 && address.getText().length() != 0 && profession.getText().length() != 0) {
             int d = Integer.parseInt(day.getSelectedItem().toString());
             String m = month.getSelectedItem().toString();
             int y = Integer.parseInt(year.getSelectedItem().toString());
@@ -220,10 +199,9 @@ public class RegistreStep3 extends javax.swing.JPanel {
             State.setProfession(profession.getText());
             if (am.cinExist(cin.getText())) {
                 JOptionPane.showMessageDialog(this, "Cin deja existe  !!", "Error", JOptionPane.ERROR_MESSAGE);
-            } else if (!password.getText().equals(confirmation.getText())) {
-                JOptionPane.showMessageDialog(this, "mot de passe !!", "Warning", JOptionPane.WARNING_MESSAGE);
             } else {
-                State.setPassword(password.getText());
+                int code = (int) (Math.random() * 10000);
+                State.setPassword("" + code);
                 am.createAccount(State.getCin(), State.getNom(), State.getPrenom(), State.getDate_naissance(), State.getAdresse(), State.getVille(), State.getTel(), State.getEmail(), State.getPassword(), State.getProfession());
                 JOptionPane.showMessageDialog(this, "compte creeer !!", "Success", JOptionPane.INFORMATION_MESSAGE);
             }
@@ -266,7 +244,6 @@ public class RegistreStep3 extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField address;
     private javax.swing.JTextField cin;
-    private javax.swing.JTextField confirmation;
     private javax.swing.JComboBox<String> day;
     private javax.swing.JTextField email;
     private javax.swing.JButton jButton1;
@@ -274,12 +251,9 @@ public class RegistreStep3 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JComboBox<String> month;
-    private javax.swing.JTextField password;
     private javax.swing.JTextField profession;
     private javax.swing.JTextField ville;
     private javax.swing.JComboBox<String> year;

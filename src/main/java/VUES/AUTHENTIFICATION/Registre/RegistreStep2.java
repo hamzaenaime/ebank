@@ -26,7 +26,6 @@ public class RegistreStep2 extends javax.swing.JPanel {
         int code = (int) (Math.random() * 10000);
         State.setCheck(code);
         //SendSMS sms = new SendSMS("+212" + State.getTel(), "code de verification est : " + code);
-        System.out.println(code);
     }
 
     public Boolean codeValid() {
