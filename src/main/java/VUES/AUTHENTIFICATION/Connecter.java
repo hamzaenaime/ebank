@@ -6,6 +6,7 @@
 package VUES.AUTHENTIFICATION;
 
 import MODELS.AccountManagement;
+import VUES.dashboardapp.Accueil;
 import javax.swing.JOptionPane;
 
 /**
@@ -339,6 +340,7 @@ public class Connecter extends javax.swing.JPanel {
         // TODO add your handling code here:
         if (am.exist(numcompte.getText(), pass)) {
             JOptionPane.showMessageDialog(this, "Connected !!");
+            new Accueil().setVisible(true);
         } else {
             JOptionPane.showMessageDialog(this, "numero de compte ou mot de passe incorrect !!");
         }
