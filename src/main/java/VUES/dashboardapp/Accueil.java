@@ -13,12 +13,12 @@ import javax.swing.*;
  *
  * @author KeepToo
  */
-public class Acueil extends javax.swing.JFrame {
+public class Accueil extends javax.swing.JFrame {
 
     /**
      * Creates new form Home
      */
-    public Acueil() {
+    public Accueil() {
         initComponents();
         container.setLayout(new FlowLayout());
         container.add(new home());
@@ -639,7 +639,7 @@ public class Acueil extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Acueil().setVisible(true);
+                new Accueil().setVisible(true);
 
             }
         });
