@@ -5,6 +5,9 @@
  */
 package VUES.AUTHENTIFICATION;
 
+import VUES.State;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author hamza
@@ -16,6 +19,26 @@ public class RegistreStep1 extends javax.swing.JPanel {
      */
     public RegistreStep1() {
         initComponents();
+        setFields();
+    }
+
+    private void setFields() {
+        nom.setText(State.getNom());
+        prenom.setText(State.getPrenom());
+        telephone.setText(State.getTel());
+    }
+
+    public Boolean getInfos() {
+        if (nom.getText().length() != 0 && prenom.getText().length() != 0 && telephone.getText().length() == 9) {
+            State.setNom(nom.getText());
+            State.setPrenom(prenom.getText());
+            State.setTel(telephone.getText());
+            System.out.println(" " + telephone.getText().length());
+            return true;
+        } else {
+            JOptionPane.showMessageDialog(this, "verifier que vous avez remplir tous les champs correctement!", "warning", JOptionPane.WARNING_MESSAGE);
+        }
+        return false;
     }
 
     /**
@@ -30,9 +53,9 @@ public class RegistreStep1 extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        nom = new javax.swing.JTextField();
+        prenom = new javax.swing.JTextField();
+        telephone = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
 
         jLabel1.setText("Nom :");
@@ -59,9 +82,9 @@ public class RegistreStep1 extends javax.swing.JPanel {
                         .addComponent(jLabel4)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1)
-                    .addComponent(jTextField2)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nom)
+                    .addComponent(prenom)
+                    .addComponent(telephone, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(77, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -72,14 +95,14 @@ public class RegistreStep1 extends javax.swing.JPanel {
                     .addComponent(jLabel2)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1))
                         .addGap(41, 41, 41)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(prenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(telephone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addContainerGap(103, Short.MAX_VALUE))
         );
@@ -90,8 +113,8 @@ public class RegistreStep1 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField nom;
+    private javax.swing.JTextField prenom;
+    private javax.swing.JTextField telephone;
     // End of variables declaration//GEN-END:variables
 }
