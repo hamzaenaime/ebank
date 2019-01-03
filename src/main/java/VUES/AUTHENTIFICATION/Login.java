@@ -5,6 +5,9 @@
  */
 package VUES.AUTHENTIFICATION;
 
+import VUES.AUTHENTIFICATION.Registre.RegistreStep1;
+import VUES.AUTHENTIFICATION.Registre.RegistreStep2;
+import VUES.AUTHENTIFICATION.Registre.RegistreStep3;
 import VUES.dashboardapp.*;
 import java.awt.Color;
 import java.awt.FlowLayout;

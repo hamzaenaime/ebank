@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package VUES.AUTHENTIFICATION;
+package VUES.AUTHENTIFICATION.Registre;
 
 import MODELS.AccountManagement;
 import VUES.State;
@@ -15,6 +15,8 @@ import javax.swing.JOptionPane;
  * @author hamza
  */
 public class RegistreStep3 extends javax.swing.JPanel {
+
+    AccountManagement am = new AccountManagement();
 
     /**
      * Creates new form RegistreStep3
@@ -209,19 +211,21 @@ public class RegistreStep3 extends javax.swing.JPanel {
             int d = Integer.parseInt(day.getSelectedItem().toString());
             String m = month.getSelectedItem().toString();
             int y = Integer.parseInt(year.getSelectedItem().toString());
+
             State.setCin(cin.getText());
             State.setEmail(email.getText());
             State.setVille(ville.getText());
             State.setAdresse(address.getText());
             State.setDate_naissance(new Date(y - 1900, DaytoNum(m) - 1, d));
             State.setProfession(profession.getText());
-            if (password.getText().equals(confirmation.getText())) {
-                State.setPassword(password.getText());
-                AccountManagement am = new AccountManagement();
-                am.createAccount(State.getCin(), State.getNom(), State.getPrenom(), State.getDate_naissance(), State.getAdresse(), State.getVille(), State.getTel(), State.getEmail(), State.getPassword(), State.getProfession());
-                JOptionPane.showMessageDialog(this, "mot de passe !!", "Success", JOptionPane.INFORMATION_MESSAGE);
-            } else {
+            if (am.cinExist(cin.getText())) {
+                JOptionPane.showMessageDialog(this, "Cin deja existe  !!", "Error", JOptionPane.ERROR_MESSAGE);
+            } else if (!password.getText().equals(confirmation.getText())) {
                 JOptionPane.showMessageDialog(this, "mot de passe !!", "Warning", JOptionPane.WARNING_MESSAGE);
+            } else {
+                State.setPassword(password.getText());
+                am.createAccount(State.getCin(), State.getNom(), State.getPrenom(), State.getDate_naissance(), State.getAdresse(), State.getVille(), State.getTel(), State.getEmail(), State.getPassword(), State.getProfession());
+                JOptionPane.showMessageDialog(this, "compte creeer !!", "Success", JOptionPane.INFORMATION_MESSAGE);
             }
         } else {
             JOptionPane.showMessageDialog(this, "verifier que vous avez remplir tous les champs correctement!", "Warning", JOptionPane.WARNING_MESSAGE);
