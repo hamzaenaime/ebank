@@ -715,6 +715,9 @@ public class Accueil extends javax.swing.JFrame {
             panelToShow = new changePassword();
         }
 
+        if (nom.equals("reclamation")) {
+            panelToShow = new reclamation();
+        }
         this.container.add(panelToShow);
         this.container.revalidate();
         validate();

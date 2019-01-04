@@ -81,32 +81,59 @@ public class RegistreStep3 extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         email = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        ville.setBackground(new java.awt.Color(255, 255, 255));
+
+        address.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setForeground(new java.awt.Color(96, 83, 150));
         jLabel1.setText("Email :");
 
+        jLabel2.setForeground(new java.awt.Color(96, 83, 150));
         jLabel2.setText("Ville :");
 
+        jLabel3.setForeground(new java.awt.Color(96, 83, 150));
         jLabel3.setText("Adresse : ");
 
+        jLabel8.setForeground(new java.awt.Color(96, 83, 150));
         jLabel8.setText("Profession : ");
 
+        jLabel4.setForeground(new java.awt.Color(96, 83, 150));
         jLabel4.setText("Date de naissance :");
 
+        profession.setBackground(new java.awt.Color(255, 255, 255));
+
+        day.setBackground(new java.awt.Color(255, 255, 255));
+        day.setForeground(new java.awt.Color(96, 83, 150));
+
+        jLabel6.setForeground(new java.awt.Color(96, 83, 150));
         jLabel6.setText("CIN : ");
 
+        month.setBackground(new java.awt.Color(255, 255, 255));
+        month.setForeground(new java.awt.Color(96, 83, 150));
         month.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre" }));
 
+        year.setBackground(new java.awt.Color(255, 255, 255));
+        year.setForeground(new java.awt.Color(96, 83, 150));
+
+        cin.setBackground(new java.awt.Color(255, 255, 255));
         cin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cinActionPerformed(evt);
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setForeground(new java.awt.Color(96, 83, 150));
         jButton1.setText("Créer");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+
+        email.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
