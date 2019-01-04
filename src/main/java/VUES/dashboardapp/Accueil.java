@@ -712,7 +712,7 @@ public class Accueil extends javax.swing.JFrame {
         }
 
         if (nom.equals("task")) {
-            panelToShow = new ResetPassword();
+            panelToShow = new changePassword();
         }
 
         this.container.add(panelToShow);

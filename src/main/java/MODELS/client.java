@@ -203,6 +203,34 @@ public class client {
         }
         return false;
     }
+
+    public static boolean verifyPass(String pass) {
+        String req = "select cin from client where cin='"+cin+"' and password='"+pass+"'";
+        try {
+            Statement st = conn.createStatement();
+            ResultSet res = st.executeQuery(req);
+            if (res.next()) {
+                return true;
+            }
+        } catch (SQLException ex) {
+            return false;
+        }
+        return false;
+    }
+
+    public static boolean setPassword(String pass) {
+        String req = "update client set password='" + pass + "' where cin='"+cin+"'";
+        try{
+            Statement st = conn.createStatement();
+            int res = st.executeUpdate(req);
+            if (res>0) {
+                return true;
+            }
+        } catch (SQLException ex) {
+            return false;
+        }
+        return false;
+    }
     
     
 }

@@ -5,16 +5,18 @@
  */
 package VUES.dashboardapp;
 
+import MODELS.client;
+
 /**
  *
  * @author taoufik
  */
-public class ResetPassword extends javax.swing.JPanel {
+public class changePassword extends javax.swing.JPanel {
 
     /**
      * Creates new form task
      */
-    public ResetPassword() {
+    public changePassword() {
         initComponents();
     }
 
@@ -33,9 +35,9 @@ public class ResetPassword extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        oldPass = new javax.swing.JTextField();
+        cPass = new javax.swing.JTextField();
+        newPass = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
 
         jLabel1.setText("Ancien Mot de passe (*)");
@@ -49,15 +51,20 @@ public class ResetPassword extends javax.swing.JPanel {
         jLabel5.setText("NB : Votre mot de passe ne doit pas contenir des chiffres.");
 
         jButton2.setText("Valider");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        oldPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                oldPassActionPerformed(evt);
             }
         });
 
@@ -81,9 +88,9 @@ public class ResetPassword extends javax.swing.JPanel {
                             .addComponent(jLabel2))
                         .addGap(66, 66, 66)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
-                            .addComponent(jTextField3)))
+                            .addComponent(oldPass)
+                            .addComponent(cPass, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
+                            .addComponent(newPass)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,15 +109,15 @@ public class ResetPassword extends javax.swing.JPanel {
                 .addGap(71, 71, 71)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(oldPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(newPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addGap(23, 23, 23)
@@ -125,12 +132,37 @@ public class ResetPassword extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void oldPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oldPassActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_oldPassActionPerformed
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        if(!oldPass.getText().isEmpty() && !cPass.getText().isEmpty() && !newPass.getText().isEmpty()){
+            if(client.verifyPass(oldPass.getText())){
+                //old password is valide
+                if(newPass.getText()==cPass.getText()){
+                    //set the new pass
+                    if(client.setPassword(newPass.getText())){
+                        //password updated successfully
+                        
+                    }else{
+                        //eched de maj de mot de pass
+                    }
+                }else{
+                    //password non confirmé
+                }
+            }else{
+                //old password invalide
+            }
+        }else{
+            //verifier que les champ ne sont pas vide
+        }
+    }//GEN-LAST:event_jButton2MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField cPass;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -138,8 +170,7 @@ public class ResetPassword extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField newPass;
+    private javax.swing.JTextField oldPass;
     // End of variables declaration//GEN-END:variables
 }
