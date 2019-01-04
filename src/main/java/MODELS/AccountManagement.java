@@ -19,58 +19,34 @@ import java.util.logging.Logger;
  */
 public class AccountManagement {
 
-    private Dao dao;
-    private Connection connection;
-    private Statement st;
-
-    public AccountManagement() {
-        dao = new Dao();
-        connection = dao.getConnection();
-
-    }
+    private static Connection connection;
+    private static Statement st;
 
     public void createAccount(String cin, String nom, String prenom, java.sql.Date date_naissance, String address, String ville, String tel, String email, String password, String profession) {
+        
         // note that we've to add the numCompte to our database /* important */
-
-        //lot of bugs here -_- 
-        java.util.Date date = new java.util.Date();
-        java.sql.Date createdAt, lastLogin;
-        lastLogin = createdAt = new java.sql.Date(date.getYear(), date.getMonth(), date.getDate());
-        String req = "insert into client values('" + cin + "','" + nom + "','" + prenom + "','" + date_naissance + "','" + address + "','" + ville + "','" + tel + "','" + email + "','" + password + "','" + createdAt + "','" + lastLogin + "','" + profession + "');";
+        client.createClient(cin,nom,prenom,date_naissance,address,ville,tel,email,password,profession);
+        
+        connection=Dao.getConnection();
+        
+        String req = "insert into compte(owner) values('" + cin + "',0)";
         try {
             st = connection.createStatement();
             st.executeUpdate(req);
         } catch (SQLException ex) {
-            System.err.println("probleme dans la requette d'ajouter un client !! " + ex.getMessage());
-        }
-        String req2 = "insert into compte(owner,solde,active) values('" + cin + "',0,false)";
-        try {
-            st = connection.createStatement();
-            st.executeUpdate(req2);
-        } catch (SQLException ex) {
-            System.err.println("probleme dans la requette d'ajouter un compte !! " + ex.getMessage());
-        }
-        String req3 = "insert into comptecourant values(0)";
+            System.err.println("Echec de création de compte " + ex.getMessage());
+        }        
+        /*String req3 = "insert into comptecourant values(0)";
         try {
             st = connection.createStatement();
             st.executeUpdate(req3);
         } catch (SQLException ex) {
             System.err.println("probleme dans la requette d'ajouter un compte courant !! " + ex.getMessage());
-        }
-
+        }*/
     }
 
-    public void passwordReset(int numcompte, String password) {
-        String req = "update client set password='" + password + "' where cin=(select cin from compte where numcompte=" + numcompte + ")";
-        try {
-            st = connection.createStatement();
-            st.executeUpdate(req);
-        } catch (SQLException ex) {
-            System.err.println("problem sql !!" + ex.getMessage());
-        }
-    }
-
-    public Boolean NumCompteExist(int numcompte) {
+    public static Boolean AccountExist(int numcompte) {
+        connection = Dao.getConnection();
         String req = "select * from compte where numcompte=" + numcompte;
         try {
             st = connection.createStatement();
@@ -84,46 +60,21 @@ public class AccountManagement {
 
         return false;
     }
-
-    public Boolean cinExist(String cin) {
-        String req = "select * from client where cin='" + cin + "'";
+    
+    public static float getSolde(String cin){
+    connection = Dao.getConnection();
+        String req = "select solde from compte where owner='" +cin+"'";
         try {
             st = connection.createStatement();
             ResultSet res = st.executeQuery(req);
             if (res.next()) {
-                return true;
+                return res.getFloat(1);
             }
         } catch (SQLException ex) {
             Logger.getLogger(AccountManagement.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        return false;
-    }
-
-    public boolean exist(String numcompte, String password) {
-        try {
-            Connection conn = Dao.getConnection();
-            Statement p = conn.createStatement();
-            String req = "select * from client cl,compte c where cl.cin=c.owner and c.numcompte=" + numcompte + " and cl.password='" + password + "'";
-            ResultSet res = p.executeQuery(req);
-            if (res.next()) {
-                return true;
-            }
-        } catch (SQLException ex) {
-            System.err.println("SQl error " + ex.getMessage());
-        }
-        return false;
-    }
-
-    //i choose to seperate update methodes
-    // every field in client has its own update methode
-    //fields that can update are
-    /*
-        nom prenom date_naissance address ville tel email password profession
-     */
-    //a user can't change cin / numcompte
-    //
-    public void updateNom(String cin) {
-
+        return 0;
+        
     }
 }

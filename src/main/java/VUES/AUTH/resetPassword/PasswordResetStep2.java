@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package VUES.AUTH;
+package VUES.AUTH.resetPassword;
 
 import MODELS.SendSMS;
 import VUES.State;

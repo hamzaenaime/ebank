@@ -5,6 +5,9 @@
  */
 package VUES.dashboardapp;
 
+import MODELS.AccountManagement;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author taoufik
@@ -45,22 +48,22 @@ public class Virement extends javax.swing.JPanel {
         jLabel3.setText("* Indique un champ obligatoire");
 
         valider.setText("Valider");
+        valider.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                validerMouseClicked(evt);
+            }
+        });
         valider.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 validerActionPerformed(evt);
             }
         });
 
-        motif.setText("motif");
         motif.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 motifActionPerformed(evt);
             }
         });
-
-        mnt.setText("mnt");
-
-        num.setText("num");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -119,6 +122,29 @@ public class Virement extends javax.swing.JPanel {
     private void motifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motifActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_motifActionPerformed
+
+    private void validerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_validerMouseClicked
+        // TODO add your handling code here:
+        if(AccountManagement.AccountExist(Integer.parseInt(num.getText()))){
+            if(Float.parseFloat(mnt.getText())>=0){
+                if(!motif.getText().isEmpty()){
+                    //tous les données sont valides
+                    //verifier que le client à le solde pour effectuer le virement
+                    if(1==1){//if le client a le solde on finalise l'operation
+                        
+                    }else{
+                        JOptionPane.showMessageDialog( this, "Votre fond est insuffisant pour réaliser l'opération, Merci d'allimenter votre compte","Fond insuffisant", JOptionPane.ERROR_MESSAGE);    
+                    }
+                }else{
+                    JOptionPane.showMessageDialog( this, "Le motif ne peut pas être vide","Motif invalide", JOptionPane.ERROR_MESSAGE);    
+                }
+            }else{
+                JOptionPane.showMessageDialog( this, "Le montant ne peut pas être négative","Montant invalide", JOptionPane.ERROR_MESSAGE);    
+            }
+        }else{
+            JOptionPane.showMessageDialog( this, "Numero de compte n'existe pas","compte inexistant", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_validerMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
