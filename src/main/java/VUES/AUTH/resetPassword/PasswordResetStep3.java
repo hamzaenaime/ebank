@@ -1,7 +1,6 @@
 package VUES.AUTH.resetPassword;
 
 import MODELS.AccountManagement;
-import VUES.State;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -13,7 +12,7 @@ import VUES.State;
  * @author hamza
  */
 public class PasswordResetStep3 extends javax.swing.JFrame {
-    
+
     private AccountManagement mng = new AccountManagement();
 
     /**
@@ -22,9 +21,9 @@ public class PasswordResetStep3 extends javax.swing.JFrame {
     public PasswordResetStep3() {
         initComponents();
     }
-    
+
     private void passwordReset(String password) {
-        mng.passwordReset(Integer.parseInt(State.getNum_compte()), password);
+//        mng.passwordReset(Integer.parseInt(State.getNum_compte()), password);
     }
 
     /**
@@ -117,10 +116,10 @@ public class PasswordResetStep3 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        new Login().setVisible(true);
+//        new Login().setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-    
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         String pass1 = password1.getText();

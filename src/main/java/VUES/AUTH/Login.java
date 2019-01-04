@@ -6,6 +6,7 @@
 package VUES.AUTH;
 
 import DAO.Dao;
+import VUES.AUTH.PasswordReset.*;
 import VUES.AUTH.Registre.RegistreStep1;
 import VUES.AUTH.Registre.RegistreStep2;
 import VUES.AUTH.Registre.RegistreStep3;
@@ -19,11 +20,20 @@ import javax.swing.*;
  * @author hamza
  */
 public class Login extends javax.swing.JFrame {
-    
-    RegistreStep1 registreStep1 = new RegistreStep1();
-    RegistreStep2 registreStep2 = new RegistreStep2();
-    RegistreStep3 registreStep3 = new RegistreStep3();
-    int xx, xy;
+
+    //creation new account's panels
+    private RegistreStep1 registreStep1 = new RegistreStep1();
+    private RegistreStep2 registreStep2 = new RegistreStep2();
+    private RegistreStep3 registreStep3 = new RegistreStep3();
+    //password reset's panels
+    private PasswordResetStep1 passwordResetStep1 = new PasswordResetStep1();
+    private PasswordResetStep2 passwordResetStep2 = new PasswordResetStep2();
+    private PasswordResetStep3 passwordResetStep3 = new PasswordResetStep3();
+    //login panel
+    private Connecter connecter = new Connecter();
+    //current panel
+    private String panel = "";
+    private int xx, xy;
 
     /**
      * Creates new form Home
@@ -31,13 +41,17 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         new Dao();
+        steps();
         container.setLayout(new FlowLayout());
+        container.add(connecter);
+
+    }
+
+    private void steps() {
         tostep3.disable();
         step3.disable();
         step2.disable();
         hideSteps();
-        container.add(new Connecter());
-
     }
 
     private void hideSteps() {
@@ -127,6 +141,11 @@ public class Login extends javax.swing.JFrame {
         passwordReset.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         passwordReset.setForeground(new java.awt.Color(96, 83, 150));
         passwordReset.setText("Mot de passe oublier ?");
+        passwordReset.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                passwordResetMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout Button2Layout = new javax.swing.GroupLayout(Button2);
         Button2.setLayout(Button2Layout);
@@ -466,6 +485,7 @@ public class Login extends javax.swing.JFrame {
 
     private void Button3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button3MouseClicked
         // TODO add your handling code here:
+        steps();
         showSteps();
         onClick(Button3);
         onLeaveClick(Button2);
@@ -477,7 +497,7 @@ public class Login extends javax.swing.JFrame {
         Indicator2.setOpaque(false);
         Indicator3.setOpaque(true);
         Indicator4.setOpaque(false);
-
+        panel = "Registre";
         show("Registre");
     }//GEN-LAST:event_Button3MouseClicked
 
@@ -522,12 +542,12 @@ public class Login extends javax.swing.JFrame {
 
     private void Button2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button2MouseClicked
         // TODO add your handling code here:
-        hideSteps();
+        steps();
+        showSteps();
         onClick(Button2);
         onLeaveClick(connect);
         onLeaveClick(Button3);
         onLeaveClick(Button4);
-        //        this.actionPerformed(e);
 
         //indicators
         Indicator1.setOpaque(false);
@@ -535,7 +555,7 @@ public class Login extends javax.swing.JFrame {
         Indicator3.setOpaque(false);
         Indicator4.setOpaque(false);
 
-        show("mail");
+        show("passwordReset");
 
     }//GEN-LAST:event_Button2MouseClicked
 
@@ -560,7 +580,11 @@ public class Login extends javax.swing.JFrame {
     private void step1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_step1MouseClicked
         // TODO add your handling code here:
         container.removeAll();
-        container.add(registreStep1);
+        if (panel.equals("Registre")) {
+            container.add(registreStep1);
+        } else if (panel.equals("PasswordReset")) {
+            container.add(passwordResetStep1);
+        }
         this.container.revalidate();
         this.container.repaint();
     }//GEN-LAST:event_step1MouseClicked
@@ -574,7 +598,11 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (step2.isEnabled()) {
             container.removeAll();
-            container.add(registreStep2);
+            if (panel.equals("Registre")) {
+                container.add(registreStep2);
+            } else if (panel.equals("PasswordReset")) {
+                container.add(passwordResetStep2);
+            }
             this.container.revalidate();
             this.container.repaint();
         }
@@ -584,7 +612,11 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (step3.isEnabled()) {
             container.removeAll();
-            container.add(registreStep3);
+            if (panel.equals("Registre")) {
+                container.add(registreStep3);
+            } else if (panel.equals("PasswordReset")) {
+                container.add(passwordResetStep3);
+            }
             this.container.revalidate();
             this.container.repaint();
         }
@@ -599,7 +631,11 @@ public class Login extends javax.swing.JFrame {
             labelShow("step2");
             labelShow("tostep3");
             container.removeAll();
-            container.add(registreStep2);
+            if (panel.equals("Registre")) {
+                container.add(registreStep2);
+            } else if (panel.equals("PasswordReset")) {
+                container.add(passwordResetStep2);
+            }
             this.container.revalidate();
             this.container.repaint();
         }
@@ -611,12 +647,33 @@ public class Login extends javax.swing.JFrame {
         if (registreStep2.codeValid()) {
             labelShow("step3");
             container.removeAll();
-            container.add(registreStep3);
+            if (panel.equals("Registre")) {
+                container.add(registreStep3);
+            } else if (panel.equals("PasswordReset")) {
+                container.add(passwordResetStep3);
+            }
             this.container.revalidate();
             this.container.repaint();
         }
 
     }//GEN-LAST:event_tostep3MouseClicked
+
+    private void passwordResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordResetMouseClicked
+        // TODO add your handling code here:
+        showSteps();
+        onClick(Button2);
+        onLeaveClick(connect);
+        onLeaveClick(Button3);
+        onLeaveClick(Button4);
+
+        //indicators
+        Indicator1.setOpaque(false);
+        Indicator2.setOpaque(true);
+        Indicator3.setOpaque(false);
+        Indicator4.setOpaque(false);
+        panel = "PasswordReset";
+        show("passwordReset");
+    }//GEN-LAST:event_passwordResetMouseClicked
 
     public void labelShow(String lable) {
         if (lable.equals("step2")) {
@@ -657,7 +714,7 @@ public class Login extends javax.swing.JFrame {
         javax.swing.JPanel panelToShow = new javax.swing.JPanel();
 
         if (nom.equals("Connecter")) {
-            panelToShow = new home();
+            panelToShow = connecter;
         }
 
         if (nom.equals("Registre")) {
@@ -665,23 +722,16 @@ public class Login extends javax.swing.JFrame {
         }
         if (nom.equals("RegistreStep2")) {
             panelToShow = registreStep2;
-            System.out.println("from Login");
         }
 
-        if (nom.equals("mail")) {
-            panelToShow = new Virement();
-        }
-
-        if (nom.equals("task")) {
-            panelToShow = new ResetPassword();
+        if (nom.equals("passwordReset")) {
+            panelToShow = passwordResetStep1;
         }
 
         this.container.add(panelToShow);
         this.container.revalidate();
-        //validate();
-        this.container.repaint();
 
-        //System.out.println(container.getSize());
+        this.container.repaint();
     }
 
     /**

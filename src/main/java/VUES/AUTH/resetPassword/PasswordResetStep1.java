@@ -128,13 +128,13 @@ public class PasswordResetStep1 extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        new Login().setVisible(true);
-        dispose();
+        /* new Login().setVisible(true);
+        dispose();*/
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        State.setNum_compte(num.getText());
+        /*State.setNum_compte(num.getText());
         State.setTel("0" + tel.getText());
         if (mgn.NumCompteExist(Integer.parseInt(num.getText())) && tel.getText().length() == 9) {
             sendAnSMS();
@@ -144,7 +144,7 @@ public class PasswordResetStep1 extends javax.swing.JFrame {
             error.setText("Numero de telephone n'est pas valide !!!");
         } else {
             error.setText("Numero de Compte n'existe pas !!!");
-        }
+        }*/
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

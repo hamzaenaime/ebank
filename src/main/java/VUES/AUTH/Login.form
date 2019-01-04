@@ -118,6 +118,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Mot de passe oublier ?"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="passwordResetMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
