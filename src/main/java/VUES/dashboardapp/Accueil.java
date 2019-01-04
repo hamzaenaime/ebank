@@ -5,6 +5,7 @@
  */
 package VUES.dashboardapp;
 
+import DAO.Dao;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import javax.swing.*;
@@ -20,6 +21,7 @@ public class Accueil extends javax.swing.JFrame {
      */
     public Accueil() {
         initComponents();
+        new Dao();
         container.setLayout(new FlowLayout());
         container.add(new home());
 //        jLabel6.setVisible(false);
