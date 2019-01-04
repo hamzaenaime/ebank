@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Date;
+import java.util.logging.Level;
 
 /**
  *
@@ -36,12 +37,12 @@ public class client {
      try {
             conn = Dao.getConnection();
             Statement p = conn.createStatement();
-            String req = "select nom,prenom from client cl inner join compte cm on cl.cin=cm.owner where numcompte='"+numAccount+"' and password='" + password + "'";
+            String req = "select * from client cl inner join compte cm on cl.cin=cm.owner where numcompte='"+numAccount+"' and password='" + password + "'";
             ResultSet res = p.executeQuery(req);
             if (res.next()) {
                 cin=res.getString("cin");
                 nom=res.getString("nom");
-                prenom=res.getString("prenoù");
+                prenom=res.getString("prenom");
                 date_naissance=res.getString("date_naissance");
                 adresse=res.getString("adresse");
                 ville=res.getString("ville");
@@ -172,5 +173,36 @@ public class client {
     public static Connection getConn() {
         return conn;
     }
+
+    public static boolean setAdresse(String adresse) {
+        String req = "update client set adresse='" + adresse + "' where cin='"+cin+"'";
+        try {
+            Statement st = conn.createStatement();
+            int res = st.executeUpdate(req);
+            if (res>0) {
+                client.adresse = adresse;
+                return true;
+            }
+        } catch (SQLException ex) {
+            return false;
+        }
+        return false;
+    }
+
+    public static boolean setVille(String ville) {
+        String req = "update client set ville='" + ville + "' where cin='"+cin+"'";
+        try {
+            Statement st = conn.createStatement();
+            int res = st.executeUpdate(req);
+            if (res>0) {
+                client.ville = ville;
+                return true;
+            }
+        } catch (SQLException ex) {
+            return false;
+        }
+        return false;
+    }
+    
     
 }

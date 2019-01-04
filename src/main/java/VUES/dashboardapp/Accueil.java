@@ -8,6 +8,7 @@ package VUES.dashboardapp;
 import DAO.Dao;
 import MODELS.AccountManagement;
 import MODELS.client;
+import VUES.AUTH.Login;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import javax.swing.*;
@@ -22,14 +23,16 @@ public class Accueil extends javax.swing.JFrame {
      * Creates new form Home
      */
     public Accueil() {
+        if(client.isLogin()){
         initComponents();
         new Dao();
         container.setLayout(new FlowLayout());
         container.add(new home());
-        if(client.isLogin()){
         name.setText("M. "+client.getPrenom()+" "+client.getNom());
-        solde.setText(AccountManagement.getSolde(client.getCin()));
+        solde.setText(String.valueOf(AccountManagement.getSolde(client.getCin())));
 //        jLabel6.setVisible(false);
+        }else{
+            new Login().setVisible(true);
         }
     }
 

@@ -5,6 +5,9 @@
  */
 package VUES.dashboardapp;
 
+import MODELS.client;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author taoufik
@@ -17,12 +20,12 @@ public class Coordonne extends javax.swing.JPanel {
     public Coordonne() {
         initComponents();
         nom.setEditable(false);
-        nom.setText("nafar belal");
-        adresse.setText("lissasfa lotissement smiralda nr 173 casa");
-        ville.setText("casablanca");
-        phone.setText("0625647473");
+        nom.setText(client.getNom()+" "+client.getPrenom());
+        adresse.setText(client.getAdresse());
+        ville.setText(client.getVille());
+        phone.setText(client.getTel());
         phone.setEditable(false);
-        email.setText("nafar.belal@gmail.com");
+        email.setText(client.getEmail());
         email.setEditable(false);
     }
 
@@ -88,30 +91,40 @@ public class Coordonne extends javax.swing.JPanel {
         adresse.setText("adresse");
 
         jButton1.setText("Save change");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel2))
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(email, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                    .addComponent(phone, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                    .addComponent(ville, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                    .addComponent(nom)
-                    .addComponent(adresse))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(454, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel2))
+                        .addGap(40, 40, 40)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(phone, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                                        .addComponent(ville, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                                        .addComponent(nom))
+                                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(adresse)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(454, Short.MAX_VALUE)
+                        .addComponent(jButton1)))
                 .addGap(231, 231, 231))
         );
         layout.setVerticalGroup(
@@ -159,6 +172,28 @@ public class Coordonne extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_phoneActionPerformed
 
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        if(!adresse.getText().isEmpty() && !adresse.getText().equals(client.getAdresse()) ){
+            if(client.setAdresse(adresse.getText())){
+                JOptionPane.showMessageDialog(this, "Votre adresse a été modifiée");
+                new Coordonne().setVisible(true);
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Echec de l'opération");
+            }
+        }
+        
+        if(!ville.getText().isEmpty() && !ville.getText().equals(client.getVille())){
+            if(client.setAdresse(adresse.getText()) && client.setVille(ville.getText())){
+                JOptionPane.showMessageDialog(this, "Votre ville a été modifiée");
+                new Coordonne().setVisible(true);
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Echec de l'opération");
+            }
+        }
+    }//GEN-LAST:event_jButton1MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField adresse;
