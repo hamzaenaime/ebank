@@ -690,7 +690,7 @@ public class Accueil extends javax.swing.JFrame {
         }
 
         if (nom.equals("mail")) {
-            panelToShow = new mail();
+            panelToShow = new Virement();
         }
 
         if (nom.equals("task")) {

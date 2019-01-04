@@ -667,7 +667,7 @@ public class Login extends javax.swing.JFrame {
         }
 
         if (nom.equals("mail")) {
-            panelToShow = new mail();
+            panelToShow = new Virement();
         }
 
         if (nom.equals("task")) {

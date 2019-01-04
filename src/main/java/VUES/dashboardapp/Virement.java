@@ -9,12 +9,12 @@ package VUES.dashboardapp;
  *
  * @author taoufik
  */
-public class mail extends javax.swing.JPanel {
+public class Virement extends javax.swing.JPanel {
 
     /**
      * Creates new form mail
      */
-    public mail() {
+    public Virement() {
         initComponents();
     }
 
