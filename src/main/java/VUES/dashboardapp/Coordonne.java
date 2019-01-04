@@ -9,12 +9,12 @@ package VUES.dashboardapp;
  *
  * @author taoufik
  */
-public class payment extends javax.swing.JPanel {
+public class Coordonne extends javax.swing.JPanel {
 
     /**
      * Creates new form payment
      */
-    public payment() {
+    public Coordonne() {
         initComponents();
         nom.setEditable(false);
         nom.setText("nafar belal");
