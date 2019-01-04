@@ -155,10 +155,6 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="numcompteMouseClicked"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="numcompteActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="password">
       <Properties>
@@ -192,9 +188,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="7"/>
       </Properties>
-      <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="sevenMouseClicked"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="heigth">
       <Properties>
@@ -206,9 +199,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="8"/>
       </Properties>
-      <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="heigthMouseClicked"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="nine">
       <Properties>
@@ -220,9 +210,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="9"/>
       </Properties>
-      <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="nineMouseClicked"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="four">
       <Properties>
@@ -234,9 +221,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="4"/>
       </Properties>
-      <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="fourMouseClicked"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="five">
       <Properties>
@@ -248,9 +232,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="5"/>
       </Properties>
-      <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="fiveMouseClicked"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="six">
       <Properties>
@@ -262,9 +243,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="6"/>
       </Properties>
-      <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="sixMouseClicked"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="one">
       <Properties>
@@ -276,9 +254,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="1"/>
       </Properties>
-      <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="oneMouseClicked"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="two">
       <Properties>
@@ -290,9 +265,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="2"/>
       </Properties>
-      <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="twoMouseClicked"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="three">
       <Properties>
@@ -304,9 +276,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="3"/>
       </Properties>
-      <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="threeMouseClicked"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="zero">
       <Properties>
@@ -318,9 +287,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
-      <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="zeroMouseClicked"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton2">
       <Properties>
