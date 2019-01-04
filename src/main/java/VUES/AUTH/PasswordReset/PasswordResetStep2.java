@@ -34,8 +34,17 @@ public class PasswordResetStep2 extends javax.swing.JPanel {
 
         jTextField1.setText("jTextField1");
 
+        setBackground(new java.awt.Color(255, 255, 255));
+        setForeground(new java.awt.Color(255, 255, 204));
+
+        jLabel1.setForeground(new java.awt.Color(96, 83, 150));
         jLabel1.setText("code de verification :");
 
+        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField2.setForeground(new java.awt.Color(255, 255, 204));
+
+        resend.setBackground(new java.awt.Color(255, 255, 255));
+        resend.setForeground(new java.awt.Color(96, 83, 150));
         resend.setText("reenvoyer le code ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

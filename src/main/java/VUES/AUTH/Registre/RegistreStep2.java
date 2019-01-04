@@ -25,6 +25,7 @@ public class RegistreStep2 extends javax.swing.JPanel {
     public void sendAnSMS() {
         int code = (int) (Math.random() * 10000);
         State.setCheck(code);
+        System.out.println(code);
         //SendSMS sms = new SendSMS("+212" + State.getTel(), "code de verification est : " + code);
     }
 
@@ -49,9 +50,17 @@ public class RegistreStep2 extends javax.swing.JPanel {
         code = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(96, 83, 150));
         jLabel1.setText("Code :");
 
-        jButton3.setText("Reenvoyer");
+        code.setBackground(new java.awt.Color(255, 255, 255));
+
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
+        jButton3.setForeground(new java.awt.Color(96, 83, 150));
+        jButton3.setText("Reenvoyer le code");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -67,7 +76,7 @@ public class RegistreStep2 extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(61, 61, 61)
                 .addComponent(code, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(jButton3)
                 .addGap(33, 33, 33))
         );
@@ -79,7 +88,7 @@ public class RegistreStep2 extends javax.swing.JPanel {
                     .addComponent(jLabel1)
                     .addComponent(code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3))
-                .addContainerGap(176, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

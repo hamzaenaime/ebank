@@ -35,12 +35,29 @@ public class PasswordResetStep3 extends javax.swing.JPanel {
         confirmationNewPassword = new javax.swing.JTextField();
         Valider = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+        setForeground(new java.awt.Color(255, 255, 204));
+
+        jLabel1.setForeground(new java.awt.Color(96, 83, 150));
         jLabel1.setText("mot de passe :");
 
+        jLabel2.setForeground(new java.awt.Color(96, 83, 150));
         jLabel2.setText("nouveau mot de passe :");
 
+        jLabel3.setForeground(new java.awt.Color(96, 83, 150));
         jLabel3.setText("confirmationNewPassword :");
 
+        password.setBackground(new java.awt.Color(255, 255, 255));
+        password.setForeground(new java.awt.Color(255, 255, 204));
+
+        newPassword.setBackground(new java.awt.Color(255, 255, 255));
+        newPassword.setForeground(new java.awt.Color(255, 255, 204));
+
+        confirmationNewPassword.setBackground(new java.awt.Color(255, 255, 255));
+        confirmationNewPassword.setForeground(new java.awt.Color(255, 255, 204));
+
+        Valider.setBackground(new java.awt.Color(255, 255, 255));
+        Valider.setForeground(new java.awt.Color(96, 83, 150));
         Valider.setText("Valider");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
