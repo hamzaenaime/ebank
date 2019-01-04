@@ -111,7 +111,7 @@ public class PasswordResetStep2 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        new Login().setVisible(true);
+//        new Login().setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
