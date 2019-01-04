@@ -535,12 +535,14 @@ public class Accueil extends javax.swing.JFrame {
         onLeaveClick(Button2);
         onLeaveClick(Button3);
         onLeaveClick(Button4);
+        onLeaveClick(Button5);
 
         //indicators
         Indicator1.setOpaque(true);
         Indicator2.setOpaque(false);
         Indicator3.setOpaque(false);
         Indicator4.setOpaque(false);
+        Indicator5.setOpaque(false);
 
         show("home");
 
@@ -552,6 +554,7 @@ public class Accueil extends javax.swing.JFrame {
         onLeaveClick(Button1);
         onLeaveClick(Button3);
         onLeaveClick(Button4);
+        onLeaveClick(Button5);
 //        this.actionPerformed(e);
 
         //indicators
@@ -559,6 +562,7 @@ public class Accueil extends javax.swing.JFrame {
         Indicator2.setOpaque(true);
         Indicator3.setOpaque(false);
         Indicator4.setOpaque(false);
+        Indicator5.setOpaque(false);
 
         show("mail");
     }//GEN-LAST:event_Button2MouseClicked
@@ -569,12 +573,13 @@ public class Accueil extends javax.swing.JFrame {
         onLeaveClick(Button2);
         onLeaveClick(Button1);
         onLeaveClick(Button4);
-
+        onLeaveClick(Button5);
         //indicators
         Indicator1.setOpaque(false);
         Indicator2.setOpaque(false);
         Indicator3.setOpaque(true);
         Indicator4.setOpaque(false);
+        Indicator5.setOpaque(false);
 
         show("payment");
     }//GEN-LAST:event_Button3MouseClicked
@@ -585,10 +590,12 @@ public class Accueil extends javax.swing.JFrame {
         onLeaveClick(Button2);
         onLeaveClick(Button3);
         onLeaveClick(Button1);
+        onLeaveClick(Button5);
         //indicators
         Indicator1.setOpaque(false);
         Indicator2.setOpaque(false);
         Indicator3.setOpaque(false);
+        Indicator5.setOpaque(false);
         Indicator4.setOpaque(true);
 
         container.removeAll();
@@ -635,6 +642,24 @@ public class Accueil extends javax.swing.JFrame {
 
     private void Button5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button5MouseClicked
         // TODO add your handling code here:
+        onClick(Button5);
+        onLeaveClick(Button4);
+        onLeaveClick(Button2);
+        onLeaveClick(Button3);
+        onLeaveClick(Button1);
+        //indicators
+        Indicator1.setOpaque(false);
+        Indicator2.setOpaque(false);
+        Indicator3.setOpaque(false);
+        Indicator4.setOpaque(false);
+        Indicator5.setOpaque(true);
+
+        container.removeAll();
+        this.container.add(new reclamation());
+        this.container.revalidate();
+        validate();
+
+        show("reclamation");
     }//GEN-LAST:event_Button5MouseClicked
 
     int xx, xy;
@@ -667,7 +692,7 @@ public class Accueil extends javax.swing.JFrame {
         }
 
         if (nom.equals("task")) {
-            panelToShow = new task();
+            panelToShow = new ResetPassword();
         }
 
         this.container.add(panelToShow);

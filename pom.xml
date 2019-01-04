@@ -44,6 +44,10 @@
             <artifactId>AbsoluteLayout</artifactId>
             <version>RELEASE802</version>
         </dependency>
-        
+        <dependency>
+            <groupId>unknown.binary</groupId>
+            <artifactId>swingx-all-1.6.4</artifactId>
+            <version>SNAPSHOT</version>
+        </dependency>
     </dependencies>
 </project>
