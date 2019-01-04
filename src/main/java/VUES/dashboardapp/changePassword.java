@@ -6,6 +6,7 @@
 package VUES.dashboardapp;
 
 import MODELS.client;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -141,22 +142,26 @@ public class changePassword extends javax.swing.JPanel {
         if(!oldPass.getText().isEmpty() && !cPass.getText().isEmpty() && !newPass.getText().isEmpty()){
             if(client.verifyPass(oldPass.getText())){
                 //old password is valide
-                if(newPass.getText()==cPass.getText()){
+                if(newPass.getText().equals(cPass.getText())){
                     //set the new pass
                     if(client.setPassword(newPass.getText())){
                         //password updated successfully
-                        
+                        JOptionPane.showMessageDialog(this, "Votre mot de passe a été modifiée","",JOptionPane.WARNING_MESSAGE);
                     }else{
                         //eched de maj de mot de pass
+                    JOptionPane.showMessageDialog(this, "Echec de mise a jour du mot de passe","",JOptionPane.WARNING_MESSAGE);
                     }
                 }else{
                     //password non confirmé
+                JOptionPane.showMessageDialog(this, "Votre nouveau mot de passe n'est pas confirmé","",JOptionPane.WARNING_MESSAGE);
                 }
             }else{
                 //old password invalide
+                JOptionPane.showMessageDialog(this, "Ancien Mot de passe invalide","",JOptionPane.WARNING_MESSAGE);
             }
         }else{
             //verifier que les champ ne sont pas vide
+            JOptionPane.showMessageDialog(this, "Vérifier que les champs ne sont pas vides","",JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jButton2MouseClicked
 
