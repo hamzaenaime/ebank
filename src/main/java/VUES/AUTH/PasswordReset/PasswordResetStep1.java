@@ -33,10 +33,20 @@ public class PasswordResetStep1 extends javax.swing.JPanel {
         tel = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+        setForeground(new java.awt.Color(255, 255, 204));
+
+        jLabel1.setForeground(new java.awt.Color(96, 83, 150));
         jLabel1.setText("Numéro du Compte : ");
 
+        jLabel2.setForeground(new java.awt.Color(96, 83, 150));
         jLabel2.setText("Téléphone : ");
 
+        numcompte.setBackground(new java.awt.Color(255, 255, 255));
+
+        tel.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel3.setForeground(new java.awt.Color(96, 83, 150));
         jLabel3.setText("+212");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

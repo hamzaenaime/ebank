@@ -58,12 +58,25 @@ public class RegistreStep1 extends javax.swing.JPanel {
         telephone = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+        setForeground(new java.awt.Color(222, 222, 2));
+
+        jLabel1.setForeground(new java.awt.Color(96, 83, 150));
         jLabel1.setText("Nom :");
 
+        jLabel2.setForeground(new java.awt.Color(96, 83, 150));
         jLabel2.setText("Prénom :");
 
+        jLabel3.setForeground(new java.awt.Color(96, 83, 150));
         jLabel3.setText("Téléphone :");
 
+        nom.setBackground(new java.awt.Color(255, 255, 255));
+
+        prenom.setBackground(new java.awt.Color(255, 255, 255));
+
+        telephone.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel4.setForeground(new java.awt.Color(96, 83, 150));
         jLabel4.setText("+212");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -73,9 +86,8 @@ public class RegistreStep1 extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(54, 54, 54)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel1)
-                        .addComponent(jLabel2))
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
