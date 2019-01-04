@@ -9,12 +9,12 @@ package VUES.dashboardapp;
  *
  * @author taoufik
  */
-public class task extends javax.swing.JPanel {
+public class ResetPassword extends javax.swing.JPanel {
 
     /**
      * Creates new form task
      */
-    public task() {
+    public ResetPassword() {
         initComponents();
     }
 

@@ -671,7 +671,7 @@ public class Login extends javax.swing.JFrame {
         }
 
         if (nom.equals("task")) {
-            panelToShow = new task();
+            panelToShow = new ResetPassword();
         }
 
         this.container.add(panelToShow);
