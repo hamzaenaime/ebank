@@ -25,7 +25,7 @@
               <EmptySpace pref="44" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="connecter" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="289" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -57,7 +57,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="five" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="sex" min="-2" max="-2" attributes="0"/>
+                                      <Component id="six" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="heigth" min="-2" max="-2" attributes="0"/>
@@ -103,7 +103,7 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="sex" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="six" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="five" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="four" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -118,7 +118,7 @@
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <Component id="connecter" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="56" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -137,6 +137,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="numcompte">
       <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="numcompteMouseClicked"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="numcompteActionPerformed"/>
       </Events>
     </Component>
@@ -145,12 +146,12 @@
         <Property name="editable" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="connecter">
       <Properties>
         <Property name="text" type="java.lang.String" value="Se Connecter"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton1MouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="connecterMouseClicked"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="seven">
@@ -193,12 +194,12 @@
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="fiveMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="sex">
+    <Component class="javax.swing.JButton" name="six">
       <Properties>
         <Property name="text" type="java.lang.String" value="6"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="sexMouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="sixMouseClicked"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="one">

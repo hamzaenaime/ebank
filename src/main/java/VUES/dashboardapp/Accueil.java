@@ -6,6 +6,8 @@
 package VUES.dashboardapp;
 
 import DAO.Dao;
+import MODELS.AccountManagement;
+import MODELS.client;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import javax.swing.*;
@@ -24,8 +26,11 @@ public class Accueil extends javax.swing.JFrame {
         new Dao();
         container.setLayout(new FlowLayout());
         container.add(new home());
+        if(client.isLogin()){
+        name.setText("M. "+client.getPrenom()+" "+client.getNom());
+        solde.setText(AccountManagement.getSolde(client.getCin()));
 //        jLabel6.setVisible(false);
-
+        }
     }
 
     /**
@@ -62,12 +67,14 @@ public class Accueil extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         btn_close = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel19 = new javax.swing.JLabel();
+        ad = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
+        name = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        solde = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         container = new javax.swing.JPanel();
 
@@ -402,10 +409,10 @@ public class Accueil extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(96, 83, 150));
-        jLabel19.setText("Total");
-        jPanel4.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 30, 10));
+        ad.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        ad.setForeground(new java.awt.Color(96, 83, 150));
+        ad.setText("DH");
+        jPanel4.add(ad, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, 10));
 
         jPanel10.setBackground(new java.awt.Color(232, 201, 232));
 
@@ -422,10 +429,20 @@ public class Accueil extends javax.swing.JFrame {
 
         jPanel4.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 10));
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(96, 83, 150));
-        jLabel10.setText("M.XXXX YYYYYY");
-        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        name.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        name.setForeground(new java.awt.Color(96, 83, 150));
+        name.setText("M.XXXX YYYYYY");
+        jPanel4.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(96, 83, 150));
+        jLabel21.setText("Solde :");
+        jPanel4.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 40, 10));
+
+        solde.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        solde.setForeground(new java.awt.Color(96, 83, 150));
+        solde.setText("0");
+        jPanel4.add(solde, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 30, 10));
 
         jPanel3.setBackground(new java.awt.Color(253, 222, 249));
         jPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -441,39 +458,37 @@ public class Accueil extends javax.swing.JFrame {
             }
         });
 
+        jPanel5.setBackground(new java.awt.Color(253, 222, 249));
+
         jLabel9.setFont(new java.awt.Font("Abyssinica SIL", 1, 24)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(96, 83, 150));
         jLabel9.setText("Logout");
-
-        jPanel5.setBackground(new java.awt.Color(253, 222, 249));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 72, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(jLabel9)
+                .addContainerGap(72, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 71, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel9)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel9)
-                .addContainerGap())
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel9)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -488,7 +503,7 @@ public class Accueil extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addGap(170, 170, 170)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -737,13 +752,13 @@ public class Accueil extends javax.swing.JFrame {
     private javax.swing.JPanel Indicator3;
     private javax.swing.JPanel Indicator4;
     private javax.swing.JPanel Indicator5;
+    private javax.swing.JLabel ad;
     private javax.swing.JLabel btn_close;
     private javax.swing.JPanel container;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -760,6 +775,8 @@ public class Accueil extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JLabel name;
+    private javax.swing.JLabel solde;
     // End of variables declaration//GEN-END:variables
 
 }

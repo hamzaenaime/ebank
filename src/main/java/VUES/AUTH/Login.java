@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package VUES.AUTHENTIFICATION;
+package VUES.AUTH;
 
-import VUES.AUTHENTIFICATION.Registre.RegistreStep1;
-import VUES.AUTHENTIFICATION.Registre.RegistreStep2;
-import VUES.AUTHENTIFICATION.Registre.RegistreStep3;
+import DAO.Dao;
+import VUES.AUTH.Registre.RegistreStep1;
+import VUES.AUTH.Registre.RegistreStep2;
+import VUES.AUTH.Registre.RegistreStep3;
 import VUES.dashboardapp.*;
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -18,7 +19,7 @@ import javax.swing.*;
  * @author hamza
  */
 public class Login extends javax.swing.JFrame {
-
+    
     RegistreStep1 registreStep1 = new RegistreStep1();
     RegistreStep2 registreStep2 = new RegistreStep2();
     RegistreStep3 registreStep3 = new RegistreStep3();
@@ -29,6 +30,7 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        new Dao();
         container.setLayout(new FlowLayout());
         tostep3.disable();
         step3.disable();

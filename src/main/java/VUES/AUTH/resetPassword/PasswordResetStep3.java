@@ -1,4 +1,4 @@
-package VUES.AUTH;
+package VUES.AUTH.resetPassword;
 
 import MODELS.AccountManagement;
 import VUES.State;

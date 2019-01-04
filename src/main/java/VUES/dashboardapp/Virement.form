@@ -102,26 +102,18 @@
         <Property name="text" type="java.lang.String" value="Valider"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="validerMouseClicked"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="validerActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="motif">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="motif"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="motifActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="mnt">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="mnt"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="num">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="num"/>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>

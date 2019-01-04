@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package VUES.AUTHENTIFICATION;
+package VUES.AUTH;
 
 import MODELS.AccountManagement;
+import MODELS.client;
 import VUES.dashboardapp.Accueil;
 import javax.swing.JOptionPane;
 
@@ -15,14 +16,15 @@ import javax.swing.JOptionPane;
  */
 public class Connecter extends javax.swing.JPanel {
 
-    private String pass = "";
-    private String stars = "";
-    private AccountManagement am = new AccountManagement();
+    private String pass="";
+    private String stars="";
+    private AccountManagement am;
 
     /**
      * Creates new form Connecter
      */
     public Connecter() {
+        this.am = new AccountManagement();
         initComponents();
 
     }
@@ -40,13 +42,13 @@ public class Connecter extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         numcompte = new javax.swing.JTextField();
         password = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        connecter = new javax.swing.JButton();
         seven = new javax.swing.JButton();
         heigth = new javax.swing.JButton();
         nine = new javax.swing.JButton();
         four = new javax.swing.JButton();
         five = new javax.swing.JButton();
-        sex = new javax.swing.JButton();
+        six = new javax.swing.JButton();
         one = new javax.swing.JButton();
         two = new javax.swing.JButton();
         three = new javax.swing.JButton();
@@ -57,6 +59,11 @@ public class Connecter extends javax.swing.JPanel {
 
         jLabel2.setText("Mot de Passe");
 
+        numcompte.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                numcompteMouseClicked(evt);
+            }
+        });
         numcompte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 numcompteActionPerformed(evt);
@@ -65,10 +72,10 @@ public class Connecter extends javax.swing.JPanel {
 
         password.setEditable(false);
 
-        jButton1.setText("Se Connecter");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        connecter.setText("Se Connecter");
+        connecter.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                connecterMouseClicked(evt);
             }
         });
 
@@ -107,10 +114,10 @@ public class Connecter extends javax.swing.JPanel {
             }
         });
 
-        sex.setText("6");
-        sex.addMouseListener(new java.awt.event.MouseAdapter() {
+        six.setText("6");
+        six.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                sexMouseClicked(evt);
+                sixMouseClicked(evt);
             }
         });
 
@@ -161,7 +168,7 @@ public class Connecter extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(connecter)
                         .addGap(289, 289, 289))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -187,7 +194,7 @@ public class Connecter extends javax.swing.JPanel {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(five)
                                         .addGap(18, 18, 18)
-                                        .addComponent(sex))
+                                        .addComponent(six))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(heigth)
                                         .addGap(18, 18, 18)
@@ -219,7 +226,7 @@ public class Connecter extends javax.swing.JPanel {
                             .addComponent(seven))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(sex)
+                            .addComponent(six)
                             .addComponent(five)
                             .addComponent(four))
                         .addGap(18, 18, 18)
@@ -230,7 +237,7 @@ public class Connecter extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(zero)))
                 .addGap(6, 6, 6)
-                .addComponent(jButton1)
+                .addComponent(connecter)
                 .addContainerGap(56, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -241,92 +248,91 @@ public class Connecter extends javax.swing.JPanel {
 
     private void oneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_oneMouseClicked
         // TODO add your handling code here:
-        if (stars.length() != 4) {
+       
             pass += "1";
             stars += "*";
             password.setText(stars);
-        }
+       
     }//GEN-LAST:event_oneMouseClicked
 
     private void twoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_twoMouseClicked
         // TODO add your handling code here:
-        if (stars.length() != 4) {
+       
             pass += "2";
             stars += "*";
             password.setText(stars);
-        }
+       
     }//GEN-LAST:event_twoMouseClicked
 
     private void threeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_threeMouseClicked
         // TODO add your handling code here:
-        if (stars.length() != 4) {
+       
             pass += "3";
             stars += "*";
             password.setText(stars);
-        }
+       
     }//GEN-LAST:event_threeMouseClicked
 
     private void fourMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fourMouseClicked
         // TODO add your handling code here:
-        if (stars.length() != 4) {
+       
             pass += "4";
             stars += "*";
             password.setText(stars);
-        }
+       
     }//GEN-LAST:event_fourMouseClicked
 
     private void fiveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fiveMouseClicked
         // TODO add your handling code here:
-        if (stars.length() != 4) {
             pass += "5";
             stars += "*";
             password.setText(stars);
-        }
+        
     }//GEN-LAST:event_fiveMouseClicked
 
-    private void sexMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sexMouseClicked
+    private void sixMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sixMouseClicked
         // TODO add your handling code here:
-        if (stars.length() != 4) {
+       
             pass += "6";
             stars += "*";
             password.setText(stars);
-        }
-    }//GEN-LAST:event_sexMouseClicked
+       
+    }//GEN-LAST:event_sixMouseClicked
 
     private void sevenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sevenMouseClicked
         // TODO add your handling code here:
-        if (stars.length() != 4) {
+       
             pass += "7";
             stars += "*";
             password.setText(stars);
-        }
+       
     }//GEN-LAST:event_sevenMouseClicked
 
     private void heigthMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_heigthMouseClicked
         // TODO add your handling code here:
-        if (stars.length() != 4) {
+       
             pass += "8";
             stars += "*";
             password.setText(stars);
-        }
+        
     }//GEN-LAST:event_heigthMouseClicked
 
     private void nineMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nineMouseClicked
         // TODO add your handling code here:
-        if (stars.length() != 4) {
+       
             pass += "9";
             stars += "*";
             password.setText(stars);
-        }
+        
     }//GEN-LAST:event_nineMouseClicked
 
     private void zeroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_zeroMouseClicked
         // TODO add your handling code here:
-        if (stars.length() != 4) {
+       
             pass += "0";
             stars += "*";
             password.setText(stars);
-        }
+        
     }//GEN-LAST:event_zeroMouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
@@ -336,21 +342,25 @@ public class Connecter extends javax.swing.JPanel {
         password.setText("");
     }//GEN-LAST:event_jButton2MouseClicked
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void connecterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_connecterMouseClicked
         // TODO add your handling code here:
-        if (am.exist(numcompte.getText(), pass)) {
+        if (client.login(numcompte.getText(), pass)) {
             JOptionPane.showMessageDialog(this, "Connected !!");
             new Accueil().setVisible(true);
         } else {
             JOptionPane.showMessageDialog(this, "numero de compte ou mot de passe incorrect !!");
         }
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_connecterMouseClicked
+
+    private void numcompteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_numcompteMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numcompteMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton connecter;
     private javax.swing.JButton five;
     private javax.swing.JButton four;
     private javax.swing.JButton heigth;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -359,7 +369,7 @@ public class Connecter extends javax.swing.JPanel {
     private javax.swing.JButton one;
     private javax.swing.JTextField password;
     private javax.swing.JButton seven;
-    private javax.swing.JButton sex;
+    private javax.swing.JButton six;
     private javax.swing.JButton three;
     private javax.swing.JButton two;
     private javax.swing.JButton zero;
