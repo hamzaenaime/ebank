@@ -8,13 +8,16 @@ package VUES.AUTH;
 import MODELS.AccountManagement;
 import MODELS.client;
 import VUES.dashboardapp.Accueil;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
+import sun.security.util.Password;
 
 /**
  *
  * @author hamza
  */
-public class Connecter extends javax.swing.JPanel {
+public class Connecter extends javax.swing.JPanel implements ActionListener{
 
     private String pass = "";
     private String stars = "";
@@ -25,7 +28,10 @@ public class Connecter extends javax.swing.JPanel {
      */
     public Connecter() {
         this.am = new AccountManagement();
+        
         initComponents();
+        initializeButtons() ;
+        
 
     }
 
@@ -65,16 +71,6 @@ public class Connecter extends javax.swing.JPanel {
         jLabel2.setText("Mot de Passe");
 
         numcompte.setBackground(new java.awt.Color(255, 255, 255));
-        numcompte.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                numcompteMouseClicked(evt);
-            }
-        });
-        numcompte.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                numcompteActionPerformed(evt);
-            }
-        });
 
         password.setEditable(false);
         password.setBackground(new java.awt.Color(255, 255, 255));
@@ -91,92 +87,42 @@ public class Connecter extends javax.swing.JPanel {
         seven.setBackground(new java.awt.Color(255, 255, 255));
         seven.setForeground(new java.awt.Color(96, 83, 150));
         seven.setText("7");
-        seven.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                sevenMouseClicked(evt);
-            }
-        });
 
         heigth.setBackground(new java.awt.Color(255, 255, 255));
         heigth.setForeground(new java.awt.Color(96, 83, 150));
         heigth.setText("8");
-        heigth.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                heigthMouseClicked(evt);
-            }
-        });
 
         nine.setBackground(new java.awt.Color(255, 255, 255));
         nine.setForeground(new java.awt.Color(96, 83, 150));
         nine.setText("9");
-        nine.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                nineMouseClicked(evt);
-            }
-        });
 
         four.setBackground(new java.awt.Color(255, 255, 255));
         four.setForeground(new java.awt.Color(96, 83, 150));
         four.setText("4");
-        four.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                fourMouseClicked(evt);
-            }
-        });
 
         five.setBackground(new java.awt.Color(255, 255, 255));
         five.setForeground(new java.awt.Color(96, 83, 150));
         five.setText("5");
-        five.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                fiveMouseClicked(evt);
-            }
-        });
 
         six.setBackground(new java.awt.Color(255, 255, 255));
         six.setForeground(new java.awt.Color(96, 83, 150));
         six.setText("6");
-        six.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                sixMouseClicked(evt);
-            }
-        });
 
         one.setBackground(new java.awt.Color(255, 255, 255));
         one.setForeground(new java.awt.Color(96, 83, 150));
         one.setText("1");
-        one.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                oneMouseClicked(evt);
-            }
-        });
 
         two.setBackground(new java.awt.Color(255, 255, 255));
         two.setForeground(new java.awt.Color(96, 83, 150));
         two.setText("2");
-        two.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                twoMouseClicked(evt);
-            }
-        });
 
         three.setBackground(new java.awt.Color(255, 255, 255));
         three.setForeground(new java.awt.Color(96, 83, 150));
         three.setText("3");
-        three.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                threeMouseClicked(evt);
-            }
-        });
 
         zero.setBackground(new java.awt.Color(255, 255, 255));
         zero.setForeground(new java.awt.Color(96, 83, 150));
         zero.setText("0");
-        zero.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                zeroMouseClicked(evt);
-            }
-        });
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setForeground(new java.awt.Color(96, 83, 150));
@@ -273,99 +219,21 @@ public class Connecter extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void numcompteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numcompteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_numcompteActionPerformed
-
-    private void oneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_oneMouseClicked
-        // TODO add your handling code here:
-
-        pass += "1";
-        stars += "*";
-        password.setText(stars);
-
-    }//GEN-LAST:event_oneMouseClicked
-
-    private void twoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_twoMouseClicked
-        // TODO add your handling code here:
-
-        pass += "2";
-        stars += "*";
-        password.setText(stars);
-
-    }//GEN-LAST:event_twoMouseClicked
-
-    private void threeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_threeMouseClicked
-        // TODO add your handling code here:
-
-        pass += "3";
-        stars += "*";
-        password.setText(stars);
-
-    }//GEN-LAST:event_threeMouseClicked
-
-    private void fourMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fourMouseClicked
-        // TODO add your handling code here:
-
-        pass += "4";
-        stars += "*";
-        password.setText(stars);
-
-    }//GEN-LAST:event_fourMouseClicked
-
-    private void fiveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fiveMouseClicked
-        // TODO add your handling code here:
-        pass += "5";
-        stars += "*";
-        password.setText(stars);
-
-    }//GEN-LAST:event_fiveMouseClicked
-
-    private void sixMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sixMouseClicked
-        // TODO add your handling code here:
-
-        pass += "6";
-        stars += "*";
-        password.setText(stars);
-
-    }//GEN-LAST:event_sixMouseClicked
-
-    private void sevenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sevenMouseClicked
-        // TODO add your handling code here:
-
-        pass += "7";
-        stars += "*";
-        password.setText(stars);
-
-    }//GEN-LAST:event_sevenMouseClicked
-
-    private void heigthMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_heigthMouseClicked
-        // TODO add your handling code here:
-
-        pass += "8";
-        stars += "*";
-        password.setText(stars);
-
-    }//GEN-LAST:event_heigthMouseClicked
-
-    private void nineMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nineMouseClicked
-        // TODO add your handling code here:
-
-        pass += "9";
-        stars += "*";
-        password.setText(stars);
-
-    }//GEN-LAST:event_nineMouseClicked
-
-    private void zeroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_zeroMouseClicked
-        // TODO add your handling code here:
-
-        pass += "0";
-        stars += "*";
-        password.setText(stars);
-
-    }//GEN-LAST:event_zeroMouseClicked
-
+    private void initializeButtons(){
+        zero.addActionListener(this);
+        one.addActionListener(this);
+        two.addActionListener(this);
+        three.addActionListener(this);
+        four.addActionListener(this);
+        five.addActionListener(this);
+        six.addActionListener(this);
+        seven.addActionListener(this);
+        heigth.addActionListener(this);
+        nine.addActionListener(this);
+    }
+    
+    
+    
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
         stars = "";
@@ -382,10 +250,6 @@ public class Connecter extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "numero de compte ou mot de passe incorrect !!");
         }
     }//GEN-LAST:event_connecterMouseClicked
-
-    private void numcompteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_numcompteMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_numcompteMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton connecter;
@@ -405,4 +269,14 @@ public class Connecter extends javax.swing.JPanel {
     private javax.swing.JButton two;
     private javax.swing.JButton zero;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        javax.swing.JButton source = (javax.swing.JButton)e.getSource();
+        pass += source.getText();
+        stars += "*";
+        password.setText(stars);
+    }
 }
+
+
