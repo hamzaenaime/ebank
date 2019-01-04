@@ -686,7 +686,7 @@ public class Accueil extends javax.swing.JFrame {
         }
 
         if (nom.equals("payment")) {
-            panelToShow = new payment();
+            panelToShow = new Coordonne();
         }
 
         if (nom.equals("mail")) {
