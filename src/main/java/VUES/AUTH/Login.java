@@ -6,7 +6,9 @@
 package VUES.AUTH;
 
 import DAO.Dao;
-import VUES.AUTH.PasswordReset.*;
+import VUES.AUTH.PasswordReset.PasswordResetStep1;
+import VUES.AUTH.PasswordReset.PasswordResetStep2;
+import VUES.AUTH.PasswordReset.PasswordResetStep3;
 import VUES.AUTH.Registre.RegistreStep1;
 import VUES.AUTH.Registre.RegistreStep2;
 import VUES.AUTH.Registre.RegistreStep3;
