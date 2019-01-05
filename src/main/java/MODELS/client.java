@@ -12,45 +12,48 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author nafar
  */
 public class client {
-   private static String cin; 
-   private static String nom;
-   private static String prenom;
-   private static String date_naissance;
-   private static String adresse;
-   private static String ville;
-   private static String tel;
-   private static String email;
-   private static String created_at;
-   private static String last_login;
-   private static String profession;
-   private static Connection conn;
-   private static boolean login;
-   
-    public static boolean login(String numAccount, String password){
-     try {
+
+    private static String cin;
+    private static String nom;
+    private static String prenom;
+    private static String date_naissance;
+    private static String adresse;
+    private static String ville;
+    private static String tel;
+    private static String email;
+    private static String created_at;
+    private static String last_login;
+    private static String profession;
+    private static Connection conn;
+    private static boolean login;
+
+    public static boolean login(String numAccount, String password) {
+        try {
             conn = Dao.getConnection();
             Statement p = conn.createStatement();
-            String req = "select * from client cl inner join compte cm on cl.cin=cm.owner where numcompte='"+numAccount+"' and password='" + password + "'";
+            String req = "select * from client cl inner join compte cm on cl.cin=cm.owner where numcompte='" + numAccount + "' and password='" + password + "'";
             ResultSet res = p.executeQuery(req);
             if (res.next()) {
-                cin=res.getString("cin");
-                nom=res.getString("nom");
-                prenom=res.getString("prenom");
-                date_naissance=res.getString("date_naissance");
-                adresse=res.getString("adresse");
-                ville=res.getString("ville");
-                tel=res.getString("tel");
-                email=res.getString("email");
-                created_at=res.getString("created_at");
-                last_login=String.valueOf(res.getDate("last_login"));
-                profession=res.getString("profession");
-                login=true;
+                cin = res.getString("cin");
+                nom = res.getString("nom");
+                prenom = res.getString("prenom");
+                date_naissance = res.getString("date_naissance");
+                adresse = res.getString("adresse");
+                ville = res.getString("ville");
+                tel = res.getString("tel");
+                email = res.getString("email");
+                created_at = res.getString("created_at");
+                last_login = String.valueOf(res.getDate("last_login"));
+                profession = res.getString("profession");
+                login = true;
                 return true;
             }
         } catch (SQLException ex) {
@@ -58,9 +61,9 @@ public class client {
         }
         return false;
     }
-    
-   public static void createClient(String cin, String nom, String prenom, Date date_naissance, String address, String ville, String tel, String email, String password, String profession){
-        conn=Dao.getConnection();
+
+    public static void createClient(String cin, String nom, String prenom, Date date_naissance, String address, String ville, String tel, String email, String password, String profession) {
+        conn = Dao.getConnection();
         Date date = new Date();
         Date lastLogin;
         lastLogin = new java.sql.Date(date.getYear(), date.getMonth(), date.getDate());
@@ -68,22 +71,56 @@ public class client {
                 + "values (?,?,?,?,?,?,?,?,?,?,now())";
         try {
             PreparedStatement prep = conn.prepareStatement(req);
-            prep.setString(1,cin);
-            prep.setString(2,nom);
-            prep.setString(3,prenom);
+            prep.setString(1, cin);
+            prep.setString(2, nom);
+            prep.setString(3, prenom);
             prep.setDate(4, (java.sql.Date) date_naissance);
-            prep.setString(5,address);
-            prep.setString(6,ville);
-            prep.setString(7,tel);
-            prep.setString(8,email);
-            prep.setString(9,password);
-            prep.setString(10,profession);
+            prep.setString(5, address);
+            prep.setString(6, ville);
+            prep.setString(7, tel);
+            prep.setString(8, email);
+            prep.setString(9, password);
+            prep.setString(10, profession);
 
             prep.execute();
         } catch (SQLException ex) {
             System.err.println("probleme dans la requette d'ajouter un client !! " + ex.getMessage());
         }
-   }  
+    }
+
+    /**
+     * use to verify that a numcompte correspond to the tel entered
+     */
+    public boolean telCorrespondToNumCompte(String numcompte, String tel) {
+        String req = "select * from client cl,compte c where cl.cin=c.owner and c.numcompte=" + numcompte + " and cl.tel='0" + tel + "'";
+        try {
+            conn = Dao.getConnection();
+            Statement st = conn.createStatement();
+            ResultSet res = st.executeQuery(req);
+            if (res.next()) {
+                return true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(client.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+
+    public boolean cinExist(String cin) {
+        String req = "select * from client where cin ='" + cin + "'";
+        conn = Dao.getConnection();
+        try {
+            Statement st = conn.createStatement();
+            ResultSet res = st.executeQuery(req);
+            if (res.next()) {
+                return true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountManagement.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+
     /*public void passwordReset(int numcompte, String password) {
         String req = "update client set password='" + password + "' where cin=(select cin from compte where numcompte=" + numcompte + ")";
         try {
@@ -108,7 +145,7 @@ public class client {
 
         return false;
     }
-*/
+     */
     //i choose to seperate update methodes
     // every field in client has its own update methode
     //fields that can update are
@@ -120,8 +157,7 @@ public class client {
     /*public void updateNom(String cin) {
 
     }*/
-
-    public static boolean isLogin(){
+    public static boolean isLogin() {
         return login;
     }
 
@@ -174,11 +210,11 @@ public class client {
     }
 
     public static boolean setAdresse(String adresse) {
-        String req = "update client set adresse='" + adresse + "' where cin='"+cin+"'";
+        String req = "update client set adresse='" + adresse + "' where cin='" + cin + "'";
         try {
             Statement st = conn.createStatement();
             int res = st.executeUpdate(req);
-            if (res>0) {
+            if (res > 0) {
                 client.adresse = adresse;
                 return true;
             }
@@ -189,11 +225,11 @@ public class client {
     }
 
     public static boolean setVille(String ville) {
-        String req = "update client set ville='" + ville + "' where cin='"+cin+"'";
+        String req = "update client set ville='" + ville + "' where cin='" + cin + "'";
         try {
             Statement st = conn.createStatement();
             int res = st.executeUpdate(req);
-            if (res>0) {
+            if (res > 0) {
                 client.ville = ville;
                 return true;
             }
@@ -204,7 +240,7 @@ public class client {
     }
 
     public static boolean verifyPass(String pass) {
-        String req = "select cin from client where cin='"+cin+"' and password='"+pass+"'";
+        String req = "select cin from client where cin='" + cin + "' and password='" + pass + "'";
         try {
             Statement st = conn.createStatement();
             ResultSet res = st.executeQuery(req);
@@ -218,11 +254,11 @@ public class client {
     }
 
     public static boolean setPassword(String pass) {
-        String req = "update client set password='" + pass + "' where cin='"+cin+"'";
-        try{
+        String req = "update client set password='" + pass + "' where cin='" + cin + "'";
+        try {
             Statement st = conn.createStatement();
             int res = st.executeUpdate(req);
-            if (res>0) {
+            if (res > 0) {
                 return true;
             }
         } catch (SQLException ex) {
@@ -230,6 +266,5 @@ public class client {
         }
         return false;
     }
-    
-    
+
 }
