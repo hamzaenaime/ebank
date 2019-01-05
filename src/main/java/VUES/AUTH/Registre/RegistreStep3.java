@@ -6,6 +6,7 @@
 package VUES.AUTH.Registre;
 
 import MODELS.AccountManagement;
+import MODELS.client;
 import VUES.State;
 import java.sql.Date;
 import javax.swing.JOptionPane;
@@ -16,6 +17,7 @@ import javax.swing.JOptionPane;
  */
 public class RegistreStep3 extends javax.swing.JPanel {
 
+    client cl = new client();
     AccountManagement am = new AccountManagement();
 
     /**
@@ -224,7 +226,7 @@ public class RegistreStep3 extends javax.swing.JPanel {
             State.setAdresse(address.getText());
             State.setDate_naissance(new Date(y - 1900, DaytoNum(m) - 1, d));
             State.setProfession(profession.getText());
-            if (am.cinExist(cin.getText())) {
+            if (cl.cinExist(cin.getText())) {
                 JOptionPane.showMessageDialog(this, "Cin deja existe  !!", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
                 int code = (int) (Math.random() * 10000);

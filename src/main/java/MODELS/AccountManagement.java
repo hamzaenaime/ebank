@@ -19,8 +19,8 @@ import java.util.logging.Logger;
  */
 public class AccountManagement {
 
-    private static Connection connection;
-    private static Statement st;
+    private Connection connection;
+    private Statement st;
 
     public void createAccount(String cin, String nom, String prenom, java.sql.Date date_naissance, String address, String ville, String tel, String email, String password, String profession) {
 
@@ -45,22 +45,7 @@ public class AccountManagement {
         }*/
     }
 
-    public boolean cinExist(String cin) {
-        String req = "select * from client where cin ='" + cin + "'";
-        connection = Dao.getConnection();
-        try {
-            st = connection.createStatement();
-            ResultSet res = st.executeQuery(req);
-            if (res.next()) {
-                return true;
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(AccountManagement.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return false;
-    }
-
-    public static Boolean AccountExist(int numcompte) {
+    public Boolean AccountExist(String numcompte) {
         connection = Dao.getConnection();
         String req = "select * from compte where numcompte=" + numcompte;
         try {
@@ -76,7 +61,7 @@ public class AccountManagement {
         return false;
     }
 
-    public static float getSolde(String cin) {
+    public float getSolde(String cin) {
         connection = Dao.getConnection();
         String req = "select solde from compte where owner='" + cin + "'";
         try {
