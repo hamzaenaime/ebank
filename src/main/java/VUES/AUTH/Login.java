@@ -6,7 +6,6 @@
 package VUES.AUTH;
 
 import DAO.Dao;
-import VUES.AUTH.PasswordReset.*;
 import VUES.AUTH.Registre.RegistreStep1;
 import VUES.AUTH.Registre.RegistreStep2;
 import VUES.AUTH.Registre.RegistreStep3;
@@ -26,9 +25,7 @@ public class Login extends javax.swing.JFrame {
     private RegistreStep2 registreStep2 = new RegistreStep2();
     private RegistreStep3 registreStep3 = new RegistreStep3();
     //password reset's panels
-    private PasswordResetStep1 passwordResetStep1 = new PasswordResetStep1();
-    private PasswordResetStep2 passwordResetStep2 = new PasswordResetStep2();
-    private PasswordResetStep3 passwordResetStep3 = new PasswordResetStep3();
+    private PasswordReset passwordResetStep1 = new PasswordReset();
     //login panel
     private Connecter connecter = new Connecter();
     //current panel
@@ -546,8 +543,7 @@ public class Login extends javax.swing.JFrame {
 
     private void Button2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button2MouseClicked
         // TODO add your handling code here:
-        steps();
-        showSteps();
+        hideSteps();
         onClick(Button2);
         onLeaveClick(connect);
         onLeaveClick(Button3);
@@ -602,11 +598,7 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (step2.isEnabled()) {
             container.removeAll();
-            if (panel.equals("Registre")) {
-                container.add(registreStep2);
-            } else if (panel.equals("PasswordReset")) {
-                container.add(passwordResetStep2);
-            }
+            container.add(registreStep2);
             this.container.revalidate();
             this.container.repaint();
         }
@@ -616,11 +608,7 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (step3.isEnabled()) {
             container.removeAll();
-            if (panel.equals("Registre")) {
-                container.add(registreStep3);
-            } else if (panel.equals("PasswordReset")) {
-                container.add(passwordResetStep3);
-            }
+            container.add(registreStep3);
             this.container.revalidate();
             this.container.repaint();
         }
@@ -635,11 +623,8 @@ public class Login extends javax.swing.JFrame {
             labelShow("step2");
             labelShow("tostep3");
             container.removeAll();
-            if (panel.equals("Registre")) {
-                container.add(registreStep2);
-            } else if (panel.equals("PasswordReset")) {
-                container.add(passwordResetStep2);
-            }
+            container.add(registreStep2);
+
             this.container.revalidate();
             this.container.repaint();
         }
@@ -651,11 +636,7 @@ public class Login extends javax.swing.JFrame {
         if (registreStep2.codeValid()) {
             labelShow("step3");
             container.removeAll();
-            if (panel.equals("Registre")) {
-                container.add(registreStep3);
-            } else if (panel.equals("PasswordReset")) {
-                container.add(passwordResetStep3);
-            }
+            container.add(registreStep3);
             this.container.revalidate();
             this.container.repaint();
         }
@@ -664,7 +645,7 @@ public class Login extends javax.swing.JFrame {
 
     private void passwordResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordResetMouseClicked
         // TODO add your handling code here:
-        showSteps();
+        hideSteps();
         onClick(Button2);
         onLeaveClick(connect);
         onLeaveClick(Button3);
