@@ -70,8 +70,6 @@ public class Connecter extends javax.swing.JPanel implements ActionListener{
         jLabel2.setForeground(new java.awt.Color(96, 83, 150));
         jLabel2.setText("Mot de Passe");
 
-        numcompte.setBackground(new java.awt.Color(255, 255, 255));
-
         password.setEditable(false);
         password.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -87,6 +85,11 @@ public class Connecter extends javax.swing.JPanel implements ActionListener{
         seven.setBackground(new java.awt.Color(255, 255, 255));
         seven.setForeground(new java.awt.Color(96, 83, 150));
         seven.setText("7");
+        seven.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sevenActionPerformed(evt);
+            }
+        });
 
         heigth.setBackground(new java.awt.Color(255, 255, 255));
         heigth.setForeground(new java.awt.Color(96, 83, 150));
@@ -250,6 +253,10 @@ public class Connecter extends javax.swing.JPanel implements ActionListener{
             JOptionPane.showMessageDialog(this, "numero de compte ou mot de passe incorrect !!");
         }
     }//GEN-LAST:event_connecterMouseClicked
+
+    private void sevenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sevenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sevenActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton connecter;
