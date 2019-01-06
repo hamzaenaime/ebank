@@ -66,6 +66,9 @@ public class Accueil extends javax.swing.JFrame {
         Button5 = new javax.swing.JPanel();
         Indicator5 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
+        Button6 = new javax.swing.JPanel();
+        Indicator6 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
@@ -92,7 +95,7 @@ public class Accueil extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Button2.setBackground(new java.awt.Color(252, 230, 252));
-        Button2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Button2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Button2MouseClicked(evt);
@@ -139,7 +142,7 @@ public class Accueil extends javax.swing.JFrame {
         jPanel1.add(Button2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 227, 232, 50));
 
         Button1.setBackground(new java.awt.Color(205, 136, 205));
-        Button1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Button1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Button1MouseClicked(evt);
@@ -185,7 +188,7 @@ public class Accueil extends javax.swing.JFrame {
         jPanel1.add(Button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 175, 232, -1));
 
         Button3.setBackground(new java.awt.Color(252, 230, 252));
-        Button3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Button3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Button3MouseClicked(evt);
@@ -232,7 +235,7 @@ public class Accueil extends javax.swing.JFrame {
         jPanel1.add(Button3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 277, 232, 50));
 
         Button4.setBackground(new java.awt.Color(252, 230, 252));
-        Button4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Button4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Button4MouseClicked(evt);
@@ -315,7 +318,7 @@ public class Accueil extends javax.swing.JFrame {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 150, 37));
 
         Button5.setBackground(new java.awt.Color(252, 230, 252));
-        Button5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Button5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Button5MouseClicked(evt);
@@ -359,7 +362,54 @@ public class Accueil extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(Button5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 232, -1));
+        jPanel1.add(Button5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 232, -1));
+
+        Button6.setBackground(new java.awt.Color(252, 230, 252));
+        Button6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Button6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Button6MouseClicked(evt);
+            }
+        });
+
+        Indicator6.setBackground(new java.awt.Color(204, 0, 204));
+        Indicator6.setOpaque(false);
+
+        javax.swing.GroupLayout Indicator6Layout = new javax.swing.GroupLayout(Indicator6);
+        Indicator6.setLayout(Indicator6Layout);
+        Indicator6Layout.setHorizontalGroup(
+            Indicator6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 8, Short.MAX_VALUE)
+        );
+        Indicator6Layout.setVerticalGroup(
+            Indicator6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(96, 83, 150));
+        jLabel8.setText("Relevé Bancaire");
+
+        javax.swing.GroupLayout Button6Layout = new javax.swing.GroupLayout(Button6);
+        Button6.setLayout(Button6Layout);
+        Button6Layout.setHorizontalGroup(
+            Button6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Button6Layout.createSequentialGroup()
+                .addComponent(Indicator6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel8)
+                .addGap(0, 116, Short.MAX_VALUE))
+        );
+        Button6Layout.setVerticalGroup(
+            Button6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Indicator6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Button6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jPanel1.add(Button6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 450, 232, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 580));
 
@@ -386,7 +436,7 @@ public class Accueil extends javax.swing.JFrame {
         btn_close.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btn_close.setForeground(new java.awt.Color(255, 255, 255));
         btn_close.setText("X");
-        btn_close.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_close.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btn_close.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_closeMouseClicked(evt);
@@ -449,7 +499,7 @@ public class Accueil extends javax.swing.JFrame {
         jPanel4.add(solde, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 30, 10));
 
         jPanel3.setBackground(new java.awt.Color(253, 222, 249));
-        jPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel3MouseClicked(evt);
@@ -557,6 +607,7 @@ public class Accueil extends javax.swing.JFrame {
         onLeaveClick(Button3);
         onLeaveClick(Button4);
         onLeaveClick(Button5);
+        onLeaveClick(Button6);
 
         //indicators
         Indicator1.setOpaque(true);
@@ -564,6 +615,7 @@ public class Accueil extends javax.swing.JFrame {
         Indicator3.setOpaque(false);
         Indicator4.setOpaque(false);
         Indicator5.setOpaque(false);
+        Indicator6.setOpaque(false);
 
         show("home");
 
@@ -576,6 +628,7 @@ public class Accueil extends javax.swing.JFrame {
         onLeaveClick(Button3);
         onLeaveClick(Button4);
         onLeaveClick(Button5);
+        onLeaveClick(Button6);
 //        this.actionPerformed(e);
 
         //indicators
@@ -584,6 +637,7 @@ public class Accueil extends javax.swing.JFrame {
         Indicator3.setOpaque(false);
         Indicator4.setOpaque(false);
         Indicator5.setOpaque(false);
+        Indicator6.setOpaque(false);
 
         show("mail");
     }//GEN-LAST:event_Button2MouseClicked
@@ -595,12 +649,14 @@ public class Accueil extends javax.swing.JFrame {
         onLeaveClick(Button1);
         onLeaveClick(Button4);
         onLeaveClick(Button5);
+        onLeaveClick(Button6);
         //indicators
         Indicator1.setOpaque(false);
         Indicator2.setOpaque(false);
         Indicator3.setOpaque(true);
         Indicator4.setOpaque(false);
         Indicator5.setOpaque(false);
+        Indicator6.setOpaque(false);
 
         show("payment");
     }//GEN-LAST:event_Button3MouseClicked
@@ -612,12 +668,14 @@ public class Accueil extends javax.swing.JFrame {
         onLeaveClick(Button3);
         onLeaveClick(Button1);
         onLeaveClick(Button5);
+        onLeaveClick(Button6);
         //indicators
         Indicator1.setOpaque(false);
         Indicator2.setOpaque(false);
         Indicator3.setOpaque(false);
         Indicator5.setOpaque(false);
         Indicator4.setOpaque(true);
+        Indicator6.setOpaque(false);
 
         container.removeAll();
         this.container.add(new home());
@@ -668,12 +726,15 @@ public class Accueil extends javax.swing.JFrame {
         onLeaveClick(Button2);
         onLeaveClick(Button3);
         onLeaveClick(Button1);
+        onLeaveClick(Button6);
         //indicators
         Indicator1.setOpaque(false);
         Indicator2.setOpaque(false);
         Indicator3.setOpaque(false);
         Indicator4.setOpaque(false);
         Indicator5.setOpaque(true);
+        Indicator6.setOpaque(false);
+        
 
         container.removeAll();
         this.container.add(new reclamation());
@@ -682,6 +743,31 @@ public class Accueil extends javax.swing.JFrame {
 
         show("reclamation");
     }//GEN-LAST:event_Button5MouseClicked
+
+    private void Button6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button6MouseClicked
+        // TODO add your handling code here:
+        onClick(Button6);
+        onLeaveClick(Button4);
+        onLeaveClick(Button2);
+        onLeaveClick(Button3);
+        onLeaveClick(Button1);
+        onLeaveClick(Button5);
+        
+        //indicators
+        Indicator1.setOpaque(false);
+        Indicator2.setOpaque(false);
+        Indicator3.setOpaque(false);
+        Indicator4.setOpaque(false);
+        Indicator5.setOpaque(false);
+        Indicator6.setOpaque(true);
+        
+        container.removeAll();
+        this.container.add(new releve());
+        this.container.revalidate();
+        validate();
+
+        show("releve");
+    }//GEN-LAST:event_Button6MouseClicked
 
     int xx, xy;
 
@@ -719,6 +805,9 @@ public class Accueil extends javax.swing.JFrame {
         if (nom.equals("reclamation")) {
             panelToShow = new reclamation();
         }
+        if (nom.equals("releve")) {
+            panelToShow = new releve();
+        }
         this.container.add(panelToShow);
         this.container.revalidate();
         validate();
@@ -754,11 +843,13 @@ public class Accueil extends javax.swing.JFrame {
     private javax.swing.JPanel Button3;
     private javax.swing.JPanel Button4;
     private javax.swing.JPanel Button5;
+    private javax.swing.JPanel Button6;
     private javax.swing.JPanel Indicator1;
     private javax.swing.JPanel Indicator2;
     private javax.swing.JPanel Indicator3;
     private javax.swing.JPanel Indicator4;
     private javax.swing.JPanel Indicator5;
+    private javax.swing.JPanel Indicator6;
     private javax.swing.JLabel ad;
     private javax.swing.JLabel btn_close;
     private javax.swing.JPanel container;
@@ -771,6 +862,7 @@ public class Accueil extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
