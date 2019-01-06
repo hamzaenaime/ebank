@@ -26,10 +26,11 @@ public class Accueil extends javax.swing.JFrame {
         if(client.isLogin()){
         initComponents();
         new Dao();
+        AccountManagement am = new AccountManagement();
         container.setLayout(new FlowLayout());
         container.add(new home());
         name.setText("M. "+client.getPrenom()+" "+client.getNom());
-        solde.setText(String.valueOf(AccountManagement.getSolde(client.getCin())));
+        solde.setText(String.valueOf(am.getSolde(client.getCin())));
 //        jLabel6.setVisible(false);
         }else{
             new Login().setVisible(true);

@@ -40,7 +40,7 @@ public class testPdf {
             document.add(image2);
             
             
-            Paragraph title = new Paragraph("Histoire des opérations", FontFactory.getFont(FontFactory.COURIER, 30, Font.BOLD, new CMYKColor(200, 200, 0, 90)));
+            Paragraph title = new Paragraph("Historique des opérations", FontFactory.getFont(FontFactory.COURIER, 30, Font.BOLD, new CMYKColor(200, 200, 0, 90)));
             title.setAlignment(1);
             document.add(title);
             
@@ -49,7 +49,7 @@ public class testPdf {
             
             Paragraph NomP = new Paragraph("Nom et Prenom:\t"+"Hamaoui Ayoub", FontFactory.getFont(FontFactory.COURIER, 15));
             Paragraph NumC = new Paragraph("Numéro de compte:\t"+"CB25896", FontFactory.getFont(FontFactory.COURIER, 15));
-            Paragraph Periode = new Paragraph("Période"+"3 derniers mois", FontFactory.getFont(FontFactory.COURIER, 15));
+            Paragraph Periode = new Paragraph("Période:\t"+"3 derniers mois", FontFactory.getFont(FontFactory.COURIER, 15));
             
             document.add(NomP);
             document.add(NumC);
@@ -61,9 +61,10 @@ public class testPdf {
             /* Create table of operation
             *
             */            
-            PdfPTable table = new PdfPTable(4);
+            PdfPTable table = new PdfPTable(5);
             table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
             table.addCell("Date Operation");
+            table.addCell("Client");
             table.addCell("Libellé opeartion");
             table.addCell("Débit");
             table.addCell("Crédit");
@@ -75,6 +76,7 @@ public class testPdf {
             Date date = new Date();
             for (int i=1;i<20;i++){
                 table.addCell(date.toString());
+                table.addCell("Hamaoui Ayoub");
                 table.addCell("Virement"+i);
                 table.addCell("0");
                 table.addCell(Float.toString((float) (100.5+i*4)));
