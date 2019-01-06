@@ -43,6 +43,9 @@ public class MailBoxLayer {
         return response.toString();
     }
 
+    /**
+     * return true if email exist , false if not
+     */
     public boolean checkSMTP(String email) {
         JSONObject res;
         try {
