@@ -247,10 +247,10 @@ public class Connecter extends javax.swing.JPanel implements ActionListener{
     private void connecterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_connecterMouseClicked
         // TODO add your handling code here:
         if (client.login(numcompte.getText(), pass)) {
-            JOptionPane.showMessageDialog(this, "Connected !!");
+            //JOptionPane.showMessageDialog(this, "Connected !!");
             new Accueil().setVisible(true);
         } else {
-            JOptionPane.showMessageDialog(this, "numero de compte ou mot de passe incorrect !!");
+            JOptionPane.showMessageDialog(this, "Error, numero de compte ou mot de passe incorrect");
         }
     }//GEN-LAST:event_connecterMouseClicked
 
