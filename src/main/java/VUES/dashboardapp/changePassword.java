@@ -5,7 +5,7 @@
  */
 package VUES.dashboardapp;
 
-import MODELS.client;
+import MODELS.Client;
 import javax.swing.JOptionPane;
 
 /**
@@ -140,11 +140,11 @@ public class changePassword extends javax.swing.JPanel {
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
         if(!oldPass.getText().isEmpty() && !cPass.getText().isEmpty() && !newPass.getText().isEmpty()){
-            if(client.verifyPass(oldPass.getText())){
+            if(Client.verifyPass(oldPass.getText())){
                 //old password is valide
                 if(newPass.getText().equals(cPass.getText())){
                     //set the new pass
-                    if(client.setPassword(newPass.getText())){
+                    if(Client.setPassword(newPass.getText())){
                         //password updated successfully
                         JOptionPane.showMessageDialog(this, "Votre mot de passe a été modifiée","",JOptionPane.WARNING_MESSAGE);
                     }else{

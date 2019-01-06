@@ -6,8 +6,8 @@
 package VUES.dashboardapp;
 
 import MODELS.Operation;
-import MODELS.client;
-import MODELS.releveBancaire;
+import MODELS.Client;
+import MODELS.ReleveBancaire;
 import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.DocumentException;
 import java.awt.Dimension;
@@ -115,13 +115,13 @@ public class releve extends javax.swing.JPanel{
         // TODO add your handling code here:
         
         try {
-            releveBancaire relv = new releveBancaire();
+            ReleveBancaire relv = new ReleveBancaire();
             LocalDate date = LocalDate.now();
-            this.path = this.path+date.getDayOfMonth()+"_"+date.getMonth()+"_"+date.getYear()+"_"+client.getNom()+"_"+client.getPrenom()+".pdf";
+            this.path = this.path+date.getDayOfMonth()+"_"+date.getMonth()+"_"+date.getYear()+"_"+Client.getNom()+"_"+Client.getPrenom()+".pdf";
             //System.out.println("PATH:\t"+path);
             Operation operations = new Operation();
             try {
-                relv.GeneratePDF(path,client.getNom()+" "+client.getPrenom(),client.getCin(),operations);
+                relv.GeneratePDF(path,Client.getNom()+" "+Client.getPrenom(),Client.getCin(),operations);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
             } catch (BadElementException ex) {

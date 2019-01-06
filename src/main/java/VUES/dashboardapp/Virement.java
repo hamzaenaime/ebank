@@ -5,7 +5,7 @@
  */
 package VUES.dashboardapp;
 
-import MODELS.AccountManagement;
+import MODELS.Account;
 import MODELS.Operation;
 import javax.swing.JOptionPane;
 
@@ -126,14 +126,13 @@ public class Virement extends javax.swing.JPanel {
 
     private void validerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_validerMouseClicked
         // TODO add your handling code here:
-        AccountManagement accM = new AccountManagement();
-        if(!num.getText().isEmpty() && accM.AccountExist(num.getText())){
+        if(!num.getText().isEmpty() && Account.AccountExist(num.getText())){
             if(!mnt.getText().isEmpty() && Float.parseFloat(mnt.getText())>=0){
                 if(!motif.getText().isEmpty()){
                     //tous les données sont valides
                     //verifier que le client à le solde pour effectuer le virement
                     if(1==1){//if le client a le solde on finalise l'operation
-                        Operation.createOperation(num.getText(), motif.getText(), Float.parseFloat(mnt.getText()));
+                        Operation.createOperation(Integer.parseInt(num.getText()), motif.getText(), Float.parseFloat(mnt.getText()));
                         JOptionPane.showMessageDialog( this, "Virement effectué","Opération terminée", JOptionPane.ERROR_MESSAGE);    
                         
                     }else{

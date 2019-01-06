@@ -34,7 +34,7 @@ import java.util.Date;
  *
  * @author dell
  */
-public class releveBancaire {
+public class ReleveBancaire {
     private ResultSet Res;
     
     public void GeneratePDF(String path,String NomPrenom,String cin,Operation operations) throws FileNotFoundException, DocumentException, BadElementException, IOException, SQLException{

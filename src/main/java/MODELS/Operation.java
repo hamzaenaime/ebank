@@ -24,7 +24,7 @@ public class Operation {
         String req = "insert into operation (id_client,id_compte,description,montant) values (?,?,?,?)";
         try {
             PreparedStatement prep = conn.prepareStatement(req);
-            prep.setString(1, client.getCin());
+            prep.setString(1, Client.getCin());
             prep.setInt(2, compte);
             prep.setString(3, motif);
             prep.setFloat(4, montant);
