@@ -5,8 +5,8 @@
  */
 package VUES.AUTH.Registre;
 
-import MODELS.AccountManagement;
-import MODELS.client;
+import MODELS.Account;
+import MODELS.Client;
 import VUES.State;
 import java.sql.Date;
 import javax.swing.JOptionPane;
@@ -17,8 +17,8 @@ import javax.swing.JOptionPane;
  */
 public class RegistreStep3 extends javax.swing.JPanel {
 
-    client cl = new client();
-    AccountManagement am = new AccountManagement();
+    Client cl = new Client();
+    Account am = new Account();
 
     /**
      * Creates new form RegistreStep3

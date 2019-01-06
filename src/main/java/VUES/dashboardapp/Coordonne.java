@@ -5,7 +5,7 @@
  */
 package VUES.dashboardapp;
 
-import MODELS.client;
+import MODELS.Client;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,12 +20,12 @@ public class Coordonne extends javax.swing.JPanel {
     public Coordonne() {
         initComponents();
         nom.setEditable(false);
-        nom.setText(client.getNom()+" "+client.getPrenom());
-        adresse.setText(client.getAdresse());
-        ville.setText(client.getVille());
-        phone.setText(client.getTel());
+        nom.setText(Client.getNom()+" "+Client.getPrenom());
+        adresse.setText(Client.getAdresse());
+        ville.setText(Client.getVille());
+        phone.setText(Client.getTel());
         phone.setEditable(false);
-        email.setText(client.getEmail());
+        email.setText(Client.getEmail());
         email.setEditable(false);
     }
 
@@ -174,8 +174,8 @@ public class Coordonne extends javax.swing.JPanel {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        if(!adresse.getText().isEmpty() && !adresse.getText().equals(client.getAdresse()) ){
-            if(client.setAdresse(adresse.getText())){
+        if(!adresse.getText().isEmpty() && !adresse.getText().equals(Client.getAdresse()) ){
+            if(Client.setAdresse(adresse.getText())){
                 JOptionPane.showMessageDialog(this, "Votre adresse a été modifiée");
                 new Coordonne().setVisible(true);
             }
@@ -184,8 +184,8 @@ public class Coordonne extends javax.swing.JPanel {
             }
         }
         
-        if(!ville.getText().isEmpty() && !ville.getText().equals(client.getVille())){
-            if(client.setAdresse(adresse.getText()) && client.setVille(ville.getText())){
+        if(!ville.getText().isEmpty() && !ville.getText().equals(Client.getVille())){
+            if(Client.setAdresse(adresse.getText()) && Client.setVille(ville.getText())){
                 JOptionPane.showMessageDialog(this, "Votre ville a été modifiée");
                 new Coordonne().setVisible(true);
             }

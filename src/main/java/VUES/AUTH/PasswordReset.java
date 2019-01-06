@@ -5,8 +5,8 @@
  */
 package VUES.AUTH;
 
-import MODELS.AccountManagement;
-import MODELS.client;
+import MODELS.Account;
+import MODELS.Client;
 import VUES.State;
 
 /**
@@ -18,8 +18,8 @@ public class PasswordReset extends javax.swing.JPanel {
     /**
      * Creates new form PasswordResetStep1
      */
-    private final client cl = new client();
-    private final AccountManagement am = new AccountManagement();
+    private final Client cl = new Client();
+    private final Account am = new Account();
 
     public PasswordReset() {
         initComponents();

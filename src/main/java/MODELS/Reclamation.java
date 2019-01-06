@@ -23,7 +23,7 @@ public class Reclamation {
         String req = "insert into reclamation (owner,objet,description) values (?,?,?)";
         try {
             PreparedStatement prep = conn.prepareStatement(req);
-            prep.setString(1, client.getCin());
+            prep.setString(1, Client.getCin());
             prep.setString(2, objet);
             prep.setString(3, desc);
             int action=prep.executeUpdate();

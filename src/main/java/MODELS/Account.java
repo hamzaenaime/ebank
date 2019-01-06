@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  *
  * @author hamza
  */
-public class AccountManagement {
+public class Account {
 
     private static Connection connection;
     private static Statement st;
@@ -25,7 +25,7 @@ public class AccountManagement {
     public void createAccount(String cin, String nom, String prenom, java.sql.Date date_naissance, String address, String ville, String tel, String email, String password, String profession) {
 
         // note that we've to add the numCompte to our database /* important */
-        client.createClient(cin, nom, prenom, date_naissance, address, ville, tel, email, password, profession);
+        Client.createClient(cin, nom, prenom, date_naissance, address, ville, tel, email, password, profession);
 
         connection = Dao.getConnection();
 
@@ -55,7 +55,7 @@ public class AccountManagement {
                 return true;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(AccountManagement.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Account.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return false;
@@ -63,7 +63,7 @@ public class AccountManagement {
 
     public float getSolde(String cin) {
         connection = Dao.getConnection();
-        String req = "select solde from compte where owner='" + cin + "'";
+        String req = "select solde from compte where id_client='" + cin + "'";
         try {
             st = connection.createStatement();
             ResultSet res = st.executeQuery(req);
@@ -71,7 +71,7 @@ public class AccountManagement {
                 return res.getFloat(1);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(AccountManagement.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Account.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return 0;

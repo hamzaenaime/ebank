@@ -19,40 +19,37 @@ import java.util.logging.Logger;
  *
  * @author nafar
  */
-public class client {
+public class Personne {
+    protected static String cin;
+    protected static String nom;
+    protected static String prenom;
+    protected static String date_naissance;
+    protected static String address;
+    protected static String ville;
+    protected static String tel;
+    protected static String email;
+    protected static String date_creation;
+    protected static String last_login;
+    protected static Connection conn;
+    protected static boolean login;
 
-    private static String cin;
-    private static String nom;
-    private static String prenom;
-    private static String date_naissance;
-    private static String adresse;
-    private static String ville;
-    private static String tel;
-    private static String email;
-    private static String created_at;
-    private static String last_login;
-    private static String profession;
-    private static Connection conn;
-    private static boolean login;
-
-    public static boolean login(String numAccount, String password) {
+    public static boolean login(String id, String password){
         try {
             conn = Dao.getConnection();
             Statement p = conn.createStatement();
-            String req = "select * from client cl inner join compte cm on cl.cin=cm.owner where numcompte='" + numAccount + "' and password='" + password + "'";
+            String req = "select * from personne where cin='"+id+"'and password='"+password+"'";
             ResultSet res = p.executeQuery(req);
             if (res.next()) {
                 cin = res.getString("cin");
                 nom = res.getString("nom");
                 prenom = res.getString("prenom");
                 date_naissance = res.getString("date_naissance");
-                adresse = res.getString("adresse");
+                address = res.getString("address");
                 ville = res.getString("ville");
                 tel = res.getString("tel");
                 email = res.getString("email");
-                created_at = res.getString("created_at");
+                date_creation = res.getString("date_creation");
                 last_login = String.valueOf(res.getDate("last_login"));
-                profession = res.getString("profession");
                 login = true;
                 return true;
             }
@@ -88,24 +85,6 @@ public class client {
         }
     }
 
-    /**
-     * use to verify that a numcompte correspond to the tel entered
-     */
-    public boolean telCorrespondToNumCompte(String numcompte, String tel) {
-        String req = "select * from client cl,compte c where cl.cin=c.owner and c.numcompte=" + numcompte + " and cl.tel='0" + tel + "'";
-        try {
-            conn = Dao.getConnection();
-            Statement st = conn.createStatement();
-            ResultSet res = st.executeQuery(req);
-            if (res.next()) {
-                return true;
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(client.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return false;
-    }
-
     public boolean cinExist(String cin) {
         String req = "select * from client where cin ='" + cin + "'";
         conn = Dao.getConnection();
@@ -116,13 +95,13 @@ public class client {
                 return true;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(AccountManagement.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Account.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
     }
 
     /*public void passwordReset(int numcompte, String password) {
-        String req = "update client set password='" + password + "' where cin=(select cin from compte where numcompte=" + numcompte + ")";
+        String req = "update Client set password='" + password + "' where cin=(select cin from compte where numcompte=" + numcompte + ")";
         try {
             st = connection.createStatement();
             st.executeUpdate(req);
@@ -132,7 +111,7 @@ public class client {
     }   
 
     public Boolean cinExist(String cin) {
-        String req = "select * from client where cin='" + cin + "'";
+        String req = "select * from Client where cin='" + cin + "'";
         try {
             st = connection.createStatement();
             ResultSet res = st.executeQuery(req);
@@ -140,14 +119,14 @@ public class client {
                 return true;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(AccountManagement.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Account.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return false;
     }
      */
     //i choose to seperate update methodes
-    // every field in client has its own update methode
+    // every field in Client has its own update methode
     //fields that can update are
     /*
         nom prenom date_naissance address ville tel email password profession
@@ -178,7 +157,7 @@ public class client {
     }
 
     public static String getAdresse() {
-        return adresse;
+        return address;
     }
 
     public static String getVille() {
@@ -194,28 +173,24 @@ public class client {
     }
 
     public static String getCreated_at() {
-        return created_at;
+        return date_creation;
     }
 
     public static String getLast_login() {
         return last_login;
     }
 
-    public static String getProfession() {
-        return profession;
-    }
-
     public static Connection getConn() {
         return conn;
     }
 
-    public static boolean setAdresse(String adresse) {
-        String req = "update client set adresse='" + adresse + "' where cin='" + cin + "'";
+    public static boolean setAdresse(String address) {
+        String req = "update client set address='" + address + "' where cin='" + cin + "'";
         try {
             Statement st = conn.createStatement();
             int res = st.executeUpdate(req);
             if (res > 0) {
-                client.adresse = adresse;
+                Client.address = address;
                 return true;
             }
         } catch (SQLException ex) {
@@ -230,7 +205,7 @@ public class client {
             Statement st = conn.createStatement();
             int res = st.executeUpdate(req);
             if (res > 0) {
-                client.ville = ville;
+                Client.ville = ville;
                 return true;
             }
         } catch (SQLException ex) {
@@ -266,5 +241,6 @@ public class client {
         }
         return false;
     }
+
 
 }
