@@ -36,6 +36,15 @@ public class Operation {
         }
     }
     
+    private Connection Con;
+    private Statement St;
+    private Dao dao;
+    
+     public Operation(){
+        dao =   new Dao();
+        Con =   dao.getConnection();
+    }
+    
     public static ResultSet getAllOperation(){
         Connection con = Dao.getConnection();
         try 
@@ -50,5 +59,20 @@ public class Operation {
         {
             return null ;
         }
+    }
+    
+    public ResultSet All_Operations(String id){
+        ResultSet Res;
+        Connection con = Dao.getConnection();
+        try{
+            St = Con.createStatement();
+            St=con.createStatement();
+            Res=St.executeQuery("Select * from operation where id_client ="+"'"+id+"'");
+            return Res;
+        }catch(SQLException ex){
+            System.err.println("Erreur de la req select ou st "+ex.getMessage());
+            return null;
+        }
+        
     }
 }
