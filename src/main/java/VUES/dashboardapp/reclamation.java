@@ -5,6 +5,9 @@
  */
 package VUES.dashboardapp;
 
+import MODELS.Reclamation;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author nafar
@@ -27,23 +30,28 @@ public class reclamation extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField2 = new javax.swing.JTextField();
+        objet = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        description = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         send = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        description.setColumns(20);
+        description.setRows(5);
+        jScrollPane1.setViewportView(description);
 
         jLabel1.setText("Objet");
 
         jLabel2.setText("Description");
 
         send.setText("Envoyer");
+        send.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sendMouseClicked(evt);
+            }
+        });
 
         jLabel3.setText("Réclamation");
 
@@ -66,7 +74,7 @@ public class reclamation extends javax.swing.JPanel {
                         .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(objet, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(127, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -76,7 +84,7 @@ public class reclamation extends javax.swing.JPanel {
                 .addComponent(jLabel3)
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(objet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,14 +96,29 @@ public class reclamation extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void sendMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sendMouseClicked
+        // TODO add your handling code here:
+        String objetTxt=objet.getText();
+        String desc=description.getText();
+        
+        if(!objetTxt.isEmpty() && !desc.isEmpty()){
+            if(Reclamation.create(objetTxt, desc))
+                JOptionPane.showMessageDialog( this, "votre demande a bien été prise en compte","Réclamation envoyée",JOptionPane.ERROR_MESSAGE);
+            else JOptionPane.showMessageDialog( this, "Echec de l'envoie de votre réclamation","Echec de l'envoie",JOptionPane.ERROR_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog( this, "L'ebjet et la desciption ne peuvent pas être vide","Invalide input",JOptionPane.ERROR_MESSAGE);
+
+        }
+    }//GEN-LAST:event_sendMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea description;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField objet;
     private javax.swing.JButton send;
     // End of variables declaration//GEN-END:variables
 }
