@@ -5,11 +5,22 @@
  */
 package VUES.dashboardapp;
 
+import MODELS.Operation;
+import MODELS.client;
+import MODELS.releveBancaire;
+import com.itextpdf.text.BadElementException;
+import com.itextpdf.text.DocumentException;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 
@@ -39,6 +50,7 @@ public class releve extends javax.swing.JPanel{
 
         go = new javax.swing.JButton();
         txtPath = new javax.swing.JTextField();
+        btnGenerate = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -56,15 +68,25 @@ public class releve extends javax.swing.JPanel{
             }
         });
 
+        btnGenerate.setText("Générer");
+        btnGenerate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerateActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(go)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtPath, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnGenerate, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(go)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtPath, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(269, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -74,7 +96,9 @@ public class releve extends javax.swing.JPanel{
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(go, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPath, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(281, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnGenerate, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(224, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -87,8 +111,34 @@ public class releve extends javax.swing.JPanel{
         
     }//GEN-LAST:event_txtPathActionPerformed
 
+    private void btnGenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateActionPerformed
+        // TODO add your handling code here:
+        
+        try {
+            releveBancaire relv = new releveBancaire();
+            LocalDate date = LocalDate.now();
+            this.path = this.path+date.getDayOfMonth()+"_"+date.getMonth()+"_"+date.getYear()+"_"+client.getNom()+"_"+client.getPrenom()+".pdf";
+            //System.out.println("PATH:\t"+path);
+            Operation operations = new Operation();
+            try {
+                relv.GeneratePDF(path,client.getNom()+" "+client.getPrenom(),client.getCin(),operations);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (BadElementException ex) {
+                Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (DocumentException ex) {
+            Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnGenerateActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGenerate;
     private javax.swing.JButton go;
     private javax.swing.JTextField txtPath;
     // End of variables declaration//GEN-END:variables
@@ -109,7 +159,7 @@ public class releve extends javax.swing.JPanel{
         if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) { 
             //System.out.println("getCurrentDirectory(): "+  chooser.getCurrentDirectory());
             //System.out.println("getSelectedFile() : "+  chooser.getSelectedFile());
-            this.setPath(chooser.getSelectedFile().toString());
+            this.setPath(chooser.getSelectedFile().toString()+"\\");
             System.out.println("Path:"+this.getPath());
         }
         else {
