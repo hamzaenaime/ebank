@@ -7,6 +7,7 @@ package MODELS;
 
 import DAO.Dao;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -16,6 +17,24 @@ import java.sql.Statement;
  * @author nafar
  */
 public class Operation {
+   private static Connection conn;
+    
+    public static boolean createOperation(int compte, String motif, float montant){
+        conn = Dao.getConnection();
+        String req = "insert into operation (id_client,id_compte,description,montant) values (?,?,?,?)";
+        try {
+            PreparedStatement prep = conn.prepareStatement(req);
+            prep.setString(1, client.getCin());
+            prep.setInt(2, compte);
+            prep.setString(3, motif);
+            prep.setFloat(4, montant);
+
+            int action=prep.executeUpdate();
+            return action > 0;           
+        } catch (SQLException ex) {
+            return false;
+        }
+    }
     
     public static ResultSet getAllOperation(){
         Connection con = Dao.getConnection();

@@ -19,8 +19,8 @@ import java.util.logging.Logger;
  */
 public class AccountManagement {
 
-    private Connection connection;
-    private Statement st;
+    private static Connection connection;
+    private static Statement st;
 
     public void createAccount(String cin, String nom, String prenom, java.sql.Date date_naissance, String address, String ville, String tel, String email, String password, String profession) {
 
@@ -45,7 +45,7 @@ public class AccountManagement {
         }*/
     }
 
-    public Boolean AccountExist(String numcompte) {
+    public static Boolean AccountExist(String numcompte) {
         connection = Dao.getConnection();
         String req = "select * from compte where numcompte=" + numcompte;
         try {
