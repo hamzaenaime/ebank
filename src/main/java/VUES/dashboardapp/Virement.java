@@ -125,7 +125,8 @@ public class Virement extends javax.swing.JPanel {
 
     private void validerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_validerMouseClicked
         // TODO add your handling code here:
-        if(AccountManagement.AccountExist(Integer.parseInt(num.getText()))){
+        AccountManagement accM = new AccountManagement();
+        if(accM.AccountExist(num.getText())){
             if(Float.parseFloat(mnt.getText())>=0){
                 if(!motif.getText().isEmpty()){
                     //tous les données sont valides
