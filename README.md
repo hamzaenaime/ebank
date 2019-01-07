@@ -2,6 +2,7 @@
 
 # Ebank
 
+My Digital E-Bank
 
 ## Description
 a school's project made with java/swing.
