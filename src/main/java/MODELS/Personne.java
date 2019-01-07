@@ -62,9 +62,6 @@ public class Personne {
 
     public static void createPersonne(String cin, String nom, String prenom, java.sql.Date date_naissance, String address, String ville, String tel, String email, String password, String profession) {
         conn = Dao.getConnection();
-        Date date = new Date();
-        Date lastLogin;
-        lastLogin = new java.sql.Date(date.getYear(), date.getMonth(), date.getDate());
         String req = "insert into personne (cin,nom,prenom,date_naissance,address,ville,tel,email,password,last_login)"
                 + "values (?,?,?,?,?,?,?,?,?,now())";
         try {
@@ -132,7 +129,7 @@ public class Personne {
     }
 
     public static boolean cinExist(String cin){
-        String req = "select * from client where cin ='" + cin + "'";
+        String req = "select * from Personne where cin ='" + cin + "'";
         conn = Dao.getConnection();
         try {
             st = conn.createStatement();
@@ -231,7 +228,7 @@ public class Personne {
     }
 
     public static boolean setAdresse(String address) {
-        String req = "update client set address='" + address + "' where cin='" + cin + "'";
+        String req = "update Personne set address='" + address + "' where cin='" + cin + "'";
         try {
             Statement st = conn.createStatement();
             int res = st.executeUpdate(req);
@@ -239,14 +236,14 @@ public class Personne {
                 Client.address = address;
                 return true;
             }
+            return false;
         } catch (SQLException ex) {
             return false;
         }
-        return false;
     }
 
     public static boolean setVille(String ville) {
-        String req = "update client set ville='" + ville + "' where cin='" + cin + "'";
+        String req = "update Personne set ville='" + ville + "' where cin='" + cin + "'";
         try {
             Statement st = conn.createStatement();
             int res = st.executeUpdate(req);
@@ -261,7 +258,7 @@ public class Personne {
     }
 
     public static boolean verifyPass(String pass) {
-        String req = "select cin from client where cin='" + cin + "' and password='" + pass + "'";
+        String req = "select cin from Personne where cin='" + cin + "' and password='" + pass + "'";
         try {
             Statement st = conn.createStatement();
             ResultSet res = st.executeQuery(req);
@@ -275,7 +272,7 @@ public class Personne {
     }
 
     public static boolean setPassword(String pass) {
-        String req = "update client set password='" + pass + "' where cin='" + cin + "'";
+        String req = "update Personne set password='" + pass + "' where cin='" + cin + "'";
         try {
             Statement st = conn.createStatement();
             int res = st.executeUpdate(req);
