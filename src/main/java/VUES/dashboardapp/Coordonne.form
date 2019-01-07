@@ -29,17 +29,12 @@
                       </Group>
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="phone" pref="128" max="32767" attributes="0"/>
-                                      <Component id="ville" pref="128" max="32767" attributes="0"/>
-                                      <Component id="nom" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="email" min="-2" pref="197" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="phone" pref="128" max="32767" attributes="0"/>
+                              <Component id="ville" pref="128" max="32767" attributes="0"/>
+                              <Component id="nom" max="32767" attributes="0"/>
                           </Group>
+                          <Component id="email" min="-2" pref="197" max="-2" attributes="0"/>
                           <Component id="adresse" max="32767" attributes="0"/>
                       </Group>
                   </Group>
