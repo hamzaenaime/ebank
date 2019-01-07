@@ -21,4 +21,15 @@ import java.util.logging.Logger;
  */
 public class Client extends Personne{
     
+    public static void createClient(String cin, String nom, String prenom, java.sql.Date date_naissance, String address, String ville, String tel, String email, String password, String profession) {
+        
+        createPersonne(cin, nom, prenom, date_naissance, address, ville, tel, email, password, profession);
+        try {
+            st = conn.createStatement();
+            st.executeUpdate("insert into client values id='"+cin+"'");
+        } catch (SQLException ex) {
+            System.err.println("probleme dans la requette d'ajouter un client !! " + ex.getMessage());
+        }        
+    }
+    
 }

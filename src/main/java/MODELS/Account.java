@@ -21,28 +21,21 @@ public class Account {
 
     private static Connection connection;
     private static Statement st;
+    private static int numAccount;
 
-    public void createAccount(String cin, String nom, String prenom, java.sql.Date date_naissance, String address, String ville, String tel, String email, String password, String profession) {
-
-        // note that we've to add the numCompte to our database /* important */
-        Client.createClient(cin, nom, prenom, date_naissance, address, ville, tel, email, password, profession);
-
+    public static boolean createAccount() {
         connection = Dao.getConnection();
-
-        String req = "insert into compte(owner) values('" + cin + "',0)";
         try {
             st = connection.createStatement();
-            st.executeUpdate(req);
+            ResultSet res = st.executeQuery("insert into compte default values RETURNING numcompte");
+            if(res.next()){
+                numAccount = res.getInt(1);
+                return true;
+            }
+            return false;
         } catch (SQLException ex) {
-            System.err.println("Echec de création de compte " + ex.getMessage());
+            return false;
         }
-        /*String req3 = "insert into comptecourant values(0)";
-        try {
-            st = connection.createStatement();
-            st.executeUpdate(req3);
-        } catch (SQLException ex) {
-            System.err.println("probleme dans la requette d'ajouter un compte courant !! " + ex.getMessage());
-        }*/
     }
 
     public static Boolean AccountExist(String numcompte) {
@@ -60,6 +53,15 @@ public class Account {
 
         return false;
     }
+
+    public static void associate(String cin) {
+        try {
+            st = connection.createStatement();
+            st.executeUpdate("insert into assoc_compte_client (numcompte,id_client) values('"+numAccount+"','"+cin+"')");
+        } catch (SQLException ex) {
+                System.err.println("probleme dans la requette d'ajouter un compte courant !! " + ex.getMessage());
+            }
+        }
 
     public float getSolde(String cin) {
         connection = Dao.getConnection();

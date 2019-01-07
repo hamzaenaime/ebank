@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package VUES.dashboardapp;
+package VUES.DashboardEmploye;
 
 import DAO.Dao;
 import MODELS.Account;
@@ -24,9 +24,9 @@ public class Accueil extends javax.swing.JFrame {
      * Creates new form Home
      */
     public Accueil() {
-        new Dao();
         if(Personne.isLogin()){
         initComponents();
+        new Dao();
         Account am = new Account();
         container.setLayout(new FlowLayout());
         container.add(new home());
@@ -169,7 +169,7 @@ public class Accueil extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(96, 83, 150));
-        jLabel1.setText("Mes Operations");
+        jLabel1.setText("Opérations effectuées");
 
         javax.swing.GroupLayout Button1Layout = new javax.swing.GroupLayout(Button1);
         Button1.setLayout(Button1Layout);
@@ -179,7 +179,7 @@ public class Accueil extends javax.swing.JFrame {
                 .addComponent(Indicator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addGap(0, 119, Short.MAX_VALUE))
+                .addGap(0, 81, Short.MAX_VALUE))
         );
         Button1Layout.setVerticalGroup(
             Button1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -451,6 +451,7 @@ public class Accueil extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Dernière connexion :");
 
+        last_login.setForeground(new java.awt.Color(255, 255, 255));
         last_login.setText("jLabel12");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
@@ -458,11 +459,11 @@ public class Accueil extends javax.swing.JFrame {
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(last_login)
-                .addGap(109, 109, 109)
+                .addGap(460, 460, 460)
+                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(31, 31, 31)
+                .addComponent(last_login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(242, 242, 242)
                 .addComponent(btn_close, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -471,10 +472,10 @@ public class Accueil extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_close, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(last_login)))
+                        .addComponent(jLabel11)
+                        .addComponent(last_login))
+                    .addComponent(btn_close, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -566,7 +567,7 @@ public class Accueil extends javax.swing.JFrame {
 
         jLabel6.setToolTipText("");
 
-        jLabel10.setText("You are login as client");
+        jLabel10.setText("You are login as employee");
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
@@ -580,7 +581,7 @@ public class Accueil extends javax.swing.JFrame {
                     .addGroup(jPanel15Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel10)))
-                .addGap(170, 170, 170)
+                .addGap(262, 262, 262)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -602,7 +603,7 @@ public class Accueil extends javax.swing.JFrame {
                     .addGroup(jPanel15Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addComponent(jLabel6)
-                        .addGap(17, 17, 17)
+                        .addGap(11, 11, 11)
                         .addComponent(jLabel10)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -779,7 +780,7 @@ public class Accueil extends javax.swing.JFrame {
         onLeaveClick(Button3);
         onLeaveClick(Button1);
         onLeaveClick(Button5);
-
+        
         //indicators
         Indicator1.setOpaque(false);
         Indicator2.setOpaque(false);
@@ -787,7 +788,7 @@ public class Accueil extends javax.swing.JFrame {
         Indicator4.setOpaque(false);
         Indicator5.setOpaque(false);
         Indicator6.setOpaque(true);
-
+        
         container.removeAll();
         this.container.add(new releve());
         this.container.revalidate();
@@ -829,14 +830,12 @@ public class Accueil extends javax.swing.JFrame {
             panelToShow = new changePassword();
         }
 
-        if(nom.equals("reclamation")) {
+        if (nom.equals("reclamation")) {
             panelToShow = new reclamation();
         }
-        
-        if(nom.equals("releve")){
+        if (nom.equals("releve")) {
             panelToShow = new releve();
         }
-        
         this.container.add(panelToShow);
         this.container.revalidate();
         validate();

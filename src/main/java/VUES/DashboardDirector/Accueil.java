@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package VUES.dashboardapp;
+package VUES.DashboardDirector;
 
+import VUES.DashboardEmploye.*;
+import VUES.dashboardapp.*;
 import DAO.Dao;
 import MODELS.Account;
 import MODELS.Client;
@@ -24,16 +26,16 @@ public class Accueil extends javax.swing.JFrame {
      * Creates new form Home
      */
     public Accueil() {
-        new Dao();
         if(Personne.isLogin()){
         initComponents();
+        new Dao();
         Account am = new Account();
         container.setLayout(new FlowLayout());
         container.add(new home());
         name.setText("M. "+Client.getPrenom()+" "+Client.getNom());
         solde.setText(String.valueOf(am.getSolde(Client.getCin())));
-        last_login.setText(Client.getLast_login());
         //jLabel6.setVisible(false);
+        last_login.setText(Client.getLast_login());
         }else{
             new Login().setVisible(true);
         }
@@ -458,11 +460,11 @@ public class Accueil extends javax.swing.JFrame {
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(423, 423, 423)
+                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(last_login)
-                .addGap(109, 109, 109)
+                .addGap(191, 191, 191)
                 .addComponent(btn_close, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -471,10 +473,10 @@ public class Accueil extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_close, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(last_login)))
+                        .addComponent(jLabel11)
+                        .addComponent(last_login))
+                    .addComponent(btn_close, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -566,7 +568,7 @@ public class Accueil extends javax.swing.JFrame {
 
         jLabel6.setToolTipText("");
 
-        jLabel10.setText("You are login as client");
+        jLabel10.setText("You are login as director");
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
@@ -602,7 +604,7 @@ public class Accueil extends javax.swing.JFrame {
                     .addGroup(jPanel15Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addComponent(jLabel6)
-                        .addGap(17, 17, 17)
+                        .addGap(13, 13, 13)
                         .addComponent(jLabel10)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -779,7 +781,7 @@ public class Accueil extends javax.swing.JFrame {
         onLeaveClick(Button3);
         onLeaveClick(Button1);
         onLeaveClick(Button5);
-
+        
         //indicators
         Indicator1.setOpaque(false);
         Indicator2.setOpaque(false);
@@ -787,7 +789,7 @@ public class Accueil extends javax.swing.JFrame {
         Indicator4.setOpaque(false);
         Indicator5.setOpaque(false);
         Indicator6.setOpaque(true);
-
+        
         container.removeAll();
         this.container.add(new releve());
         this.container.revalidate();
@@ -829,14 +831,12 @@ public class Accueil extends javax.swing.JFrame {
             panelToShow = new changePassword();
         }
 
-        if(nom.equals("reclamation")) {
+        if (nom.equals("reclamation")) {
             panelToShow = new reclamation();
         }
-        
-        if(nom.equals("releve")){
+        if (nom.equals("releve")) {
             panelToShow = new releve();
         }
-        
         this.container.add(panelToShow);
         this.container.revalidate();
         validate();

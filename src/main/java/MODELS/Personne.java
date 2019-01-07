@@ -32,9 +32,10 @@ public class Personne {
     protected static String last_login;
     protected static Connection conn;
     protected static boolean login;
-
+    protected static Statement st;
+    
     public static boolean login(String id, String password){
-        try {
+        try{
             conn = Dao.getConnection();
             Statement p = conn.createStatement();
             String req = "select * from personne where cin='"+id+"'and password='"+password+"'";
@@ -59,13 +60,13 @@ public class Personne {
         return false;
     }
 
-    public static void createClient(String cin, String nom, String prenom, Date date_naissance, String address, String ville, String tel, String email, String password, String profession) {
+    public static void createPersonne(String cin, String nom, String prenom, java.sql.Date date_naissance, String address, String ville, String tel, String email, String password, String profession) {
         conn = Dao.getConnection();
         Date date = new Date();
         Date lastLogin;
         lastLogin = new java.sql.Date(date.getYear(), date.getMonth(), date.getDate());
-        String req = "insert into client (cin,nom,prenom,date_naissance,address,ville,tel,email,password,lastLogin,profession) "
-                + "values (?,?,?,?,?,?,?,?,?,?,now())";
+        String req = "insert into personne (cin,nom,prenom,date_naissance,address,ville,tel,email,password,last_login)"
+                + "values (?,?,?,?,?,?,?,?,?,now())";
         try {
             PreparedStatement prep = conn.prepareStatement(req);
             prep.setString(1, cin);
@@ -77,19 +78,64 @@ public class Personne {
             prep.setString(7, tel);
             prep.setString(8, email);
             prep.setString(9, password);
-            prep.setString(10, profession);
+            //prep.setString(10, profession);
 
             prep.execute();
         } catch (SQLException ex) {
-            System.err.println("probleme dans la requette d'ajouter un client !! " + ex.getMessage());
+            System.err.println("Echec de la création du nouveau personne" + ex.getMessage());
+        }        
+    }
+    
+
+    public static int getPoste() {
+        if(isDirector()) {
+            new Director();
+            return 3;
+        }
+        else if(isEmploye()){
+            new Employe(); 
+            return 2;
+        }
+        else{
+            new Client();
+            return 1;//isClient for sure
         }
     }
-
-    public boolean cinExist(String cin) {
-        String req = "select * from client where cin ='" + cin + "'";
+    
+    public static boolean isDirector(){
+        //no table for directors
+        //in table agence there is a field id_director to identify director from employee 
+        String req = "select * from agence where id_directeur='" +cin+"'";
         conn = Dao.getConnection();
         try {
             Statement st = conn.createStatement();
+            ResultSet res = st.executeQuery(req);
+            if(res.next())    return true;
+        } catch (SQLException ex) {
+            return false;
+        }
+        return false;    
+    }
+
+    public static boolean isEmploye(){
+        //this function will be executed after isDirector() to ensure that employe found in this table is a normal employee not a director 
+        String req = "select * from employe where id ='" +cin + "'";
+        conn = Dao.getConnection();
+        try {
+            Statement st = conn.createStatement();
+            ResultSet res = st.executeQuery(req);
+            if (res.next())    return true;
+        } catch (SQLException ex) {
+            return false;
+        }
+        return false;    
+    }
+
+    public static boolean cinExist(String cin){
+        String req = "select * from client where cin ='" + cin + "'";
+        conn = Dao.getConnection();
+        try {
+            st = conn.createStatement();
             ResultSet res = st.executeQuery(req);
             if (res.next()) {
                 return true;

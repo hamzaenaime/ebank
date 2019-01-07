@@ -29,14 +29,18 @@ public class RegistreStep1 extends javax.swing.JPanel {
     }
 
     public Boolean getInfos() {
-        if (nom.getText().length() != 0 && prenom.getText().length() != 0 && telephone.getText().length() == 9) {
-            State.setNom(nom.getText());
-            State.setPrenom(prenom.getText());
-            State.setTel(telephone.getText());
-            System.out.println(" " + telephone.getText().length());
+        //if the function nom.getText().length() is used multitime store the returned value to reduce execution time
+        String nom_ = nom.getText();
+        String prenom_ = prenom.getText();
+        String tel = telephone.getText();
+        if (!nom_.isEmpty() && !prenom_.isEmpty() && tel.length() == 9) {
+            State.setNom(nom_);
+            State.setPrenom(prenom_);
+            State.setTel(tel);
+            System.out.println(" " + tel);
             return true;
         } else {
-            JOptionPane.showMessageDialog(this, "verifier que vous avez remplir tous les champs correctement!", "warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "verifier que vous avez remplir tous les champs correctement!", "Input invalide", JOptionPane.WARNING_MESSAGE);
         }
         return false;
     }

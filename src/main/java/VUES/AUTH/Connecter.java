@@ -267,8 +267,17 @@ public class Connecter extends javax.swing.JPanel implements ActionListener{
         String id_= id.getText();
         String pass = password.getText();
         
-        if(!pass.isEmpty() && !id_.isEmpty() && Personne.login(id_,pass))
-            new Accueil().setVisible(true);
+        if(!pass.isEmpty() && !id_.isEmpty() && Personne.login(id_,pass)){
+            int type = Personne.getPoste(); //1 for client 2 for cashier 3 for director
+            switch(type){
+                case 1:new Accueil().setVisible(true);
+                    break;
+                case 2:new VUES.DashboardEmploye.Accueil().setVisible(true);
+                    break;
+                case 3:new VUES.DashboardDirector.Accueil().setVisible(true);
+                    break;
+            }
+        }
         else   JOptionPane.showMessageDialog(this, "Error, numero de compte ou mot de passe incorrect");
     }//GEN-LAST:event_connecterMouseClicked
 
@@ -308,7 +317,7 @@ public class Connecter extends javax.swing.JPanel implements ActionListener{
     private void oneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_oneMouseClicked
         // TODO add your handling code here:
 //        password.setText(password.getText()+"1");
-        password.setText(String.valueOf(password.getPassword())+"1");
+        password.setText(password.getText()+"1");
 
     }//GEN-LAST:event_oneMouseClicked
 
