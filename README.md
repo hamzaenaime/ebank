@@ -1,7 +1,9 @@
 <img src="img/Ebank.png" align="right" />
 
-### TravisCI
+
 [![Build Status](https://travis-ci.com/hamzaenaime/ebank.svg?branch=master)](https://travis-ci.com/hamzaenaime/ebank)
+[![Codeship Status for hamzaenaime/ebank](https://app.codeship.com/projects/d96dfd10-f463-0136-2699-321d275e3073/status?branch=master)](/projects/320683)
+[![wercker status](https://app.wercker.com/status/ef59262dde15b1f581243f66d9bacd0b/s/master "wercker status")](https://app.wercker.com/project/byKey/ef59262dde15b1f581243f66d9bacd0b)
 
 # Ebank 
 My Digital E-Bank
