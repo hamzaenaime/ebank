@@ -299,41 +299,9 @@ public class RegistreStep3 extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-<<<<<<< HEAD
     // Variables declaration - do not modify                     
     private javax.swing.JTextField address;
     private javax.swing.JTextField cin;
-=======
-    public int DaytoNum(String day) {
-        if (day == "janvier") {
-            return 1;
-        } else if (day == "février") {
-            return 2;
-        } else if (day == "mars") {
-            return 3;
-        } else if (day == "avril") {
-            return 4;
-        } else if (day == "mai") {
-            return 5;
-        } else if (day == "juin") {
-            return 6;
-        } else if (day == "juillet") {
-            return 7;
-        } else if (day == "août") {
-            return 8;
-        } else if (day == "septembre") {
-            return 9;
-        } else if (day == "octobre") {
-            return 10;
-        } else if (day == "novembre") {
-            return 11;
-        } else if (day == "décembre") {
-            return 12;
-        } else {
-            System.err.println("something wrong with the month's comobox");
-        }
-        return 0;
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField address;
