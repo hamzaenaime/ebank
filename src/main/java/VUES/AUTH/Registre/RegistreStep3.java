@@ -79,7 +79,6 @@ public class RegistreStep3 extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         profession = new javax.swing.JTextField();
-<<<<<<< HEAD
         jLabel6 = new javax.swing.JLabel();
         cin = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -88,22 +87,6 @@ public class RegistreStep3 extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-=======
-        day = new javax.swing.JComboBox<>();
-        jLabel6 = new javax.swing.JLabel();
-        month = new javax.swing.JComboBox<>();
-        year = new javax.swing.JComboBox<>();
-        cin = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        email = new javax.swing.JTextField();
-
-        setBackground(new java.awt.Color(255, 255, 255));
-
-        ville.setBackground(new java.awt.Color(255, 255, 255));
-
-        address.setBackground(new java.awt.Color(255, 255, 255));
-
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
         jLabel1.setForeground(new java.awt.Color(96, 83, 150));
         jLabel1.setText("Email :");
 
@@ -119,28 +102,9 @@ public class RegistreStep3 extends javax.swing.JPanel {
         jLabel4.setForeground(new java.awt.Color(96, 83, 150));
         jLabel4.setText("Date de naissance :");
 
-<<<<<<< HEAD
         jLabel6.setForeground(new java.awt.Color(96, 83, 150));
         jLabel6.setText("CIN : ");
 
-=======
-        profession.setBackground(new java.awt.Color(255, 255, 255));
-
-        day.setBackground(new java.awt.Color(255, 255, 255));
-        day.setForeground(new java.awt.Color(96, 83, 150));
-
-        jLabel6.setForeground(new java.awt.Color(96, 83, 150));
-        jLabel6.setText("CIN : ");
-
-        month.setBackground(new java.awt.Color(255, 255, 255));
-        month.setForeground(new java.awt.Color(96, 83, 150));
-        month.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre" }));
-
-        year.setBackground(new java.awt.Color(255, 255, 255));
-        year.setForeground(new java.awt.Color(96, 83, 150));
-
-        cin.setBackground(new java.awt.Color(255, 255, 255));
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
         cin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cinActionPerformed(evt);
@@ -156,17 +120,11 @@ public class RegistreStep3 extends javax.swing.JPanel {
             }
         });
 
-<<<<<<< HEAD
-=======
-        email.setBackground(new java.awt.Color(255, 255, 255));
-
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-<<<<<<< HEAD
                 .addGap(113, 113, 113)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
@@ -175,21 +133,6 @@ public class RegistreStep3 extends javax.swing.JPanel {
                     .addComponent(jLabel2)
                     .addComponent(jLabel1)
                     .addComponent(jLabel6))
-=======
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(121, 121, 121)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(113, 113, 113)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel4))))
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
                 .addGap(72, 72, 72)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -197,26 +140,12 @@ public class RegistreStep3 extends javax.swing.JPanel {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< HEAD
                             .addComponent(cin, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
                             .addComponent(email)
                             .addComponent(ville)
                             .addComponent(address)
                             .addComponent(profession)
                             .addComponent(jXDatePicker1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-=======
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(day, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40)
-                                .addComponent(month, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                                .addComponent(year, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(cin)
-                            .addComponent(email)
-                            .addComponent(ville)
-                            .addComponent(address)
-                            .addComponent(profession))
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
                         .addGap(167, 167, 167))))
         );
         layout.setVerticalGroup(
@@ -231,15 +160,9 @@ public class RegistreStep3 extends javax.swing.JPanel {
                     .addComponent(jLabel1)
                     .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-<<<<<<< HEAD
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ville, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-=======
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(ville, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
@@ -247,15 +170,8 @@ public class RegistreStep3 extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-<<<<<<< HEAD
                     .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
-=======
-                    .addComponent(day, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(month, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(year, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(profession, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -299,15 +215,11 @@ public class RegistreStep3 extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    // Variables declaration - do not modify                     
-    private javax.swing.JTextField address;
-    private javax.swing.JTextField cin;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField address;
     private javax.swing.JTextField cin;
     private javax.swing.JComboBox<String> day;
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
     private javax.swing.JTextField email;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -316,15 +228,8 @@ public class RegistreStep3 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
-<<<<<<< HEAD
     private org.jdesktop.swingx.JXDatePicker jXDatePicker1;
     private javax.swing.JTextField profession;
     private javax.swing.JTextField ville;
-=======
-    private javax.swing.JComboBox<String> month;
-    private javax.swing.JTextField profession;
-    private javax.swing.JTextField ville;
-    private javax.swing.JComboBox<String> year;
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
     // End of variables declaration//GEN-END:variables
 }

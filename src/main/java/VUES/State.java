@@ -70,6 +70,7 @@ public class State {
     public static Date getDate_naissance() {
         return date_naissance;
     }
+
     public static void setDate_naissance(Date date_naissance) {
         State.date_naissance = date_naissance;
     }
@@ -114,10 +115,10 @@ public class State {
         State.password = password;
     }
 
-    /*
-
     public static void store() {
-        Client.createClient(cin, nom, prenom, date_naissance, adresse, ville, tel, email, password, profession); 
-        if(Account.createAccount()) Account.associate(cin);
-    }*/
+        Client.createClient(cin, nom, prenom, date_naissance, adresse, ville, tel, email, password, profession);
+        if (Account.createAccount()) {
+            Account.associate(cin);
+        }
+    }
 }

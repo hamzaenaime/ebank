@@ -52,11 +52,7 @@
               <Color blue="fc" green="e6" red="fc" type="rgb"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-<<<<<<< HEAD
               <Color id="Default Cursor"/>
-=======
-              <Color id="Curseur par d&#xe9;faut"/>
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
             </Property>
           </Properties>
           <Events>
@@ -131,11 +127,7 @@
               <Color blue="cd" green="88" red="cd" type="rgb"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-<<<<<<< HEAD
               <Color id="Default Cursor"/>
-=======
-              <Color id="Curseur par d&#xe9;faut"/>
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
             </Property>
           </Properties>
           <Events>
@@ -209,11 +201,7 @@
               <Color blue="fc" green="e6" red="fc" type="rgb"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-<<<<<<< HEAD
               <Color id="Default Cursor"/>
-=======
-              <Color id="Curseur par d&#xe9;faut"/>
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
             </Property>
           </Properties>
           <Events>
@@ -288,11 +276,7 @@
               <Color blue="fc" green="e6" red="fc" type="rgb"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-<<<<<<< HEAD
               <Color id="Default Cursor"/>
-=======
-              <Color id="Curseur par d&#xe9;faut"/>
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
             </Property>
           </Properties>
           <Events>
@@ -440,11 +424,7 @@
               <Color blue="fc" green="e6" red="fc" type="rgb"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-<<<<<<< HEAD
               <Color id="Default Cursor"/>
-=======
-              <Color id="Curseur par d&#xe9;faut"/>
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
             </Property>
           </Properties>
           <Events>
@@ -519,11 +499,7 @@
               <Color blue="fc" green="e6" red="fc" type="rgb"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-<<<<<<< HEAD
               <Color id="Default Cursor"/>
-=======
-              <Color id="Curseur par d&#xe9;faut"/>
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
             </Property>
           </Properties>
           <Events>
@@ -633,7 +609,6 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-<<<<<<< HEAD
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
@@ -647,13 +622,6 @@
                       <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
                       <Component id="jPanel4" min="-2" pref="290" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-=======
-                      <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-                      <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
-                      <Component id="jPanel4" min="-2" pref="290" max="-2" attributes="0"/>
-                      <EmptySpace pref="17" max="32767" attributes="0"/>
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
                       <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -678,11 +646,8 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
                               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                               <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-=======
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
                           </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
@@ -697,11 +662,7 @@
                   <Color blue="96" green="53" red="60" type="rgb"/>
                 </Property>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-<<<<<<< HEAD
                   <Color id="Default Cursor"/>
-=======
-                  <Color id="Curseur par d&#xe9;faut"/>
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
                 </Property>
               </Properties>
 
@@ -710,13 +671,10 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
-<<<<<<< HEAD
                           <Component id="jLabel11" min="-2" pref="106" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="last_login" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
-=======
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
                           <Component id="btn_close" min="-2" pref="20" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -726,7 +684,6 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
-<<<<<<< HEAD
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="btn_close" min="-2" pref="30" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -734,9 +691,6 @@
                                   <Component id="last_login" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-=======
-                          <Component id="btn_close" min="-2" pref="30" max="-2" attributes="0"/>
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -756,18 +710,13 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="X"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-<<<<<<< HEAD
                       <Color id="Default Cursor"/>
-=======
-                      <Color id="Curseur par d&#xe9;faut"/>
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
                     </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_closeMouseClicked"/>
                   </Events>
                 </Component>
-<<<<<<< HEAD
                 <Component class="javax.swing.JLabel" name="jLabel11">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -781,8 +730,6 @@
                     <Property name="text" type="java.lang.String" value="jLabel12"/>
                   </Properties>
                 </Component>
-=======
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="jPanel4">
@@ -893,11 +840,7 @@
                   <Color blue="f9" green="de" red="fd" type="rgb"/>
                 </Property>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-<<<<<<< HEAD
                   <Color id="Default Cursor"/>
-=======
-                  <Color id="Curseur par d&#xe9;faut"/>
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
                 </Property>
               </Properties>
               <Events>
@@ -967,14 +910,11 @@
                 <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
             </Component>
-<<<<<<< HEAD
             <Component class="javax.swing.JLabel" name="jLabel10">
               <Properties>
                 <Property name="text" type="java.lang.String" value="You are login as client"/>
               </Properties>
             </Component>
-=======
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="container">

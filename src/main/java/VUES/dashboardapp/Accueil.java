@@ -75,11 +75,8 @@ public class Accueil extends javax.swing.JFrame {
         jPanel15 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         btn_close = new javax.swing.JLabel();
-<<<<<<< HEAD
         jLabel11 = new javax.swing.JLabel();
         last_login = new javax.swing.JLabel();
-=======
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
         jPanel4 = new javax.swing.JPanel();
         ad = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
@@ -90,10 +87,7 @@ public class Accueil extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-<<<<<<< HEAD
         jLabel10 = new javax.swing.JLabel();
-=======
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
         container = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -454,27 +448,21 @@ public class Accueil extends javax.swing.JFrame {
             }
         });
 
-<<<<<<< HEAD
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Dernière connexion :");
 
         last_login.setText("jLabel12");
 
-=======
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-<<<<<<< HEAD
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(last_login)
                 .addGap(109, 109, 109)
-=======
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
                 .addComponent(btn_close, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -482,15 +470,11 @@ public class Accueil extends javax.swing.JFrame {
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-<<<<<<< HEAD
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_close, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(last_login)))
-=======
-                .addComponent(btn_close, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
                 .addContainerGap())
         );
 
@@ -582,17 +566,13 @@ public class Accueil extends javax.swing.JFrame {
 
         jLabel6.setToolTipText("");
 
-<<<<<<< HEAD
         jLabel10.setText("You are login as client");
 
-=======
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
         jPanel15Layout.setHorizontalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel15Layout.createSequentialGroup()
-<<<<<<< HEAD
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel15Layout.createSequentialGroup()
                         .addGap(63, 63, 63)
@@ -603,13 +583,6 @@ public class Accueil extends javax.swing.JFrame {
                 .addGap(170, 170, 170)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-=======
-                .addGap(63, 63, 63)
-                .addComponent(jLabel6)
-                .addGap(170, 170, 170)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -628,13 +601,9 @@ public class Accueil extends javax.swing.JFrame {
                             .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel15Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
-<<<<<<< HEAD
                         .addComponent(jLabel6)
                         .addGap(17, 17, 17)
                         .addComponent(jLabel10)))
-=======
-                        .addComponent(jLabel6)))
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -912,11 +881,8 @@ public class Accueil extends javax.swing.JFrame {
     private javax.swing.JLabel btn_close;
     private javax.swing.JPanel container;
     private javax.swing.JLabel jLabel1;
-<<<<<<< HEAD
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-=======
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
@@ -937,10 +903,7 @@ public class Accueil extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel8;
-<<<<<<< HEAD
     private javax.swing.JLabel last_login;
-=======
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
     private javax.swing.JLabel name;
     private javax.swing.JLabel solde;
     // End of variables declaration//GEN-END:variables
