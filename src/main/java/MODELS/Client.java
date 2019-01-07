@@ -30,7 +30,7 @@ public class Client extends Personne {
     }
     
     public static void getAllAccount(){
-        select numCompte from assoc_compte_client where id_client='" + cin + "'
+        //select numCompte from assoc_compte_client where id_client='" + cin + "'
     }
 
 }
