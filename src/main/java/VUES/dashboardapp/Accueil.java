@@ -8,10 +8,7 @@ package VUES.dashboardapp;
 import DAO.Dao;
 import MODELS.Account;
 import MODELS.Client;
-<<<<<<< HEAD
 import MODELS.Personne;
-=======
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
 import VUES.AUTH.Login;
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -813,11 +810,6 @@ public class Accueil extends javax.swing.JFrame {
         onLeaveClick(Button3);
         onLeaveClick(Button1);
         onLeaveClick(Button5);
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
         //indicators
         Indicator1.setOpaque(false);
         Indicator2.setOpaque(false);
@@ -825,11 +817,6 @@ public class Accueil extends javax.swing.JFrame {
         Indicator4.setOpaque(false);
         Indicator5.setOpaque(false);
         Indicator6.setOpaque(true);
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
         container.removeAll();
         this.container.add(new releve());
         this.container.revalidate();
@@ -871,7 +858,6 @@ public class Accueil extends javax.swing.JFrame {
             panelToShow = new changePassword();
         }
 
-<<<<<<< HEAD
         if(nom.equals("reclamation")) {
             panelToShow = new reclamation();
         }
@@ -880,14 +866,6 @@ public class Accueil extends javax.swing.JFrame {
             panelToShow = new releve();
         }
         
-=======
-        if (nom.equals("reclamation")) {
-            panelToShow = new reclamation();
-        }
-        if (nom.equals("releve")) {
-            panelToShow = new releve();
-        }
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
         this.container.add(panelToShow);
         this.container.revalidate();
         validate();
