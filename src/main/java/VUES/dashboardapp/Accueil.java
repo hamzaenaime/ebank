@@ -451,6 +451,7 @@ public class Accueil extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Dernière connexion :");
 
+        last_login.setForeground(new java.awt.Color(255, 255, 255));
         last_login.setText("jLabel12");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
