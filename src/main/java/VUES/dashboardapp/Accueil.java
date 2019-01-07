@@ -31,7 +31,7 @@ public class Accueil extends javax.swing.JFrame {
         container.setLayout(new FlowLayout());
         container.add(new home());
         name.setText("M. "+Client.getPrenom()+" "+Client.getNom());
-        solde.setText(String.valueOf(am.getSolde(Client.getCin())));
+        solde.setText("0.00"/*String.valueOf(Account.getSolde(Client.getCin()))*/);
         last_login.setText(Client.getLast_login());
         //jLabel6.setVisible(false);
         }else{
@@ -71,6 +71,9 @@ public class Accueil extends javax.swing.JFrame {
         Button6 = new javax.swing.JPanel();
         Indicator6 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
+        Button7 = new javax.swing.JPanel();
+        Indicator7 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
@@ -114,11 +117,11 @@ public class Accueil extends javax.swing.JFrame {
         Indicator2.setLayout(Indicator2Layout);
         Indicator2Layout.setHorizontalGroup(
             Indicator2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 8, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         Indicator2Layout.setVerticalGroup(
             Indicator2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -133,7 +136,7 @@ public class Accueil extends javax.swing.JFrame {
                 .addComponent(Indicator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addGap(0, 148, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         Button2Layout.setVerticalGroup(
             Button2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,7 +147,7 @@ public class Accueil extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(Button2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 227, 232, 50));
+        jPanel1.add(Button2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 232, 50));
 
         Button1.setBackground(new java.awt.Color(205, 136, 205));
         Button1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -160,7 +163,7 @@ public class Accueil extends javax.swing.JFrame {
         Indicator1.setLayout(Indicator1Layout);
         Indicator1Layout.setHorizontalGroup(
             Indicator1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 8, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         Indicator1Layout.setVerticalGroup(
             Indicator1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,18 +182,18 @@ public class Accueil extends javax.swing.JFrame {
                 .addComponent(Indicator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addGap(0, 119, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         Button1Layout.setVerticalGroup(
             Button1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Indicator1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Button1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jPanel1.add(Button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 175, 232, -1));
+        jPanel1.add(Button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 232, 50));
 
         Button3.setBackground(new java.awt.Color(252, 230, 252));
         Button3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -207,7 +210,7 @@ public class Accueil extends javax.swing.JFrame {
         Indicator3.setLayout(Indicator3Layout);
         Indicator3Layout.setHorizontalGroup(
             Indicator3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 8, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         Indicator3Layout.setVerticalGroup(
             Indicator3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -226,18 +229,18 @@ public class Accueil extends javax.swing.JFrame {
                 .addComponent(Indicator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         Button3Layout.setVerticalGroup(
             Button3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Indicator3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Button3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jPanel1.add(Button3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 277, 232, 50));
+        jPanel1.add(Button3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 232, 50));
 
         Button4.setBackground(new java.awt.Color(252, 230, 252));
         Button4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -254,7 +257,7 @@ public class Accueil extends javax.swing.JFrame {
         Indicator4.setLayout(Indicator4Layout);
         Indicator4Layout.setHorizontalGroup(
             Indicator4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 8, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         Indicator4Layout.setVerticalGroup(
             Indicator4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -273,18 +276,18 @@ public class Accueil extends javax.swing.JFrame {
                 .addComponent(Indicator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
-                .addGap(0, 59, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         Button4Layout.setVerticalGroup(
             Button4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Indicator4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Button4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jPanel1.add(Button4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 331, 232, -1));
+        jPanel1.add(Button4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 366, 232, 50));
         jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 39, -1, -1));
 
         jPanel14.setBackground(new java.awt.Color(232, 201, 232));
@@ -337,7 +340,7 @@ public class Accueil extends javax.swing.JFrame {
         Indicator5.setLayout(Indicator5Layout);
         Indicator5Layout.setHorizontalGroup(
             Indicator5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 8, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         Indicator5Layout.setVerticalGroup(
             Indicator5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -356,18 +359,18 @@ public class Accueil extends javax.swing.JFrame {
                 .addComponent(Indicator5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7)
-                .addGap(0, 106, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         Button5Layout.setVerticalGroup(
             Button5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Indicator5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Button5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jPanel1.add(Button5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 232, -1));
+        jPanel1.add(Button5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 416, 232, 50));
 
         Button6.setBackground(new java.awt.Color(252, 230, 252));
         Button6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -384,7 +387,7 @@ public class Accueil extends javax.swing.JFrame {
         Indicator6.setLayout(Indicator6Layout);
         Indicator6Layout.setHorizontalGroup(
             Indicator6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 8, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         Indicator6Layout.setVerticalGroup(
             Indicator6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -403,18 +406,65 @@ public class Accueil extends javax.swing.JFrame {
                 .addComponent(Indicator6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel8)
-                .addGap(0, 116, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         Button6Layout.setVerticalGroup(
             Button6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Indicator6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Button6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jPanel1.add(Button6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 450, 232, -1));
+        jPanel1.add(Button6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 466, 232, 50));
+
+        Button7.setBackground(new java.awt.Color(252, 230, 252));
+        Button7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Button7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Button7MouseClicked(evt);
+            }
+        });
+
+        Indicator7.setBackground(new java.awt.Color(204, 0, 204));
+        Indicator7.setOpaque(false);
+
+        javax.swing.GroupLayout Indicator7Layout = new javax.swing.GroupLayout(Indicator7);
+        Indicator7.setLayout(Indicator7Layout);
+        Indicator7Layout.setHorizontalGroup(
+            Indicator7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        Indicator7Layout.setVerticalGroup(
+            Indicator7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(96, 83, 150));
+        jLabel12.setText("Mes comptes");
+
+        javax.swing.GroupLayout Button7Layout = new javax.swing.GroupLayout(Button7);
+        Button7.setLayout(Button7Layout);
+        Button7Layout.setHorizontalGroup(
+            Button7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Button7Layout.createSequentialGroup()
+                .addComponent(Indicator7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel12)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        Button7Layout.setVerticalGroup(
+            Button7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Indicator7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(Button7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(Button7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 232, 50));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 580));
 
@@ -451,6 +501,7 @@ public class Accueil extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Dernière connexion :");
 
+        last_login.setForeground(new java.awt.Color(255, 255, 255));
         last_login.setText("jLabel12");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
@@ -635,8 +686,10 @@ public class Accueil extends javax.swing.JFrame {
         onLeaveClick(Button4);
         onLeaveClick(Button5);
         onLeaveClick(Button6);
+        onLeaveClick(Button7);
 
         //indicators
+        Indicator7.setOpaque(false);
         Indicator1.setOpaque(true);
         Indicator2.setOpaque(false);
         Indicator3.setOpaque(false);
@@ -657,7 +710,11 @@ public class Accueil extends javax.swing.JFrame {
         onLeaveClick(Button5);
         onLeaveClick(Button6);
 //        this.actionPerformed(e);
-
+onLeaveClick(Button7);
+                
+        //indicators
+        Indicator7.setOpaque(false);
+        
         //indicators
         Indicator1.setOpaque(false);
         Indicator2.setOpaque(true);
@@ -677,7 +734,10 @@ public class Accueil extends javax.swing.JFrame {
         onLeaveClick(Button4);
         onLeaveClick(Button5);
         onLeaveClick(Button6);
+        onLeaveClick(Button7);
+                
         //indicators
+        Indicator7.setOpaque(false);
         Indicator1.setOpaque(false);
         Indicator2.setOpaque(false);
         Indicator3.setOpaque(true);
@@ -696,7 +756,10 @@ public class Accueil extends javax.swing.JFrame {
         onLeaveClick(Button1);
         onLeaveClick(Button5);
         onLeaveClick(Button6);
+        onLeaveClick(Button7);
+                
         //indicators
+        Indicator7.setOpaque(false);
         Indicator1.setOpaque(false);
         Indicator2.setOpaque(false);
         Indicator3.setOpaque(false);
@@ -754,7 +817,10 @@ public class Accueil extends javax.swing.JFrame {
         onLeaveClick(Button3);
         onLeaveClick(Button1);
         onLeaveClick(Button6);
+        onLeaveClick(Button7);
+                
         //indicators
+        Indicator7.setOpaque(false);
         Indicator1.setOpaque(false);
         Indicator2.setOpaque(false);
         Indicator3.setOpaque(false);
@@ -779,7 +845,10 @@ public class Accueil extends javax.swing.JFrame {
         onLeaveClick(Button3);
         onLeaveClick(Button1);
         onLeaveClick(Button5);
+        onLeaveClick(Button7);
+                
         //indicators
+        Indicator7.setOpaque(false);
         Indicator1.setOpaque(false);
         Indicator2.setOpaque(false);
         Indicator3.setOpaque(false);
@@ -793,6 +862,32 @@ public class Accueil extends javax.swing.JFrame {
 
         show("releve");
     }//GEN-LAST:event_Button6MouseClicked
+
+    private void Button7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button7MouseClicked
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        onClick(Button7);
+        onLeaveClick(Button4);
+        onLeaveClick(Button2);
+        onLeaveClick(Button3);
+        onLeaveClick(Button1);
+        onLeaveClick(Button5);
+        onLeaveClick(Button6);
+        //indicators
+        Indicator1.setOpaque(false);
+        Indicator2.setOpaque(false);
+        Indicator3.setOpaque(false);
+        Indicator4.setOpaque(false);
+        Indicator5.setOpaque(false);
+        Indicator6.setOpaque(false);
+        Indicator7.setOpaque(true);
+        container.removeAll();
+        this.container.add(new comptes());
+        this.container.revalidate();
+        validate();
+
+        show("comptes");
+    }//GEN-LAST:event_Button7MouseClicked
 
     int xx, xy;
 
@@ -834,6 +929,9 @@ public class Accueil extends javax.swing.JFrame {
         if(nom.equals("releve")){
             panelToShow = new releve();
         }
+        if(nom.equals("comptes")){
+            panelToShow = new comptes();
+        }
         
         this.container.add(panelToShow);
         this.container.revalidate();
@@ -871,18 +969,21 @@ public class Accueil extends javax.swing.JFrame {
     private javax.swing.JPanel Button4;
     private javax.swing.JPanel Button5;
     private javax.swing.JPanel Button6;
+    private javax.swing.JPanel Button7;
     private javax.swing.JPanel Indicator1;
     private javax.swing.JPanel Indicator2;
     private javax.swing.JPanel Indicator3;
     private javax.swing.JPanel Indicator4;
     private javax.swing.JPanel Indicator5;
     private javax.swing.JPanel Indicator6;
+    private javax.swing.JPanel Indicator7;
     private javax.swing.JLabel ad;
     private javax.swing.JLabel btn_close;
     private javax.swing.JPanel container;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;

@@ -6,6 +6,7 @@
 package MODELS;
 
 import java.sql.SQLException;
+import java.util.Vector;
 
 /**
  *
@@ -26,6 +27,10 @@ public class Client extends Personne {
 
     public boolean telCorrespondToNumCompte(String numcompte, String tel) {
         return false;
+    }
+    
+    public static void getAllAccount(){
+        select numCompte from assoc_compte_client where id_client='" + cin + "'
     }
 
 }

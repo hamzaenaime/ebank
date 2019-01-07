@@ -346,7 +346,7 @@ public class Accueil extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(96, 83, 150));
-        jLabel7.setText("Mes Réclamations");
+        jLabel7.setText("Liste des Réclamations");
 
         javax.swing.GroupLayout Button5Layout = new javax.swing.GroupLayout(Button5);
         Button5.setLayout(Button5Layout);
@@ -356,7 +356,7 @@ public class Accueil extends javax.swing.JFrame {
                 .addComponent(Indicator5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7)
-                .addGap(0, 106, Short.MAX_VALUE))
+                .addGap(0, 81, Short.MAX_VALUE))
         );
         Button5Layout.setVerticalGroup(
             Button5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -393,7 +393,7 @@ public class Accueil extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(96, 83, 150));
-        jLabel8.setText("Relevé Bancaire");
+        jLabel8.setText("Générer Relevé Bancaire");
 
         javax.swing.GroupLayout Button6Layout = new javax.swing.GroupLayout(Button6);
         Button6.setLayout(Button6Layout);
@@ -403,7 +403,7 @@ public class Accueil extends javax.swing.JFrame {
                 .addComponent(Indicator6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel8)
-                .addGap(0, 116, Short.MAX_VALUE))
+                .addGap(0, 66, Short.MAX_VALUE))
         );
         Button6Layout.setVerticalGroup(
             Button6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

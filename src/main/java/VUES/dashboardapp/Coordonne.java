@@ -174,8 +174,11 @@ public class Coordonne extends javax.swing.JPanel {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        if(!adresse.getText().isEmpty() && !adresse.getText().equals(Client.getAdresse()) ){
-            if(Client.setAdresse(adresse.getText())){
+        String address = adresse.getText();
+        String ville_ = ville.getText();
+        
+        if(!address.isEmpty() && !address.equals(Client.getAdresse()) ){
+            if(Client.setAdresse(address)){
                 JOptionPane.showMessageDialog(this, "Votre adresse a été modifiée");
                 new Coordonne().setVisible(true);
             }
@@ -184,8 +187,8 @@ public class Coordonne extends javax.swing.JPanel {
             }
         }
         
-        if(!ville.getText().isEmpty() && !ville.getText().equals(Client.getVille())){
-            if(Client.setAdresse(adresse.getText()) && Client.setVille(ville.getText())){
+        if(!ville_.isEmpty() && !ville_.equals(Client.getVille())){
+            if(Client.setVille(ville.getText())){
                 JOptionPane.showMessageDialog(this, "Votre ville a été modifiée");
                 new Coordonne().setVisible(true);
             }
