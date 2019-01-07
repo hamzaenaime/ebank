@@ -1,6 +1,6 @@
 <img src="img/Ebank.png" align="right" />
 
-
+### TravisCI
 [![Build Status](https://travis-ci.com/hamzaenaime/ebank.svg?branch=master)](https://travis-ci.com/hamzaenaime/ebank)
 
 # Ebank 
