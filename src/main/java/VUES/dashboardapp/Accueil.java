@@ -27,26 +27,16 @@ public class Accueil extends javax.swing.JFrame {
      * Creates new form Home
      */
     public Accueil() {
-<<<<<<< HEAD
         new Dao();
         if(Personne.isLogin()){
         initComponents();
-=======
-        if(Client.isLogin()){
-        initComponents();
-        new Dao();
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
         Account am = new Account();
         container.setLayout(new FlowLayout());
         container.add(new home());
         name.setText("M. "+Client.getPrenom()+" "+Client.getNom());
         solde.setText(String.valueOf(am.getSolde(Client.getCin())));
-<<<<<<< HEAD
         last_login.setText(Client.getLast_login());
         //jLabel6.setVisible(false);
-=======
-//        jLabel6.setVisible(false);
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
         }else{
             new Login().setVisible(true);
         }

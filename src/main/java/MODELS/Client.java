@@ -21,7 +21,6 @@ import java.util.logging.Logger;
  */
 public class Client extends Personne{
     
-<<<<<<< HEAD
     public static void createClient(String cin, String nom, String prenom, java.sql.Date date_naissance, String address, String ville, String tel, String email, String password, String profession) {
         
         createPersonne(cin, nom, prenom, date_naissance, address, ville, tel, email, password, profession);
@@ -33,6 +32,4 @@ public class Client extends Personne{
         }        
     }
     
-=======
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
 }

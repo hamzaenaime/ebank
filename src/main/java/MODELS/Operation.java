@@ -21,11 +21,7 @@ public class Operation {
     
     public static boolean createOperation(int compte, String motif, float montant){
         conn = Dao.getConnection();
-<<<<<<< HEAD
         String req = "insert into operation (id_client,id_compte_src,id_compte_destination,description,montant) values (?,?,?,?)";
-=======
-        String req = "insert into operation (id_client,id_compte,description,montant) values (?,?,?,?)";
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
         try {
             PreparedStatement prep = conn.prepareStatement(req);
             prep.setString(1, Client.getCin());

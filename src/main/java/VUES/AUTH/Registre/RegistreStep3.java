@@ -7,16 +7,11 @@ package VUES.AUTH.Registre;
 
 import MODELS.Account;
 import MODELS.Client;
-<<<<<<< HEAD
 import MODELS.Personne;
 import VUES.State;
 import java.sql.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-=======
-import VUES.State;
-import java.sql.Date;
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
 import javax.swing.JOptionPane;
 
 /**
@@ -25,10 +20,6 @@ import javax.swing.JOptionPane;
  */
 public class RegistreStep3 extends javax.swing.JPanel {
 
-<<<<<<< HEAD
-=======
-    Client cl = new Client();
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
     Account am = new Account();
 
     /**
@@ -37,19 +28,6 @@ public class RegistreStep3 extends javax.swing.JPanel {
     public RegistreStep3() {
         initComponents();
         setFields();
-<<<<<<< HEAD
-=======
-        setComobox();
-    }
-
-    private void setComobox() {
-        for (int i = 1950; i < 2018; i++) {
-            year.addItem(Integer.toString(i));
-        }
-        for (int i = 1; i < 32; i++) {
-            day.addItem(Integer.toString(i));
-        }
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
     }
 
     private void setFields() {
@@ -59,7 +37,6 @@ public class RegistreStep3 extends javax.swing.JPanel {
         address.setText(State.getAdresse());
         profession.setText(State.getProfession());
     }
-<<<<<<< HEAD
     private Date getDate(){
         Date oDate = (Date) jXDatePicker1.getDate();
         DateFormat oDateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -78,28 +55,13 @@ public class RegistreStep3 extends javax.swing.JPanel {
             JOptionPane.showMessageDialog( this, "Vous devez avoir 18 ans minimum","le titre",JOptionPane.ERROR_MESSAGE);
         }
         
-=======
-
-    private void getInfos() {
-        int d = Integer.parseInt(day.getSelectedItem().toString());
-        String m = month.getSelectedItem().toString();
-        int y = Integer.parseInt(year.getSelectedItem().toString());
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
         State.setCin(cin.getText());
         State.setEmail(email.getText());
         State.setVille(ville.getText());
         State.setAdresse(address.getText());
-<<<<<<< HEAD
         State.setDate_naissance(d);
         State.setProfession(profession.getText());
     }
-*/
-=======
-        State.setDate_naissance(new Date(y - 1900, DaytoNum(m) - 1, d));
-        State.setProfession(profession.getText());
-    }
-
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -308,7 +270,6 @@ public class RegistreStep3 extends javax.swing.JPanel {
     }//GEN-LAST:event_cinActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-<<<<<<< HEAD
         
         Date d = getDate();
         String cin_ = cin.getText();
@@ -326,31 +287,12 @@ public class RegistreStep3 extends javax.swing.JPanel {
             State.setDate_naissance(d);
             State.setProfession(profession.getText());
             if (Personne.cinExist(cin_)){
-=======
-        if (cin.getText().length() != 0 && email.getText().length() != 0 && ville.getText().length() != 0 && address.getText().length() != 0 && profession.getText().length() != 0) {
-            int d = Integer.parseInt(day.getSelectedItem().toString());
-            String m = month.getSelectedItem().toString();
-            int y = Integer.parseInt(year.getSelectedItem().toString());
-
-            State.setCin(cin.getText());
-            State.setEmail(email.getText());
-            State.setVille(ville.getText());
-            State.setAdresse(address.getText());
-            State.setDate_naissance(new Date(y - 1900, DaytoNum(m) - 1, d));
-            State.setProfession(profession.getText());
-            if (cl.cinExist(cin.getText())) {
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
                 JOptionPane.showMessageDialog(this, "Cin deja existe  !!", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
                 int code = (int) (Math.random() * 10000);
                 State.setPassword("" + code);
-<<<<<<< HEAD
                 State.store();
                 JOptionPane.showMessageDialog(this, "Votre compte a été crée avec success", "Success", JOptionPane.INFORMATION_MESSAGE);
-=======
-                am.createAccount(State.getCin(), State.getNom(), State.getPrenom(), State.getDate_naissance(), State.getAdresse(), State.getVille(), State.getTel(), State.getEmail(), State.getPassword(), State.getProfession());
-                JOptionPane.showMessageDialog(this, "compte creeer !!", "Success", JOptionPane.INFORMATION_MESSAGE);
->>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
             }
         } else {
             JOptionPane.showMessageDialog(this, "verifier que vous avez remplir tous les champs correctement!", "Warning", JOptionPane.WARNING_MESSAGE);
@@ -358,7 +300,7 @@ public class RegistreStep3 extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
 <<<<<<< HEAD
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify                     
     private javax.swing.JTextField address;
     private javax.swing.JTextField cin;
 =======
