@@ -1,6 +1,8 @@
 build:
   steps:
     # https://github.com/wercker/step-maven
-    - mvn clean install
-    - mvn clean verify
-    - mvn test
+    #- mvn clean install
+    #- mvn clean verify
+    #- mvn test
+    - wercker/maven:
+      goals: clean install
