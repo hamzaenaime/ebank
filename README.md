@@ -1,6 +1,7 @@
 <img src="img/Ebank.png" align="right" />
 
-# Ebank
+# Ebank 
+[![Build Status](https://travis-ci.com/hamzaenaime/ebank.svg?branch=master)](https://travis-ci.com/hamzaenaime/ebank)
 
 My Digital E-Bank
 
