@@ -7,6 +7,7 @@ package VUES.dashboardapp;
 
 import MODELS.Account;
 import MODELS.Client;
+import MODELS.ClientOperation;
 import MODELS.Operation;
 import javax.swing.JOptionPane;
 
@@ -150,15 +151,17 @@ public class Virement extends javax.swing.JPanel {
             JOptionPane.showMessageDialog( this, "Un champ est vide","Formulaire invalide", JOptionPane.ERROR_MESSAGE); 
             return;
         }
-        
+        int compte_src = Integer.parseInt(jComboBox2.getSelectedItem().toString());
+        int compte_dst = Integer.parseInt(num.getText());
+        String motif_ = motif.getText();
+        float mnt_ = Float.parseFloat(mnt.getText());
         if(Account.AccountExist(num.getText())){
             if(Float.parseFloat(mnt.getText())>=0){
                     //tous les données sont valides
                     //verifier que le client à le solde pour effectuer le virement
-                    if(Account.getSolde(Client.getCin())){//if le client a le solde on finalise l'operation
-                        Operation.createOperation(Integer.parseInt(num.getText()), motif.getText(), Float.parseFloat(mnt.getText()));
+                    if(Account.getSolde(compte_src)>=mnt_){//if le client a le solde on finalise l'operation
+                        ClientOperation.createClientOperation(compte_src, compte_dst, motif_, mnt_);
                         JOptionPane.showMessageDialog( this, "Virement effectué","Opération terminée", JOptionPane.ERROR_MESSAGE);    
-                        
                     }else{
                         JOptionPane.showMessageDialog( this, "Votre fond est insuffisant pour réaliser l'opération, Merci d'allimenter votre compte","Fond insuffisant", JOptionPane.ERROR_MESSAGE);    
                     }

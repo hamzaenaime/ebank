@@ -64,9 +64,9 @@ public class Account {
             }
         }
 
-    public static float getSolde(String numAccount,String cin) {
+    public static float getSolde(int numAccount) {
         connection = Dao.getConnection();
-        String req = "select solde from compte where numCompte = (select numCompte from assoc_compte_client where id_client='" + cin + "')";
+        String req = "select solde from compte where numCompte='"+numAccount+"'";
         try {
             st = connection.createStatement();
             ResultSet res = st.executeQuery(req);
@@ -75,11 +75,11 @@ public class Account {
             }
         } catch (SQLException ex) {
         }
-        return 0;
+        return -1;
     }
     
     public static String[] getAccounts(String cin) {
-        connection = Dao.getConnection();
+        /*connection = Dao.getConnection();
         String req = "select numCompte from assoc_compte_client where id_client='" + cin + "')";
         Vector<String> accounts=new Vector<>();
         try {
@@ -91,6 +91,7 @@ public class Account {
             return accounts.toArray(new String[accounts.size()]);
         } catch (SQLException ex) {
             return null;
-        }
+        }*/
+        return new String[]{"48484884","188112","495132"};
     }
 }
