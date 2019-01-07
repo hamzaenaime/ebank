@@ -17,6 +17,12 @@ import org.json.JSONObject;
  */
 public class MailBoxLayer {
 
+<<<<<<< HEAD
+=======
+    /**
+     * make a get request to MailBoxLayer api
+     */
+>>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
     private String getData(String email) throws Exception {
         String url = "http://apilayer.net/api/check?access_key=1e10d00ff0f032f29638c0ae4da00182&email=" + email + "&smtp=1&format=1";
 

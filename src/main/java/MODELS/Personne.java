@@ -32,10 +32,16 @@ public class Personne {
     protected static String last_login;
     protected static Connection conn;
     protected static boolean login;
+<<<<<<< HEAD
     protected static Statement st;
     
     public static boolean login(String id, String password){
         try{
+=======
+
+    public static boolean login(String id, String password){
+        try {
+>>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
             conn = Dao.getConnection();
             Statement p = conn.createStatement();
             String req = "select * from personne where cin='"+id+"'and password='"+password+"'";
@@ -60,13 +66,22 @@ public class Personne {
         return false;
     }
 
+<<<<<<< HEAD
     public static void createPersonne(String cin, String nom, String prenom, java.sql.Date date_naissance, String address, String ville, String tel, String email, String password, String profession) {
+=======
+    public static void createClient(String cin, String nom, String prenom, Date date_naissance, String address, String ville, String tel, String email, String password, String profession) {
+>>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
         conn = Dao.getConnection();
         Date date = new Date();
         Date lastLogin;
         lastLogin = new java.sql.Date(date.getYear(), date.getMonth(), date.getDate());
+<<<<<<< HEAD
         String req = "insert into personne (cin,nom,prenom,date_naissance,address,ville,tel,email,password,last_login)"
                 + "values (?,?,?,?,?,?,?,?,?,now())";
+=======
+        String req = "insert into client (cin,nom,prenom,date_naissance,address,ville,tel,email,password,lastLogin,profession) "
+                + "values (?,?,?,?,?,?,?,?,?,?,now())";
+>>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
         try {
             PreparedStatement prep = conn.prepareStatement(req);
             prep.setString(1, cin);
@@ -78,6 +93,7 @@ public class Personne {
             prep.setString(7, tel);
             prep.setString(8, email);
             prep.setString(9, password);
+<<<<<<< HEAD
             //prep.setString(10, profession);
 
             prep.execute();
@@ -136,6 +152,21 @@ public class Personne {
         conn = Dao.getConnection();
         try {
             st = conn.createStatement();
+=======
+            prep.setString(10, profession);
+
+            prep.execute();
+        } catch (SQLException ex) {
+            System.err.println("probleme dans la requette d'ajouter un client !! " + ex.getMessage());
+        }
+    }
+
+    public boolean cinExist(String cin) {
+        String req = "select * from client where cin ='" + cin + "'";
+        conn = Dao.getConnection();
+        try {
+            Statement st = conn.createStatement();
+>>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
             ResultSet res = st.executeQuery(req);
             if (res.next()) {
                 return true;

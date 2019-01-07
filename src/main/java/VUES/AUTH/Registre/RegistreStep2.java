@@ -56,9 +56,17 @@ public class RegistreStep2 extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(96, 83, 150));
         jLabel1.setText("Code :");
 
+<<<<<<< HEAD
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setForeground(new java.awt.Color(96, 83, 150));
         jButton3.setText("Réenvoyer le code");
+=======
+        code.setBackground(new java.awt.Color(255, 255, 255));
+
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
+        jButton3.setForeground(new java.awt.Color(96, 83, 150));
+        jButton3.setText("Reenvoyer le code");
+>>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);

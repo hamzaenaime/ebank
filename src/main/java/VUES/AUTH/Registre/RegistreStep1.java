@@ -29,6 +29,7 @@ public class RegistreStep1 extends javax.swing.JPanel {
     }
 
     public Boolean getInfos() {
+<<<<<<< HEAD
         //if the function nom.getText().length() is used multitime store the returned value to reduce execution time
         String nom_ = nom.getText();
         String prenom_ = prenom.getText();
@@ -41,6 +42,16 @@ public class RegistreStep1 extends javax.swing.JPanel {
             return true;
         } else {
             JOptionPane.showMessageDialog(this, "verifier que vous avez remplir tous les champs correctement!", "Input invalide", JOptionPane.WARNING_MESSAGE);
+=======
+        if (nom.getText().length() != 0 && prenom.getText().length() != 0 && telephone.getText().length() == 9) {
+            State.setNom(nom.getText());
+            State.setPrenom(prenom.getText());
+            State.setTel(telephone.getText());
+            System.out.println(" " + telephone.getText().length());
+            return true;
+        } else {
+            JOptionPane.showMessageDialog(this, "verifier que vous avez remplir tous les champs correctement!", "warning", JOptionPane.WARNING_MESSAGE);
+>>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
         }
         return false;
     }

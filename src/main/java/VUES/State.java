@@ -5,8 +5,11 @@
  */
 package VUES;
 
+<<<<<<< HEAD
 import MODELS.Account;
 import MODELS.Client;
+=======
+>>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
 import java.sql.Date;
 
 /**
@@ -18,12 +21,25 @@ public class State {
     private static String cin = "";
     private static String nom = "";
     private static String prenom = "";
+<<<<<<< HEAD
     private static Date date_naissance;
+=======
+    private static Date date_naissance = new Date(1950 - 1900, 0, 1);
+>>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
     private static String adresse = "";
     private static String ville = "";
     private static String tel = "";
     private static String email = "";
     private static String password;
+<<<<<<< HEAD
+=======
+    private static Date created_at;
+    private static Date last_login;
+    private static String num_compte;
+    private static Date date_ouverture;//to be removed cause it's value is inserted by default
+    private static Boolean active;
+    private static String date_fermeture;
+>>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
     private static String profession;
     private static int check;
 
@@ -70,7 +86,11 @@ public class State {
     public static Date getDate_naissance() {
         return date_naissance;
     }
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
     public static void setDate_naissance(Date date_naissance) {
         State.date_naissance = date_naissance;
     }
@@ -115,17 +135,65 @@ public class State {
         State.password = password;
     }
 
+<<<<<<< HEAD
     /*
+=======
+    public static Date getCreated_at() {
+        return created_at;
+    }
+
+    public static void setCreated_at(Date created_at) {
+        State.created_at = created_at;
+    }
+
+    public static Date getLast_login() {
+        return last_login;
+    }
+
+    public static void setLast_login(Date last_login) {
+        State.last_login = last_login;
+    }
+
+    public static String getNum_compte() {
+        return num_compte;
+    }
+
+    public static void setNum_compte(String num_compte) {
+        State.num_compte = num_compte;
+    }
+
+    public static Date getDate_ouverture() {
+        return date_ouverture;
+    }
+
+    public static void setDate_ouverture(Date date_ouverture) {
+        State.date_ouverture = date_ouverture;
+    }
+
+>>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
     public static Boolean getActive() {
         return active;
     }
 
     public static void setActive(Boolean active) {
         State.active = active;
+<<<<<<< HEAD
     }*/
 
     public static void store() {
         Client.createClient(cin, nom, prenom, date_naissance, adresse, ville, tel, email, password, profession); 
         if(Account.createAccount()) Account.associate(cin);
     }
+=======
+    }
+
+    public static String getDate_fermeture() {
+        return date_fermeture;
+    }
+
+    public static void setDate_fermeture(String date_fermeture) {
+        State.date_fermeture = date_fermeture;
+    }
+
+>>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
 }

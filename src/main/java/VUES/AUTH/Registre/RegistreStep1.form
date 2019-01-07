@@ -97,10 +97,32 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="nom">
+<<<<<<< HEAD
     </Component>
     <Component class="javax.swing.JTextField" name="prenom">
     </Component>
     <Component class="javax.swing.JTextField" name="telephone">
+=======
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="prenom">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="telephone">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+      </Properties>
+>>>>>>> 1d248ccf8cec442e56a490bd85df0f76a7712025
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
