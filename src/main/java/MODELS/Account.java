@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -63,9 +64,9 @@ public class Account {
             }
         }
 
-    public float getSolde(String cin) {
+    public static float getSolde(String numAccount,String cin) {
         connection = Dao.getConnection();
-        String req = "select solde from compte where id_client='" + cin + "'";
+        String req = "select solde from compte where numCompte = (select numCompte from assoc_compte_client where id_client='" + cin + "')";
         try {
             st = connection.createStatement();
             ResultSet res = st.executeQuery(req);
@@ -73,10 +74,23 @@ public class Account {
                 return res.getFloat(1);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Account.class.getName()).log(Level.SEVERE, null, ex);
         }
-
         return 0;
-
+    }
+    
+    public static String[] getAccounts(String cin) {
+        connection = Dao.getConnection();
+        String req = "select numCompte from assoc_compte_client where id_client='" + cin + "')";
+        Vector<String> accounts=new Vector<>();
+        try {
+            st = connection.createStatement();
+            ResultSet res = st.executeQuery(req);
+            while (res.next()) {
+                accounts.add(String.valueOf(res.getInt(0)));
+            }
+            return accounts.toArray(new String[accounts.size()]);
+        } catch (SQLException ex) {
+            return null;
+        }
     }
 }

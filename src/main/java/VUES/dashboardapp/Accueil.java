@@ -31,7 +31,7 @@ public class Accueil extends javax.swing.JFrame {
         container.setLayout(new FlowLayout());
         container.add(new home());
         name.setText("M. "+Client.getPrenom()+" "+Client.getNom());
-        solde.setText(String.valueOf(am.getSolde(Client.getCin())));
+        solde.setText(String.valueOf(Account.getSolde(Client.getCin())));
         last_login.setText(Client.getLast_login());
         //jLabel6.setVisible(false);
         }else{

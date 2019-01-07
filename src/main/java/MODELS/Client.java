@@ -6,6 +6,7 @@
 package MODELS;
 
 import java.sql.SQLException;
+import java.util.Vector;
 
 /**
  *
