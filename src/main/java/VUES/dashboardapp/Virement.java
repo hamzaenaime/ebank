@@ -146,30 +146,27 @@ public class Virement extends javax.swing.JPanel {
         return num.getText().isEmpty() || motif.getText().isEmpty() || mnt.getText().isEmpty() ;
     }
     private void validerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_validerMouseClicked
-        // TODO add your handling code here:
-        if(inputFieldIsEmpty()){
-            JOptionPane.showMessageDialog( this, "Un champ est vide","Formulaire invalide", JOptionPane.ERROR_MESSAGE); 
-            return;
-        }
-        int compte_src = Integer.parseInt(jComboBox2.getSelectedItem().toString());
-        int compte_dst = Integer.parseInt(num.getText());
-        String motif_ = motif.getText();
-        float mnt_ = Float.parseFloat(mnt.getText());
-        if(Account.AccountExist(num.getText())){
-            if(Float.parseFloat(mnt.getText())>=0){
+         // TODO add your handling code here:
+        if(!num.getText().isEmpty() && Account.AccountExist(num.getText())){
+            if(!mnt.getText().isEmpty() && Float.parseFloat(mnt.getText())>=0){
+                if(!motif.getText().isEmpty()){
                     //tous les données sont valides
                     //verifier que le client à le solde pour effectuer le virement
-                    if(Account.getSolde(compte_src)>=mnt_){//if le client a le solde on finalise l'operation
-                        ClientOperation.createClientOperation(compte_src, compte_dst, motif_, mnt_);
+                    if(1==1){//if le client a le solde on finalise l'operation
+                        Operation.createOperation(Integer.parseInt(num.getText()), motif.getText(), Float.parseFloat(mnt.getText()));
                         JOptionPane.showMessageDialog( this, "Virement effectué","Opération terminée", JOptionPane.ERROR_MESSAGE);    
+                        
                     }else{
                         JOptionPane.showMessageDialog( this, "Votre fond est insuffisant pour réaliser l'opération, Merci d'allimenter votre compte","Fond insuffisant", JOptionPane.ERROR_MESSAGE);    
                     }
+                }else{
+                    JOptionPane.showMessageDialog( this, "Le motif ne peut pas être vide","Motif invalide", JOptionPane.ERROR_MESSAGE);    
+                }
             }else{
                 JOptionPane.showMessageDialog( this, "Le montant ne peut pas être négative","Montant invalide", JOptionPane.ERROR_MESSAGE);    
             }
         }else{
-            JOptionPane.showMessageDialog( this, "Aucun compte ne correspond à ce numéro","compte inexistant", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog( this, "Numero de compte n'existe pas","compte inexistant", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_validerMouseClicked
 

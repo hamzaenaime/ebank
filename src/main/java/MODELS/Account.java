@@ -22,21 +22,21 @@ public class Account {
 
     private static Connection connection;
     private static Statement st;
-    private static int numAccount;
+    private static long numAccount;
 
-    public static boolean createAccount() {
+    public static long createAccount() {
         connection = Dao.getConnection();
         try {
             st = connection.createStatement();
             ResultSet res = st.executeQuery("insert into compte default values RETURNING numcompte");
             if(res.next()){
-                numAccount = res.getInt(1);
-                return true;
+                numAccount = res.getLong(1);
+                return numAccount;
             }
-            return false;
         } catch (SQLException ex) {
-            return false;
+                System.err.println("probleme dans la requette d'ajouter un client !! " + ex.getMessage());
         }
+        return -1;
     }
 
     public static Boolean AccountExist(String numcompte) {

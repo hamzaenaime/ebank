@@ -8,6 +8,7 @@ package VUES;
 import MODELS.Account;
 import MODELS.Client;
 import java.sql.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -27,6 +28,12 @@ public class State {
     private static String profession;
     private static int check;
 
+    public static void store() {
+        long numAccount = Account.createAccount();
+        if(numAccount == -1) JOptionPane.showInputDialog("Error, lors de création du compte");
+        else Client.createClient(cin, nom, prenom, date_naissance, adresse, ville, tel, email, password, profession, numAccount);
+    }
+    
     public static int getCheck() {
         return check;
     }
@@ -115,10 +122,5 @@ public class State {
         State.password = password;
     }
 
-    public static void store() {
-        Client.createClient(cin, nom, prenom, date_naissance, adresse, ville, tel, email, password, profession);
-        if (Account.createAccount()) {
-            Account.associate(cin);
-        }
-    }
+    
 }
