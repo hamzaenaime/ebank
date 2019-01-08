@@ -6,8 +6,9 @@
 package VUES.AUTH.Registre;
 
 import MODELS.Account;
-import MODELS.Client;
+import MODELS.MailBoxLayer;
 import MODELS.Personne;
+import MODELS.SendEmail;
 import VUES.State;
 import java.sql.Date;
 import java.text.DateFormat;
@@ -37,13 +38,14 @@ public class RegistreStep3 extends javax.swing.JPanel {
         address.setText(State.getAdresse());
         profession.setText(State.getProfession());
     }
-    private Date getDate(){
+
+    private Date getDate() {
         Date oDate = (Date) jXDatePicker1.getDate();
         DateFormat oDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         return (Date) jXDatePicker1.getDate();
     }
-    
-/*    private void getInfos() {
+
+    /*    private void getInfos() {
         
         String d = getDate();
                 
@@ -84,6 +86,13 @@ public class RegistreStep3 extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         email = new javax.swing.JTextField();
         jXDatePicker1 = new org.jdesktop.swingx.JXDatePicker();
+        password = new javax.swing.JPasswordField();
+        Conirmation = new javax.swing.JPasswordField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        error = new javax.swing.JLabel();
+        cinError = new javax.swing.JLabel();
+        emailError = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -120,6 +129,18 @@ public class RegistreStep3 extends javax.swing.JPanel {
             }
         });
 
+        jLabel9.setForeground(new java.awt.Color(96, 83, 150));
+        jLabel9.setText("Mot de passe :");
+
+        jLabel10.setForeground(new java.awt.Color(96, 83, 150));
+        jLabel10.setText("Confirmer :");
+
+        error.setForeground(new java.awt.Color(222, 0, 0));
+
+        cinError.setForeground(new java.awt.Color(222, 0, 0));
+
+        emailError.setForeground(new java.awt.Color(222, 0, 0));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -132,21 +153,31 @@ public class RegistreStep3 extends javax.swing.JPanel {
                     .addComponent(jLabel3)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel6))
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel10))
                 .addGap(72, 72, 72)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(password, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
+                            .addComponent(email, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ville, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(address, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(profession, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jXDatePicker1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(167, 167, 167))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cin, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
-                            .addComponent(email)
-                            .addComponent(ville)
-                            .addComponent(address)
-                            .addComponent(profession)
-                            .addComponent(jXDatePicker1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(167, 167, 167))))
+                            .addComponent(emailError)
+                            .addComponent(cinError)
+                            .addComponent(error)
+                            .addComponent(Conirmation, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,19 +186,23 @@ public class RegistreStep3 extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(cin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(2, 2, 2)
+                .addComponent(cinError)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(emailError)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ville, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -175,9 +210,19 @@ public class RegistreStep3 extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(profession, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Conirmation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(error)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -186,49 +231,74 @@ public class RegistreStep3 extends javax.swing.JPanel {
     }//GEN-LAST:event_cinActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+
         Date d = getDate();
         String cin_ = cin.getText();
-        String email_ =email.getText();
+        String email_ = email.getText();
         String ville_ = ville.getText();
         String profession_ = profession.getText();
         String address_ = address.getText();
-        
+
         if (!cin_.isEmpty() && !email_.isEmpty() && !ville_.isEmpty() && !address_.isEmpty() && !profession_.isEmpty()) {
-            
+
             State.setCin(cin_);
-            State.setEmail(email_);
+
             State.setVille(ville_);
             State.setAdresse(address_);
             State.setDate_naissance(d);
             State.setProfession(profession.getText());
-            if (Personne.cinExist(cin_)){
-                JOptionPane.showMessageDialog(this, "Cin deja existe  !!", "Error", JOptionPane.ERROR_MESSAGE);
+            //verification cin disponibilité
+            if (Personne.cinExist(cin_)) {
+                cinError.setText("Cin deja existe  !!");
             } else {
-                int code = (int) (Math.random() * 10000);
-                State.setPassword("" + code);
-                State.store();
-                JOptionPane.showMessageDialog(this, "Votre compte a été crée avec success", "Success", JOptionPane.INFORMATION_MESSAGE);
+                cinError.setText("");
+                //verification si l'email est valide réelement
+                if (MailBoxLayer.checkSMTP(email_)) {
+                    emailError.setText("");
+                    State.setEmail(email_);
+                    //verification que les mots de passes entrer sont egaux
+                    if (password.getText().equals(Conirmation.getText())) {
+                        //verification si le mot de passe entrer contient que les chifres
+                        if (password.getText().matches("[0-9]+")) {
+                            State.setPassword(password.getText());
+                            State.store();
+                            JOptionPane.showMessageDialog(this, "Votre compte a été crée avec success", "Success", JOptionPane.INFORMATION_MESSAGE);
+                            new SendEmail(cin_, "Creation d'un compte", "votre demande de Creer un compte e été envoyer avec succès\n nous allons vous contacter le plutot possible");
+                        } else {
+                            error.setText("Mot de pass doit contient que des chifres !!!");
+                        }
+                    } else {
+                        error.setText("les mots de passes ne sont pas egaux !!");
+                    }
+                } else { // si l'email n'est pas valide
+                    emailError.setText("email n'existe pas,entrer un email valide");
+                }
             }
+
         } else {
             JOptionPane.showMessageDialog(this, "verifier que vous avez remplir tous les champs correctement!", "Warning", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPasswordField Conirmation;
     private javax.swing.JTextField address;
     private javax.swing.JTextField cin;
-    private javax.swing.JComboBox<String> day;
+    private javax.swing.JLabel cinError;
     private javax.swing.JTextField email;
+    private javax.swing.JLabel emailError;
+    private javax.swing.JLabel error;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private org.jdesktop.swingx.JXDatePicker jXDatePicker1;
+    private javax.swing.JPasswordField password;
     private javax.swing.JTextField profession;
     private javax.swing.JTextField ville;
     // End of variables declaration//GEN-END:variables
