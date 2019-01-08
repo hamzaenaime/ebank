@@ -5,6 +5,7 @@
  */
 package VUES.dashboardapp;
 
+import MODELS.Client;
 import MODELS.OperationTable;
 import MODELS.Operation;
 import java.text.DateFormat;
@@ -25,8 +26,6 @@ public class home extends javax.swing.JPanel {
     
     public home() {
         initComponents();
-        //jTable1.setModel(new OperationTable(Operation.getAllOperation()));
-        jTable1= new JTable(new OperationTable(Operation.getAllOperation()));
     }
 
     /**
@@ -62,18 +61,10 @@ public class home extends javax.swing.JPanel {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+        jTable1.setModel(new OperationTable(Operation.getAllOperation(Client.getCin())));
+        jTable1.setColumnSelectionAllowed(true);
         jScrollPane1.setViewportView(jTable1);
+        jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -106,8 +97,8 @@ public class home extends javax.swing.JPanel {
                     .addComponent(jLabel1)
                     .addComponent(jButton1))
                 .addGap(71, 71, 71)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(215, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(103, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -117,11 +108,12 @@ public class home extends javax.swing.JPanel {
         Date oDate2 = jXDatePicker2.getDate();    
         if(oDate2.after(oDate) || oDate2.equals(oDate)){
             DateFormat oDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-            String szDate = oDateFormat.format(oDate);
-            String szDate2 = oDateFormat.format(oDate2);
-            System.out.println("Operation de "+szDate+" au "+szDate2);
+            String d1 = oDateFormat.format(oDate);
+            String d2 = oDateFormat.format(oDate2);
+            jTable1.setModel(new OperationTable(Operation.getOperationFromTo(Client.getCin(),d1,d2)));
+            System.out.println("Operation de "+d1+" au "+d2);
         }else{
-            JOptionPane.showMessageDialog( this, "le message","le titre",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog( this, "Intervalle de date invalide","Date invalide",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton1MouseClicked
 

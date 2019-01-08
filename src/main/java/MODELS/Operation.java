@@ -38,6 +38,23 @@ public class Operation {
             return 0;
         }
     }
+
+    public static ResultSet getOperationFromTo(String cin, String d1, String d2) {
+    Connection con = Dao.getConnection();
+        try 
+        {
+            Statement st = con.createStatement();
+            String req ;
+            req="select date_operation::date,description,montant from operation inner join operation_client o on operation.id_operation = o.id_operation "
+                    + "where o.id_client='"+cin+"' and date_operation >= TO_DATE('"+d1+"','YYYY-mm-dd') and date_operation <= TO_DATE('"+d2+"','YYYY-mm-dd')";
+            ResultSet rs=st.executeQuery(req);
+            return rs ;
+        }
+        catch( SQLException ex)
+        {
+            return null ;
+        }
+    }
     
     private Connection Con;
     private Statement St;
@@ -47,13 +64,13 @@ public class Operation {
         Con =   dao.getConnection();
     }
     
-    public static ResultSet getAllOperation(){
+    public static ResultSet getAllOperation(String cin){
         Connection con = Dao.getConnection();
         try 
         {
             Statement st = con.createStatement();
             String req ;
-            req="select description,date_operation::date,montant from operation";
+            req="select date_operation::date,description,montant from operation inner join operation_client o on operation.id_operation = o.id_operation where o.id_client='"+cin+"'";
             ResultSet rs=st.executeQuery(req);
             return rs ;
         }

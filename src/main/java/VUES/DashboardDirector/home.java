@@ -5,6 +5,7 @@
  */
 package VUES.DashboardDirector;
 
+import MODELS.Client;
 import VUES.DashboardEmploye.*;
 import VUES.dashboardapp.*;
 import MODELS.OperationTable;
@@ -25,8 +26,8 @@ public class home extends javax.swing.JPanel {
      */
     
     public home() {
+        jTable1.setModel(new OperationTable(Operation.getAllOperation(Client.getCin())));
         initComponents();
-        jTable1.setModel(new OperationTable(Operation.getAllOperation()));
     }
 
     /**
