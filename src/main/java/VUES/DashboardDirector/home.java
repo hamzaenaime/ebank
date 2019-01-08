@@ -8,7 +8,7 @@ package VUES.DashboardDirector;
 import MODELS.Client;
 import VUES.DashboardEmploye.*;
 import VUES.dashboardapp.*;
-import MODELS.OperationTable;
+import MODELS.Table.OperationTable;
 import MODELS.Operation;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

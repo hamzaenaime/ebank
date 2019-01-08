@@ -7,7 +7,7 @@ package TEST;
 
 
 import MODELS.Operation;
-import MODELS.OperationTable;
+import MODELS.Table.OperationTable;
 import java.time.LocalDate;
 import java.util.Date;
 
