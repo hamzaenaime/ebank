@@ -20,7 +20,7 @@ public class MailBoxLayer {
     /**
      * make a get request to MailBoxLayer api
      */
-    private String getData(String email) throws Exception {
+    private static String getData(String email) throws Exception {
         String url = "http://apilayer.net/api/check?access_key=1e10d00ff0f032f29638c0ae4da00182&email=" + email + "&smtp=1&format=1";
 
         URL obj = new URL(url);
@@ -49,7 +49,7 @@ public class MailBoxLayer {
     /**
      * return true if email exist , false if not
      */
-    public boolean checkSMTP(String email) {
+    public static boolean checkSMTP(String email) {
         JSONObject res;
         try {
             //convert response to json object

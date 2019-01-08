@@ -15,14 +15,14 @@ import javax.swing.JOptionPane;
  *
  * @author hamza
  */
-public class Connecter extends javax.swing.JPanel implements ActionListener{
+public class Connecter extends javax.swing.JPanel implements ActionListener {
 
     /**
      * Creates new form Connecter
      */
     public Connecter() {
         initComponents();
-        
+
     }
 
     /**
@@ -255,8 +255,7 @@ public class Connecter extends javax.swing.JPanel implements ActionListener{
                 .addContainerGap(56, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-        
-  
+
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
         password.setText("");
@@ -264,74 +263,78 @@ public class Connecter extends javax.swing.JPanel implements ActionListener{
 
     private void connecterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_connecterMouseClicked
         // TODO add your handling code here:
-        String id_= id.getText();
-        String pass = password.getText();        
-        if(!pass.isEmpty() && !id_.isEmpty() && Personne.login(id_,pass)){
+        String id_ = id.getText();
+        String pass = password.getText();
+        if (!pass.isEmpty() && !id_.isEmpty() && Personne.login(id_, pass)) {
             int type = Personne.getPoste(); //1 for client 2 for cashier 3 for director
-            switch(type){
-                case 1:new Accueil().setVisible(true);
+            switch (type) {
+                case 1:
+                    new Accueil().setVisible(true);
                     break;
-                case 2:new VUES.DashboardEmploye.Accueil().setVisible(true);
+                case 2:
+                    new VUES.DashboardEmploye.Accueil().setVisible(true);
                     break;
-                case 3:new VUES.DashboardDirector.Accueil().setVisible(true);
+                case 3:
+                    new VUES.DashboardDirector.Accueil().setVisible(true);
                     break;
             }
+        } else {
+            JOptionPane.showMessageDialog(this, "Error, numero de compte ou mot de passe incorrect");
         }
-        else   JOptionPane.showMessageDialog(this, "Error, numero de compte ou mot de passe incorrect");
     }//GEN-LAST:event_connecterMouseClicked
 
     private void fiveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fiveMouseClicked
         // TODO add your handling code here:
-        password.setText(password.getText()+"5");
+        password.setText(password.getText() + "5");
 
     }//GEN-LAST:event_fiveMouseClicked
 
     private void sevenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sevenMouseClicked
         // TODO add your handling code here:
-        password.setText(password.getText()+"7");
+        password.setText(password.getText() + "7");
     }//GEN-LAST:event_sevenMouseClicked
 
     private void eightMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eightMouseClicked
         // TODO add your handling code here:
-        password.setText(password.getText()+"8");
+        password.setText(password.getText() + "8");
     }//GEN-LAST:event_eightMouseClicked
 
     private void nineMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nineMouseClicked
         // TODO add your handling code here:
-        password.setText(password.getText()+"9");
+        password.setText(password.getText() + "9");
     }//GEN-LAST:event_nineMouseClicked
 
     private void sixMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sixMouseClicked
         // TODO add your handling code here:
-        password.setText(password.getText()+"6");
+        password.setText(password.getText() + "6");
 
     }//GEN-LAST:event_sixMouseClicked
 
     private void zeroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_zeroMouseClicked
         // TODO add your handling code here:
-        password.setText(password.getText()+"0");
+        password.setText(password.getText() + "0");
 
     }//GEN-LAST:event_zeroMouseClicked
 
     private void oneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_oneMouseClicked
         // TODO add your handling code here:
 //        password.setText(password.getText()+"1");
-        password.setText(password.getText()+"1");
+        password.setText(password.getText() + "1");
     }//GEN-LAST:event_oneMouseClicked
 
     private void twoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_twoMouseClicked
         // TODO add your handling code here:
-        password.setText(password.getText()+"2");
+        password.setText(password.getText() + "2");
     }//GEN-LAST:event_twoMouseClicked
 
     private void threeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_threeMouseClicked
         // TODO add your handling code here:
-        password.setText(password.getText()+"3");
+        password.setText(password.getText() + "3");
     }//GEN-LAST:event_threeMouseClicked
 
     private void fourMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fourMouseClicked
         // TODO add your handling code here:
-        password.setText(password.getText()+"4");        
+        password.setText(password.getText() + "4");
     }//GEN-LAST:event_fourMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -359,5 +362,3 @@ public class Connecter extends javax.swing.JPanel implements ActionListener{
     }
 
 }
-
-

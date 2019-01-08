@@ -4,4 +4,8 @@
 target/
 
 operations/
-"sendgrid.env" 
+"sendgrid.env"
+
+target/
+.settings/
+
