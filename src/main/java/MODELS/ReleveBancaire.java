@@ -39,7 +39,7 @@ public class ReleveBancaire {
     
     public void GeneratePDF(String path,String NomPrenom,String cin,Operation operations) throws FileNotFoundException, DocumentException, BadElementException, IOException, SQLException{
         
-        this.Res = operations.getAllOperation(cin);
+        this.Res = Operation.getAllOperation(cin);
         Document document = new Document();
             PdfWriter.getInstance(document, new FileOutputStream(path));
             document.open();
@@ -69,10 +69,9 @@ public class ReleveBancaire {
             /* Create table of operation
             *
             */            
-            PdfPTable table = new PdfPTable(4);
+            PdfPTable table = new PdfPTable(3);
             table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
             table.addCell("Date Operation");
-            table.addCell("ID_Client");
             table.addCell("Libellé opeartion");
             table.addCell("Montant");
             table.setHeaderRows(1);
@@ -82,10 +81,9 @@ public class ReleveBancaire {
             }
             
             while (Res.next()){
-                table.addCell(Res.getDate(6).toString());
+                table.addCell(Res.getDate(1).toString());
                 table.addCell(Res.getString(2));
-                table.addCell(Res.getString(4));
-                table.addCell(Res.getString(5));
+                table.addCell(Res.getString(3));
             }
             
             document.add(table);
