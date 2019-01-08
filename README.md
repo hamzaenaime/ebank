@@ -13,7 +13,7 @@
 <img src="img/Ebank.png" align="right" />
 
 # Ebank 
-My Digital E-Bank
+My Digital Bank
 
 ## Description
 a school's project made with java/swing.
