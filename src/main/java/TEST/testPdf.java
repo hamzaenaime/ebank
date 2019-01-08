@@ -14,9 +14,6 @@ import java.util.Date;
 public class testPdf {
     
        public static void main(String[] args){
-            Operation operations = new Operation();
-            operations.All_Operations("id84901");
-            
-            
+            Operation.getAllOperation("id84901");                        
       }
 } 

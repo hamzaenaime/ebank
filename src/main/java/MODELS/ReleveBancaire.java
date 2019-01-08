@@ -39,7 +39,7 @@ public class ReleveBancaire {
     
     public void GeneratePDF(String path,String NomPrenom,String cin,Operation operations) throws FileNotFoundException, DocumentException, BadElementException, IOException, SQLException{
         
-        this.Res = operations.All_Operations(cin);
+        this.Res = operations.getAllOperation(cin);
         Document document = new Document();
             PdfWriter.getInstance(document, new FileOutputStream(path));
             document.open();

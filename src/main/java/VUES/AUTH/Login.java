@@ -42,7 +42,6 @@ public class Login extends javax.swing.JFrame {
         container.add(connecter);
 
     }
-
     private void steps() {
         tostep3.disable();
         step3.disable();

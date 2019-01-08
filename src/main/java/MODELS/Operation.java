@@ -46,7 +46,7 @@ public class Operation {
             Statement st = con.createStatement();
             String req ;
             req="select date_operation::date,description,montant from operation inner join operation_client o on operation.id_operation = o.id_operation "
-                    + "where o.id_client='"+cin+"' and date_operation >= TO_DATE('"+d1+"','YYYY-mm-dd') and date_operation <= TO_DATE('"+d2+"','YYYY-mm-dd')";
+                    + "where o.id_client='"+cin+"' and date_operation >= TO_DATE('"+d1+"','YYYY-mm-dd') and date_operation <= TO_DATE('"+d2+"','YYYY-mm-dd') order by date_operation desc";
             ResultSet rs=st.executeQuery(req);
             return rs ;
         }
@@ -70,7 +70,7 @@ public class Operation {
         {
             Statement st = con.createStatement();
             String req ;
-            req="select date_operation::date,description,montant from operation inner join operation_client o on operation.id_operation = o.id_operation where o.id_client='"+cin+"'";
+            req="select date_operation::date,description,montant from operation inner join operation_client o on operation.id_operation = o.id_operation where o.id_client='"+cin+"' order by date_operation desc";
             ResultSet rs=st.executeQuery(req);
             return rs ;
         }
@@ -78,20 +78,5 @@ public class Operation {
         {
             return null ;
         }
-    }
-    
-    public ResultSet All_Operations(String id){
-        ResultSet Res;
-        Connection con = Dao.getConnection();
-        try{
-            St = Con.createStatement();
-            St=con.createStatement();
-            Res=St.executeQuery("Select * from operation where id_client ="+"'"+id+"'");
-            return Res;
-        }catch(SQLException ex){
-            System.err.println("Erreur de la req select ou st "+ex.getMessage());
-            return null;
-        }
-        
     }
 }
