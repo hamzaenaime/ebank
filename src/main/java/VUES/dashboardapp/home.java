@@ -11,6 +11,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 
 /**
  *
@@ -24,7 +25,8 @@ public class home extends javax.swing.JPanel {
     
     public home() {
         initComponents();
-        jTable1.setModel(new OperationTable(Operation.getAllOperation()));
+        //jTable1.setModel(new OperationTable(Operation.getAllOperation()));
+        jTable1= new JTable(new OperationTable(Operation.getAllOperation()));
     }
 
     /**

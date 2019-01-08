@@ -21,19 +21,18 @@ public class OperationTable extends AbstractTableModel{
 
     private int NbreLignes=0 ;
     private int Nbcolonnes ;
-    private String[]Titres ;
+    private String[] columnNames ;
     private ArrayList<Vector<String> > MesLignes = new ArrayList<Vector<String>>(); ;
     
     public OperationTable(ResultSet Res)
     {
-        
         try {
-            
             ResultSetMetaData rsmd = Res.getMetaData();
             Nbcolonnes = rsmd.getColumnCount();
-            Titres = new String[Nbcolonnes];
-            for(int i=0 ; i< Nbcolonnes ;i++)
-                Titres[i]= rsmd.getColumnLabel(i+1);
+            columnNames = new String[Nbcolonnes];
+            //set the header of table that contain table attribute
+            for(int i=0 ; i< Nbcolonnes ;i++) columnNames[i]= rsmd.getColumnLabel(i+1);
+            //set the content of table
             Vector<String> Ligne ;
             while(Res.next())
             {
@@ -67,7 +66,14 @@ public class OperationTable extends AbstractTableModel{
 
     @Override
     public String getColumnName(int column) {
-        return Titres[column];
+        return columnNames[column];
     }
+    
+    /*@Override
+     public boolean isCellEditable(int row, int col) {
+        //Note that the data/cell address is constant,
+        //no matter where the cell appears onscreen.
+        return col >= 3;
+    }*/
     
 }

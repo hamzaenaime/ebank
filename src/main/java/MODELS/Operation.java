@@ -44,7 +44,6 @@ public class Operation {
     private Dao dao;
     
      public Operation(){
-        dao =   new Dao();
         Con =   dao.getConnection();
     }
     

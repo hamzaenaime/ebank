@@ -37,7 +37,6 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
-        new Dao();
         steps();
         container.setLayout(new FlowLayout());
         container.add(connecter);
