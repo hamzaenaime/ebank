@@ -11,7 +11,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -20,6 +19,7 @@ import java.util.logging.Logger;
  * @author nafar
  */
 public class Personne {
+
     protected static String cin;
     protected static String nom;
     protected static String prenom;
@@ -33,12 +33,12 @@ public class Personne {
     protected static Connection conn;
     protected static boolean login;
     protected static Statement st;
-    
-    public static boolean login(String id, String password){
-        try{
+
+    public static boolean login(String id, String password) {
+        try {
             conn = Dao.getConnection();
             Statement p = conn.createStatement();
-            String req = "select * from personne where cin='"+id+"'and password='"+password+"'";
+            String req = "select * from personne where cin='" + id + "'and password='" + password + "'";
             ResultSet res = p.executeQuery(req);
             if (res.next()) {
                 cin = res.getString("cin");
@@ -80,55 +80,56 @@ public class Personne {
             prep.execute();
         } catch (SQLException ex) {
             System.err.println("Echec de la création du nouveau personne" + ex.getMessage());
-        }        
+        }
     }
-    
 
     public static int getPoste() {
-        if(isDirector()) {
+        if (isDirector()) {
             new Director();
             return 3;
-        }
-        else if(isEmploye()){
-            new Employe(); 
+        } else if (isEmploye()) {
+            new Employe();
             return 2;
-        }
-        else{
+        } else {
             new Client();
             return 1;//isClient for sure
         }
     }
-    
-    public static boolean isDirector(){
+
+    public static boolean isDirector() {
         //no table for directors
         //in table agence there is a field id_director to identify director from employee 
-        String req = "select * from agence where id_directeur='" +cin+"'";
+        String req = "select * from agence where id_directeur='" + cin + "'";
         conn = Dao.getConnection();
         try {
             Statement st = conn.createStatement();
             ResultSet res = st.executeQuery(req);
-            if(res.next())    return true;
+            if (res.next()) {
+                return true;
+            }
         } catch (SQLException ex) {
             return false;
         }
-        return false;    
+        return false;
     }
 
-    public static boolean isEmploye(){
+    public static boolean isEmploye() {
         //this function will be executed after isDirector() to ensure that employe found in this table is a normal employee not a director 
-        String req = "select * from employe where id ='" +cin + "'";
+        String req = "select * from employe where id ='" + cin + "'";
         conn = Dao.getConnection();
         try {
             Statement st = conn.createStatement();
             ResultSet res = st.executeQuery(req);
-            if (res.next())    return true;
+            if (res.next()) {
+                return true;
+            }
         } catch (SQLException ex) {
             return false;
         }
-        return false;    
+        return false;
     }
 
-    public static boolean cinExist(String cin){
+    public static boolean cinExist(String cin) {
         String req = "select * from Personne where cin ='" + cin + "'";
         conn = Dao.getConnection();
         try {
@@ -143,20 +144,11 @@ public class Personne {
         return false;
     }
 
-    /*public void passwordReset(int numcompte, String password) {
-        String req = "update Client set password='" + password + "' where cin=(select cin from compte where numcompte=" + numcompte + ")";
+    public static boolean cinMatchTel(String cin, String tel) {
+        String req = "select * from Personne where cin ='" + cin + "' and tel='0" + tel + "'";
+        conn = Dao.getConnection();
         try {
-            st = connection.createStatement();
-            st.executeUpdate(req);
-        } catch (SQLException ex) {
-            System.err.println("problem sql !!" + ex.getMessage());
-        }
-    }   
-
-    public Boolean cinExist(String cin) {
-        String req = "select * from Client where cin='" + cin + "'";
-        try {
-            st = connection.createStatement();
+            st = conn.createStatement();
             ResultSet res = st.executeQuery(req);
             if (res.next()) {
                 return true;
@@ -164,21 +156,35 @@ public class Personne {
         } catch (SQLException ex) {
             Logger.getLogger(Account.class.getName()).log(Level.SEVERE, null, ex);
         }
-
         return false;
     }
-     */
-    //i choose to seperate update methodes
-    // every field in Client has its own update methode
-    //fields that can update are
-    /*
-        nom prenom date_naissance address ville tel email password profession
-     */
-    //a user can't change cin / numcompte
-    //
-    /*public void updateNom(String cin) {
 
-    }*/
+    public static void passwordReset(String cin, String password) {
+        String req = "update personne set password='" + password + "' where cin='" + cin + "'";
+        conn = Dao.getConnection();
+        try {
+            st = conn.createStatement();
+            st.executeUpdate(req);
+        } catch (SQLException ex) {
+            System.err.println("problem sql !!" + ex.getMessage());
+        }
+    }
+
+    public static String getEmail(String cin) {
+        String req = "select * from Personne where cin ='" + cin + "'";
+        conn = Dao.getConnection();
+        try {
+            st = conn.createStatement();
+            ResultSet res = st.executeQuery(req);
+            if (res.next()) {
+                return res.getString("email");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Account.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
     public static boolean isLogin() {
         return login;
     }
@@ -284,6 +290,5 @@ public class Personne {
         }
         return false;
     }
-
 
 }

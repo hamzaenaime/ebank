@@ -1,12 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package VUES.AUTH;
 
 import MODELS.Account;
 import MODELS.Client;
+import MODELS.Personne;
+import MODELS.SendEmail;
 import VUES.State;
 
 /**
@@ -23,6 +20,8 @@ public class PasswordReset extends javax.swing.JPanel {
 
     public PasswordReset() {
         initComponents();
+        telError.setForeground(new java.awt.Color(200, 0, 0));
+
     }
 
     private void sendAnSMS() {
@@ -47,7 +46,7 @@ public class PasswordReset extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        numcompte = new javax.swing.JTextField();
+        cin = new javax.swing.JTextField();
         tel = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -60,6 +59,9 @@ public class PasswordReset extends javax.swing.JPanel {
         error = new javax.swing.JLabel();
         newPassword = new javax.swing.JPasswordField();
         confirmationNewPassword = new javax.swing.JPasswordField();
+        telError = new javax.swing.JLabel();
+        codeError = new javax.swing.JLabel();
+        telError2 = new javax.swing.JLabel();
 
         jLabel4.setForeground(new java.awt.Color(96, 83, 150));
         jLabel4.setText("code de verification :");
@@ -91,12 +93,12 @@ public class PasswordReset extends javax.swing.JPanel {
         setForeground(new java.awt.Color(255, 255, 204));
 
         jLabel1.setForeground(new java.awt.Color(96, 83, 150));
-        jLabel1.setText("Numéro du Compte : ");
+        jLabel1.setText("CIN : ");
 
         jLabel2.setForeground(new java.awt.Color(96, 83, 150));
         jLabel2.setText("Téléphone : ");
 
-        numcompte.setBackground(new java.awt.Color(255, 255, 255));
+        cin.setBackground(new java.awt.Color(255, 255, 255));
 
         tel.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -144,6 +146,10 @@ public class PasswordReset extends javax.swing.JPanel {
 
         error.setForeground(new java.awt.Color(222, 0, 0));
 
+        codeError.setForeground(new java.awt.Color(222, 0, 0));
+
+        telError2.setForeground(new java.awt.Color(222, 0, 0));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -161,18 +167,22 @@ public class PasswordReset extends javax.swing.JPanel {
                     .addComponent(jLabel5)
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(error)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(checkcode)
-                        .addGap(18, 18, 18)
-                        .addComponent(resend2))
-                    .addComponent(resend1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tel)
-                    .addComponent(numcompte)
-                    .addComponent(Valider, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
-                    .addComponent(newPassword)
-                    .addComponent(confirmationNewPassword))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(telError2)
+                    .addComponent(codeError)
+                    .addComponent(telError)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(error)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(checkcode)
+                            .addGap(18, 18, 18)
+                            .addComponent(resend2))
+                        .addComponent(resend1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(tel)
+                        .addComponent(cin)
+                        .addComponent(Valider, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+                        .addComponent(newPassword)
+                        .addComponent(confirmationNewPassword)))
                 .addContainerGap(89, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -180,20 +190,26 @@ public class PasswordReset extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(numcompte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
+                    .addComponent(cin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(telError)
+                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(tel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(telError2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(resend1)
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(checkcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(resend2, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                .addGap(4, 4, 4)
+                .addComponent(codeError)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(newPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -205,7 +221,7 @@ public class PasswordReset extends javax.swing.JPanel {
                 .addComponent(error)
                 .addGap(8, 8, 8)
                 .addComponent(Valider)
-                .addGap(0, 111, Short.MAX_VALUE))
+                .addGap(0, 141, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -214,50 +230,62 @@ public class PasswordReset extends javax.swing.JPanel {
         //sendAnSMS();
     }//GEN-LAST:event_resendMouseClicked
 
-    private void resend1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resend1MouseClicked
-        // TODO add your handling code here:
-        if (numcompte.getText().length() != 0 && am.AccountExist(numcompte.getText())) {
-            if (tel.getText().length() == 9 && cl.telCorrespondToNumCompte(numcompte.getText(), tel.getText())) {
-                sendAnSMS();
+    private void sendMeCode() {
+        if (cin.getText().length() != 0 && Personne.cinExist(cin.getText())) {
+            if (tel.getText().length() == 9) {
+                telError2.setText("");
+                if (Personne.cinMatchTel(cin.getText(), tel.getText())) {
+                    sendAnSMS();
+                    telError.setText("");
+                } else {
+                    telError.setText("Numero de telephone est ne correspond pas à cette compte !!!");
+                }
             } else {
-                javax.swing.JOptionPane.showMessageDialog(this, "Numero de telephone est invalide pour cette compte !!!");
+                telError2.setText("n'est pas valide . longueur doit être égale à 9 chifres");
             }
         } else {
-            javax.swing.JOptionPane.showMessageDialog(this, "Numero de compte invalide !!!");
+            telError.setText("cin n'est pas enregistrer dans aucun compte !!!");
         }
+    }
+
+    private void resend1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resend1MouseClicked
+        // TODO add your handling code here:
+        sendMeCode();
     }//GEN-LAST:event_resend1MouseClicked
 
     private void resend2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resend2MouseClicked
         // TODO add your handling code here:
-        if (numcompte.getText().length() != 0 && am.AccountExist(numcompte.getText())) {
-            if (tel.getText().length() != 0 && cl.telCorrespondToNumCompte(numcompte.getText(), tel.getText())) {
-                sendAnSMS();
-            } else {
-                javax.swing.JOptionPane.showMessageDialog(this, "Numero de telephone est invalide pour cette compte !!!");
-            }
-        } else {
-            javax.swing.JOptionPane.showMessageDialog(this, "Numero de compte invalide !!!");
-        }
+        sendMeCode();
     }//GEN-LAST:event_resend2MouseClicked
 
     private void ValiderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ValiderMouseClicked
         // TODO add your handling code here:
         if (checkcode.getText().equals(State.getCheck() + "")) {
+            codeError.setText("");
             if (newPassword.getText().equals(confirmationNewPassword.getText())) {
-                error.setText("");
-                // Reset the password
-                javax.swing.JOptionPane.showMessageDialog(this, "Mot de passe Modifier !!!");
+                if (newPassword.getText().matches("[0-9]+")) {
+                    error.setText("");
+                    // Reset the password
+                    Personne.passwordReset(cin.getText(), newPassword.getText());
+                    new SendEmail(Personne.getEmail(cin.getText()), "changement de mot de passe avec succès", "votre demande de changement de mot de passe a été approuvée avec succès\n"
+                            + "votre nouveau mot de passe est: " + newPassword.getText());
+                    javax.swing.JOptionPane.showMessageDialog(this, "Mot de passe Modifier !!!");
+                } else {
+                    error.setText("Mot de pass doit contient que des chifres !!!");
+                }
             } else {
                 error.setText("les mots de passes ne sont pas egaux !!");
             }
         } else {
-            javax.swing.JOptionPane.showMessageDialog(this, "Entrer le code de verification !!!");
+            codeError.setText("Entrer le code verification de telephone !!!");
         }
     }//GEN-LAST:event_ValiderMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Valider;
     private javax.swing.JTextField checkcode;
+    private javax.swing.JTextField cin;
+    private javax.swing.JLabel codeError;
     private javax.swing.JPasswordField confirmationNewPassword;
     private javax.swing.JLabel error;
     private javax.swing.JLabel jLabel1;
@@ -270,10 +298,11 @@ public class PasswordReset extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JPasswordField newPassword;
-    private javax.swing.JTextField numcompte;
     private javax.swing.JButton resend;
     private javax.swing.JButton resend1;
     private javax.swing.JButton resend2;
     private javax.swing.JTextField tel;
+    private javax.swing.JLabel telError;
+    private javax.swing.JLabel telError2;
     // End of variables declaration//GEN-END:variables
 }
