@@ -10,7 +10,9 @@ import MODELS.MailBoxLayer;
 import MODELS.Personne;
 import MODELS.SendEmail;
 import VUES.State;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -209,6 +211,10 @@ public class RegistreStep3 extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_cinActionPerformed
 
+    private void topFrameDispose() {
+        JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
+        topFrame.dispose();
+    }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         String d = getDate();
@@ -242,6 +248,7 @@ public class RegistreStep3 extends javax.swing.JPanel {
                             State.setPassword(password.getText());
                             State.store();
                             JOptionPane.showMessageDialog(this, "Votre compte a été crée avec success", "Success", JOptionPane.INFORMATION_MESSAGE);
+                            topFrameDispose();
                             new SendEmail(cin_, "Creation d'un compte", "votre demande de Creer un compte e été envoyer avec succès\n nous allons vous contacter le plutot possible");
                         } else {
                             error.setText("Mot de pass doit contient que des chifres !!!");
