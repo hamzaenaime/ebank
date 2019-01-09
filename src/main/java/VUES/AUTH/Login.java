@@ -338,14 +338,14 @@ public class Login extends javax.swing.JFrame {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 150, 37));
 
         administrateur.setBackground(new java.awt.Color(15, 122, 122));
-        administrateur.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        administrateur.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         administrateur.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 administrateurMouseClicked(evt);
             }
         });
 
-        Indicator5.setBackground(new java.awt.Color(204, 0, 204));
+        Indicator5.setBackground(new java.awt.Color(255, 255, 255));
         Indicator5.setOpaque(false);
 
         javax.swing.GroupLayout Indicator5Layout = new javax.swing.GroupLayout(Indicator5);
@@ -635,7 +635,7 @@ public class Login extends javax.swing.JFrame {
         Indicator3.setOpaque(false);
         Indicator4.setOpaque(false);
 
-        show("Admin");
+        show("Connecter");
 
     }// GEN-LAST:event_connectMouseClicked
 
