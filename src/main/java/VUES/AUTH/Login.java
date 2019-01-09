@@ -634,6 +634,7 @@ public class Login extends javax.swing.JFrame {
         Indicator2.setOpaque(false);
         Indicator3.setOpaque(false);
         Indicator4.setOpaque(false);
+        Indicator4.setOpaque(false) ;
 
         show("Connecter");
 
