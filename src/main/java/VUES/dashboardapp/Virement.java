@@ -159,7 +159,7 @@ public class Virement extends javax.swing.JPanel {
         String mot = motif.getText();
         
         
-        if (Account.AccountExist(numCompte)) {
+        if (Account.AccountExist(numCompte) && Integer.parseInt(numCompte)!=(int)Account.getNumAccount()) {
             if(montant > 0){
                     // tous les données sont valides
                     // verifier que le client à le solde pour effectuer le virement
@@ -171,13 +171,12 @@ public class Virement extends javax.swing.JPanel {
                                 "Votre fond est insuffisant pour réaliser l'opération, Merci d'allimenter votre compte",
                                 "Fond insuffisant", JOptionPane.ERROR_MESSAGE);
                     }
-                
             } else {
-                JOptionPane.showMessageDialog(this, "Le montant ne peut pas être négative", "Montant invalide",
+                JOptionPane.showMessageDialog(this, "Le montant ne peut pas être négative ou nulle", "Montant invalide",
                         JOptionPane.ERROR_MESSAGE);
             }
         }else {
-            JOptionPane.showMessageDialog(this, "Numero de compte n'existe pas", "compte inexistant",
+            JOptionPane.showMessageDialog(this, "Numero de compte invalide", "compte invalide",
                     JOptionPane.ERROR_MESSAGE);
         }
     }

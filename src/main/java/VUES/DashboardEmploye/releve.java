@@ -5,17 +5,11 @@
  */
 package VUES.DashboardEmploye;
 
-import VUES.dashboardapp.*;
 import MODELS.Operation;
 import MODELS.Client;
 import MODELS.ReleveBancaire;
 import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.DocumentException;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -23,7 +17,6 @@ import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
-import javax.swing.JFrame;
 
 /**
  *
