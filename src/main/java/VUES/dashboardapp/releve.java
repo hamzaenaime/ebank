@@ -8,7 +8,6 @@ package VUES.dashboardapp;
 import MODELS.Operation;
 import MODELS.Client;
 import MODELS.ReleveBancaire;
-import MODELS.Table.OperationTable;
 import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.DocumentException;
 import java.io.FileNotFoundException;
@@ -21,11 +20,9 @@ import javax.swing.JFileChooser;
 
 import java.awt.Graphics;
 import java.awt.Image;
-import static java.lang.ProcessBuilder.Redirect.to;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import static java.util.Date.from;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 /**
