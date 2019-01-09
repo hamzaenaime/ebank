@@ -1,5 +1,7 @@
 
 *.log
+*.pdf
+*.xlsx
 
 target/
 
