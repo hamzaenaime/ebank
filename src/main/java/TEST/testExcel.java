@@ -11,6 +11,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.ResultSet;
 import org.apache.poi.hssf.util.CellRangeAddress;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
@@ -25,8 +26,10 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.util.IOUtils;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import MODELS.Operation;
+import java.sql.SQLException;
 public class testExcel {
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, SQLException {
 	    Workbook workbook = new XSSFWorkbook();
 	    Sheet sheet = workbook.createSheet("Operations");
 	    
@@ -170,14 +173,14 @@ public class testExcel {
                 }
                 
             }
+   Operation operations = new Operation();
+   ResultSet Res = operations.Operation_From_To("id84901","2019-01-01","2019-01-30"); 
    
-   
-   
-   
-   
-   
-   
-            
+//   while(Res.next()){
+//       System.err.println(Res);
+//   }
+        
+      
 
 //            
 //            
