@@ -5,9 +5,7 @@
  */
 package VUES.DashboardDirector;
 
-import VUES.dashboardapp.*;
 import DAO.Dao;
-import MODELS.Account;
 import MODELS.Client;
 import MODELS.Personne;
 import VUES.AUTH.Login;
@@ -16,7 +14,7 @@ import VUES.DashboardEmploye.Virement;
 import VUES.DashboardEmploye.changePassword;
 import VUES.DashboardEmploye.home;
 import VUES.DashboardEmploye.reclamation;
-import VUES.DashboardEmploye.releve;
+import VUES.dashboardapp.*;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import javax.swing.*;
