@@ -27,6 +27,8 @@ public class Login extends javax.swing.JFrame {
     private PasswordReset passwordResetStep1 = new PasswordReset();
     //login panel
     private Connecter connecter = new Connecter();
+    //Admin panel
+    private Admin admin = new Admin();
     //current panel
     private String panel = "";
     private int xx, xy;
@@ -75,13 +77,13 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        Button2 = new javax.swing.JPanel();
+        reset = new javax.swing.JPanel();
         Indicator2 = new javax.swing.JPanel();
         passwordReset = new javax.swing.JLabel();
         connect = new javax.swing.JPanel();
         Indicator1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        Button3 = new javax.swing.JPanel();
+        create = new javax.swing.JPanel();
         Indicator3 = new javax.swing.JPanel();
         registre = new javax.swing.JLabel();
         Button4 = new javax.swing.JPanel();
@@ -90,6 +92,9 @@ public class Login extends javax.swing.JFrame {
         jPanel14 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
+        administrateur = new javax.swing.JPanel();
+        Indicator5 = new javax.swing.JPanel();
+        a = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
@@ -111,11 +116,11 @@ public class Login extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(252, 230, 252));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Button2.setBackground(new java.awt.Color(252, 230, 252));
-        Button2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Button2.addMouseListener(new java.awt.event.MouseAdapter() {
+        reset.setBackground(new java.awt.Color(252, 230, 252));
+        reset.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        reset.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Button2MouseClicked(evt);
+                resetMouseClicked(evt);
             }
         });
 
@@ -142,29 +147,29 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout Button2Layout = new javax.swing.GroupLayout(Button2);
-        Button2.setLayout(Button2Layout);
-        Button2Layout.setHorizontalGroup(
-            Button2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Button2Layout.createSequentialGroup()
+        javax.swing.GroupLayout resetLayout = new javax.swing.GroupLayout(reset);
+        reset.setLayout(resetLayout);
+        resetLayout.setHorizontalGroup(
+            resetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(resetLayout.createSequentialGroup()
                 .addComponent(Indicator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(passwordReset)
                 .addGap(0, 83, Short.MAX_VALUE))
         );
-        Button2Layout.setVerticalGroup(
-            Button2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        resetLayout.setVerticalGroup(
+            resetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Indicator2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(Button2Layout.createSequentialGroup()
+            .addGroup(resetLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(passwordReset, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(Button2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 227, 232, 50));
+        jPanel1.add(reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 227, 232, 50));
 
         connect.setBackground(new java.awt.Color(205, 136, 205));
-        connect.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        connect.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         connect.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 connectMouseClicked(evt);
@@ -209,11 +214,11 @@ public class Login extends javax.swing.JFrame {
 
         jPanel1.add(connect, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 175, 232, -1));
 
-        Button3.setBackground(new java.awt.Color(252, 230, 252));
-        Button3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Button3.addMouseListener(new java.awt.event.MouseAdapter() {
+        create.setBackground(new java.awt.Color(252, 230, 252));
+        create.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        create.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Button3MouseClicked(evt);
+                createMouseClicked(evt);
             }
         });
 
@@ -235,29 +240,29 @@ public class Login extends javax.swing.JFrame {
         registre.setForeground(new java.awt.Color(96, 83, 150));
         registre.setText("Créer un Compte");
 
-        javax.swing.GroupLayout Button3Layout = new javax.swing.GroupLayout(Button3);
-        Button3.setLayout(Button3Layout);
-        Button3Layout.setHorizontalGroup(
-            Button3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Button3Layout.createSequentialGroup()
+        javax.swing.GroupLayout createLayout = new javax.swing.GroupLayout(create);
+        create.setLayout(createLayout);
+        createLayout.setHorizontalGroup(
+            createLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(createLayout.createSequentialGroup()
                 .addComponent(Indicator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(registre)
                 .addContainerGap(111, Short.MAX_VALUE))
         );
-        Button3Layout.setVerticalGroup(
-            Button3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        createLayout.setVerticalGroup(
+            createLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Indicator3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Button3Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, createLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(registre, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jPanel1.add(Button3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 277, 232, 50));
+        jPanel1.add(create, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 277, 232, 50));
 
         Button4.setBackground(new java.awt.Color(252, 230, 252));
-        Button4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Button4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Button4MouseClicked(evt);
@@ -329,6 +334,53 @@ public class Login extends javax.swing.JFrame {
         jLabel5.setText(" E-Bank");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 150, 37));
 
+        administrateur.setBackground(new java.awt.Color(252, 230, 252));
+        administrateur.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        administrateur.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                administrateurMouseClicked(evt);
+            }
+        });
+
+        Indicator5.setBackground(new java.awt.Color(204, 0, 204));
+        Indicator5.setOpaque(false);
+
+        javax.swing.GroupLayout Indicator5Layout = new javax.swing.GroupLayout(Indicator5);
+        Indicator5.setLayout(Indicator5Layout);
+        Indicator5Layout.setHorizontalGroup(
+            Indicator5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 8, Short.MAX_VALUE)
+        );
+        Indicator5Layout.setVerticalGroup(
+            Indicator5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        a.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        a.setForeground(new java.awt.Color(96, 83, 150));
+        a.setText("Administrateur ?");
+
+        javax.swing.GroupLayout administrateurLayout = new javax.swing.GroupLayout(administrateur);
+        administrateur.setLayout(administrateurLayout);
+        administrateurLayout.setHorizontalGroup(
+            administrateurLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(administrateurLayout.createSequentialGroup()
+                .addComponent(Indicator5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(a)
+                .addContainerGap(114, Short.MAX_VALUE))
+        );
+        administrateurLayout.setVerticalGroup(
+            administrateurLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Indicator5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, administrateurLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(a, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jPanel1.add(administrateur, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 232, 50));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 580));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -355,7 +407,7 @@ public class Login extends javax.swing.JFrame {
         btn_close.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btn_close.setForeground(new java.awt.Color(255, 255, 255));
         btn_close.setText("X");
-        btn_close.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_close.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btn_close.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_closeMouseClicked(evt);
@@ -482,23 +534,25 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Button3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button3MouseClicked
+    private void createMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createMouseClicked
         // TODO add your handling code here:
         steps();
         showSteps();
-        onClick(Button3);
-        onLeaveClick(Button2);
+        onClick(create);
+        onLeaveClick(reset);
         onLeaveClick(connect);
         onLeaveClick(Button4);
+        onLeaveClick(administrateur);
 
         //indicators
         Indicator1.setOpaque(false);
         Indicator2.setOpaque(false);
         Indicator3.setOpaque(true);
         Indicator4.setOpaque(false);
+        Indicator5.setOpaque(false);
         panel = "Registre";
         show("Registre");
-    }//GEN-LAST:event_Button3MouseClicked
+    }//GEN-LAST:event_createMouseClicked
 
     private void jPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MousePressed
         // TODO add your handling code here:
@@ -521,14 +575,17 @@ public class Login extends javax.swing.JFrame {
     private void Button4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button4MouseClicked
         // TODO add your handling code here:
         onClick(Button4);
-        onLeaveClick(Button2);
-        onLeaveClick(Button3);
+        onLeaveClick(reset);
+        onLeaveClick(create);
         onLeaveClick(connect);
+
+        onLeaveClick(administrateur);
         //indicators
         Indicator1.setOpaque(false);
         Indicator2.setOpaque(false);
         Indicator3.setOpaque(false);
         Indicator4.setOpaque(true);
+        Indicator5.setOpaque(false);
 
         container.removeAll();
         this.container.add(new home());
@@ -539,31 +596,36 @@ public class Login extends javax.swing.JFrame {
 
     }//GEN-LAST:event_Button4MouseClicked
 
-    private void Button2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button2MouseClicked
+    private void resetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetMouseClicked
         // TODO add your handling code here:
         hideSteps();
-        onClick(Button2);
+        onClick(reset);
         onLeaveClick(connect);
-        onLeaveClick(Button3);
+        onLeaveClick(create);
         onLeaveClick(Button4);
+
+        onLeaveClick(administrateur);
 
         //indicators
         Indicator1.setOpaque(false);
         Indicator2.setOpaque(true);
         Indicator3.setOpaque(false);
         Indicator4.setOpaque(false);
+        Indicator5.setOpaque(false);
 
         show("passwordReset");
 
-    }//GEN-LAST:event_Button2MouseClicked
+    }//GEN-LAST:event_resetMouseClicked
 
     private void connectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_connectMouseClicked
         // TODO add your handling code here:
         hideSteps();
         onClick(connect);
-        onLeaveClick(Button2);
-        onLeaveClick(Button3);
+        onLeaveClick(reset);
+        onLeaveClick(create);
         onLeaveClick(Button4);
+
+        onLeaveClick(administrateur);
 
         //indicators
         Indicator1.setOpaque(true);
@@ -571,7 +633,7 @@ public class Login extends javax.swing.JFrame {
         Indicator3.setOpaque(false);
         Indicator4.setOpaque(false);
 
-        show("Connecter");
+        show("Admin");
 
     }//GEN-LAST:event_connectMouseClicked
 
@@ -644,19 +706,39 @@ public class Login extends javax.swing.JFrame {
     private void passwordResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordResetMouseClicked
         // TODO add your handling code here:
         hideSteps();
-        onClick(Button2);
+        onClick(reset);
         onLeaveClick(connect);
-        onLeaveClick(Button3);
+        onLeaveClick(create);
         onLeaveClick(Button4);
+        onLeaveClick(administrateur);
 
         //indicators
         Indicator1.setOpaque(false);
         Indicator2.setOpaque(true);
         Indicator3.setOpaque(false);
         Indicator4.setOpaque(false);
+        Indicator5.setOpaque(false);
         panel = "PasswordReset";
         show("passwordReset");
     }//GEN-LAST:event_passwordResetMouseClicked
+
+    private void administrateurMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_administrateurMouseClicked
+        hideSteps();
+        onClick(administrateur);
+        onLeaveClick(connect);
+        onLeaveClick(create);
+        onLeaveClick(Button4);
+        onLeaveClick(reset);
+
+        //indicators
+        Indicator1.setOpaque(false);
+        Indicator2.setOpaque(false);
+        Indicator3.setOpaque(false);
+        Indicator4.setOpaque(false);
+        Indicator5.setOpaque(true);
+        panel = "Connecter";
+        show("Connecter");
+    }//GEN-LAST:event_administrateurMouseClicked
 
     public void labelShow(String lable) {
         if (lable.equals("step2")) {
@@ -710,6 +792,9 @@ public class Login extends javax.swing.JFrame {
         if (nom.equals("passwordReset")) {
             panelToShow = passwordResetStep1;
         }
+        if (nom.equals("Admin")) {
+            panelToShow = admin;
+        }
 
         this.container.add(panelToShow);
         this.container.revalidate();
@@ -736,16 +821,18 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Button2;
-    private javax.swing.JPanel Button3;
     private javax.swing.JPanel Button4;
     private javax.swing.JPanel Indicator1;
     private javax.swing.JPanel Indicator2;
     private javax.swing.JPanel Indicator3;
     private javax.swing.JPanel Indicator4;
+    private javax.swing.JPanel Indicator5;
+    private javax.swing.JLabel a;
+    private javax.swing.JPanel administrateur;
     private javax.swing.JLabel btn_close;
     private javax.swing.JPanel connect;
     private javax.swing.JPanel container;
+    private javax.swing.JPanel create;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel5;
@@ -758,6 +845,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JLabel passwordReset;
     private javax.swing.JLabel registre;
+    private javax.swing.JPanel reset;
     private javax.swing.JLabel step1;
     private javax.swing.JLabel step2;
     private javax.swing.JLabel step3;
