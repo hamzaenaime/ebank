@@ -28,7 +28,7 @@ public class Account {
     connection = Dao.getConnection();
         try {
             st = connection.createStatement();
-            ResultSet res = st.executeQuery("select numcompte from compte cm inner join client cl on cm.numcompte=cl.numcompte where cin= '"+Client.getCin()+"'");
+            ResultSet res = st.executeQuery("select numcompte from client where id= '"+Client.getCin()+"'");
             if(res.next()){
                 numAccount = res.getLong(1);
             }
@@ -67,15 +67,6 @@ public class Account {
 
         return false;
     }
-
-    public static void associate(String cin) {
-        try {
-            st = connection.createStatement();
-            st.executeUpdate("insert into assoc_compte_client (numcompte,id_client) values('"+numAccount+"','"+cin+"')");
-        } catch (SQLException ex) {
-                System.err.println("probleme dans la requette d'ajouter un compte courant !! " + ex.getMessage());
-            }
-        }
 
     public static float getSolde() {
         connection = Dao.getConnection();
@@ -122,4 +113,10 @@ public class Account {
         }*/
         return new String[]{"48484884","188112","495132"};
     }
+
+    public static long getNumAccount() {
+        return numAccount;
+    }
+    
+    
 }
