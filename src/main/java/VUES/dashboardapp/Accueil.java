@@ -14,6 +14,10 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import javax.swing.*;
 
+import java.awt.Graphics;
+import java.awt.Image;
+
+
 /**
  *
  * @author KeepToo
