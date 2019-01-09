@@ -10,9 +10,6 @@ import MODELS.MailBoxLayer;
 import MODELS.Personne;
 import MODELS.SendEmail;
 import VUES.State;
-import java.sql.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
 /**
@@ -39,31 +36,10 @@ public class RegistreStep3 extends javax.swing.JPanel {
         profession.setText(State.getProfession());
     }
 
-    private Date getDate() {
-        Date oDate = (Date) jXDatePicker1.getDate();
-        DateFormat oDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        return (Date) jXDatePicker1.getDate();
+    private String getDate() {
+        return (jXDatePicker1.getDate().getYear() + 1900) + "-" + (jXDatePicker1.getDate().getMonth() + 1) + "-" + jXDatePicker1.getDate().getDate();
     }
 
-    /*    private void getInfos() {
-        
-        String d = getDate();
-                
-        //i can't get the day -18 from date object if you try to solve it u can compare it to oDate using before(l3iba)
-        /*if(oDate.before(validDate)){
-            DateFormat oDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-            d = oDateFormat.format(oDate);
-        }else{
-            JOptionPane.showMessageDialog( this, "Vous devez avoir 18 ans minimum","le titre",JOptionPane.ERROR_MESSAGE);
-        }
-        
-        State.setCin(cin.getText());
-        State.setEmail(email.getText());
-        State.setVille(ville.getText());
-        State.setAdresse(address.getText());
-        State.setDate_naissance(d);
-        State.setProfession(profession.getText());
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -232,7 +208,7 @@ public class RegistreStep3 extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        Date d = getDate();
+        String d = getDate();
         String cin_ = cin.getText();
         String email_ = email.getText();
         String ville_ = ville.getText();
@@ -278,6 +254,7 @@ public class RegistreStep3 extends javax.swing.JPanel {
         } else {
             JOptionPane.showMessageDialog(this, "verifier que vous avez remplir tous les champs correctement!", "Warning", JOptionPane.WARNING_MESSAGE);
         }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

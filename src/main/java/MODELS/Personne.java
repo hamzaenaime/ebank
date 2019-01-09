@@ -11,6 +11,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -60,16 +63,19 @@ public class Personne {
         return false;
     }
 
-    public static void createPersonne(String cin, String nom, String prenom, java.sql.Date date_naissance, String address, String ville, String tel, String email, String password, String profession) {
+    public static void createPersonne(String cin, String nom, String prenom, String date_naissance, String address, String ville, String tel, String email, String password, String profession) {
         conn = Dao.getConnection();
         String req = "insert into personne (cin,nom,prenom,date_naissance,address,ville,tel,email,password,last_login)"
                 + "values (?,?,?,?,?,?,?,?,?,now())";
+
         try {
+            Date formate = new SimpleDateFormat("yyyy-MM-dd").parse(date_naissance);
+            java.sql.Date aDate = new java.sql.Date(formate.getTime());
             PreparedStatement prep = conn.prepareStatement(req);
             prep.setString(1, cin);
             prep.setString(2, nom);
             prep.setString(3, prenom);
-            prep.setDate(4, (java.sql.Date) date_naissance);
+            prep.setDate(4, aDate);
             prep.setString(5, address);
             prep.setString(6, ville);
             prep.setString(7, tel);
@@ -78,6 +84,9 @@ public class Personne {
             //prep.setString(10, profession);
 
             prep.execute();
+
+        } catch (ParseException ex) {
+            System.err.println(ex.getMessage());
         } catch (SQLException ex) {
             System.err.println("Echec de la création du nouveau personne" + ex.getMessage());
         }
