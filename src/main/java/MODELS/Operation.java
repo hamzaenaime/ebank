@@ -34,6 +34,7 @@ public class Operation {
             }
             return 0;
         } catch (SQLException ex) {
+            System.out.print("error lors de l'insertion dans la table operation_client :"+ex.getMessage());
             return 0;
         }
     }

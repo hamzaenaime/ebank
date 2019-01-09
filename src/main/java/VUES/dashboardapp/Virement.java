@@ -164,11 +164,8 @@ public class Virement extends javax.swing.JPanel {
                     // tous les données sont valides
                     // verifier que le client à le solde pour effectuer le virement
                     if (Account.getSolde()>=montant) {// if le client a le solde on finalise l'operation
-                        Operation.createOperation(0, Integer.parseInt(numCompte), mot,
-                                Float.parseFloat(mnt.getText()));
-                        JOptionPane.showMessageDialog(this, "Virement effectué", "Opération terminée",
-                                JOptionPane.ERROR_MESSAGE);
-
+                        ClientOperation.createClientOperation((int) Account.getNumAccount(), Integer.parseInt(numCompte), mot, montant);
+                        JOptionPane.showMessageDialog(this, "Virement effectué", "Opération terminée",JOptionPane.ERROR_MESSAGE);
                     } else {
                         JOptionPane.showMessageDialog(this,
                                 "Votre fond est insuffisant pour réaliser l'opération, Merci d'allimenter votre compte",
