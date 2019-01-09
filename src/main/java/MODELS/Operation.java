@@ -18,7 +18,6 @@ import java.sql.Statement;
  */
 public class Operation {
    protected static Connection conn;
-    
     public static int createOperation(int compte_src,int compte_dst, String motif, float montant){
         conn = Dao.getConnection();//id_client,
         String req = "insert into operation (id_compte_src,id_compte_dst,description,montant) values (?,?,?,?) returning id_operation";
@@ -56,14 +55,6 @@ public class Operation {
         }
     }
     
-    private Connection Con;
-    private Statement St;
-    private Dao dao;
-    
-     public Operation(){
-        Con =   dao.getConnection();
-    }
-    
     public static ResultSet getAllOperation(String cin){
         Connection con = Dao.getConnection();
         try 
@@ -79,4 +70,32 @@ public class Operation {
             return null ;
         }
     }
+    
+    /*Ayoub Methodes*/
+    private Connection Con;
+    private Statement St;
+    private Dao dao;
+    
+    //Constructor 
+     public Operation(){
+        Con =   dao.getConnection();
+    }
+     
+    public ResultSet Operation_From_To(String cin,String From,String To){
+       ResultSet res = null;
+        try 
+        {
+            this.St = this.Con.createStatement();
+            res=St.executeQuery("select date_operation::date,description,montant from operation inner join operation_client o on operation.id_operation = o.id_operation "
+                    + "where o.id_client='"+cin+"' and date_operation >= TO_DATE('"+From+"','YYYY-mm-dd') and date_operation <= TO_DATE('"+To+"','YYYY-mm-dd') order by date_operation desc");
+           
+            return res ;
+        }
+        catch( SQLException ex)
+        {
+            return null ;
+        }
+    }
+    
+    
 }

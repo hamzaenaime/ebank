@@ -28,6 +28,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -37,9 +39,16 @@ import java.util.Date;
 public class ReleveBancaire {
     private ResultSet Res;
     
-    public void GeneratePDF(String path,String NomPrenom,String cin,Operation operations) throws FileNotFoundException, DocumentException, BadElementException, IOException, SQLException{
+    public void GeneratePDF(String path,String NomPrenom,String cin,Operation operations,int periode,String from,String to) throws FileNotFoundException, DocumentException, BadElementException, IOException, SQLException, ParseException{
         
-        this.Res = Operation.getAllOperation(cin);
+        this.Res = operations.Operation_From_To(cin,from,to);
+        
+        String Cl=" Jours";
+        if(periode>30){
+            periode = (int )(periode/30);
+            Cl = " Mois";
+        }
+                
         Document document = new Document();
             PdfWriter.getInstance(document, new FileOutputStream(path));
             document.open();
@@ -57,7 +66,7 @@ public class ReleveBancaire {
             
             Paragraph NomP = new Paragraph("Nom et Prenom:\t"+NomPrenom, FontFactory.getFont(FontFactory.COURIER, 15));
             Paragraph NumC = new Paragraph("Numéro de compte:\t"+cin, FontFactory.getFont(FontFactory.COURIER, 15));
-            Paragraph Periode = new Paragraph("Période:\t"+"******", FontFactory.getFont(FontFactory.COURIER, 15));
+            Paragraph Periode = new Paragraph("Période:\t"+periode+Cl.toString(), FontFactory.getFont(FontFactory.COURIER, 15));
             
             document.add(NomP);
             document.add(NumC);

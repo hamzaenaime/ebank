@@ -8,13 +8,9 @@ package VUES.dashboardapp;
 import MODELS.Operation;
 import MODELS.Client;
 import MODELS.ReleveBancaire;
+import MODELS.Table.OperationTable;
 import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.DocumentException;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -22,8 +18,16 @@ import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
-import javax.swing.JFrame;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import static java.lang.ProcessBuilder.Redirect.to;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import static java.util.Date.from;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 /**
  *
  * @author dell
@@ -37,6 +41,8 @@ public class releve extends javax.swing.JPanel{
      */
     public releve() {
         initComponents();
+        this.txtPath.setOpaque(true);
+        this.txtPath.setEditable(false);
     }
 
     /**
@@ -48,64 +54,86 @@ public class releve extends javax.swing.JPanel{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        go = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel(){
+
+            public void paintComponent(Graphics g){
+                ImageIcon img = new ImageIcon("releve.png");
+                Image i = img.getImage();
+
+                g.drawImage(i, 0, 0, this.getSize().width,this.getSize().height,this);
+            }
+
+        };
         txtPath = new javax.swing.JTextField();
         btnGenerate = new javax.swing.JButton();
+        jXDatePicker1 = new org.jdesktop.swingx.JXDatePicker();
+        jXDatePicker2 = new org.jdesktop.swingx.JXDatePicker();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        go.setBackground(new java.awt.Color(255, 255, 255));
-        go.setText("Enregistrer sous");
-        go.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                goActionPerformed(evt);
-            }
-        });
-
+        txtPath.setForeground(new java.awt.Color(51, 51, 51));
+        txtPath.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtPath.setCaretColor(new java.awt.Color(255, 255, 255));
         txtPath.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPathActionPerformed(evt);
             }
         });
 
-        btnGenerate.setText("Générer");
+        btnGenerate.setBackground(new java.awt.Color(255, 255, 255));
+        btnGenerate.setText("Enregistrer sous");
         btnGenerate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGenerateActionPerformed(evt);
             }
         });
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(txtPath, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jXDatePicker2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(160, 160, 160)
+                        .addComponent(btnGenerate)))
+                .addContainerGap(412, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(txtPath, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jXDatePicker2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 215, Short.MAX_VALUE)
+                .addComponent(btnGenerate, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(73, 73, 73))
+        );
+
+        txtPath.getAccessibleContext().setAccessibleDescription("");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnGenerate, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(go)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtPath, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(269, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(go, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPath, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnGenerate, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(224, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void goActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goActionPerformed
-        // TODO add your handling code here:
-        SaveAs();
-    }//GEN-LAST:event_goActionPerformed
 
     private void txtPathActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPathActionPerformed
         
@@ -115,57 +143,81 @@ public class releve extends javax.swing.JPanel{
         // TODO add your handling code here:
         
         try {
-            ReleveBancaire relv = new ReleveBancaire();
-            LocalDate date = LocalDate.now();
-            this.path = this.path+date.getDayOfMonth()+"_"+date.getMonth()+"_"+date.getYear()+"_"+Client.getNom()+"_"+Client.getPrenom()+".pdf";
-            //System.out.println("PATH:\t"+path);
-            Operation operations = new Operation();
-            try {
-                relv.GeneratePDF(path,Client.getNom()+" "+Client.getPrenom(),Client.getCin(),operations);
-            } catch (FileNotFoundException ex) {
+            if(!SaveAs()) throw new Exception();
+            Date To = jXDatePicker1.getDate();
+            Date From = jXDatePicker2.getDate();
+            
+            DateFormat oDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            String from = oDateFormat.format(From);
+            String to = oDateFormat.format(To);
+            
+            int periode =0;
+            if(To.after(From) || To.equals(From)){
+                
+                periode = (int)( (To.getTime() - From.getTime())/ (1000 * 60 * 60 * 24) );
+                
+                ReleveBancaire relv = new ReleveBancaire();
+                LocalDate date = LocalDate.now();
+                this.path = this.path+date.getDayOfMonth()+"_"+date.getMonth()+"_"+date.getYear()+"_"+Client.getNom()+"_"+Client.getPrenom()+".pdf";
+                //System.out.println("PATH:\t"+path);
+                Operation operations = new Operation();
+                relv.GeneratePDF(path,Client.getNom()+" "+Client.getPrenom(),Client.getCin(),operations,periode,from,to);
+                
+                //jTable1.setModel(new OperationTable(Operation.getOperationFromTo(Client.getCin(),d1,d2)));
+                System.out.println("Operation de "+from+" au "+to);
+            }else{
+                JOptionPane.showMessageDialog( this, "Intervalle de date invalide","Date invalide",JOptionPane.ERROR_MESSAGE);
+            }
+        }catch (FileNotFoundException ex) {
                 Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
             } catch (BadElementException ex) {
                 Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {
                 Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } catch (DocumentException ex) {
+         catch (DocumentException ex) {
             Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            System.out.println("PAS DE CHEMIN!!"+ex.getMessage());
         }
     }//GEN-LAST:event_btnGenerateActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGenerate;
-    private javax.swing.JButton go;
+    private javax.swing.JPanel jPanel1;
+    private org.jdesktop.swingx.JXDatePicker jXDatePicker1;
+    private org.jdesktop.swingx.JXDatePicker jXDatePicker2;
     private javax.swing.JTextField txtPath;
     // End of variables declaration//GEN-END:variables
 
     
     
     //Methode for opening frame where we can get path os save as 
-    public void SaveAs(){
-        chooser = new JFileChooser(); 
-        chooser.setCurrentDirectory(new java.io.File("."));
-        chooser.setDialogTitle(path);
-        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        //
-        // disable the "All files" option.
-        //
-        chooser.setAcceptAllFileFilterUsed(false);
-       
-        if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) { 
-            //System.out.println("getCurrentDirectory(): "+  chooser.getCurrentDirectory());
-            //System.out.println("getSelectedFile() : "+  chooser.getSelectedFile());
-            this.setPath(chooser.getSelectedFile().toString()+"\\");
-            System.out.println("Path:"+this.getPath());
-        }
-        else {
-        System.out.println("No Selection ");
-      }
-      this.txtPath.setText(path);
+    public boolean SaveAs(){
+            chooser = new JFileChooser(); 
+            chooser.setCurrentDirectory(new java.io.File("."));
+            chooser.setDialogTitle(path);
+            chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+            //
+            // disable the "All files" option.
+            //
+            chooser.setAcceptAllFileFilterUsed(false);
+            if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) { 
+                //System.out.println("getCurrentDirectory(): "+  chooser.getCurrentDirectory());
+                //System.out.println("getSelectedFile() : "+  chooser.getSelectedFile());
+                this.setPath(chooser.getSelectedFile().toString()+"\\");
+                System.out.println("Path:"+this.getPath());
+                this.txtPath.setText(path);
+                return true;
+            }else{
+                System.out.println("No Selection ");
+                this.setPath("Pas de chemin séléctionner!");
+            }
+            this.txtPath.setText(path);
+            return false;
     }
 
     public String getPath() {
