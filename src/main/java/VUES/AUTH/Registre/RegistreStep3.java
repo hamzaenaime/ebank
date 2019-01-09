@@ -37,7 +37,10 @@ public class RegistreStep3 extends javax.swing.JPanel {
     }
 
     private String getDate() {
-        return (jXDatePicker1.getDate().getYear() + 1900) + "-" + (jXDatePicker1.getDate().getMonth() + 1) + "-" + jXDatePicker1.getDate().getDate();
+        if (jXDatePicker1.getDate() != null) {
+            return (jXDatePicker1.getDate().getYear() + 1900) + "-" + (jXDatePicker1.getDate().getMonth() + 1) + "-" + jXDatePicker1.getDate().getDate();
+        }
+        return "";
     }
 
     /**
