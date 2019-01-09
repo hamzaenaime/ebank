@@ -10,7 +10,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -70,7 +69,7 @@ public class Account {
 
     public static float getSolde() {
         connection = Dao.getConnection();
-        String req = "select solde from compte where numCompte='"+numAccount+"'";
+        String req = "select solde from compte where numcompte='"+numAccount+"'";
         try {
             st = connection.createStatement();
             ResultSet res = st.executeQuery(req);
@@ -79,7 +78,7 @@ public class Account {
             }
         } catch (SQLException ex) {
         }
-        return -1;
+        return 0;
     }
     
 
