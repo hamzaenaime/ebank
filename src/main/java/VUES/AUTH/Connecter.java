@@ -4,7 +4,10 @@ import MODELS.Personne;
 import VUES.dashboardapp.Accueil;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -261,6 +264,8 @@ public class Connecter extends javax.swing.JPanel implements ActionListener {
         String id_ = id.getText();
         String pass = password.getText();
         if (!pass.isEmpty() && !id_.isEmpty() && Personne.login(id_, pass)) {
+            JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
+            topFrame.dispose();
             int type = Personne.getPoste(); //1 for client 2 for cashier 3 for director
             switch (type) {
                 case 1:
