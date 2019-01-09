@@ -103,7 +103,7 @@ public class Accueil extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Button2.setBackground(new java.awt.Color(15, 122, 122));
-        Button2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Button2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Button2MouseClicked(evt);
@@ -150,7 +150,7 @@ public class Accueil extends javax.swing.JFrame {
         jPanel1.add(Button2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 232, 50));
 
         Button1.setBackground(new java.awt.Color(0, 18, 18));
-        Button1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Button1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Button1MouseClicked(evt);
@@ -197,7 +197,7 @@ public class Accueil extends javax.swing.JFrame {
         jPanel1.add(Button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 232, 50));
 
         Button3.setBackground(new java.awt.Color(15, 122, 122));
-        Button3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Button3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Button3MouseClicked(evt);
@@ -241,7 +241,7 @@ public class Accueil extends javax.swing.JFrame {
         jPanel1.add(Button3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 232, 50));
 
         Button4.setBackground(new java.awt.Color(15, 122, 122));
-        Button4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Button4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Button4MouseClicked(evt);
@@ -324,7 +324,7 @@ public class Accueil extends javax.swing.JFrame {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 150, 37));
 
         Button5.setBackground(new java.awt.Color(15, 122, 122));
-        Button5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Button5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Button5MouseClicked(evt);
@@ -371,7 +371,7 @@ public class Accueil extends javax.swing.JFrame {
         jPanel1.add(Button5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 416, 232, 50));
 
         Button6.setBackground(new java.awt.Color(15, 122, 122));
-        Button6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Button6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Button6MouseClicked(evt);
@@ -418,7 +418,7 @@ public class Accueil extends javax.swing.JFrame {
         jPanel1.add(Button6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 466, 232, 50));
 
         Button7.setBackground(new java.awt.Color(15, 122, 122));
-        Button7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Button7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Button7MouseClicked(evt);
@@ -578,6 +578,7 @@ public class Accueil extends javax.swing.JFrame {
         });
 
         jPanel5.setBackground(new java.awt.Color(4, 96, 96));
+        jPanel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel5MouseClicked(evt);
