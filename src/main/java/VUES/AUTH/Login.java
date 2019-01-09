@@ -713,7 +713,6 @@ public class Login extends javax.swing.JFrame {
 
         this.container.add(panelToShow);
         this.container.revalidate();
-
         this.container.repaint();
     }
 
