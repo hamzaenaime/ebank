@@ -30,8 +30,22 @@ import MODELS.Operation;
 import java.sql.SQLException;
 public class testExcel {
 	public static void main(String[] args) throws IOException, SQLException {
-	    Workbook workbook = new XSSFWorkbook();
-	    Sheet sheet = workbook.createSheet("Operations");
+	    
+            Operation operations = new Operation();
+            String cin = "id84901" ;
+            String from = "2019-01-08" ;
+            String to = "2019-01-30" ;
+            ResultSet Res = operations.Operation_From_To(cin,from,to);
+            int periode = periode = (int)16; 
+        
+        String Cl=" Jours";
+        if(periode>30){
+            periode = (int )(periode/30);
+            Cl = " Mois";
+        }
+        //Fill Excel :
+        Workbook workbook = new XSSFWorkbook();
+	Sheet sheet = workbook.createSheet("Operations");
 	    
             
 //HEADER :
@@ -68,26 +82,42 @@ public class testExcel {
 //   Cell cell = sheet.createRow(2).createCell(1);
 	    
 
-    CellStyle style = workbook.createCellStyle();
-    Font font = workbook.createFont();
-    font.setFontName("Roboto");
+    CellStyle Titlestyle = workbook.createCellStyle();
+    org.apache.poi.ss.usermodel.Font font = workbook.createFont();
     font.setFontHeight((short)(550));
-    style.setFont(font);
-    style.setAlignment((short)3);
+    Titlestyle.setFont(font);
+    Titlestyle.setAlignment((short)3);
             
             
     
    Row row = sheet.createRow(7);
    sheet.addMergedRegion(new CellRangeAddress(7, 9, 4, 6));
-   Cell cell2 = row.createCell(4);
-   cell2.setCellValue("Historique Des Operations ");
-   cell2.setCellStyle(style);
+   Cell Title = row.createCell(4);
+   Title.setCellValue("Historique Des Operations ");
+   Title.setCellStyle(Titlestyle);
+   
+   
+   //soub Title viwing the persiode
+   
+   CellStyle subTitlestyle = workbook.createCellStyle();
+    org.apache.poi.ss.usermodel.Font subfont = workbook.createFont();
+    subfont.setFontHeight((short)(300));
+    subTitlestyle.setFont(font);
+    subTitlestyle.setAlignment((short)3);
+            
+            
+    
+   row = sheet.createRow(10);
+   sheet.addMergedRegion(new CellRangeAddress(10, 10, 4, 6));
+   Cell subTitle = row.createCell(4);
+   subTitle.setCellValue("Periode : "+periode+Cl.toString());
+   subTitle.setCellStyle(subTitlestyle);
    
    
 //   Coordonnes :
      //Style des Coordonnes :
     CellStyle CoordStyle = workbook.createCellStyle();
-    Font Coordfont = workbook.createFont();
+    org.apache.poi.ss.usermodel.Font Coordfont = workbook.createFont();
 //    Coordfont.setFontHeight((short)(500));
     Coordfont.setColor(IndexedColors.BLACK.getIndex());
     CoordStyle.setFont(Coordfont);
@@ -97,16 +127,16 @@ public class testExcel {
     
 
    row = sheet.createRow(11);
-   sheet.addMergedRegion(new CellRangeAddress(11, 11, 1,4));
+   sheet.addMergedRegion(new CellRangeAddress(12, 12, 1,4));
    Cell numCompte = row.createCell(1);
-   numCompte.setCellValue("Numero de Compte :   232112133443  ");
+   numCompte.setCellValue("CIN :  "+cin);
    numCompte.setCellStyle(CoordStyle);
    
    
    row = sheet.createRow(12);
-   sheet.addMergedRegion(new CellRangeAddress(12, 12, 1,4));
+   sheet.addMergedRegion(new CellRangeAddress(13, 13, 1,4));
    Cell nom = row.createCell(1);
-   nom.setCellValue("Nom Complet :   XXXXXXXX YYYYYYYYY");
+   nom.setCellValue("Nom Complet : Taoufik AJAANIT");
    nom.setCellStyle(CoordStyle);
    
 //   Operations Table : 
@@ -114,7 +144,7 @@ public class testExcel {
 
 //HEader table Style :
     CellStyle htableStyle = workbook.createCellStyle();
-    Font htablefont = workbook.createFont();
+    org.apache.poi.ss.usermodel.Font htablefont = workbook.createFont();
     htablefont.setColor(IndexedColors.WHITE.getIndex());
     htableStyle.setFont(htablefont);
     htableStyle.setFillForegroundColor(IndexedColors.GREY_80_PERCENT.getIndex());
@@ -137,7 +167,7 @@ public class testExcel {
    
 //   table style paire :
     CellStyle ptableStyle = workbook.createCellStyle();
-    Font ptablefont = workbook.createFont();
+    org.apache.poi.ss.usermodel.Font ptablefont = workbook.createFont();
     ptablefont.setColor(IndexedColors.BLACK.getIndex());
     ptableStyle.setFont(ptablefont);
     ptableStyle.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.getIndex());
@@ -147,9 +177,9 @@ public class testExcel {
     
     
     
-//   table style impaire :
+//   table style imppaire :
     CellStyle imtableStyle = workbook.createCellStyle();
-    Font imtablefont = workbook.createFont();
+    org.apache.poi.ss.usermodel.Font imtablefont = workbook.createFont();
     imtablefont.setColor(IndexedColors.BLACK.getIndex());
     imtableStyle.setFont(imtablefont);
     imtableStyle.setFillForegroundColor(IndexedColors.WHITE.getIndex());
@@ -158,51 +188,48 @@ public class testExcel {
     imtableStyle.setAlignment((short)2);
 
 
-        for (int j = 16; j < 20; j++) {
+        while (Res.next()) {
+            int j = 16 ;
                 row = sheet.createRow(j);
                 
-                for (int k = 3; k < 8; k++) {
-                    Cell oper = row.createCell(k);
-                    oper.setCellValue("test");
-                    if (j%2 == 0)
-                        oper.setCellStyle(ptableStyle);
-                    else 
-                        oper.setCellStyle(imtableStyle);
-                    
-                    
+                Cell date = row.createCell(3);
+                Cell nomComplet = row.createCell(4);
+                Cell TypOp = row.createCell(5);
+                Cell dis = row.createCell(6);
+                Cell montant = row.createCell(7);
+                String np=Res.getString(5).toUpperCase()+" "+Res.getString(6).toUpperCase();
+
+                
+                //set values :
+
+                    date.setCellValue(Res.getDate(4).toString());
+                    nomComplet.setCellValue(np);
+                    TypOp.setCellValue(Res.getString(2));
+                    dis.setCellValue(Res.getString(1));
+                    montant.setCellValue(Res.getString(3)); 
+            
+                if (j%2 == 0){
+                        date.setCellStyle(ptableStyle);
+                        nomComplet.setCellStyle(ptableStyle);
+                        TypOp.setCellStyle(ptableStyle);
+                        dis.setCellStyle(ptableStyle);
+                        montant.setCellStyle(ptableStyle);
+                }
+                        
+                else{
+                        date.setCellStyle(imtableStyle);
+                        nomComplet.setCellStyle(imtableStyle);
+                        TypOp.setCellStyle(imtableStyle);
+                        dis.setCellStyle(imtableStyle);
+                        montant.setCellStyle(imtableStyle);
                 }
                 
+                j++ ;
+                
             }
-   Operation operations = new Operation();
-   ResultSet Res = operations.Operation_From_To("id84901","2019-01-01","2019-01-30"); 
-   
-//   while(Res.next()){
-//       System.err.println(Res);
-//   }
-        
-      
-
-//            
-//            
-//	    Font font = workbook.createFont();
-//            font.setColor(IndexedColors.WHITE.getIndex());
-//            style.setFont(font);
-//            
-//        
-//	    Cell cell1 = row.createCell(0);
-//	    cell1.setCellValue("ID");
-//	    cell1.setCellStyle(style);
-//	    
-//	    Cell cell2 = row.createCell(2);
-////	    cell2.setCellValue("NAME");
-//	    cell2.setCellStyle(style);
-            
-       
-  
-
 	    FileOutputStream fos =new FileOutputStream(new File("cp.xlsx"));
 	    workbook.write(fos);
 	    fos.close();
 	    System.out.println("Done");
-	}
 }  
+}

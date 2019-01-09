@@ -159,7 +159,7 @@ public class releve extends javax.swing.JPanel{
                 //System.out.println("PATH:\t"+path);
                 Operation operations = new Operation();
                 relv.GeneratePDF(path,Client.getNom()+" "+Client.getPrenom(),Client.getCin(),operations,periode,from,to);
-                
+                relv.GenerateExcel(path,Client.getNom()+" "+Client.getPrenom(),Client.getCin(),operations,periode,from,to);
                 //jTable1.setModel(new OperationTable(Operation.getOperationFromTo(Client.getCin(),d1,d2)));
                 System.out.println("Operation de "+from+" au "+to);
             }else{

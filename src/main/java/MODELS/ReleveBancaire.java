@@ -191,16 +191,16 @@ public class ReleveBancaire {
    
    CellStyle subTitlestyle = workbook.createCellStyle();
     org.apache.poi.ss.usermodel.Font subfont = workbook.createFont();
-    subfont.setFontHeight((short)(300));
-    subTitlestyle.setFont(font);
-    subTitlestyle.setAlignment((short)3);
+//    subfont.setFontHeight((short)(300));
+    subTitlestyle.setAlignment((short)2);
+    subTitlestyle.setFont(subfont);
             
             
     
    row = sheet.createRow(10);
    sheet.addMergedRegion(new CellRangeAddress(10, 10, 4, 6));
    Cell subTitle = row.createCell(4);
-   subTitle.setCellValue("Periode : "+periode+Cl.toString());
+   subTitle.setCellValue("Periode : de "+from+" à "+to+ "   ("+(periode+Cl.toString())+" )");
    subTitle.setCellStyle(subTitlestyle);
    
    
@@ -216,17 +216,17 @@ public class ReleveBancaire {
     CoordStyle.setFillPattern(CellStyle.SOLID_FOREGROUND);
     
 
-   row = sheet.createRow(11);
-   sheet.addMergedRegion(new CellRangeAddress(12, 12, 1,4));
+   row = sheet.createRow(13);
+   sheet.addMergedRegion(new CellRangeAddress(13, 13, 1,3));
    Cell numCompte = row.createCell(1);
-   numCompte.setCellValue("CIN :  "+cin);
+   numCompte.setCellValue("CIN            :  "+cin);
    numCompte.setCellStyle(CoordStyle);
    
    
-   row = sheet.createRow(12);
-   sheet.addMergedRegion(new CellRangeAddress(13, 13, 1,4));
+   row = sheet.createRow(14);
+   sheet.addMergedRegion(new CellRangeAddress(14, 14, 1,3));
    Cell nom = row.createCell(1);
-   nom.setCellValue("Nom Complet : "+NomPrenom);
+   nom.setCellValue("Nom Complet    : "+NomPrenom);
    nom.setCellStyle(CoordStyle);
    
 //   Operations Table : 
@@ -244,7 +244,7 @@ public class ReleveBancaire {
 
 
    String[] tableHeaders = {"date","Nom Complet","Type D'operation","à" , "montant"} ;
-   row = sheet.createRow(15);
+   row = sheet.createRow(19);
    int i = 3 ;
    for (String header : tableHeaders){
         Cell headerCell = row.createCell(i);
@@ -262,7 +262,7 @@ public class ReleveBancaire {
     ptableStyle.setFont(ptablefont);
     ptableStyle.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.getIndex());
     ptableStyle.setFillPattern(CellStyle.SOLID_FOREGROUND);
-    ptableStyle.setBorderBottom((short)6);
+    ptableStyle.setBorderBottom((short)3);
     ptableStyle.setAlignment((short)2);
     
     
@@ -274,11 +274,12 @@ public class ReleveBancaire {
     imtableStyle.setFont(imtablefont);
     imtableStyle.setFillForegroundColor(IndexedColors.WHITE.getIndex());
     imtableStyle.setFillPattern(CellStyle.SOLID_FOREGROUND);
-    imtableStyle.setBorderBottom((short)6);
+    imtableStyle.setBorderBottom((short)3);
     imtableStyle.setAlignment((short)2);
 
-
-        for (int j = 16; j < 20; j++) {
+    int j = 20 ;
+        while (Res.next()) {
+            
                 row = sheet.createRow(j);
                 
                 Cell date = row.createCell(3);
@@ -286,11 +287,17 @@ public class ReleveBancaire {
                 Cell TypOp = row.createCell(5);
                 Cell dis = row.createCell(6);
                 Cell montant = row.createCell(7);
-                while (Res.next()){
-                    System.err.println(Res.getDate(1).toString());
-                    System.err.println(Res.getString(2));
-                    System.err.println(Res.getString(3));   
-            }
+                String np=Res.getString(5).toUpperCase()+" "+Res.getString(6).toUpperCase();
+
+                
+                //set values :
+
+                    date.setCellValue(Res.getString(4));
+                    nomComplet.setCellValue(np);
+                    TypOp.setCellValue(Res.getString(2));
+                    dis.setCellValue(Res.getString(1));
+                    montant.setCellValue(Res.getString(3)); 
+            
                 if (j%2 == 0){
                         date.setCellStyle(ptableStyle);
                         nomComplet.setCellStyle(ptableStyle);
@@ -307,35 +314,10 @@ public class ReleveBancaire {
                         montant.setCellStyle(imtableStyle);
                 }
                 
+                j++ ;
+                
             }
-   
-   
-   
-   
-   
-   
-   
-            
-
-//            
-//            
-//	    Font font = workbook.createFont();
-//            font.setColor(IndexedColors.WHITE.getIndex());
-//            style.setFont(font);
-//            
-//        
-//	    Cell cell1 = row.createCell(0);
-//	    cell1.setCellValue("ID");
-//	    cell1.setCellStyle(style);
-//	    
-//	    Cell cell2 = row.createCell(2);
-////	    cell2.setCellValue("NAME");
-//	    cell2.setCellStyle(style);
-            
-       
-  
-
-	    FileOutputStream fos =new FileOutputStream(new File("cp.xlsx"));
+	    FileOutputStream fos =new FileOutputStream(new File(path+"cp.xlsx"));
 	    workbook.write(fos);
 	    fos.close();
 	    System.out.println("Done");
