@@ -17,7 +17,7 @@ public class SendEmail {
     private String api_key = "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";
 
     public SendEmail(String email, String subject, String body) {
-        Email from = new Email("projectebank@ensat.ac.ma");
+        Email from = new Email("ebankproject@ensat.com");
         Email to = new Email(email);
         Content content = new Content("text/plain", body);
         Mail mail = new Mail(from, subject, to, content);
