@@ -13,7 +13,7 @@ import java.sql.SQLException;
 public class Dao {
 
     //private static String pilote = "org.postgresql.Driver";
-    private static String url = "jdbc:postgresql://ec2-46-137-99-175.eu-west-1.compute.amazonaws.com:5432/dfl1ouqpq4djuc?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";
+    private static String url = "jdbc:postgresql://ec2-46-137-99-175.eu-west-1.compute.amazonaws.com:5432/dfl1ouqpq4djuc?sslmode=require";
     private static String username = "krvxwoxrqrqrlv";
     private static String password = "f3b61448d29137faef397b3f495a4dacd8662a95fbe070df8b7a4ea4dfdc2410";
     private static Connection connection;
