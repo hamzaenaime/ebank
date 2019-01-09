@@ -5,7 +5,6 @@
  */
 package VUES.AUTH;
 
-import DAO.Dao;
 import VUES.AUTH.Registre.RegistreStep1;
 import VUES.AUTH.Registre.RegistreStep2;
 import VUES.AUTH.Registre.RegistreStep3;
@@ -42,6 +41,7 @@ public class Login extends javax.swing.JFrame {
         container.add(connecter);
 
     }
+
     private void steps() {
         tostep3.disable();
         step3.disable();
