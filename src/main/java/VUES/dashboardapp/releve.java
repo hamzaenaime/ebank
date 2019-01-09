@@ -66,6 +66,7 @@ public class releve extends javax.swing.JPanel{
         jXDatePicker1 = new org.jdesktop.swingx.JXDatePicker();
         jXDatePicker2 = new org.jdesktop.swingx.JXDatePicker();
         btnGenerate1 = new javax.swing.JButton();
+        info = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -94,6 +95,8 @@ public class releve extends javax.swing.JPanel{
             }
         });
 
+        info.setBackground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -102,17 +105,22 @@ public class releve extends javax.swing.JPanel{
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(txtPath, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jXDatePicker2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(412, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(159, 159, 159)
+                .addGap(162, 162, 162)
                 .addComponent(btnGenerate)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnGenerate1)
-                .addGap(118, 118, 118))
+                .addGap(95, 95, 95))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jXDatePicker2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(224, 224, 224)
+                        .addComponent(info, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(198, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,7 +135,9 @@ public class releve extends javax.swing.JPanel{
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGenerate, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnGenerate1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(73, 73, 73))
+                .addGap(18, 18, 18)
+                .addComponent(info, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         txtPath.getAccessibleContext().setAccessibleDescription("");
@@ -173,6 +183,7 @@ public class releve extends javax.swing.JPanel{
                 //System.out.println("PATH:\t"+path);
                 Operation operations = new Operation();
                 relv.GeneratePDF(path,Client.getNom()+" "+Client.getPrenom(),Client.getCin(),operations,periode,from,to);
+                info.setText("pdf généraré avec Succes :D !");
                 //jTable1.setModel(new OperationTable(Operation.getOperationFromTo(Client.getCin(),d1,d2)));
                 System.out.println("Operation de "+from+" au "+to);
             }else{
@@ -219,6 +230,7 @@ public class releve extends javax.swing.JPanel{
                 //System.out.println("PATH:\t"+path);
                 Operation operations = new Operation();
                 relv.GenerateExcel(path,Client.getNom()+" "+Client.getPrenom(),Client.getCin(),operations,periode,from,to);
+                info.setText("Excel généraré avec Succes :D ! ");
                 //jTable1.setModel(new OperationTable(Operation.getOperationFromTo(Client.getCin(),d1,d2)));
                 System.out.println("Operation de "+from+" au "+to);
             }else{
@@ -244,6 +256,7 @@ public class releve extends javax.swing.JPanel{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGenerate;
     private javax.swing.JButton btnGenerate1;
+    private javax.swing.JLabel info;
     private javax.swing.JPanel jPanel1;
     private org.jdesktop.swingx.JXDatePicker jXDatePicker1;
     private org.jdesktop.swingx.JXDatePicker jXDatePicker2;
