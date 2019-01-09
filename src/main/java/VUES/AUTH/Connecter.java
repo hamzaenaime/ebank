@@ -51,14 +51,14 @@ public class Connecter extends javax.swing.JPanel implements ActionListener {
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(255, 255, 204));
 
-        jLabel1.setForeground(new java.awt.Color(96, 83, 150));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Identifiant");
 
-        jLabel2.setForeground(new java.awt.Color(96, 83, 150));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Mot de Passe");
 
         connecter.setBackground(new java.awt.Color(255, 255, 255));
-        connecter.setForeground(new java.awt.Color(96, 83, 150));
+        connecter.setForeground(new java.awt.Color(0, 0, 0));
         connecter.setText("Se Connecter");
         connecter.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -67,7 +67,7 @@ public class Connecter extends javax.swing.JPanel implements ActionListener {
         });
 
         seven.setBackground(new java.awt.Color(255, 255, 255));
-        seven.setForeground(new java.awt.Color(96, 83, 150));
+        seven.setForeground(new java.awt.Color(0, 0, 0));
         seven.setText("7");
         seven.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -76,7 +76,7 @@ public class Connecter extends javax.swing.JPanel implements ActionListener {
         });
 
         eight.setBackground(new java.awt.Color(255, 255, 255));
-        eight.setForeground(new java.awt.Color(96, 83, 150));
+        eight.setForeground(new java.awt.Color(0, 0, 0));
         eight.setText("8");
         eight.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -85,7 +85,7 @@ public class Connecter extends javax.swing.JPanel implements ActionListener {
         });
 
         nine.setBackground(new java.awt.Color(255, 255, 255));
-        nine.setForeground(new java.awt.Color(96, 83, 150));
+        nine.setForeground(new java.awt.Color(0, 0, 0));
         nine.setText("9");
         nine.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -94,7 +94,7 @@ public class Connecter extends javax.swing.JPanel implements ActionListener {
         });
 
         four.setBackground(new java.awt.Color(255, 255, 255));
-        four.setForeground(new java.awt.Color(96, 83, 150));
+        four.setForeground(new java.awt.Color(0, 0, 0));
         four.setText("4");
         four.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -103,7 +103,7 @@ public class Connecter extends javax.swing.JPanel implements ActionListener {
         });
 
         five.setBackground(new java.awt.Color(255, 255, 255));
-        five.setForeground(new java.awt.Color(96, 83, 150));
+        five.setForeground(new java.awt.Color(0, 0, 0));
         five.setText("5");
         five.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -112,7 +112,7 @@ public class Connecter extends javax.swing.JPanel implements ActionListener {
         });
 
         six.setBackground(new java.awt.Color(255, 255, 255));
-        six.setForeground(new java.awt.Color(96, 83, 150));
+        six.setForeground(new java.awt.Color(0, 0, 0));
         six.setText("6");
         six.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -121,7 +121,7 @@ public class Connecter extends javax.swing.JPanel implements ActionListener {
         });
 
         one.setBackground(new java.awt.Color(255, 255, 255));
-        one.setForeground(new java.awt.Color(96, 83, 150));
+        one.setForeground(new java.awt.Color(0, 0, 0));
         one.setText("1");
         one.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -130,7 +130,7 @@ public class Connecter extends javax.swing.JPanel implements ActionListener {
         });
 
         two.setBackground(new java.awt.Color(255, 255, 255));
-        two.setForeground(new java.awt.Color(96, 83, 150));
+        two.setForeground(new java.awt.Color(0, 0, 0));
         two.setText("2");
         two.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -139,7 +139,7 @@ public class Connecter extends javax.swing.JPanel implements ActionListener {
         });
 
         three.setBackground(new java.awt.Color(255, 255, 255));
-        three.setForeground(new java.awt.Color(96, 83, 150));
+        three.setForeground(new java.awt.Color(0, 0, 0));
         three.setText("3");
         three.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -148,7 +148,7 @@ public class Connecter extends javax.swing.JPanel implements ActionListener {
         });
 
         zero.setBackground(new java.awt.Color(255, 255, 255));
-        zero.setForeground(new java.awt.Color(96, 83, 150));
+        zero.setForeground(new java.awt.Color(0, 0, 0));
         zero.setText("0");
         zero.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -157,7 +157,7 @@ public class Connecter extends javax.swing.JPanel implements ActionListener {
         });
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jButton2.setForeground(new java.awt.Color(96, 83, 150));
+        jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("reset");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -228,8 +228,9 @@ public class Connecter extends javax.swing.JPanel implements ActionListener {
                             .addComponent(six, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(8, 8, 8)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(two, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(one, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(two, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(one, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(three, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(28, 28, 28)

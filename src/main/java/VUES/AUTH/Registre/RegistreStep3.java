@@ -77,22 +77,22 @@ public class RegistreStep3 extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setForeground(new java.awt.Color(96, 83, 150));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Email :");
 
-        jLabel2.setForeground(new java.awt.Color(96, 83, 150));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Ville :");
 
-        jLabel3.setForeground(new java.awt.Color(96, 83, 150));
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Adresse : ");
 
-        jLabel8.setForeground(new java.awt.Color(96, 83, 150));
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Profession : ");
 
-        jLabel4.setForeground(new java.awt.Color(96, 83, 150));
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Date de naissance :");
 
-        jLabel6.setForeground(new java.awt.Color(96, 83, 150));
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("CIN : ");
 
         cin.addActionListener(new java.awt.event.ActionListener() {
@@ -102,7 +102,7 @@ public class RegistreStep3 extends javax.swing.JPanel {
         });
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setForeground(new java.awt.Color(96, 83, 150));
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Créer");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,10 +110,10 @@ public class RegistreStep3 extends javax.swing.JPanel {
             }
         });
 
-        jLabel9.setForeground(new java.awt.Color(96, 83, 150));
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Mot de passe :");
 
-        jLabel10.setForeground(new java.awt.Color(96, 83, 150));
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Confirmer :");
 
         error.setForeground(new java.awt.Color(222, 0, 0));
@@ -128,20 +128,17 @@ public class RegistreStep3 extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(113, 113, 113)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel10))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(72, 72, 72)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(password, javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,11 +150,12 @@ public class RegistreStep3 extends javax.swing.JPanel {
                             .addComponent(jXDatePicker1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(167, 167, 167))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(emailError)
-                            .addComponent(cinError)
-                            .addComponent(error)
-                            .addComponent(Conirmation, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(emailError, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cinError, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(error, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Conirmation, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(

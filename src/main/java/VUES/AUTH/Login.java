@@ -108,10 +108,10 @@ public class Login extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(252, 230, 252));
+        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Button2.setBackground(new java.awt.Color(252, 230, 252));
+        Button2.setBackground(new java.awt.Color(51, 51, 51));
         Button2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Button2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -119,7 +119,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        Indicator2.setBackground(new java.awt.Color(204, 0, 204));
+        Indicator2.setBackground(new java.awt.Color(255, 255, 255));
         Indicator2.setOpaque(false);
 
         javax.swing.GroupLayout Indicator2Layout = new javax.swing.GroupLayout(Indicator2);
@@ -134,7 +134,7 @@ public class Login extends javax.swing.JFrame {
         );
 
         passwordReset.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        passwordReset.setForeground(new java.awt.Color(96, 83, 150));
+        passwordReset.setForeground(new java.awt.Color(204, 204, 204));
         passwordReset.setText("Mot de passe oublier ?");
         passwordReset.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -150,7 +150,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(Indicator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(passwordReset)
-                .addGap(0, 83, Short.MAX_VALUE))
+                .addGap(0, 45, Short.MAX_VALUE))
         );
         Button2Layout.setVerticalGroup(
             Button2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,9 +161,9 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(Button2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 227, 232, 50));
+        jPanel1.add(Button2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 232, 50));
 
-        connect.setBackground(new java.awt.Color(205, 136, 205));
+        connect.setBackground(new java.awt.Color(0, 0, 0));
         connect.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         connect.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -171,7 +171,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        Indicator1.setBackground(new java.awt.Color(204, 0, 204));
+        Indicator1.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout Indicator1Layout = new javax.swing.GroupLayout(Indicator1);
         Indicator1.setLayout(Indicator1Layout);
@@ -185,7 +185,7 @@ public class Login extends javax.swing.JFrame {
         );
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(96, 83, 150));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Se connecter");
 
         javax.swing.GroupLayout connectLayout = new javax.swing.GroupLayout(connect);
@@ -196,7 +196,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(Indicator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
-                .addGap(0, 132, Short.MAX_VALUE))
+                .addGap(0, 113, Short.MAX_VALUE))
         );
         connectLayout.setVerticalGroup(
             connectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,7 +209,7 @@ public class Login extends javax.swing.JFrame {
 
         jPanel1.add(connect, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 175, 232, -1));
 
-        Button3.setBackground(new java.awt.Color(252, 230, 252));
+        Button3.setBackground(new java.awt.Color(51, 51, 51));
         Button3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Button3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -217,7 +217,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        Indicator3.setBackground(new java.awt.Color(204, 0, 204));
+        Indicator3.setBackground(new java.awt.Color(255, 255, 255));
         Indicator3.setOpaque(false);
 
         javax.swing.GroupLayout Indicator3Layout = new javax.swing.GroupLayout(Indicator3);
@@ -232,7 +232,7 @@ public class Login extends javax.swing.JFrame {
         );
 
         registre.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        registre.setForeground(new java.awt.Color(96, 83, 150));
+        registre.setForeground(new java.awt.Color(204, 204, 204));
         registre.setText("Créer un Compte");
 
         javax.swing.GroupLayout Button3Layout = new javax.swing.GroupLayout(Button3);
@@ -243,7 +243,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(Indicator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(registre)
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
         Button3Layout.setVerticalGroup(
             Button3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,10 +254,10 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(Button3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 277, 232, 50));
+        jPanel1.add(Button3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 232, 50));
 
         Button4.setBackground(new java.awt.Color(252, 230, 252));
-        Button4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Button4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Button4MouseClicked(evt);
@@ -294,7 +294,7 @@ public class Login extends javax.swing.JFrame {
         jPanel1.add(Button4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 331, 232, -1));
         jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 39, -1, -1));
 
-        jPanel14.setBackground(new java.awt.Color(232, 201, 232));
+        jPanel14.setBackground(java.awt.Color.gray);
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -309,7 +309,7 @@ public class Login extends javax.swing.JFrame {
 
         jPanel1.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, -1));
 
-        jPanel13.setBackground(new java.awt.Color(96, 83, 150));
+        jPanel13.setBackground(java.awt.Color.darkGray);
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
@@ -324,8 +324,9 @@ public class Login extends javax.swing.JFrame {
 
         jPanel1.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 100, 40));
 
+        jLabel5.setBackground(new java.awt.Color(0, 0, 0));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(96, 83, 150));
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText(" E-Bank");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 150, 37));
 
@@ -348,7 +349,7 @@ public class Login extends javax.swing.JFrame {
         jPanel15.setBackground(new java.awt.Color(255, 255, 255));
         jPanel15.setForeground(new java.awt.Color(255, 255, 204));
 
-        jPanel8.setBackground(new java.awt.Color(96, 83, 150));
+        jPanel8.setBackground(java.awt.Color.darkGray);
         jPanel8.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         btn_close.setBackground(new java.awt.Color(96, 83, 150));
@@ -435,7 +436,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(step1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(69, 69, 69)
                 .addComponent(tostep2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
                 .addComponent(step2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(72, 72, 72)
                 .addComponent(tostep3)
@@ -683,12 +684,12 @@ public class Login extends javax.swing.JFrame {
 
     //bad idea
     private void onClick(JPanel panel) {
-        panel.setBackground(new Color(205, 136, 205));
+        panel.setBackground(new Color(0, 0, 0));
 
     }
 
     private void onLeaveClick(JPanel panel) {
-        panel.setBackground(new Color(252, 230, 252));
+        panel.setBackground(new Color(51, 51, 51));
     }
 
     public void show(String nom) {
