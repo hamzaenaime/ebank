@@ -144,6 +144,8 @@ public class releve extends javax.swing.JPanel{
             Date To = jXDatePicker1.getDate();
             Date From = jXDatePicker2.getDate();
             
+            System.out.println(To.toString());
+            
             DateFormat oDateFormat = new SimpleDateFormat("yyyy-MM-dd");
             String from = oDateFormat.format(From);
             String to = oDateFormat.format(To);

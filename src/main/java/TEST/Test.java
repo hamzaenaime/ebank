@@ -34,7 +34,7 @@ public class Test extends JPanel
       Statement St = Con.createStatement();
       ResultSet Res;
            Operation operations = new Operation();
-           Res = operations.Operation_From_To("id84901", oDateFormat.format(D), oDateFormat.format(D));
+           Res = operations.Operation_From_To("id84901", "2019-01-01", "2019-01-31");
            while(Res.next()){
                System.out.println(Res.getString(1));
            }

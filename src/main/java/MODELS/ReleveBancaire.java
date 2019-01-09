@@ -99,7 +99,7 @@ public class ReleveBancaire {
                 table.addCell(Res.getString(1));
                 table.addCell(Res.getString(2));
                 table.addCell(Res.getString(3));
-                table.addCell(Res.getDate(4).toString());
+                table.addCell(Res.getString(4));
                 
             }
             
