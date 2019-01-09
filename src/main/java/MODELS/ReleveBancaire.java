@@ -80,7 +80,7 @@ public class ReleveBancaire {
             document.add( Chunk.NEWLINE );
             
             Paragraph NomP = new Paragraph("Nom et Prenom:\t"+NomPrenom, FontFactory.getFont(FontFactory.COURIER, 15));
-            Paragraph NumC = new Paragraph("Numéro de compte:\t"+cin, FontFactory.getFont(FontFactory.COURIER, 15));
+            Paragraph NumC = new Paragraph("Numéro de client:\t"+cin, FontFactory.getFont(FontFactory.COURIER, 15));
             Paragraph Periode = new Paragraph("Période:\t"+periode+Cl.toString(), FontFactory.getFont(FontFactory.COURIER, 15));
             
             document.add(NomP);
@@ -93,11 +93,15 @@ public class ReleveBancaire {
             /* Create table of operation
             *
             */            
-            PdfPTable table = new PdfPTable(3);
+            PdfPTable table = new PdfPTable(5);
             table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
-            table.addCell("Date Operation");
+            table.addCell("Nom Prénom");
+            table.addCell("Compte Distination");
             table.addCell("Libellé opeartion");
             table.addCell("Montant");
+            table.addCell("Date Operation");
+            
+            
             table.setHeaderRows(1);
             PdfPCell[] cells = table.getRow(0).getCells(); 
             for (int j=0;j<cells.length;j++){
@@ -105,9 +109,13 @@ public class ReleveBancaire {
             }
             
             while (Res.next()){
-                table.addCell(Res.getDate(1).toString());
+                String np=Res.getString(5).toUpperCase()+" "+Res.getString(6).toUpperCase();
+                table.addCell(np);
+                table.addCell(Res.getString(1));
                 table.addCell(Res.getString(2));
                 table.addCell(Res.getString(3));
+                table.addCell(Res.getDate(4).toString());
+                
             }
             
             document.add(table);
