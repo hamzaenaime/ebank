@@ -32,7 +32,7 @@ public class Virement extends javax.swing.JPanel {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
@@ -74,55 +74,66 @@ public class Virement extends javax.swing.JPanel {
 
         jLabel5.setText("Compte à Débiter");
 
-        jComboBox2.setModel(
-                new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
-        layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout
-                .createSequentialGroup()
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup().addGap(35, 35, 35).addComponent(jLabel3)
-                                .addGap(252, 252, 252).addComponent(valider))
-                        .addGroup(layout.createSequentialGroup().addGap(85, 85, 85).addGroup(layout
-                                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup().addComponent(jLabel1).addGap(35, 35, 35)
-                                        .addComponent(num))
-                                .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel4).addComponent(jLabel2))
-                                        .addGap(105, 105, 105)
-                                        .addGroup(layout
-                                                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(mnt).addComponent(motif,
-                                                        javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                .addGroup(layout.createSequentialGroup().addComponent(jLabel5).addGap(77, 77, 77)
-                                        .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                Short.MAX_VALUE)))))
-                .addGap(281, 281, 281)));
-        layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout
-                .createSequentialGroup().addContainerGap(67, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING).addComponent(jComboBox2,
-                                javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(jLabel1)
-                        .addComponent(num, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jLabel3)
+                        .addGap(252, 252, 252)
+                        .addComponent(valider))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(85, 85, 85)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel2))
+                                .addGap(105, 105, 105)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(mnt)
+                                    .addComponent(motif, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel5))
+                                .addGap(35, 35, 35)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jComboBox2, 0, 253, Short.MAX_VALUE)
+                                    .addComponent(num))))))
+                .addGap(277, 277, 277))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(70, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(num, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(mnt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel4))
+                    .addComponent(mnt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
                 .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(jLabel2)
-                        .addComponent(motif, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43).addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel3).addComponent(valider))
-                .addGap(15, 15, 15)));
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(motif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(valider))
+                .addGap(15, 15, 15))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void validerActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_validerActionPerformed
@@ -138,14 +149,22 @@ public class Virement extends javax.swing.JPanel {
     }
 
     private void validerMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_validerMouseClicked
-        // TODO add your handling code here:
-        if (!num.getText().isEmpty() && Account.AccountExist(num.getText())) {
-            if (!mnt.getText().isEmpty() && Float.parseFloat(mnt.getText()) >= 0) {
-                if (!motif.getText().isEmpty()) {
+        
+        if(inputFieldIsEmpty()){
+            JOptionPane.showMessageDialog(this, "Veuliiez vérifier les champs", "Input invalide",
+                    JOptionPane.ERROR_MESSAGE);
+        }else{
+        String numCompte = num.getText();
+        float montant = Float.parseFloat(mnt.getText());
+        String mot = motif.getText();
+        
+        
+        if (Account.AccountExist(numCompte)) {
+            if(montant > 0){
                     // tous les données sont valides
                     // verifier que le client à le solde pour effectuer le virement
-                    if (1 == 1) {// if le client a le solde on finalise l'operation
-                        Operation.createOperation(0, Integer.parseInt(num.getText()), motif.getText(),
+                    if (Account.getSolde()>=montant) {// if le client a le solde on finalise l'operation
+                        Operation.createOperation(0, Integer.parseInt(numCompte), mot,
                                 Float.parseFloat(mnt.getText()));
                         JOptionPane.showMessageDialog(this, "Virement effectué", "Opération terminée",
                                 JOptionPane.ERROR_MESSAGE);
@@ -155,18 +174,16 @@ public class Virement extends javax.swing.JPanel {
                                 "Votre fond est insuffisant pour réaliser l'opération, Merci d'allimenter votre compte",
                                 "Fond insuffisant", JOptionPane.ERROR_MESSAGE);
                     }
-                } else {
-                    JOptionPane.showMessageDialog(this, "Le motif ne peut pas être vide", "Motif invalide",
-                            JOptionPane.ERROR_MESSAGE);
-                }
+                
             } else {
                 JOptionPane.showMessageDialog(this, "Le montant ne peut pas être négative", "Montant invalide",
                         JOptionPane.ERROR_MESSAGE);
             }
-        } else {
+        }else {
             JOptionPane.showMessageDialog(this, "Numero de compte n'existe pas", "compte inexistant",
                     JOptionPane.ERROR_MESSAGE);
         }
+    }
     }// GEN-LAST:event_validerMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

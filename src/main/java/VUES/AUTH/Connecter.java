@@ -272,10 +272,10 @@ public class Connecter extends javax.swing.JPanel implements ActionListener {
                     new Accueil().setVisible(true);
                     break;
                 case 2:
-                    new VUES.DashboardEmploye.Accueil().setVisible(true);
+                    new VUES.DashboardDirector.Accueil().setVisible(true);
                     break;
                 case 3:
-                    new VUES.DashboardDirector.Accueil().setVisible(true);
+                    new VUES.DashboardEmploye.Accueil().setVisible(true);
                     break;
             }
         } else {

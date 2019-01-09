@@ -19,13 +19,13 @@ import javax.swing.JOptionPane;
  *
  * @author taoufik
  */
-public class home extends javax.swing.JPanel {
+public class status extends javax.swing.JPanel {
 
     /**
      * Creates new form home
      */
     
-    public home() {
+    public status() {
         jTable1.setModel(new OperationTable(Operation.getAllOperation(Client.getCin())));
         initComponents();
     }

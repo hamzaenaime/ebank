@@ -24,6 +24,19 @@ public class Account {
     private static Statement st;
     private static long numAccount;
 
+    public Account(){
+    connection = Dao.getConnection();
+        try {
+            st = connection.createStatement();
+            ResultSet res = st.executeQuery("select numcompte from compte cm inner join client cl on cm.numcompte=cl.numcompte where cin= '"+Client.getCin()+"'");
+            if(res.next()){
+                numAccount = res.getLong(1);
+            }
+        } catch (SQLException ex) {
+                System.err.println("Probleme" + ex.getMessage());
+        }
+    }
+    
     public static long createAccount() {
         connection = Dao.getConnection();
         try {
@@ -63,6 +76,21 @@ public class Account {
                 System.err.println("probleme dans la requette d'ajouter un compte courant !! " + ex.getMessage());
             }
         }
+
+    public static float getSolde() {
+        connection = Dao.getConnection();
+        String req = "select solde from compte where numCompte='"+numAccount+"'";
+        try {
+            st = connection.createStatement();
+            ResultSet res = st.executeQuery(req);
+            if (res.next()) {
+                return res.getFloat(1);
+            }
+        } catch (SQLException ex) {
+        }
+        return -1;
+    }
+    
 
     public static float getSolde(int numAccount) {
         connection = Dao.getConnection();
