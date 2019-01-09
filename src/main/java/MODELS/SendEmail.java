@@ -14,10 +14,10 @@ import java.io.IOException;
  */
 public class SendEmail {
 
-    private String api_key = "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";
+    private String api_key = "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";
 
     public SendEmail(String email, String subject, String body) {
-        Email from = new Email("projectebank@gmail.com");
+        Email from = new Email("projectebank@ensat.ac.ma");
         Email to = new Email(email);
         Content content = new Content("text/plain", body);
         Mail mail = new Mail(from, subject, to, content);
@@ -35,6 +35,6 @@ public class SendEmail {
     }
 
     public static void main(String[] args) throws IOException {
-        new SendEmail("hamzaenaime1997@gmail.com", "email verification", "code verification d'email est : 151515");
+        new SendEmail("ayoub10hamaoui@gmail.com", "email verification", "code verification d'email est : 151515");
     }
 }
