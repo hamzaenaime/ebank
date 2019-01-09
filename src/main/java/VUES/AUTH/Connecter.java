@@ -4,7 +4,6 @@ import MODELS.Personne;
 import VUES.dashboardapp.Accueil;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
@@ -259,23 +258,28 @@ public class Connecter extends javax.swing.JPanel implements ActionListener {
         password.setText("");
     }//GEN-LAST:event_jButton2MouseClicked
 
+    private void topFrameDispose() {
+        JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
+        topFrame.dispose();
+    }
     private void connecterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_connecterMouseClicked
         // TODO add your handling code here:
         String id_ = id.getText();
         String pass = password.getText();
         if (!pass.isEmpty() && !id_.isEmpty() && Personne.login(id_, pass)) {
-            JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
-            topFrame.dispose();
             int type = Personne.getPoste(); //1 for client 2 for cashier 3 for director
             switch (type) {
                 case 1:
                     new Accueil().setVisible(true);
+                    topFrameDispose();
                     break;
                 case 2:
                     new VUES.DashboardDirector.Accueil().setVisible(true);
+                    topFrameDispose();
                     break;
                 case 3:
                     new VUES.DashboardEmploye.Accueil().setVisible(true);
+                    topFrameDispose();
                     break;
             }
         } else {

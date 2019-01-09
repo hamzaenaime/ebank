@@ -63,6 +63,10 @@ public class Personne {
         return false;
     }
 
+    public static void logout() {
+        login = false;
+    }
+
     public static void createPersonne(String cin, String nom, String prenom, String date_naissance, String address, String ville, String tel, String email, String password, String profession) {
         conn = Dao.getConnection();
         String req = "insert into personne (cin,nom,prenom,date_naissance,address,ville,tel,email,password,last_login)"
