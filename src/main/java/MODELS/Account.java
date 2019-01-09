@@ -22,31 +22,32 @@ public class Account {
     private static Connection connection;
     private static Statement st;
     private static long numAccount;
+    private static Dao dao = new Dao();
 
-    public Account(){
-    connection = Dao.getConnection();
+    public Account() {
+        connection = dao.getConnection();
         try {
             st = connection.createStatement();
-            ResultSet res = st.executeQuery("select numcompte from client where id= '"+Client.getCin()+"'");
-            if(res.next()){
+            ResultSet res = st.executeQuery("select numcompte from client where id= '" + Client.getCin() + "'");
+            if (res.next()) {
                 numAccount = res.getLong(1);
             }
         } catch (SQLException ex) {
-                System.err.println("Probleme" + ex.getMessage());
+            System.err.println("Probleme" + ex.getMessage());
         }
     }
-    
+
     public static long createAccount() {
         connection = Dao.getConnection();
         try {
             st = connection.createStatement();
             ResultSet res = st.executeQuery("insert into compte default values RETURNING numcompte");
-            if(res.next()){
+            if (res.next()) {
                 numAccount = res.getLong(1);
                 return numAccount;
             }
         } catch (SQLException ex) {
-                System.err.println("probleme dans la requette d'ajouter un client !! " + ex.getMessage());
+            System.err.println("probleme dans la requette d'ajouter un client !! " + ex.getMessage());
         }
         return -1;
     }
@@ -69,7 +70,7 @@ public class Account {
 
     public static float getSolde() {
         connection = Dao.getConnection();
-        String req = "select solde from compte where numcompte='"+numAccount+"'";
+        String req = "select solde from compte where numcompte='" + numAccount + "'";
         try {
             st = connection.createStatement();
             ResultSet res = st.executeQuery(req);
@@ -80,11 +81,10 @@ public class Account {
         }
         return 0;
     }
-    
 
     public static float getSolde(int numAccount) {
         connection = Dao.getConnection();
-        String req = "select solde from compte where numCompte='"+numAccount+"'";
+        String req = "select solde from compte where numCompte='" + numAccount + "'";
         try {
             st = connection.createStatement();
             ResultSet res = st.executeQuery(req);
@@ -95,7 +95,7 @@ public class Account {
         }
         return -1;
     }
-    
+
     public static String[] getAccounts(String cin) {
         /*connection = Dao.getConnection();
         String req = "select numCompte from assoc_compte_client where id_client='" + cin + "')";
@@ -110,12 +110,11 @@ public class Account {
         } catch (SQLException ex) {
             return null;
         }*/
-        return new String[]{"48484884","188112","495132"};
+        return new String[]{"48484884", "188112", "495132"};
     }
 
     public static long getNumAccount() {
         return numAccount;
     }
-    
-    
+
 }

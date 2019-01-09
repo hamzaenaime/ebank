@@ -114,7 +114,7 @@ public class ReleveBancaire {
                 table.addCell(Res.getString(1));
                 table.addCell(Res.getString(2));
                 table.addCell(Res.getString(3));
-                table.addCell(Res.getDate(4).toString());
+                table.addCell(Res.getString(4));
                 
             }
             
@@ -200,7 +200,7 @@ public class ReleveBancaire {
    row = sheet.createRow(10);
    sheet.addMergedRegion(new CellRangeAddress(10, 10, 4, 6));
    Cell subTitle = row.createCell(4);
-   subTitle.setCellValue("Periode : de "+from+" à "+to+ "   ("+(periode+Cl.toString())+" )");
+   subTitle.setCellValue("Période : de "+from+" à "+to+ "   ("+(periode+Cl.toString())+" )");
    subTitle.setCellStyle(subTitlestyle);
    
    
@@ -216,17 +216,17 @@ public class ReleveBancaire {
     CoordStyle.setFillPattern(CellStyle.SOLID_FOREGROUND);
     
 
-   row = sheet.createRow(13);
-   sheet.addMergedRegion(new CellRangeAddress(13, 13, 1,3));
+   row = sheet.createRow(11);
+   sheet.addMergedRegion(new CellRangeAddress(11, 11, 1,3));
    Cell numCompte = row.createCell(1);
-   numCompte.setCellValue("CIN            :  "+cin);
+   numCompte.setCellValue("CIN                   :   "+cin);
    numCompte.setCellStyle(CoordStyle);
    
    
-   row = sheet.createRow(14);
-   sheet.addMergedRegion(new CellRangeAddress(14, 14, 1,3));
+   row = sheet.createRow(12);
+   sheet.addMergedRegion(new CellRangeAddress(12, 12, 1,3));
    Cell nom = row.createCell(1);
-   nom.setCellValue("Nom Complet    : "+NomPrenom);
+   nom.setCellValue("Nom Complet    :  "+NomPrenom);
    nom.setCellStyle(CoordStyle);
    
 //   Operations Table : 
@@ -244,7 +244,7 @@ public class ReleveBancaire {
 
 
    String[] tableHeaders = {"date","Nom Complet","Type D'operation","à" , "montant"} ;
-   row = sheet.createRow(19);
+   row = sheet.createRow(14);
    int i = 3 ;
    for (String header : tableHeaders){
         Cell headerCell = row.createCell(i);
@@ -277,7 +277,7 @@ public class ReleveBancaire {
     imtableStyle.setBorderBottom((short)3);
     imtableStyle.setAlignment((short)2);
 
-    int j = 20 ;
+    int j = 15 ;
         while (Res.next()) {
             
                 row = sheet.createRow(j);
