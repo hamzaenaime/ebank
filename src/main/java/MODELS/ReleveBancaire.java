@@ -296,7 +296,7 @@ public class ReleveBancaire {
                     nomComplet.setCellValue(np);
                     TypOp.setCellValue(Res.getString(2));
                     dis.setCellValue(Res.getString(1));
-                    montant.setCellValue(Res.getString(3)); 
+                    montant.setCellValue(Res.getDouble(3)); 
             
                 if (j%2 == 0){
                         date.setCellStyle(ptableStyle);
