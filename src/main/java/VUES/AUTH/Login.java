@@ -736,8 +736,8 @@ public class Login extends javax.swing.JFrame {
         Indicator3.setOpaque(false);
         Indicator4.setOpaque(false);
         Indicator5.setOpaque(true);
-        panel = "Connecter";
-        show("Connecter");
+        panel = "Admin";
+        show("Admin");
     }//GEN-LAST:event_administrateurMouseClicked
 
     public void labelShow(String lable) {

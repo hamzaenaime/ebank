@@ -266,22 +266,11 @@ public class Connecter extends javax.swing.JPanel implements ActionListener {
         // TODO add your handling code here:
         String id_ = id.getText();
         String pass = password.getText();
-        if (!pass.isEmpty() && !id_.isEmpty() && Personne.login(id_, pass)) {
-            int type = Personne.getPoste(); //1 for client 2 for cashier 3 for director
-            switch (type) {
-                case 1:
-                    new Accueil().setVisible(true);
-                    topFrameDispose();
-                    break;
-                case 2:
-                    new VUES.DashboardDirector.Accueil().setVisible(true);
-                    topFrameDispose();
-                    break;
-                case 3:
-                    new VUES.DashboardEmploye.Accueil().setVisible(true);
-                    topFrameDispose();
-                    break;
-            }
+        if (!pass.isEmpty() && !id_.isEmpty() && Personne.login(id_, pass) && Personne.getPoste() == 1) {
+            //int type = Personne.getPoste(); //1 for client 2 for cashier 3 for director
+            new Accueil().setVisible(true);
+            topFrameDispose();
+
         } else {
             JOptionPane.showMessageDialog(this, "Error, numero de compte ou mot de passe incorrect");
         }

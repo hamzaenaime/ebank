@@ -735,7 +735,7 @@ public class Accueil extends javax.swing.JFrame {
         Indicator5.setOpaque(false);
         Indicator6.setOpaque(false);
 
-        show("mail");
+        show("coordonne");
     }// GEN-LAST:event_Button2MouseClicked
 
     private void Button3MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_Button3MouseClicked
@@ -757,7 +757,7 @@ public class Accueil extends javax.swing.JFrame {
         Indicator5.setOpaque(false);
         Indicator6.setOpaque(false);
 
-        show("payment");
+        show("virement");
     }// GEN-LAST:event_Button3MouseClicked
 
     private void Button4MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_Button4MouseClicked
@@ -784,7 +784,7 @@ public class Accueil extends javax.swing.JFrame {
         this.container.revalidate();
         validate();
 
-        show("task");
+        show("changePassword");
     }// GEN-LAST:event_Button4MouseClicked
 
     private void jPanel2MousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jPanel2MousePressed
@@ -921,15 +921,15 @@ public class Accueil extends javax.swing.JFrame {
             panelToShow = new home();
         }
 
-        if (nom.equals("payment")) {
+        if (nom.equals("coordonne")) {
             panelToShow = new Coordonne();
         }
 
-        if (nom.equals("mail")) {
+        if (nom.equals("virement")) {
             panelToShow = new Virement();
         }
 
-        if (nom.equals("task")) {
+        if (nom.equals("changePassword")) {
             panelToShow = new changePassword();
         }
 
