@@ -144,7 +144,7 @@ public class testExcel {
     
     
     
-//   table style imppaire :
+//   table style impaire :
     CellStyle imtableStyle = workbook.createCellStyle();
     Font imtablefont = workbook.createFont();
     imtablefont.setColor(IndexedColors.BLACK.getIndex());
@@ -165,8 +165,6 @@ public class testExcel {
                         oper.setCellStyle(ptableStyle);
                     else 
                         oper.setCellStyle(imtableStyle);
-                    
-                    System.out.println(k%2);
                     
                     
                 }
