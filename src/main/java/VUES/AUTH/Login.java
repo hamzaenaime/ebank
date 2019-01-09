@@ -108,10 +108,11 @@ public class Login extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(4, 69, 69));
+        jPanel1.setForeground(new java.awt.Color(0, 51, 51));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Button2.setBackground(new java.awt.Color(51, 51, 51));
+        Button2.setBackground(new java.awt.Color(15, 122, 122));
         Button2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Button2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -163,7 +164,7 @@ public class Login extends javax.swing.JFrame {
 
         jPanel1.add(Button2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 232, 50));
 
-        connect.setBackground(new java.awt.Color(0, 0, 0));
+        connect.setBackground(new java.awt.Color(0, 18, 18));
         connect.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         connect.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -209,7 +210,7 @@ public class Login extends javax.swing.JFrame {
 
         jPanel1.add(connect, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 175, 232, -1));
 
-        Button3.setBackground(new java.awt.Color(51, 51, 51));
+        Button3.setBackground(new java.awt.Color(15, 122, 122));
         Button3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Button3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -294,7 +295,7 @@ public class Login extends javax.swing.JFrame {
         jPanel1.add(Button4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 331, 232, -1));
         jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 39, -1, -1));
 
-        jPanel14.setBackground(java.awt.Color.gray);
+        jPanel14.setBackground(new java.awt.Color(0, 89, 102));
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -309,7 +310,7 @@ public class Login extends javax.swing.JFrame {
 
         jPanel1.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, -1));
 
-        jPanel13.setBackground(java.awt.Color.darkGray);
+        jPanel13.setBackground(new java.awt.Color(1, 39, 39));
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
@@ -326,7 +327,7 @@ public class Login extends javax.swing.JFrame {
 
         jLabel5.setBackground(new java.awt.Color(0, 0, 0));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText(" E-Bank");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 150, 37));
 
@@ -349,7 +350,7 @@ public class Login extends javax.swing.JFrame {
         jPanel15.setBackground(new java.awt.Color(255, 255, 255));
         jPanel15.setForeground(new java.awt.Color(255, 255, 204));
 
-        jPanel8.setBackground(java.awt.Color.darkGray);
+        jPanel8.setBackground(new java.awt.Color(8, 30, 30));
         jPanel8.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         btn_close.setBackground(new java.awt.Color(96, 83, 150));
@@ -375,9 +376,8 @@ public class Login extends javax.swing.JFrame {
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_close, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_close, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jLabel6.setToolTipText("");
@@ -448,7 +448,7 @@ public class Login extends javax.swing.JFrame {
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(49, 49, 49)
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(step1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(step2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -684,12 +684,12 @@ public class Login extends javax.swing.JFrame {
 
     //bad idea
     private void onClick(JPanel panel) {
-        panel.setBackground(new Color(0, 0, 0));
+        panel.setBackground(new Color(0,18,18));
 
     }
 
     private void onLeaveClick(JPanel panel) {
-        panel.setBackground(new Color(51, 51, 51));
+        panel.setBackground(new Color(15,122,122));
     }
 
     public void show(String nom) {
