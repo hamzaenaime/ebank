@@ -42,7 +42,7 @@ public class Accueil extends javax.swing.JFrame {
             new Login().setVisible(true);
         }
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -876,7 +876,7 @@ public class Accueil extends javax.swing.JFrame {
 
         show("releve");
     }// GEN-LAST:event_Button6MouseClicked
-
+    
     private void Button7MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_Button7MouseClicked
         // TODO add your handling code here:
         // TODO add your handling code here:
@@ -974,7 +974,7 @@ public class Accueil extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Accueil().setVisible(true);
-
+                
             }
         });
     }

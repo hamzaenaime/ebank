@@ -34,6 +34,7 @@ public class Operation {
             }
             return 0;
         } catch (SQLException ex) {
+            System.out.print("error lors de l'insertion dans la table operation_client :"+ex.getMessage());
             return 0;
         }
     }
@@ -86,8 +87,10 @@ public class Operation {
         try 
         {
             this.St = this.Con.createStatement();
-            res=St.executeQuery("select date_operation::date,description,montant from operation inner join operation_client o on operation.id_operation = o.id_operation "
-                    + "where o.id_client='"+cin+"' and date_operation >= TO_DATE('"+From+"','YYYY-mm-dd') and date_operation <= TO_DATE('"+To+"','YYYY-mm-dd') order by date_operation desc");
+            res=St.executeQuery("select OP.id_compte_dst,OP.description,OP.montant,OP.date_operation::date,P.nom,P.prenom" +
+                                "FROM operation AS OP INNER JOIN operation_client AS OPC ON OP.id_operation=OPC.id_operation" +
+                                "INNER JOIN personne AS P ON P.cin = OPC.id_client"
+                                + "WHERE o.id_client='"+cin+"' and date_operation >= TO_DATE('"+From+"','YYYY-mm-dd') and date_operation <= TO_DATE('"+To+"','YYYY-mm-dd') order by date_operation desc");
            
             return res ;
         }
