@@ -23,11 +23,11 @@
                   <Group type="102" attributes="0">
                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jXDatePicker1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jXDatePick" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jXDatePicker2" min="-2" max="-2" attributes="0"/>
+                      <Component id="jXDatePick2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                       <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -42,8 +42,8 @@
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jXDatePicker1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jXDatePicker2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXDatePick" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXDatePick2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -60,9 +60,9 @@
         <Property name="text" type="java.lang.String" value="Op&#xe9;rations du"/>
       </Properties>
     </Component>
-    <Component class="org.jdesktop.swingx.JXDatePicker" name="jXDatePicker1">
+    <Component class="org.jdesktop.swingx.JXDatePicker" name="jXDatePick">
     </Component>
-    <Component class="org.jdesktop.swingx.JXDatePicker" name="jXDatePicker2">
+    <Component class="org.jdesktop.swingx.JXDatePicker" name="jXDatePick2">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>

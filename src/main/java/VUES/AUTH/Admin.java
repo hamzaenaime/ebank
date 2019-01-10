@@ -1,7 +1,6 @@
 package VUES.AUTH;
 
 import MODELS.Personne;
-import VUES.dashboardapp.Accueil;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
@@ -269,9 +268,9 @@ public class Admin extends javax.swing.JPanel implements ActionListener {
         // TODO add your handling code here:
         String id_ = id.getText();
         String pass = password.getText();
-        if (!pass.isEmpty() && !id_.isEmpty() && Personne.login(id_, pass) && Personne.getPoste() == 1) {
+        if (!pass.isEmpty() && !id_.isEmpty() && Personne.login(id_, pass) && Personne.getPoste() == 2) {
             //int type = Personne.getPoste(); //1 for client 2 for cashier 3 for director
-            new Accueil().setVisible(true);
+            new VUES.DashBaordEmployer.Accueil().setVisible(true);
             topFrameDispose();
 
         } else {

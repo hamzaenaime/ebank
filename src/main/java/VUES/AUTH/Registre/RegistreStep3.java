@@ -39,8 +39,8 @@ public class RegistreStep3 extends javax.swing.JPanel {
     }
 
     private String getDate() {
-        if (jXDatePicker1.getDate() != null) {
-            return (jXDatePicker1.getDate().getYear() + 1900) + "-" + (jXDatePicker1.getDate().getMonth() + 1) + "-" + jXDatePicker1.getDate().getDate();
+        if (datePicker.getDate() != null) {
+            return (datePicker.getDate().getYear() + 1900) + "-" + (datePicker.getDate().getMonth() + 1) + "-" + datePicker.getDate().getDate();
         }
         return "";
     }
@@ -66,7 +66,7 @@ public class RegistreStep3 extends javax.swing.JPanel {
         cin = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         email = new javax.swing.JTextField();
-        jXDatePicker1 = new org.jdesktop.swingx.JXDatePicker();
+        datePicker = new org.jdesktop.swingx.JXDatePicker();
         password = new javax.swing.JPasswordField();
         Conirmation = new javax.swing.JPasswordField();
         jLabel9 = new javax.swing.JLabel();
@@ -147,7 +147,7 @@ public class RegistreStep3 extends javax.swing.JPanel {
                             .addComponent(ville, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(address, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(profession, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jXDatePicker1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(datePicker, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(167, 167, 167))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -184,7 +184,7 @@ public class RegistreStep3 extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(datePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
@@ -270,6 +270,7 @@ public class RegistreStep3 extends javax.swing.JPanel {
     private javax.swing.JTextField address;
     private javax.swing.JTextField cin;
     private javax.swing.JLabel cinError;
+    private org.jdesktop.swingx.JXDatePicker datePicker;
     private javax.swing.JTextField email;
     private javax.swing.JLabel emailError;
     private javax.swing.JLabel error;
@@ -282,7 +283,6 @@ public class RegistreStep3 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private org.jdesktop.swingx.JXDatePicker jXDatePicker1;
     private javax.swing.JPasswordField password;
     private javax.swing.JTextField profession;
     private javax.swing.JTextField ville;

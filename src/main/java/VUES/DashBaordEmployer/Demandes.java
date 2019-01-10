@@ -3,22 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package VUES.DashboardEmploye;
-
-import VUES.dashboardapp.*;
-import MODELS.Reclamation;
-import javax.swing.JOptionPane;
+package VUES.DashBaordEmployer;
 
 /**
  *
- * @author nafar
+ * @author hamza
  */
-public class reclamation extends javax.swing.JPanel {
+public class Demandes extends javax.swing.JPanel {
 
     /**
-     * Creates new form reclamation
+     * Creates new form Demandes
      */
-    public reclamation() {
+    public Demandes() {
         initComponents();
     }
 
@@ -31,30 +27,29 @@ public class reclamation extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
-        jLabel3.setText("Liste des Réclamation");
+        jLabel1.setText("Demandes");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel3)
-                .addContainerGap(454, Short.MAX_VALUE))
+                .addGap(158, 158, 158)
+                .addComponent(jLabel1)
+                .addContainerGap(191, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel3)
-                .addContainerGap(451, Short.MAX_VALUE))
+                .addGap(81, 81, 81)
+                .addComponent(jLabel1)
+                .addContainerGap(204, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

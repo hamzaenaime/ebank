@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package VUES.DashboardEmploye;
+package VUES.DashBaordEmployer;
 
 import VUES.dashboardapp.*;
 import MODELS.Client;
@@ -114,11 +114,14 @@ public class Coordonne extends javax.swing.JPanel {
                             .addComponent(jLabel2))
                         .addGap(40, 40, 40)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(phone, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                                .addComponent(ville, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                                .addComponent(nom))
-                            .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(phone, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                                        .addComponent(ville, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                                        .addComponent(nom))
+                                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(adresse)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(454, Short.MAX_VALUE)
@@ -162,14 +165,21 @@ public class Coordonne extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_emailActionPerformed
 
+    private void villeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_villeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_villeActionPerformed
+
     private void phoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_phoneActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        if(!adresse.getText().isEmpty() && !adresse.getText().equals(Client.getAdresse()) ){
-            if(Client.setAdresse(adresse.getText())){
+        String address = adresse.getText();
+        String ville_ = ville.getText();
+        
+        if(!address.isEmpty() && !address.equals(Client.getAdresse()) ){
+            if(Client.setAdresse(address)){
                 JOptionPane.showMessageDialog(this, "Votre adresse a été modifiée");
                 new Coordonne().setVisible(true);
             }
@@ -178,8 +188,8 @@ public class Coordonne extends javax.swing.JPanel {
             }
         }
         
-        if(!ville.getText().isEmpty() && !ville.getText().equals(Client.getVille())){
-            if(Client.setAdresse(adresse.getText()) && Client.setVille(ville.getText())){
+        if(!ville_.isEmpty() && !ville_.equals(Client.getVille())){
+            if(Client.setVille(ville.getText())){
                 JOptionPane.showMessageDialog(this, "Votre ville a été modifiée");
                 new Coordonne().setVisible(true);
             }
@@ -188,10 +198,6 @@ public class Coordonne extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_jButton1MouseClicked
-
-    private void villeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_villeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_villeActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField adresse;
