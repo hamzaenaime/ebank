@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package VUES.DashboardEmploye;
+package VUES.DashBaordEmployer;
 
 import VUES.dashboardapp.*;
 import MODELS.Client;
@@ -13,12 +13,12 @@ import javax.swing.JOptionPane;
  *
  * @author taoufik
  */
-public class changePassword extends javax.swing.JPanel {
+public class ChangePassword extends javax.swing.JPanel {
 
     /**
      * Creates new form task
      */
-    public changePassword() {
+    public ChangePassword() {
         initComponents();
     }
 
