@@ -29,9 +29,8 @@ public class Accueil extends javax.swing.JFrame {
             container.setLayout(new FlowLayout());
             container.add(new home());
             name.setText("M. " + Client.getPrenom() + " " + Client.getNom());
-            solde.setText(String.valueOf(Account.getSolde()));//"0.00"/* String.valueOf(Account.getSolde(Client.getCin())) */);
+            solde.setText(String.valueOf(Account.getSolde()));
             last_login.setText(Client.getLast_login());
-            // jLabel6.setVisible(false);
         } else {
             new Login().setVisible(true);
         }
@@ -727,8 +726,30 @@ public class Accueil extends javax.swing.JFrame {
     private void Button2MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_Button2MouseClicked
         // TODO add your handling code here:
         onClick(Button2);
-        onLeaveClick(Button1);
         onLeaveClick(Button3);
+        onLeaveClick(Button1);
+        onLeaveClick(Button4);
+        onLeaveClick(Button5);
+        onLeaveClick(Button6);
+        onLeaveClick(Button7);
+
+        // indicators
+        Indicator7.setOpaque(false);
+        Indicator1.setOpaque(false);
+        Indicator3.setOpaque(false);
+        Indicator2.setOpaque(true);
+        Indicator4.setOpaque(false);
+        Indicator5.setOpaque(false);
+        Indicator6.setOpaque(false);
+
+        show("virement");
+    }// GEN-LAST:event_Button2MouseClicked
+
+    private void Button3MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_Button3MouseClicked
+        // TODO add your handling code here:
+        onClick(Button3);
+        onLeaveClick(Button1);
+        onLeaveClick(Button2);
         onLeaveClick(Button4);
         onLeaveClick(Button5);
         onLeaveClick(Button6);
@@ -740,35 +761,13 @@ public class Accueil extends javax.swing.JFrame {
 
         // indicators
         Indicator1.setOpaque(false);
-        Indicator2.setOpaque(true);
-        Indicator3.setOpaque(false);
+        Indicator3.setOpaque(true);
+        Indicator2.setOpaque(false);
         Indicator4.setOpaque(false);
         Indicator5.setOpaque(false);
         Indicator6.setOpaque(false);
 
         show("coordonne");
-    }// GEN-LAST:event_Button2MouseClicked
-
-    private void Button3MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_Button3MouseClicked
-        // TODO add your handling code here:
-        onClick(Button3);
-        onLeaveClick(Button2);
-        onLeaveClick(Button1);
-        onLeaveClick(Button4);
-        onLeaveClick(Button5);
-        onLeaveClick(Button6);
-        onLeaveClick(Button7);
-
-        // indicators
-        Indicator7.setOpaque(false);
-        Indicator1.setOpaque(false);
-        Indicator2.setOpaque(false);
-        Indicator3.setOpaque(true);
-        Indicator4.setOpaque(false);
-        Indicator5.setOpaque(false);
-        Indicator6.setOpaque(false);
-
-        show("virement");
     }// GEN-LAST:event_Button3MouseClicked
 
     private void Button4MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_Button4MouseClicked

@@ -53,7 +53,7 @@ public class Personne {
                 tel = res.getString("tel");
                 email = res.getString("email");
                 date_creation = res.getString("date_creation");
-                last_login = String.valueOf(res.getDate("last_login"));
+                last_login = res.getString("last_login");
                 login = true;
                 return true;
             }
@@ -64,7 +64,19 @@ public class Personne {
     }
 
     public static void logout() {
+        setLastLogin();
         login = false;
+    }
+    
+    public static void setLastLogin(){
+        conn = Dao.getConnection();
+        String req = "update personne set last_login=now() where cin='" + cin + "'";
+        try{
+            st = conn.createStatement();
+            st.executeUpdate(req);
+        }catch(SQLException ex) {
+            System.err.println("problem sql !!" + ex.getMessage());
+        }
     }
 
     public static void createPersonne(String cin, String nom, String prenom, String date_naissance, String address, String ville, String tel, String email, String password, String profession) {
