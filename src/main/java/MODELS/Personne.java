@@ -24,6 +24,7 @@ import java.util.logging.Logger;
 public class Personne {
 
     protected static String cin;
+    protected static String title;
     protected static String nom;
     protected static String prenom;
     protected static String date_naissance;
@@ -52,6 +53,7 @@ public class Personne {
                 ville = res.getString("ville");
                 tel = res.getString("tel");
                 email = res.getString("email");
+                title = res.getString("title");
                 date_creation = res.getString("date_creation");
                 last_login = res.getString("last_login");
                 login = true;
@@ -79,10 +81,10 @@ public class Personne {
         }
     }
 
-    public static void createPersonne(String cin, String nom, String prenom, String date_naissance, String address, String ville, String tel, String email, String password, String profession) {
+    public static void createPersonne(String cin, String nom, String prenom, String date_naissance, String address, String ville, String tel, String email, String password, String title, String profession) {
         conn = Dao.getConnection();
-        String req = "insert into personne (cin,nom,prenom,date_naissance,address,ville,tel,email,password,last_login)"
-                + "values (?,?,?,?,?,?,?,?,?,now())";
+        String req = "insert into personne (cin,nom,prenom,date_naissance,address,ville,tel,email,password,title,last_login)"
+                + "values (?,?,?,?,?,?,?,?,?,?,now())";
 
         try {
             Date formate = new SimpleDateFormat("yyyy-MM-dd").parse(date_naissance);
@@ -97,8 +99,8 @@ public class Personne {
             prep.setString(7, tel);
             prep.setString(8, email);
             prep.setString(9, password);
+            prep.setString(10, title);
             //prep.setString(10, profession);
-
             prep.execute();
 
         } catch (ParseException ex) {
@@ -256,6 +258,10 @@ public class Personne {
 
     public static Connection getConn() {
         return conn;
+    }
+
+    public static String getTitle() {
+        return title;
     }
 
     public static boolean setAdresse(String address) {

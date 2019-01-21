@@ -26,9 +26,11 @@ public class Accueil extends javax.swing.JFrame {
     public Accueil() {
         if (Personne.isLogin()) {
             initComponents();
+            new Account();
             container.setLayout(new FlowLayout());
             container.add(new home());
-            name.setText("M. " + Client.getPrenom() + " " + Client.getNom());
+            name.setText(Client.getTitle()+" "+ Client.getPrenom() + " " + Client.getNom());
+            System.out.println(Account.getSolde());
             solde.setText(String.valueOf(Account.getSolde()));
             last_login.setText(Client.getLast_login());
         } else {

@@ -23,6 +23,7 @@ public class State {
     private static String ville = "";
     private static String tel = "";
     private static String email = "";
+    private static String title = "";
     private static String password;
     private static String profession;
     private static int check;
@@ -32,7 +33,7 @@ public class State {
         if (numAccount == -1) {
             JOptionPane.showInputDialog("Error, lors de création du compte");
         } else {
-            Client.createClient(cin, nom, prenom, date_naissance, adresse, ville, tel, email, password, profession, numAccount);
+            Client.createClient(cin, nom, prenom, date_naissance, adresse, ville, tel, email, password, profession, title, numAccount);
         }
     }
 
@@ -122,6 +123,10 @@ public class State {
 
     public static void setPassword(String password) {
         State.password = password;
+    }
+
+    public static void setTitle(String title) {
+        State.title = title;
     }
 
 }
