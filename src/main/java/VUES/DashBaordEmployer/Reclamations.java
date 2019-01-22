@@ -8,12 +8,15 @@ package VUES.DashBaordEmployer;
 import MODELS.Employe;
 import MODELS.Table.EmployeeTable;
 import java.sql.ResultSet;
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 /**
  *
  * @author hamza
  */
-public class Reclamations extends javax.swing.JPanel {
+public class Reclamations extends javax.swing.JPanel implements ListSelectionListener {
 
     /**
      * Creates new form Reclamations
@@ -21,6 +24,8 @@ public class Reclamations extends javax.swing.JPanel {
     public Reclamations() {
         initComponents();
         afficher();
+        ListSelectionModel selectionModel = reclamations.getSelectionModel();
+        selectionModel.addListSelectionListener(this);
 
     }
 
@@ -29,6 +34,7 @@ public class Reclamations extends javax.swing.JPanel {
         res = Employe.getReclamation();
         EmployeeTable employeModel = new EmployeeTable(res);
         reclamations.setModel(employeModel);
+
     }
 
     /**
@@ -43,6 +49,11 @@ public class Reclamations extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         reclamations = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+        setForeground(new java.awt.Color(255, 255, 204));
+
+        reclamations.setBackground(new java.awt.Color(255, 255, 255));
+        reclamations.setForeground(new java.awt.Color(0, 0, 0));
         reclamations.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -51,15 +62,20 @@ public class Reclamations extends javax.swing.JPanel {
 
             }
         ));
+        reclamations.setGridColor(new java.awt.Color(255, 255, 255));
+        reclamations.setRowHeight(32);
+        reclamations.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        reclamations.setSelectionForeground(new java.awt.Color(1, 1, 1));
+        reclamations.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        reclamations.setShowHorizontalLines(false);
+        reclamations.setShowVerticalLines(false);
         jScrollPane1.setViewportView(reclamations);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 675, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 675, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -73,4 +89,17 @@ public class Reclamations extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable reclamations;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void valueChanged(ListSelectionEvent event) {
+        if (event.getSource() == reclamations.getSelectionModel() && event.getValueIsAdjusting()) {
+            EmployeeTable model = (EmployeeTable) reclamations.getModel();
+            String id = model.getValueAt(reclamations.getSelectedRow(), 0).toString();
+            String owner = model.getValueAt(reclamations.getSelectedRow(), 1).toString();
+            String objet = model.getValueAt(reclamations.getSelectedRow(), 2).toString();
+            String description = model.getValueAt(reclamations.getSelectedRow(), 3).toString();
+            String date = model.getValueAt(reclamations.getSelectedRow(), 5).toString();
+            new Reclamation(id, owner, objet, description, date).setVisible(true);
+        }
+    }
 }

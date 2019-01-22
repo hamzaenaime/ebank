@@ -639,7 +639,7 @@ public class Accueil extends javax.swing.JFrame {
         javax.swing.JPanel panelToShow = new javax.swing.JPanel();
 
         if (nom.equals("demandes")) {
-            panelToShow = demandes;
+            panelToShow = new Demandes();
         }
 
         if (nom.equals("coordonne")) {
@@ -651,7 +651,7 @@ public class Accueil extends javax.swing.JFrame {
         }
 
         if (nom.equals("reclamations")) {
-            panelToShow = reclamations;
+            panelToShow = new Reclamations();
         }
         this.container.removeAll();
         this.container.add(panelToShow);

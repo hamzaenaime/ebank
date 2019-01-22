@@ -26,7 +26,7 @@ public class Employe extends Personne {
     public static ResultSet getReclamation() {
         dao = new Dao();
         con = dao.getConnection();
-        String req = "select * from reclamation where traiter = false;";
+        String req = "select * from reclamation";
         try {
             st = con.createStatement();
             ResultSet res = st.executeQuery(req);
@@ -35,6 +35,19 @@ public class Employe extends Personne {
             Logger.getLogger(Employe.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+
+    }
+
+    public static void ReclamationTraiter(String id) {
+        dao = new Dao();
+        con = dao.getConnection();
+        String req = "update reclamation set traiter=true where id=" + id;
+        try {
+            st = con.createStatement();
+            st.executeUpdate(req);
+        } catch (SQLException ex) {
+            Logger.getLogger(Employe.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 }

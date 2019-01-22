@@ -24,8 +24,6 @@ public class EmployeeTable extends AbstractTableModel {
     private String[] columnNames;
     private ArrayList<Vector<String>> MesLignes = new ArrayList<Vector<String>>();
 
-    ;
-    
     public EmployeeTable(ResultSet Res) {
         try {
             ResultSetMetaData rsmd = Res.getMetaData();

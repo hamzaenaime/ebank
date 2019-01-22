@@ -69,14 +69,14 @@ public class Personne {
         setLastLogin();
         login = false;
     }
-    
-    public static void setLastLogin(){
+
+    public static void setLastLogin() {
         conn = Dao.getConnection();
         String req = "update personne set last_login=now() where cin='" + cin + "'";
-        try{
+        try {
             st = conn.createStatement();
             st.executeUpdate(req);
-        }catch(SQLException ex) {
+        } catch (SQLException ex) {
             System.err.println("problem sql !!" + ex.getMessage());
         }
     }
@@ -121,6 +121,22 @@ public class Personne {
             new Client();
             return 1;//isClient for sure
         }
+    }
+
+    public static String getNomPrenom(String cin) {
+        conn = Dao.getConnection();
+        String req = "select * from personne where cin='" + cin + "'";
+        String nomprenom = "";
+        try {
+            st = conn.createStatement();
+            ResultSet res = st.executeQuery(req);
+            if (res.next()) {
+                return res.getString(2) + " " + res.getString(3);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Personne.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return "nothing";
     }
 
     public static boolean isDirector() {
