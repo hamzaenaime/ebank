@@ -5,6 +5,8 @@
  */
 package VUES.DashBaordEmployer;
 
+import MODELS.Account;
+
 /**
  *
  * @author hamza
@@ -114,10 +116,23 @@ public class Demande extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(14, 110, 193));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Confirmer");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton1MouseEntered(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setForeground(new java.awt.Color(1, 1, 1));
         jButton3.setText("Fermer");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
 
         cin.setBackground(new java.awt.Color(255, 255, 255));
         cin.setForeground(new java.awt.Color(1, 1, 1));
@@ -241,6 +256,22 @@ public class Demande extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1MouseEntered
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        Account.confirmer(num);
+        dispose();
+        javax.swing.JOptionPane.showMessageDialog(this, "Compte Confirmer");
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments

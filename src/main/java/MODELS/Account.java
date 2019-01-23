@@ -10,7 +10,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -19,12 +18,12 @@ import java.util.logging.Logger;
  * @author hamza
  */
 public class Account {
-
+    
     private static Connection connection;
     private static Statement st;
     private static long numAccount;
     private static Dao dao = new Dao();
-
+    
     public Account() {
         connection = dao.getConnection();
         try {
@@ -37,7 +36,7 @@ public class Account {
             System.err.println("Probleme" + ex.getMessage());
         }
     }
-
+    
     public static long createAccount() {
         connection = Dao.getConnection();
         try {
@@ -52,7 +51,7 @@ public class Account {
         }
         return -1;
     }
-
+    
     public static Boolean AccountExist(String numcompte) {
         connection = Dao.getConnection();
         String req = "select * from compte where numcompte=" + numcompte;
@@ -65,39 +64,38 @@ public class Account {
         } catch (SQLException ex) {
             Logger.getLogger(Account.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        
         return false;
     }
-
-        
+    
     public static boolean debiter(float mnt) {
         connection = Dao.getConnection();
-        String req = "update compte set solde=solde-"+mnt+" where numcompte='" + numAccount + "'";
+        String req = "update compte set solde=solde-" + mnt + " where numcompte='" + numAccount + "'";
         try {
             st = connection.createStatement();
             int res = st.executeUpdate(req);
-            if (res>0) {
+            if (res > 0) {
                 return true;
             }
         } catch (SQLException ex) {
         }
         return false;
     }
-
-        public static boolean crediter(float mnt, int numCompte) {
+    
+    public static boolean crediter(float mnt, int numCompte) {
         connection = Dao.getConnection();
-        String req = "update compte set solde=solde+"+mnt+" where numcompte='" + numCompte + "'";
+        String req = "update compte set solde=solde+" + mnt + " where numcompte='" + numCompte + "'";
         try {
             st = connection.createStatement();
             int res = st.executeUpdate(req);
-            if (res>0) {
+            if (res > 0) {
                 return true;
             }
         } catch (SQLException ex) {
         }
         return false;
     }
-
+    
     public static float getSolde(int numAccount) {
         connection = Dao.getConnection();
         String req = "select solde from compte where numCompte='" + numAccount + "'";
@@ -111,7 +109,7 @@ public class Account {
         }
         return -1;
     }
-
+    
     public static float getSolde() {
         connection = Dao.getConnection();
         String req = "select solde from compte where numCompte='" + numAccount + "'";
@@ -124,6 +122,17 @@ public class Account {
         } catch (SQLException ex) {
         }
         return -1;
+    }
+    
+    public static void confirmer(String numcompte) {
+        connection = Dao.getConnection();
+        String req = "update compte set active=true where numcompte=" + numcompte;
+        try {
+            st = connection.createStatement();
+            st.executeUpdate(req);
+        } catch (SQLException ex) {
+            Logger.getLogger(Account.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public static String[] getAccounts(String cin) {
@@ -142,9 +151,9 @@ public class Account {
         }*/
         return new String[]{Long.toString(Account.getNumAccount())};
     }
-
+    
     public static long getNumAccount() {
         return numAccount;
     }
-
+    
 }

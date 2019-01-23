@@ -32,6 +32,7 @@ public class Demandes extends javax.swing.JPanel implements ListSelectionListene
     public void afficher() {
         ResultSet res;
         res = Employe.getDemandes();
+        demandes.removeAll();
         EmployeeTable employeModel = new EmployeeTable(res);
         demandes.setModel(employeModel);
 
@@ -48,6 +49,10 @@ public class Demandes extends javax.swing.JPanel implements ListSelectionListene
 
         jScrollPane1 = new javax.swing.JScrollPane();
         demandes = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(255, 255, 255));
+        setForeground(new java.awt.Color(1, 1, 1));
 
         demandes.setBackground(new java.awt.Color(255, 255, 255));
         demandes.setForeground(new java.awt.Color(1, 1, 1));
@@ -71,22 +76,39 @@ public class Demandes extends javax.swing.JPanel implements ListSelectionListene
         demandes.setSurrendersFocusOnKeystroke(true);
         jScrollPane1.setViewportView(demandes);
 
+        jButton1.setBackground(new java.awt.Color(14, 110, 193));
+        jButton1.setForeground(new java.awt.Color(2, 2, 2));
+        jButton1.setText("Actualiser");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 758, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jButton1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        afficher();
+    }//GEN-LAST:event_jButton1MouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable demandes;
+    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 
