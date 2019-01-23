@@ -8,7 +8,6 @@ package VUES.dashboardapp;
 import MODELS.Account;
 import MODELS.Client;
 import MODELS.ClientOperation;
-import MODELS.Operation;
 import javax.swing.JOptionPane;
 
 /**
@@ -74,7 +73,7 @@ public class Virement extends javax.swing.JPanel {
 
         jLabel5.setText("Compte à Débiter");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { Long.toString(Account.getNumAccount())}));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

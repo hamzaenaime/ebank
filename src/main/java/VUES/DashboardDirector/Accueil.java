@@ -6,7 +6,7 @@
 package VUES.DashboardDirector;
 
 import DAO.Dao;
-import MODELS.Client;
+import MODELS.Director;
 import MODELS.Personne;
 import VUES.AUTH.Login;
 import VUES.dashboardapp.*;
@@ -31,10 +31,8 @@ public class Accueil extends javax.swing.JFrame {
             initComponents();
             container.setLayout(new FlowLayout());
             container.add(new home());
-            name.setText("M. " + Client.getPrenom() + " " + Client.getNom());
-            solde.setText("0.00"/* String.valueOf(Account.getSolde(Client.getCin())) */);
-            last_login.setText(Client.getLast_login());
-            // jLabel6.setVisible(false);
+            name.setText("M. " + Director.getPrenom() + " " + Director.getNom());
+            last_login.setText(Director.getLast_login());
         }
     }
 
