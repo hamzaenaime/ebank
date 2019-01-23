@@ -38,6 +38,20 @@ public class Employe extends Personne {
 
     }
 
+    public static ResultSet getDemandes() {
+        dao = new Dao();
+        con = dao.getConnection();
+        String req = "select c.numcompte, p.cin,p.nom,p.prenom,p.date_naissance,p.address,p.ville,p.tel,p.email,p.date_creation from personne p, client cl ,compte c where cl.numcompte=c.numcompte and cl.id=p.cin and c.active=false; ";
+        try {
+            st = con.createStatement();
+            ResultSet res = st.executeQuery(req);
+            return res;
+        } catch (SQLException ex) {
+            Logger.getLogger(Employe.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
     public static void ReclamationTraiter(String id) {
         dao = new Dao();
         con = dao.getConnection();
