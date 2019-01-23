@@ -498,6 +498,8 @@ public class Accueil extends javax.swing.JFrame {
 
         jPanel2.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 160));
 
+        container.setBackground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout containerLayout = new javax.swing.GroupLayout(container);
         container.setLayout(containerLayout);
         containerLayout.setHorizontalGroup(
