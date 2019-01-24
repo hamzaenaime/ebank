@@ -29,15 +29,15 @@ public class ClientOperation extends Operation {
         conn = Dao.getConnection();//id_client,
         try {
             Account.debiter(montant, compte_src);
-            if (Account.crediter(montant, compte_dst)) {
-                int id_operation = Operation.createOperation(compte_src, compte_dst, motif, montant);
-                String req = "insert into operation_client (id_operation,id_client) values (?,?)";
-                PreparedStatement prep = conn.prepareStatement(req);
-                prep.setInt(1, id_operation);//Client.getCin()
-                prep.setString(2, Client.getCin());
-                int action = prep.executeUpdate();
-                return action > 0;
-            }
+            Account.crediter(montant, compte_dst);
+            int id_operation = Operation.createOperation(compte_src, compte_dst, motif, montant);
+            String req = "insert into operation_client (id_operation,id_client) values (?,?)";
+            PreparedStatement prep = conn.prepareStatement(req);
+            prep.setInt(1, id_operation);//Client.getCin()
+            prep.setString(2, Client.getCin());
+            int action = prep.executeUpdate();
+            return action > 0;
+
         } catch (AccountException ex) {
             System.out.print(ex.getMessage());
         } catch (SQLException ex) {

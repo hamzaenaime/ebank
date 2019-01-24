@@ -109,18 +109,22 @@ public class Account {
         }
     }
 
-    public static boolean crediter(float mnt, int numCompte) {
+    public static void crediter(float mnt, int numCompte) throws AccountException {
+        if (Account.AccountActive("" + numCompte)) {
+            throw new AccountException("Compte n'est pas active ");
+        }
+
+        if (mnt < 0) {
+            throw new AccountException("Montant Negative");
+        }
         connection = Dao.getConnection();
         String req = "update compte set solde=solde+" + mnt + " where numcompte='" + numCompte + "'";
         try {
             st = connection.createStatement();
-            int res = st.executeUpdate(req);
-            if (res > 0) {
-                return true;
-            }
+            st.executeUpdate(req);
         } catch (SQLException ex) {
+            System.out.println("probleme dans la requtte de mise à jour => " + ex.getMessage());
         }
-        return false;
     }
 
     public static float getSolde(int numAccount) {
