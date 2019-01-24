@@ -202,7 +202,7 @@ public class Demande extends javax.swing.JFrame {
                                 .addComponent(addre)
                                 .addComponent(ville))
                             .addGap(148, 148, 148))))
-                .addGap(93, 107, Short.MAX_VALUE))
+                .addGap(93, 122, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)

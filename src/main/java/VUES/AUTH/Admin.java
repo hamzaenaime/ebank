@@ -57,6 +57,9 @@ public class Admin extends javax.swing.JPanel implements ActionListener {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Mot de Passe");
 
+        id.setBackground(new java.awt.Color(255, 255, 255));
+        id.setForeground(new java.awt.Color(2, 2, 2));
+
         connecter.setBackground(new java.awt.Color(255, 255, 255));
         connecter.setForeground(new java.awt.Color(0, 0, 0));
         connecter.setText("Se Connecter");
@@ -166,6 +169,8 @@ public class Admin extends javax.swing.JPanel implements ActionListener {
         });
 
         password.enable(false);
+        password.setBackground(new java.awt.Color(255, 255, 255));
+        password.setForeground(new java.awt.Color(2, 2, 2));
 
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("S'authontifier autant que Administrateur ");
