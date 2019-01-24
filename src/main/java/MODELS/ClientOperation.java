@@ -26,7 +26,7 @@ public class ClientOperation extends Operation {
      * @return
      */
     public static boolean createClientOperation(int compte_src, int compte_dst, String motif, float montant) {
-        conn = Dao.getConnection();//id_client,
+        conn = Dao.getConnection();
         try {
             Account.debiter(montant, compte_src);
             Account.crediter(montant, compte_dst);
