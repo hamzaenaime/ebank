@@ -6,6 +6,7 @@ package MODELS;
  * and open the template in the editor.
  */
 import DAO.Dao;
+import Exceptions.AccountException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,12 +19,12 @@ import java.util.logging.Logger;
  * @author hamza
  */
 public class Account {
-    
+
     private static Connection connection;
     private static Statement st;
     private static long numAccount;
     private static Dao dao = new Dao();
-    
+
     public Account() {
         connection = dao.getConnection();
         try {
@@ -36,7 +37,7 @@ public class Account {
             System.err.println("Probleme" + ex.getMessage());
         }
     }
-    
+
     public static long createAccount() {
         connection = Dao.getConnection();
         try {
@@ -51,7 +52,7 @@ public class Account {
         }
         return -1;
     }
-    
+
     public static Boolean AccountExist(String numcompte) {
         connection = Dao.getConnection();
         String req = "select * from compte where numcompte=" + numcompte;
@@ -64,24 +65,50 @@ public class Account {
         } catch (SQLException ex) {
             Logger.getLogger(Account.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return false;
     }
-    
-    public static boolean debiter(float mnt) {
+
+    public static Boolean AccountActive(String numcompte) {
+        connection = Dao.getConnection();
+        String req = "select * from compte where numcompte=" + numcompte;
+        try {
+            st = connection.createStatement();
+            ResultSet res = st.executeQuery(req);
+            if (res.next() && res.getBoolean("active")) {
+                return true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Account.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return false;
+    }
+
+    public static void debiter(float mnt, int numCompte) throws AccountException {
+        if (Account.AccountActive("" + numCompte)) {
+            throw new AccountException("Compte n'est pas active ");
+        }
+
+        if (mnt < 0) {
+            throw new AccountException("Montant Negative");
+        }
+
+        float solde = Account.getSolde(numCompte);
+        if (solde - mnt < 0) {
+            throw new AccountException("Solde Insuffisant");
+        }
+
         connection = Dao.getConnection();
         String req = "update compte set solde=solde-" + mnt + " where numcompte='" + numAccount + "'";
         try {
             st = connection.createStatement();
-            int res = st.executeUpdate(req);
-            if (res > 0) {
-                return true;
-            }
+            st.executeUpdate(req);
         } catch (SQLException ex) {
+            System.out.println("probleme dans la requtte de mise à jour => " + ex.getMessage());
         }
-        return false;
     }
-    
+
     public static boolean crediter(float mnt, int numCompte) {
         connection = Dao.getConnection();
         String req = "update compte set solde=solde+" + mnt + " where numcompte='" + numCompte + "'";
@@ -95,7 +122,7 @@ public class Account {
         }
         return false;
     }
-    
+
     public static float getSolde(int numAccount) {
         connection = Dao.getConnection();
         String req = "select solde from compte where numCompte='" + numAccount + "'";
@@ -109,7 +136,7 @@ public class Account {
         }
         return -1;
     }
-    
+
     public static float getSolde() {
         connection = Dao.getConnection();
         String req = "select solde from compte where numCompte='" + numAccount + "'";
@@ -123,7 +150,7 @@ public class Account {
         }
         return -1;
     }
-    
+
     public static void confirmer(String numcompte) {
         connection = Dao.getConnection();
         String req = "update compte set active=true where numcompte=" + numcompte;
@@ -134,7 +161,7 @@ public class Account {
             Logger.getLogger(Account.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public static String[] getAccounts(String cin) {
         /*connection = Dao.getConnection();
         String req = "select numCompte from compte cm inner join client cl on  cm.numcompte=cl.numcompte where cl.id='" + cin + "'";
@@ -151,9 +178,9 @@ public class Account {
         }*/
         return new String[]{Long.toString(Account.getNumAccount())};
     }
-    
+
     public static long getNumAccount() {
         return numAccount;
     }
-    
+
 }
