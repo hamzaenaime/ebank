@@ -27,15 +27,15 @@ public class Employees extends javax.swing.JPanel implements ListSelectionListen
         ListSelectionModel selectionModel = employees.getSelectionModel();
         selectionModel.addListSelectionListener(this);
     }
-
+    
     public void afficher() {
         ResultSet res;
         res = Director.getEmployees();
         EmployeeTable employeModel = new EmployeeTable(res);
         employees.setModel(employeModel);
-
+        
     }
-
+    
     @Override
     public void valueChanged(ListSelectionEvent event) {
         if (event.getSource() == employees.getSelectionModel() && event.getValueIsAdjusting()) {
@@ -85,6 +85,11 @@ public class Employees extends javax.swing.JPanel implements ListSelectionListen
         jButton2.setBackground(new java.awt.Color(10, 110, 200));
         jButton2.setForeground(new java.awt.Color(2, 2, 2));
         jButton2.setText("Nouveau Employe");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -104,6 +109,11 @@ public class Employees extends javax.swing.JPanel implements ListSelectionListen
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        //ajouter employee
+        new NewEmploye().setVisible(true);
+    }//GEN-LAST:event_jButton2MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable employees;
