@@ -68,6 +68,9 @@ public class Accueil extends javax.swing.JFrame {
         Button5 = new javax.swing.JPanel();
         Indicator5 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
+        Button6 = new javax.swing.JPanel();
+        Indicator6 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
@@ -314,6 +317,53 @@ public class Accueil extends javax.swing.JFrame {
 
         jPanel1.add(Button5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 232, 50));
 
+        Button6.setBackground(new java.awt.Color(15, 122, 122));
+        Button6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Button6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Button6MouseClicked(evt);
+            }
+        });
+
+        Indicator6.setBackground(new java.awt.Color(255, 255, 255));
+        Indicator6.setOpaque(false);
+
+        javax.swing.GroupLayout Indicator6Layout = new javax.swing.GroupLayout(Indicator6);
+        Indicator6.setLayout(Indicator6Layout);
+        Indicator6Layout.setHorizontalGroup(
+            Indicator6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 17, Short.MAX_VALUE)
+        );
+        Indicator6Layout.setVerticalGroup(
+            Indicator6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Employees");
+
+        javax.swing.GroupLayout Button6Layout = new javax.swing.GroupLayout(Button6);
+        Button6.setLayout(Button6Layout);
+        Button6Layout.setHorizontalGroup(
+            Button6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Button6Layout.createSequentialGroup()
+                .addComponent(Indicator6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel8)
+                .addGap(0, 144, Short.MAX_VALUE))
+        );
+        Button6Layout.setVerticalGroup(
+            Button6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Indicator6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Button6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jPanel1.add(Button6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 232, 50));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 580));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -525,6 +575,10 @@ public class Accueil extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jPanel5MouseClicked
 
+    private void Button6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button6MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Button6MouseClicked
+
     private void Button1MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_Button1MouseClicked
         // TODO add your handling code here:
         onClick(Button1);
@@ -690,10 +744,12 @@ public class Accueil extends javax.swing.JFrame {
     private javax.swing.JPanel Button3;
     private javax.swing.JPanel Button4;
     private javax.swing.JPanel Button5;
+    private javax.swing.JPanel Button6;
     private javax.swing.JPanel Indicator1;
     private javax.swing.JPanel Indicator3;
     private javax.swing.JPanel Indicator4;
     private javax.swing.JPanel Indicator5;
+    private javax.swing.JPanel Indicator6;
     private javax.swing.JLabel btn_close;
     private javax.swing.JPanel container;
     private javax.swing.JLabel jLabel1;
@@ -705,6 +761,7 @@ public class Accueil extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
