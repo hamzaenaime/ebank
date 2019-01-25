@@ -3,10 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package VUES.DashboardDirector;
+package VUES.DashBaordDirector;
 
-import VUES.DashboardEmploye.*;
-import VUES.dashboardapp.*;
 import MODELS.Client;
 import javax.swing.JOptionPane;
 
@@ -14,12 +12,12 @@ import javax.swing.JOptionPane;
  *
  * @author taoufik
  */
-public class changePassword extends javax.swing.JPanel {
+public class ChangePassword extends javax.swing.JPanel {
 
     /**
      * Creates new form task
      */
-    public changePassword() {
+    public ChangePassword() {
         initComponents();
     }
 
@@ -43,6 +41,8 @@ public class changePassword extends javax.swing.JPanel {
         newPass = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel1.setText("Ancien Mot de passe (*)");
 
         jLabel2.setText("Nouveau mot de passe (*)");
@@ -53,6 +53,8 @@ public class changePassword extends javax.swing.JPanel {
 
         jLabel5.setText("NB : Votre mot de passe ne doit pas contenir des chiffres.");
 
+        jButton2.setBackground(new java.awt.Color(10, 110, 200));
+        jButton2.setForeground(new java.awt.Color(2, 2, 2));
         jButton2.setText("Valider");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -65,11 +67,19 @@ public class changePassword extends javax.swing.JPanel {
             }
         });
 
+        oldPass.setBackground(new java.awt.Color(255, 255, 255));
+        oldPass.setForeground(new java.awt.Color(2, 2, 2));
         oldPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 oldPassActionPerformed(evt);
             }
         });
+
+        cPass.setBackground(new java.awt.Color(255, 255, 255));
+        cPass.setForeground(new java.awt.Color(2, 2, 2));
+
+        newPass.setBackground(new java.awt.Color(255, 255, 255));
+        newPass.setForeground(new java.awt.Color(2, 2, 2));
 
         jLabel6.setText("Changement de mot de passe");
 
@@ -141,32 +151,31 @@ public class changePassword extends javax.swing.JPanel {
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
-        if(!oldPass.getText().isEmpty() && !cPass.getText().isEmpty() && !newPass.getText().isEmpty()){
-            if(Client.verifyPass(oldPass.getText())){
+        if (!oldPass.getText().isEmpty() && !cPass.getText().isEmpty() && !newPass.getText().isEmpty()) {
+            if (Client.verifyPass(oldPass.getText())) {
                 //old password is valide
-                if(newPass.getText().equals(cPass.getText())){
+                if (newPass.getText().equals(cPass.getText())) {
                     //set the new pass
-                    if(Client.setPassword(newPass.getText())){
+                    if (Client.setPassword(newPass.getText())) {
                         //password updated successfully
-                        JOptionPane.showMessageDialog(this, "Votre mot de passe a été modifiée","",JOptionPane.WARNING_MESSAGE);
-                    }else{
+                        JOptionPane.showMessageDialog(this, "Votre mot de passe a été modifiée", "", JOptionPane.WARNING_MESSAGE);
+                    } else {
                         //eched de maj de mot de pass
-                    JOptionPane.showMessageDialog(this, "Echec de mise a jour du mot de passe","",JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(this, "Echec de mise a jour du mot de passe", "", JOptionPane.WARNING_MESSAGE);
                     }
-                }else{
+                } else {
                     //password non confirmé
-                JOptionPane.showMessageDialog(this, "Votre nouveau mot de passe n'est pas confirmé","",JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "Votre nouveau mot de passe n'est pas confirmé", "", JOptionPane.WARNING_MESSAGE);
                 }
-            }else{
+            } else {
                 //old password invalide
-                JOptionPane.showMessageDialog(this, "Ancien Mot de passe invalide","",JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Ancien Mot de passe invalide", "", JOptionPane.WARNING_MESSAGE);
             }
-        }else{
+        } else {
             //verifier que les champ ne sont pas vide
-            JOptionPane.showMessageDialog(this, "Vérifier que les champs ne sont pas vides","",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Vérifier que les champs ne sont pas vides", "", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jButton2MouseClicked
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cPass;
