@@ -16,6 +16,10 @@ create table Personne(
 		last_login TIMESTAMP(0)
 );
 
+select
+	p.cin,p.nom,p.prenom,p.date_naissance,p.address,p.ville,p.tel,p.email,p.last_login,em.salaire,ag.nom,ag.addresse,ag.ville
+	from agence ag, personne p,employe em where em.id=p.cin and em.id_agence=ag.id ;
+
 insert into Personne(cin,nom,prenom,date_naissance,address,ville,tel,email,password,last_login) values('id84901','nafar','bill',TO_DATE('1996/20/11','YYYY/dd/mm'),'lissasfa','casablanca','0625647473','nafar.belal@gmail.com','1235',now());
 insert into Personne(cin,nom,prenom,date_naissance,address,ville,tel,email,password,last_login) values('bk12','ayoub','haaoui',TO_DATE('1996/20/11','YYYY/dd/mm'),'lissasfa','casablanca','0675647473','hamaoui@gmail.com','1235',now());
 
@@ -34,6 +38,8 @@ create table Agence(
   ville varchar(30),
   date_ouverture date default now()
 );
+
+
 
 create table Employe(
   id varchar(10) references personne(cin) primary key,

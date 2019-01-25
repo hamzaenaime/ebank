@@ -62,6 +62,18 @@ public class Employe extends Personne {
         } catch (SQLException ex) {
             Logger.getLogger(Employe.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public static void addEmployee(String cin, String id, String idagence, float salaire) {
+        dao = new Dao();
+        con = dao.getConnection();
+        String req = "insert into employe values('" + cin + "','" + id + "','" + idagence + "',salaire)";
+        try {
+            st = con.createStatement();
+            st.executeUpdate(req);
+        } catch (SQLException ex) {
+            Logger.getLogger(Employe.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 }
