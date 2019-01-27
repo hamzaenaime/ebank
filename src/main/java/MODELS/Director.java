@@ -18,17 +18,17 @@ import java.util.logging.Logger;
  * @author nafar
  */
 public class Director extends Employe {
-    
+
     static Dao dao;
     static Statement st;
     static Connection con;
-    
+
     public static ResultSet getEmployees() {
         dao = new Dao();
         con = dao.getConnection();
         String req = "select\n"
-                + "	p.cin,p.nom,p.prenom,p.date_naissance,p.address,p.ville,p.tel,p.email,p.last_login,em.salaire,ag.nom,ag.addresse,ag.ville\n"
-                + "	from agence ag, personne p,employe em where em.id=p.cin and em.id_agence=ag.id ;";
+                + "	p.cin,p.nom,p.prenom,p.date_naissance,p.address,p.ville,p.tel,p.email,p.last_login,em.salaire,ag.nom,ag.adresse,ag.ville\n"
+                + "	from agence ag, personne p,employe em where em.id=p.cin and em.id_agence=ag.id and em.id_employeur is not null ;";
         try {
             st = con.createStatement();
             ResultSet res = st.executeQuery(req);
@@ -45,6 +45,21 @@ public class Director extends Employe {
         con = dao.getConnection();
         Personne.createPersonne(cin, nom, prenom, date_naissance, address, ville, tel, email, password, title, "");
         Employe.addEmployee(cin, cin, idagance, salaire);
-        
+
+    }
+
+    public static ResultSet getAgences() {
+        String req = "select * from agence;";
+        dao = new Dao();
+        con = dao.getConnection();
+
+        try {
+            st = con.createStatement();
+            ResultSet res = st.executeQuery(req);
+            return res;
+        } catch (SQLException ex) {
+            Logger.getLogger(Director.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 }

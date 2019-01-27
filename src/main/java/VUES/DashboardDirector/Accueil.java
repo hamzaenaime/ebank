@@ -9,6 +9,7 @@ import DAO.Dao;
 import MODELS.Employe;
 import MODELS.Personne;
 import VUES.AUTH.Login;
+import VUES.DashboardDirector.Employees;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import javax.swing.*;
@@ -577,6 +578,20 @@ public class Accueil extends javax.swing.JFrame {
 
     private void Button6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button6MouseClicked
         // TODO add your handling code here:
+        onClick(Button6);
+        onLeaveClick(Button3);
+        onLeaveClick(Button4);
+        onLeaveClick(Button5);
+        onLeaveClick(Button1);
+
+        // indicators
+        Indicator1.setOpaque(false);
+        Indicator3.setOpaque(false);
+        Indicator4.setOpaque(false);
+        Indicator5.setOpaque(false);
+        Indicator6.setOpaque(true);
+
+        show("employees");
     }//GEN-LAST:event_Button6MouseClicked
 
     private void Button1MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_Button1MouseClicked
@@ -585,12 +600,14 @@ public class Accueil extends javax.swing.JFrame {
         onLeaveClick(Button3);
         onLeaveClick(Button4);
         onLeaveClick(Button5);
+        onLeaveClick(Button6);
 
         // indicators
         Indicator1.setOpaque(true);
         Indicator3.setOpaque(false);
         Indicator4.setOpaque(false);
         Indicator5.setOpaque(false);
+        Indicator6.setOpaque(false);
 
         show("demandes");
 
@@ -602,12 +619,14 @@ public class Accueil extends javax.swing.JFrame {
         onLeaveClick(Button1);
         onLeaveClick(Button4);
         onLeaveClick(Button5);
+        onLeaveClick(Button6);
 
         // indicators
         Indicator1.setOpaque(false);
         Indicator3.setOpaque(true);
         Indicator4.setOpaque(false);
         Indicator5.setOpaque(false);
+        Indicator6.setOpaque(false);
 
         show("coordonne");
     }// GEN-LAST:event_Button3MouseClicked
@@ -618,11 +637,13 @@ public class Accueil extends javax.swing.JFrame {
         onLeaveClick(Button3);
         onLeaveClick(Button1);
         onLeaveClick(Button5);
+        onLeaveClick(Button6);
         // indicators
         Indicator1.setOpaque(false);
         Indicator3.setOpaque(false);
         Indicator5.setOpaque(false);
         Indicator4.setOpaque(true);
+        Indicator6.setOpaque(false);
 
         show("changePassword");
     }// GEN-LAST:event_Button4MouseClicked
@@ -667,12 +688,14 @@ public class Accueil extends javax.swing.JFrame {
         onLeaveClick(Button4);
         onLeaveClick(Button3);
         onLeaveClick(Button1);
+        onLeaveClick(Button6);
 
         // indicators
         Indicator1.setOpaque(false);
         Indicator3.setOpaque(false);
         Indicator4.setOpaque(false);
         Indicator5.setOpaque(true);
+        Indicator6.setOpaque(false);
 
         show("reclamations");
     }// GEN-LAST:event_Button5MouseClicked
@@ -708,6 +731,9 @@ public class Accueil extends javax.swing.JFrame {
 
         if (nom.equals("reclamations")) {
             panelToShow = new Reclamations();
+        }
+        if (nom.equals("employees")) {
+            panelToShow = new Employees();
         }
         this.container.removeAll();
         this.container.add(panelToShow);
