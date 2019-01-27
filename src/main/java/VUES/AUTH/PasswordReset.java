@@ -66,7 +66,6 @@ public class PasswordReset extends javax.swing.JPanel {
         jLabel4.setForeground(new java.awt.Color(96, 83, 150));
         jLabel4.setText("code de verification :");
 
-        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
         jTextField2.setForeground(new java.awt.Color(255, 255, 204));
 
         resend.setBackground(new java.awt.Color(255, 255, 255));
@@ -92,33 +91,19 @@ public class PasswordReset extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(255, 255, 204));
 
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("CIN : ");
 
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Téléphone : ");
 
-        cin.setBackground(new java.awt.Color(255, 255, 255));
-
-        tel.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("+212");
 
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("code de verification :");
 
-        checkcode.setBackground(new java.awt.Color(255, 255, 255));
-        checkcode.setForeground(new java.awt.Color(0, 0, 0));
-
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Confirmation :");
 
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Nouveau Mot de Passe :");
 
         Valider.setBackground(new java.awt.Color(10, 110, 200));
-        Valider.setForeground(new java.awt.Color(0, 0, 0));
         Valider.setText("Valider");
         Valider.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Valider.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -128,7 +113,6 @@ public class PasswordReset extends javax.swing.JPanel {
         });
 
         resend1.setBackground(new java.awt.Color(255, 255, 255));
-        resend1.setForeground(new java.awt.Color(0, 0, 0));
         resend1.setText("Envoyer moi un code");
         resend1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         resend1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -138,7 +122,6 @@ public class PasswordReset extends javax.swing.JPanel {
         });
 
         resend2.setBackground(new java.awt.Color(255, 255, 255));
-        resend2.setForeground(new java.awt.Color(0, 0, 0));
         resend2.setText("re");
         resend2.setContentAreaFilled(false);
         resend2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -150,10 +133,8 @@ public class PasswordReset extends javax.swing.JPanel {
 
         error.setForeground(new java.awt.Color(222, 0, 0));
 
-        newPassword.setBackground(new java.awt.Color(255, 255, 255));
         newPassword.setForeground(new java.awt.Color(2, 2, 2));
 
-        confirmationNewPassword.setBackground(new java.awt.Color(255, 255, 255));
         confirmationNewPassword.setForeground(new java.awt.Color(2, 2, 2));
 
         codeError.setForeground(new java.awt.Color(222, 0, 0));

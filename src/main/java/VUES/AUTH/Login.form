@@ -624,7 +624,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="step1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Step 1"/>
+                <Property name="text" type="java.lang.String" value="Etape 1"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="step1MouseClicked"/>
@@ -632,7 +632,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="step2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Step 2"/>
+                <Property name="text" type="java.lang.String" value="Etape 2"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="step2MouseClicked"/>
@@ -641,7 +641,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="step3">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Step 3"/>
+                <Property name="text" type="java.lang.String" value="Etape 3"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="step3MouseClicked"/>

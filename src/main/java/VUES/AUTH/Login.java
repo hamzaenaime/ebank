@@ -433,14 +433,14 @@ public class Login extends javax.swing.JFrame {
 
         jLabel6.setToolTipText("");
 
-        step1.setText("Step 1");
+        step1.setText("Etape 1");
         step1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 step1MouseClicked(evt);
             }
         });
 
-        step2.setText("Step 2");
+        step2.setText("Etape 2");
         step2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 step2MouseClicked(evt);
@@ -452,7 +452,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        step3.setText("Step 3");
+        step3.setText("Etape 3");
         step3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 step3MouseClicked(evt);
