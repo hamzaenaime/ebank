@@ -29,7 +29,7 @@ public class RegistreStep1 extends javax.swing.JPanel {
     }
 
     public Boolean getInfos() {
-        //if the function nom.getText().length() is used multitime store the returned value to reduce execution time
+        //if the function .getText() is used multitime store the returned value to reduce execution time
         String nom_ = nom.getText();
         String prenom_ = prenom.getText();
         String tel = telephone.getText();
@@ -43,7 +43,7 @@ public class RegistreStep1 extends javax.swing.JPanel {
             System.out.println(" " + tel);
             return true;
         } else {
-            JOptionPane.showMessageDialog(this, "verifier que vous avez remplir tous les champs correctement!", "Input invalide", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "verifier que vous avez remplir les champs correctement!", "Input invalide", JOptionPane.WARNING_MESSAGE);
         }
         return false;
     }

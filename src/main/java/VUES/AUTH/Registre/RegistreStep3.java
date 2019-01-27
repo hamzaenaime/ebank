@@ -229,14 +229,13 @@ public class RegistreStep3 extends javax.swing.JPanel {
         if (!cin_.isEmpty() && !email_.isEmpty() && !ville_.isEmpty() && !address_.isEmpty() && !profession_.isEmpty()) {
 
             State.setCin(cin_);
-
             State.setVille(ville_);
             State.setAdresse(address_);
             State.setDate_naissance(d);
-            State.setProfession(profession.getText());
+            State.setProfession(profession_);
             //verification cin disponibilité
             if (Personne.cinExist(cin_)) {
-                cinError.setText("Cin deja existe  !!");
+                cinError.setText("Vous avez déja un compte ");
             } else {
                 cinError.setText("");
                 //verification si l'email est valide réelement
@@ -251,7 +250,8 @@ public class RegistreStep3 extends javax.swing.JPanel {
                             State.store();
                             JOptionPane.showMessageDialog(this, "Votre compte a été crée avec success", "Success", JOptionPane.INFORMATION_MESSAGE);
                             topFrameDispose();
-                            new SendEmail(cin_, "Creation d'un compte", "votre demande de Creer un compte e été envoyer avec succès\n nous allons vous contacter le plutot possible");
+                            new SendEmail(cin_, "Creation d'un compte", "votre demande de Creer un compte e été envoyer avec succès\n"
+                                    + " nous allons vous contacter le plutot possible");
                         } else {
                             error.setText("Mot de pass doit contient que des chifres !!!");
                         }
