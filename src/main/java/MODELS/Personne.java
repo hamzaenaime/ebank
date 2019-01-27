@@ -84,7 +84,7 @@ public class Personne {
     public static void createPersonne(String cin, String nom, String prenom, String date_naissance, String address, String ville, String tel, String email, String password, String title, String profession) {
         conn = Dao.getConnection();
         String req = "insert into personne (cin,nom,prenom,date_naissance,address,ville,tel,email,password,title,last_login)"
-                + "values (?,?,?,?,?,?,?,?,?,?,now())";
+                + "values (?,?,?,?,?,?,?,?,?,?::titleenum,now())";
 
         try {
             Date formate = new SimpleDateFormat("yyyy-MM-dd").parse(date_naissance);

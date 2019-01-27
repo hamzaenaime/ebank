@@ -16,7 +16,7 @@ public class Client extends Personne {
     public static void createClient(String cin, String nom, String prenom, String date_naissance, String address, String ville, String tel, String email, String password, String profession, String title, long numAccount) {
 
         try {
-            createPersonne(cin, nom, prenom, date_naissance, address, ville, tel, email, password, profession,title);
+            createPersonne(cin, nom, prenom, date_naissance, address, ville, tel, email, password,title, profession);
             st = conn.createStatement();
             st.executeUpdate("insert into client values ('" + cin + "','" + numAccount + "')");
         } catch (SQLException ex) {
