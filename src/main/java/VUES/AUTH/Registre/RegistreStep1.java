@@ -64,7 +64,11 @@ public class RegistreStep1 extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         nom = new javax.swing.JTextField();
         title = new javax.swing.JComboBox<>();
+<<<<<<< HEAD
         jLabel4 = new javax.swing.JLabel();
+=======
+        jLabel6 = new javax.swing.JLabel();
+>>>>>>> 438608cc3a2ba5dea0057f51c61b2c140973637d
 
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(222, 222, 2));
@@ -79,7 +83,12 @@ public class RegistreStep1 extends javax.swing.JPanel {
 
         title.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M.", "Mme", "Mlle"}));
 
+<<<<<<< HEAD
         jLabel4.setText("Ex : 0612345678");
+=======
+        jLabel6.setForeground(new java.awt.Color(204, 0, 204));
+        jLabel6.setText("ex : 625647473");
+>>>>>>> 438608cc3a2ba5dea0057f51c61b2c140973637d
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -96,9 +105,15 @@ public class RegistreStep1 extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+<<<<<<< HEAD
                         .addGap(52, 52, 52)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
+=======
+                        .addGap(54, 54, 54)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+>>>>>>> 438608cc3a2ba5dea0057f51c61b2c140973637d
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(prenom, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
                         .addComponent(nom, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
@@ -125,9 +140,15 @@ public class RegistreStep1 extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(telephone, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+<<<<<<< HEAD
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addGap(27, 27, 27))
+=======
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6)
+                .addGap(34, 34, 34))
+>>>>>>> 438608cc3a2ba5dea0057f51c61b2c140973637d
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -135,8 +156,8 @@ public class RegistreStep1 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField nom;
     private javax.swing.JTextField prenom;
     private javax.swing.JTextField telephone;

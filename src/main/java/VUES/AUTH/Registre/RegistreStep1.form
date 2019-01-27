@@ -76,9 +76,15 @@
                   <Component id="telephone" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                   <Component id="jLabel3" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
               </Group>
+<<<<<<< HEAD
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+=======
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+>>>>>>> 438608cc3a2ba5dea0057f51c61b2c140973637d
           </Group>
       </Group>
     </DimensionLayout>
@@ -120,9 +126,18 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
+<<<<<<< HEAD
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ex : 0612345678"/>
+=======
+    <Component class="javax.swing.JLabel" name="jLabel6">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="0" red="cc" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="ex : 625647473"/>
+>>>>>>> 438608cc3a2ba5dea0057f51c61b2c140973637d
       </Properties>
     </Component>
   </SubComponents>
