@@ -273,9 +273,14 @@ public class Admin extends javax.swing.JPanel implements ActionListener {
         // TODO add your handling code here:
         String id_ = id.getText();
         String pass = password.getText();
-        if (!pass.isEmpty() && !id_.isEmpty() && Personne.login(id_, pass) && Personne.getPoste() == 2) {
+        if (!pass.isEmpty() && !id_.isEmpty() && Personne.login(id_, pass)) {
             //int type = Personne.getPoste(); //1 for client 2 for cashier 3 for director
-            new VUES.DashBaordEmployer.Accueil().setVisible(true);
+            if (Personne.getPoste() == 2) {
+                new VUES.DashBaordEmployer.Accueil().setVisible(true);
+            }
+            if (Personne.getPoste() == 3) {
+                new VUES.DashBaordDirector.Accueil().setVisible(true);
+            }
             topFrameDispose();
 
         } else {

@@ -15,7 +15,7 @@ import javax.swing.*;
 
 /**
  *
- * @author KeepToo
+ * @author Hamza
  */
 public class Accueil extends javax.swing.JFrame {
 
