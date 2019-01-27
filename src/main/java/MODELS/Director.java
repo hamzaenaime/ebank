@@ -6,6 +6,7 @@
 package MODELS;
 
 import DAO.Dao;
+import Exceptions.EmployeException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -40,11 +41,17 @@ public class Director extends Employe {
     }
     //createPersonne() {
 
-    public static void addEmploye(String cin, String nom, String prenom, String date_naissance, String address, String ville, String tel, String email, String password, String title, String idagance, float salaire) {
-        dao = new Dao();
-        con = dao.getConnection();
-        Personne.createPersonne(cin, nom, prenom, date_naissance, address, ville, tel, email, password, title, "");
-        Employe.addEmployee(cin, cin, idagance, salaire);
+    public static void addEmploye(String cin, String nom, String prenom, String date_naissance, String address, String ville, String tel, String email, String password, String title, String agance, String salaire) {
+//        dao = new Dao();
+//        con = dao.getConnection();
+        if (!Personne.cinExist(cin)) {
+            Personne.createPersonne(cin, nom, prenom, date_naissance, address, ville, tel, email, password, title, "");
+        }
+        try {
+            Employe.addEmployee(cin, cin, agance, salaire);
+        } catch (EmployeException ex) {
+            Logger.getLogger(Director.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 
@@ -61,5 +68,23 @@ public class Director extends Employe {
             Logger.getLogger(Director.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+
+    public static String getIdAgence(String nom) {
+        String req = "select * from agence where nom='" + nom + "'";
+        String id;
+        dao = new Dao();
+        con = dao.getConnection();
+
+        try {
+            st = con.createStatement();
+            ResultSet res = st.executeQuery(req);
+            if (res.next()) {
+                return res.getString("id");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Director.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return "";
     }
 }

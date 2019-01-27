@@ -6,6 +6,7 @@
 package MODELS;
 
 import DAO.Dao;
+import Exceptions.EmployeException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -64,10 +65,30 @@ public class Employe extends Personne {
         }
     }
 
-    public static void addEmployee(String cin, String id, String idagence, float salaire) {
+    public static Boolean EmployeExsite(String cin) {
         dao = new Dao();
         con = dao.getConnection();
-        String req = "insert into employe values('" + cin + "','" + id + "','" + idagence + "',salaire)";
+        String req = "select * from employe where id='" + cin + "'";
+        try {
+            st = con.createStatement();
+            ResultSet res = st.executeQuery(req);
+            if (res.next()) {
+                return true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Employe.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+
+    public static void addEmployee(String cin, String id, String agence, String salaire) throws EmployeException {
+        if (EmployeExsite(cin)) {
+            throw new EmployeException("cette Employee est deja existe");
+        }
+        dao = new Dao();
+        con = dao.getConnection();
+        String idAgence = Director.getIdAgence(agence);
+        String req = "insert into employe values('" + cin + "','" + id + "','" + idAgence + "'," + salaire + ")";
         try {
             st = con.createStatement();
             st.executeUpdate(req);

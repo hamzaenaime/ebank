@@ -31,7 +31,7 @@ public class NewEmploye extends javax.swing.JFrame {
             Logger.getLogger(NewEmploye.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     private String getDate() {
         if (datePicker.getDate() != null) {
             return (datePicker.getDate().getYear() + 1900) + "-" + (datePicker.getDate().getMonth() + 1) + "-" + datePicker.getDate().getDate();
@@ -75,6 +75,8 @@ public class NewEmploye extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         cin = new javax.swing.JTextField();
         datePicker = new org.jdesktop.swingx.JXDatePicker();
+        jLabel12 = new javax.swing.JLabel();
+        password = new javax.swing.JPasswordField();
 
         jButton1.setText("jButton1");
 
@@ -170,6 +172,11 @@ public class NewEmploye extends javax.swing.JFrame {
         datePicker.setBackground(new java.awt.Color(255, 255, 255));
         datePicker.setForeground(new java.awt.Color(2, 2, 2));
 
+        jLabel12.setText("Password :");
+
+        password.setBackground(new java.awt.Color(255, 255, 255));
+        password.setForeground(new java.awt.Color(2, 2, 2));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -200,9 +207,13 @@ public class NewEmploye extends javax.swing.JFrame {
                     .addComponent(datePicker, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(salaire))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(77, 77, 77)
-                .addComponent(prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel12))
+                .addGap(63, 63, 63)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(prenom, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                    .addComponent(password))
                 .addGap(12, 12, 12)
                 .addComponent(jButton4)
                 .addGap(18, 18, 18)
@@ -253,7 +264,9 @@ public class NewEmploye extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(salaire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(salaire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12)
+                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
@@ -277,9 +290,11 @@ public class NewEmploye extends javax.swing.JFrame {
         String title = sexe.getSelectedItem().toString();
         String Agence = agences.getSelectedItem().toString();
         String date_naissance = getDate();
-        
+        String Password = password.getText();
+        Director.addEmploye(Cin, Nom, Prenom, date_naissance, Adresse, Ville, Tel, Email, Password, title, Agence, Salaire);
+
     }//GEN-LAST:event_jButton4MouseClicked
-    
+
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         // TODO add your handling code here:
         dispose();
@@ -333,6 +348,7 @@ public class NewEmploye extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -343,6 +359,7 @@ public class NewEmploye extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private org.jdesktop.swingx.JXDatePicker jXDatePicker1;
     private javax.swing.JTextField nom;
+    private javax.swing.JPasswordField password;
     private javax.swing.JTextField prenom;
     private javax.swing.JTextField salaire;
     private javax.swing.JComboBox<String> sexe;
