@@ -41,17 +41,13 @@ public class Director extends Employe {
     }
     //createPersonne() {
 
-    public static void addEmploye(String cin, String nom, String prenom, String date_naissance, String address, String ville, String tel, String email, String password, String title, String agance, String salaire) {
+    public static void addEmploye(String cin, String nom, String prenom, String date_naissance, String address, String ville, String tel, String email, String password, String title, String agance, String salaire) throws EmployeException {
 //        dao = new Dao();
 //        con = dao.getConnection();
         if (!Personne.cinExist(cin)) {
             Personne.createPersonne(cin, nom, prenom, date_naissance, address, ville, tel, email, password, title, "");
         }
-        try {
-            Employe.addEmployee(cin, cin, agance, salaire);
-        } catch (EmployeException ex) {
-            Logger.getLogger(Director.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        Employe.addEmployee(cin, cin, agance, salaire);
 
     }
 
