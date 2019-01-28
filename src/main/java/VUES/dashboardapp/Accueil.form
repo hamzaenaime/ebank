@@ -785,10 +785,6 @@
                     <Property name="text" type="java.lang.String" value="X"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Hand Cursor"/>
-<<<<<<< HEAD
-=======
-
->>>>>>> 77ca11011a215d18836ddc3f4fbcbc1bdb42a723
                     </Property>
                   </Properties>
                   <Events>

@@ -18,7 +18,7 @@ public class Admin extends javax.swing.JPanel implements ActionListener {
      */
     public Admin() {
         initComponents();
-
+        
     }
 
     /**
@@ -260,7 +260,7 @@ public class Admin extends javax.swing.JPanel implements ActionListener {
         JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
         topFrame.dispose();
     }
-
+    
     private void connecterMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_connecterMouseClicked
         // TODO add your handling code here:
         String id_ = id.getText();
@@ -270,7 +270,7 @@ public class Admin extends javax.swing.JPanel implements ActionListener {
             if (Personne.getPoste() == 2) {
                 new VUES.DashBaordEmployer.Accueil().setVisible(true);
             } else {
-                new VUES.DashbaordDirector.Accueil().setVisible(true);
+                new VUES.DashBoardDirector.Accueil().setVisible(true);
             }
             topFrameDispose();
         } else {
@@ -281,7 +281,7 @@ public class Admin extends javax.swing.JPanel implements ActionListener {
     private void fiveMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_fiveMouseClicked
         // TODO add your handling code here:
         password.setText(password.getText() + "5");
-
+        
     }// GEN-LAST:event_fiveMouseClicked
 
     private void sevenMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_sevenMouseClicked
@@ -302,13 +302,13 @@ public class Admin extends javax.swing.JPanel implements ActionListener {
     private void sixMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_sixMouseClicked
         // TODO add your handling code here:
         password.setText(password.getText() + "6");
-
+        
     }// GEN-LAST:event_sixMouseClicked
 
     private void zeroMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_zeroMouseClicked
         // TODO add your handling code here:
         password.setText(password.getText() + "0");
-
+        
     }// GEN-LAST:event_zeroMouseClicked
 
     private void oneMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_oneMouseClicked
@@ -357,5 +357,5 @@ public class Admin extends javax.swing.JPanel implements ActionListener {
         throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
         // Tools | Templates.
     }
-
+    
 }
