@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package VUES.DashBaordDirector;
+package VUES.DashboardDirector;
 
 import MODELS.Employe;
 import MODELS.Table.EmployeeTable;
