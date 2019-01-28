@@ -8,6 +8,9 @@ package VUES.DashBaordEmployer;
 import MODELS.Employe;
 import MODELS.Table.EmployeeTable;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -35,6 +38,18 @@ public class Reclamations extends javax.swing.JPanel implements ListSelectionLis
         EmployeeTable employeModel = new EmployeeTable(res);
         reclamations.setModel(employeModel);
 
+    }
+
+    public static void main(String argc[]) {
+        ResultSet res;
+        res = Employe.getReclamation();
+        try {
+            while (res.next()) {
+                System.out.println(res.getString(1));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Reclamations.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

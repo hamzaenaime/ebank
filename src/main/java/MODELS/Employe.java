@@ -27,11 +27,13 @@ public class Employe extends Personne {
     public static ResultSet getReclamation() {
         dao = new Dao();
         con = dao.getConnection();
-        String req = "select * from reclamation";
+        String req = "select r.id,r.owner,r.objet,r.description,r.traiter,r.date_creation from reclamation r";
         try {
             st = con.createStatement();
             ResultSet res = st.executeQuery(req);
-            return res;
+            if (res.next()) {
+                return res;
+            }
         } catch (SQLException ex) {
             Logger.getLogger(Employe.class.getName()).log(Level.SEVERE, null, ex);
         }
