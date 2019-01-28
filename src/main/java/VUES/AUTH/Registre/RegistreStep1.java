@@ -43,7 +43,7 @@ public class RegistreStep1 extends javax.swing.JPanel {
             State.setTitle(title_);
             return true;
         } else {
-            JOptionPane.showMessageDialog(this, "verifier que vous avez remplir les champs correctement!",
+            JOptionPane.showMessageDialog(this, "verifier que vous avez rempli les champs correctement!",
                     "Input invalide", JOptionPane.WARNING_MESSAGE);
         }
         return false;
