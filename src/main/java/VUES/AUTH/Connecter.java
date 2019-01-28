@@ -1,5 +1,6 @@
 package VUES.AUTH;
 
+import MODELS.Account;
 import MODELS.Personne;
 import VUES.dashboardapp.Accueil;
 import java.awt.event.ActionEvent;
@@ -264,7 +265,12 @@ public class Connecter extends javax.swing.JPanel implements ActionListener {
         // TODO add your handling code here:
         String id_ = id.getText();
         String pass = password.getText();
+        //if (!pass.isEmpty() && !id_.isEmpty() && Personne.login(id_, pass) && Personne.getPoste() == 1) {
         if (!pass.isEmpty() && !id_.isEmpty() && Personne.login(id_, pass) && Personne.getPoste() == 1) {
+            if (!Account.isActive(id_)) {
+                JOptionPane.showMessageDialog(this, "votre compte n'est pas actif!!!");
+                return;
+            }
             //int type = Personne.getPoste(); //1 for client 2 for cashier 3 for director
             new Accueil().setVisible(true);
             topFrameDispose();

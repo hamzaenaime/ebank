@@ -5,6 +5,7 @@
  */
 package MODELS;
 
+import static MODELS.Personne.conn;
 import java.sql.SQLException;
 
 /**
@@ -13,10 +14,19 @@ import java.sql.SQLException;
  */
 public class Client extends Personne {
 
+    /*
+    public static boolean login(String id, String password) {
+        if (Personne.login(id, password) && Account.isActive(cin)) {
+            return true;
+        }
+        return false;
+    }*/
+    //select * from compte cp inner join client cl on cp.numcompte=cl.numcompte where cl.id='tt' and active is false;
+
     public static void createClient(String cin, String nom, String prenom, String date_naissance, String address, String ville, String tel, String email, String password, String profession, String title, long numAccount) {
 
         try {
-            createPersonne(cin, nom, prenom, date_naissance, address, ville, tel, email, password,title, profession);
+            createPersonne(cin, nom, prenom, date_naissance, address, ville, tel, email, password, title, profession);
             st = conn.createStatement();
             st.executeUpdate("insert into client values ('" + cin + "','" + numAccount + "')");
         } catch (SQLException ex) {

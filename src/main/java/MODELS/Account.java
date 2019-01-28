@@ -53,9 +53,9 @@ public class Account {
         return -1;
     }
 
-    public static Boolean AccountExist(String numcompte) {
+    public static Boolean AccountExist(String cin) {
         connection = Dao.getConnection();
-        String req = "select * from compte where numcompte=" + numcompte;
+        String req = "select * from compte cp inner join client cl on cp.numcompte=cl.numcompte where cl.id='" + cin + "' and active is true";
         try {
             st = connection.createStatement();
             ResultSet res = st.executeQuery(req);
@@ -65,7 +65,19 @@ public class Account {
         } catch (SQLException ex) {
             Logger.getLogger(Account.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return false;
+    }
 
+    public static Boolean isActive(String cin) {
+        connection = Dao.getConnection();
+        String req = "select * from compte cp inner join client cl on cp.numcompte=cl.numcompte where cl.id='" + cin + "' and active is true";
+        try {
+            st = connection.createStatement();
+            ResultSet res = st.executeQuery(req);
+            return res.next();
+        } catch (SQLException ex) {
+            Logger.getLogger(Account.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return false;
     }
 
@@ -75,13 +87,10 @@ public class Account {
         try {
             st = connection.createStatement();
             ResultSet res = st.executeQuery(req);
-            if (res.next() && res.getBoolean("active")) {
-                return true;
-            }
+            return res.next();
         } catch (SQLException ex) {
             Logger.getLogger(Account.class.getName()).log(Level.SEVERE, null, ex);
         }
-
         return false;
     }
 
