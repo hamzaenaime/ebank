@@ -30,11 +30,12 @@ public class RegistreStep2 extends javax.swing.JPanel {
     }
 
     public Boolean codeValid() {
-        if (Integer.parseInt(code.getText()) == State.getCheck()) {
+        if (code.getText().length() != 0 && Integer.parseInt(code.getText()) == State.getCheck()) {
             return true;
+        } else {
+            JOptionPane.showMessageDialog(this, "code invalide", "warning", JOptionPane.WARNING_MESSAGE);
+            return false;
         }
-        JOptionPane.showMessageDialog(this, "code invalide", "warning", JOptionPane.WARNING_MESSAGE);
-        return false;
     }
 
     /**
