@@ -7,6 +7,7 @@ package VUES.DashBaordEmployer.Virement;
 
 import MODELS.Account;
 import MODELS.EmployeeOperation;
+import MODELS.Personne;
 import javax.swing.JOptionPane;
 
 /**
@@ -229,18 +230,43 @@ public class Virement extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private Boolean allFieldsSet() {
+        if (Account.AccountActive(numcompte.getText())
+                && Integer.parseInt(montant.getText()) >= 0
+                && cin.getText().length() != 0
+                && nom.getText().length() != 0
+                && prenom.getText().length() != 0) {
+            return true;
+        }
+        return false;
+    }
+
     private void validerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_validerMouseClicked
         // TODO add your handling code here:
-        String message = "Numero de Compte : " + numcompte.getText();
-        message += "\ntitulaire de compte  : " + EmployeeOperation.getTitulaire(numcompte.getText());
-        message += "\nMontant : " + montant.getText();
-        int input = JOptionPane.showConfirmDialog(this, message, "Virement Confirmation", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
-        //0 ok , 2 cancel
-        if (input == 0) {
-            //ajouter operation
-            JOptionPane.showMessageDialog(this, "virement effectuer");
+        if (allFieldsSet()) {
+            String message = "Numero de Compte : " + numcompte.getText();
+            message += "\ntitulaire de compte  : " + EmployeeOperation.getTitulaire(numcompte.getText());
+            message += "\nMontant : " + montant.getText();
+            message += "\n\n\n Confirmer ?\n";
+            int input = JOptionPane.showConfirmDialog(this, message, "Virement Confirmation", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
+            //0 ok , 2 cancel
+            if (input == 0) {
+                //ajouter operation
+                EmployeeOperation.createEmployerOperation(
+                        Integer.parseInt(numcompte.getText()),
+                        "virement",
+                        Personne.getCin(),
+                        cin.getText(),
+                        nom.getText(),
+                        prenom.getText(),
+                        Float.parseFloat(montant.getText()));
+                JOptionPane.showMessageDialog(this, "virement effectuer");
+            } else {
+                //nothing
+                JOptionPane.showMessageDialog(this, "Transaction Annuler");
+            }
         } else {
-            //nothing
+            JOptionPane.showMessageDialog(this, "verifier que vous entrer tous les informations correctement ");
         }
     }//GEN-LAST:event_validerMouseClicked
 

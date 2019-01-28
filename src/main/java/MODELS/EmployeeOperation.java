@@ -6,6 +6,7 @@
 package MODELS;
 
 import DAO.Dao;
+import Exceptions.AccountException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -35,5 +36,23 @@ public class EmployeeOperation extends Operation {
             Logger.getLogger(Account.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+
+    public static void createEmployerOperation(int compte_dst, String motif, String cin_emp, String cin, String nom, String prenom, float montant) {
+        //15 à changer
+        int numoperation = Operation.createOperation(15, compte_dst, motif, montant);
+        connection = Dao.getConnection();
+        String req = "insert into operation_employe values(" + numoperation + ",'" + cin_emp + "','" + cin + "','" + nom + "','" + prenom + "')";
+        try {
+            st = connection.createStatement();
+            st.executeUpdate(req);
+        } catch (SQLException ex) {
+            Logger.getLogger(EmployeeOperation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            Account.crediter(montant, compte_dst);
+        } catch (AccountException ex) {
+            Logger.getLogger(EmployeeOperation.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
