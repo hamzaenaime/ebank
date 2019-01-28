@@ -83,7 +83,7 @@ public class Account {
 
     public static Boolean AccountActive(String numcompte) {
         connection = Dao.getConnection();
-        String req = "select * from compte where numcompte=" + numcompte;
+        String req = "select * from compte where numcompte=" + numcompte + " and active is true";
         try {
             st = connection.createStatement();
             ResultSet res = st.executeQuery(req);
