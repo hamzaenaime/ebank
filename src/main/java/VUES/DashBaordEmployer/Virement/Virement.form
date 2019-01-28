@@ -27,18 +27,27 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="err1" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="err2" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="err3" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="err4" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="err5" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="err1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="err2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="err3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="err5" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="numcompte" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
+                          <Component id="montant" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="291" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="err4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="numcompte" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
-                  <Component id="montant" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="291" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
               <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
@@ -51,11 +60,15 @@
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
-              <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -105,34 +118,36 @@
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       <Component id="err3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="valider" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                               <Component id="err4" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                               <Component id="err5" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="3" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="cin" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="35" pref="35" max="-2" attributes="0"/>
-                      <Component id="nom" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="nom" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="prenom" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="prenom" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="0" pref="61" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="13" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -182,6 +197,12 @@
     </Component>
     <Component class="javax.swing.JButton" name="valider">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="2" green="2" red="2" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Valider"/>
       </Properties>
       <Events>
@@ -219,7 +240,6 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="2" green="2" red="de" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="jLabel4"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="err2">
@@ -227,7 +247,6 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="2" green="2" red="de" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="err2"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="err3">
@@ -235,7 +254,6 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="2" green="2" red="de" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="jLabel4"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="err4">
@@ -243,7 +261,6 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="2" green="2" red="de" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="jLabel4"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="err5">
@@ -251,7 +268,6 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="2" green="2" red="de" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="jLabel4"/>
       </Properties>
     </Component>
   </SubComponents>

@@ -22,7 +22,7 @@ public class EmployeeOperation extends Operation {
     static Connection connection;
     static Statement st;
 
-    static String getTitulaire(String numcompte) {
+    public static String getTitulaire(String numcompte) {
         connection = Dao.getConnection();
         String req = "select * from client cl,personne p where p.cin=cl.id and cl.numcompte=" + numcompte;
         try {

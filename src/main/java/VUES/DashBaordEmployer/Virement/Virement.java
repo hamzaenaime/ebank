@@ -6,6 +6,7 @@
 package VUES.DashBaordEmployer.Virement;
 
 import MODELS.Account;
+import MODELS.EmployeeOperation;
 import javax.swing.JOptionPane;
 
 /**
@@ -71,6 +72,8 @@ public class Virement extends javax.swing.JPanel {
         jLabel6.setForeground(new java.awt.Color(2, 2, 2));
         jLabel6.setText("Montant :");
 
+        valider.setBackground(new java.awt.Color(255, 255, 255));
+        valider.setForeground(new java.awt.Color(2, 2, 2));
         valider.setText("Valider");
         valider.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -114,19 +117,14 @@ public class Virement extends javax.swing.JPanel {
         });
 
         err1.setForeground(new java.awt.Color(222, 2, 2));
-        err1.setText("jLabel4");
 
         err2.setForeground(new java.awt.Color(222, 2, 2));
-        err2.setText("err2");
 
         err3.setForeground(new java.awt.Color(222, 2, 2));
-        err3.setText("jLabel4");
 
         err4.setForeground(new java.awt.Color(222, 2, 2));
-        err4.setText("jLabel4");
 
         err5.setForeground(new java.awt.Color(222, 2, 2));
-        err5.setText("jLabel4");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -135,16 +133,22 @@ public class Virement extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(err1)
-                    .addComponent(err2)
-                    .addComponent(err3)
-                    .addComponent(err4)
-                    .addComponent(err5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(numcompte, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(montant, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(291, 291, 291))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(err1)
+                            .addComponent(err2)
+                            .addComponent(err3)
+                            .addComponent(err5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(numcompte, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(montant, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(291, 291, 291))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(err4)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(jSeparator1)
@@ -154,11 +158,13 @@ public class Virement extends javax.swing.JPanel {
                 .addComponent(valider)
                 .addGap(34, 34, 34))
             .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel3)))
                 .addGap(93, 93, 93)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(nom)
@@ -198,36 +204,44 @@ public class Virement extends javax.swing.JPanel {
                         .addComponent(jLabel1)
                         .addGap(14, 14, 14)
                         .addComponent(err3)
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel2)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(valider))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(7, 7, 7)
+                                .addGap(32, 32, 32)
                                 .addComponent(err4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
+                                .addGap(45, 45, 45)
                                 .addComponent(err5)
-                                .addGap(0, 3, Short.MAX_VALUE))))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(cin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(35, 35, 35)
-                        .addComponent(nom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
                         .addGap(33, 33, 33)
-                        .addComponent(prenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap(13, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(prenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addGap(0, 61, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void validerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_validerMouseClicked
         // TODO add your handling code here:
-        String message = "";
+        String message = "Numero de Compte : " + numcompte.getText();
+        message += "\ntitulaire de compte  : " + EmployeeOperation.getTitulaire(numcompte.getText());
+        message += "\nMontant : " + montant.getText();
         int input = JOptionPane.showConfirmDialog(this, message, "Virement Confirmation", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
         //0 ok , 2 cancel
+        if (input == 0) {
+            //ajouter operation
+            JOptionPane.showMessageDialog(this, "virement effectuer");
+        } else {
+            //nothing
+        }
     }//GEN-LAST:event_validerMouseClicked
 
     private void numcompteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numcompteActionPerformed
