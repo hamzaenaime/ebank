@@ -11,18 +11,18 @@ import MODELS.Account;
  *
  * @author hamza
  */
-public class Demande extends javax.swing.JFrame {
+public class DemandeInfos extends javax.swing.JFrame {
 
     /**
-     * Creates new form Demande
+     * Creates new form DemandeInfos
      */
     private String num;
 
-    public Demande() {
+    public DemandeInfos() {
         initComponents();
     }
 
-    public Demande(String numCompte, String Cin, String Nom, String Prenom, String Email, String Tel, String Ville, String Adresse, String Date_Nais, String Date_Creation) {
+    public DemandeInfos(String numCompte, String Cin, String Nom, String Prenom, String Email, String Tel, String Ville, String Adresse, String Date_Nais, String Date_Creation) {
         this();
         cin.setText(Cin);
         nom.setText(Nom);
@@ -291,20 +291,21 @@ public class Demande extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Demande.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DemandeInfos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Demande.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DemandeInfos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Demande.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DemandeInfos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Demande.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DemandeInfos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Demande().setVisible(true);
+                new DemandeInfos().setVisible(true);
             }
         });
     }

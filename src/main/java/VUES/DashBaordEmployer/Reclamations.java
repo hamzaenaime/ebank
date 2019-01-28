@@ -8,9 +8,6 @@ package VUES.DashBaordEmployer;
 import MODELS.Employe;
 import MODELS.Table.EmployeeTable;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -38,18 +35,6 @@ public class Reclamations extends javax.swing.JPanel implements ListSelectionLis
         EmployeeTable employeModel = new EmployeeTable(res);
         reclamations.setModel(employeModel);
 
-    }
-
-    public static void main(String argc[]) {
-        ResultSet res;
-        res = Employe.getReclamation();
-        try {
-            while (res.next()) {
-                System.out.println(res.getString(1));
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Reclamations.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 
     /**
@@ -94,9 +79,7 @@ public class Reclamations extends javax.swing.JPanel implements ListSelectionLis
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -114,7 +97,7 @@ public class Reclamations extends javax.swing.JPanel implements ListSelectionLis
             String objet = model.getValueAt(reclamations.getSelectedRow(), 2).toString();
             String description = model.getValueAt(reclamations.getSelectedRow(), 3).toString();
             String date = model.getValueAt(reclamations.getSelectedRow(), 5).toString();
-            new Reclamation(id, owner, objet, description, date).setVisible(true);
+            new ReclamationInfos(id, owner, objet, description, date).setVisible(true);
         }
     }
 }

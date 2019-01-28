@@ -99,7 +99,7 @@ public class Reclamations extends javax.swing.JPanel implements ListSelectionLis
             String objet = model.getValueAt(reclamations.getSelectedRow(), 2).toString();
             String description = model.getValueAt(reclamations.getSelectedRow(), 3).toString();
             String date = model.getValueAt(reclamations.getSelectedRow(), 5).toString();
-            new Reclamation(id, owner, objet, description, date).setVisible(true);
+            new ReclamationInfos(id, owner, objet, description, date).setVisible(true);
         }
     }
 }

@@ -45,7 +45,7 @@ public class Employees extends javax.swing.JPanel implements ListSelectionListen
             String objet = model.getValueAt(employees.getSelectedRow(), 2).toString();
             String description = model.getValueAt(employees.getSelectedRow(), 3).toString();
             String date = model.getValueAt(employees.getSelectedRow(), 5).toString();
-            new VUES.DashboardDirector.Reclamation(id, owner, objet, description, date).setVisible(true);
+            new VUES.DashboardDirector.ReclamationInfos(id, owner, objet, description, date).setVisible(true);
         }
     }
 

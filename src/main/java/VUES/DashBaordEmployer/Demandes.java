@@ -97,7 +97,8 @@ public class Demandes extends javax.swing.JPanel implements ListSelectionListene
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                .addGap(268, 268, 268))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -126,7 +127,7 @@ public class Demandes extends javax.swing.JPanel implements ListSelectionListene
             String tel = model.getValueAt(demandes.getSelectedRow(), 7).toString();
             String email = model.getValueAt(demandes.getSelectedRow(), 8).toString();
             String date_creation = model.getValueAt(demandes.getSelectedRow(), 9).toString();
-            new Demande(numcompte, cin, nom, prenom, email, tel, ville, address, date_nais, date_creation).setVisible(true);
+            new DemandeInfos(numcompte, cin, nom, prenom, email, tel, ville, address, date_nais, date_creation).setVisible(true);
         }
     }
 }
