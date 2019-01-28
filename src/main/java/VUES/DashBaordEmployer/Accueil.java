@@ -94,7 +94,7 @@ public class Accueil extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Button1.setBackground(new java.awt.Color(0, 18, 18));
-        Button1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Button1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Button1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Button1MouseClicked(evt);
@@ -141,7 +141,7 @@ public class Accueil extends javax.swing.JFrame {
         jPanel1.add(Button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 232, 50));
 
         Button3.setBackground(new java.awt.Color(15, 122, 122));
-        Button3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Button3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Button3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Button3MouseClicked(evt);
@@ -185,7 +185,7 @@ public class Accueil extends javax.swing.JFrame {
         jPanel1.add(Button3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 232, 50));
 
         Button4.setBackground(new java.awt.Color(15, 122, 122));
-        Button4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Button4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Button4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Button4MouseClicked(evt);
@@ -268,7 +268,7 @@ public class Accueil extends javax.swing.JFrame {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 150, 37));
 
         Button5.setBackground(new java.awt.Color(15, 122, 122));
-        Button5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Button5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Button5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Button5MouseClicked(evt);
@@ -357,11 +357,11 @@ public class Accueil extends javax.swing.JFrame {
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addGap(454, 454, 454)
+                .addGap(149, 149, 149)
                 .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addGap(78, 78, 78)
                 .addComponent(last_login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(81, 81, 81)
+                .addGap(339, 339, 339)
                 .addComponent(btn_close, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
         );
@@ -413,6 +413,7 @@ public class Accueil extends javax.swing.JFrame {
         });
 
         jPanel5.setBackground(new java.awt.Color(4, 96, 96));
+        jPanel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel5MouseClicked(evt);
@@ -469,7 +470,7 @@ public class Accueil extends javax.swing.JFrame {
                         .addComponent(jLabel10)))
                 .addGap(170, 170, 170)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(62, 62, 62))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
@@ -496,7 +497,7 @@ public class Accueil extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 160));
+        jPanel2.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 160));
 
         container.setBackground(new java.awt.Color(255, 255, 255));
 

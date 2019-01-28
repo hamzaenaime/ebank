@@ -52,7 +52,7 @@
               <Color blue="12" green="12" red="0" type="rgb"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Default Cursor"/>
+              <Color id="Hand Cursor"/>
             </Property>
           </Properties>
           <Events>
@@ -129,7 +129,7 @@
               <Color blue="7a" green="7a" red="f" type="rgb"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Default Cursor"/>
+              <Color id="Hand Cursor"/>
             </Property>
           </Properties>
           <Events>
@@ -200,7 +200,7 @@
               <Color blue="7a" green="7a" red="f" type="rgb"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Default Cursor"/>
+              <Color id="Hand Cursor"/>
             </Property>
           </Properties>
           <Events>
@@ -348,7 +348,7 @@
               <Color blue="7a" green="7a" red="f" type="rgb"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Default Cursor"/>
+              <Color id="Hand Cursor"/>
             </Property>
           </Properties>
           <Events>
@@ -450,7 +450,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="0" width="840" height="160"/>
+              <AbsoluteConstraints x="0" y="0" width="830" height="160"/>
             </Constraint>
           </Constraints>
 
@@ -470,7 +470,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
                       <Component id="jPanel4" min="-2" pref="290" max="-2" attributes="0"/>
-                      <EmptySpace pref="26" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                   </Group>
@@ -522,11 +522,11 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="-2" pref="454" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="149" max="-2" attributes="0"/>
                           <Component id="jLabel11" max="32767" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                           <Component id="last_login" max="32767" attributes="0"/>
-                          <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="339" max="-2" attributes="0"/>
                           <Component id="btn_close" min="-2" pref="20" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       </Group>
@@ -670,6 +670,9 @@
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="60" green="60" red="4" type="rgb"/>
+                    </Property>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Hand Cursor"/>
                     </Property>
                   </Properties>
                   <Events>
