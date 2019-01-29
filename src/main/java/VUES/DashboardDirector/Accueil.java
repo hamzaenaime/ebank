@@ -9,6 +9,7 @@ import DAO.Dao;
 import MODELS.Charts.AgeChart;
 import MODELS.Charts.NbCompteChart;
 import MODELS.Charts.SexeChart;
+import MODELS.Charts.TransactionChart;
 import MODELS.Employe;
 import MODELS.Personne;
 import VUES.AUTH.Login;
@@ -644,7 +645,7 @@ public class Accueil extends javax.swing.JFrame {
         Indicator7.setOpaque(true);
         Indicator6.setOpaque(false);
 
-        show("nbcomptes");
+        show("transactions");
     }//GEN-LAST:event_Button7MouseClicked
 
     private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jPanel5MouseClicked
@@ -835,6 +836,10 @@ public class Accueil extends javax.swing.JFrame {
 
         if (nom.equals("nbcomptes")) {
             panelToShow = new ChartPanel(NbCompteChart.nbCompteChart());
+            panelToShow.setPreferredSize(new Dimension(560, 367));
+        }
+        if (nom.equals("transactions")) {
+            panelToShow = new ChartPanel(TransactionChart.transactionChart());
             panelToShow.setPreferredSize(new Dimension(560, 367));
         }
         this.container.removeAll();
