@@ -9,6 +9,7 @@ import DAO.Dao;
 import MODELS.Employe;
 import MODELS.Personne;
 import VUES.AUTH.Login;
+import VUES.DashBaordEmployer.Virement.Virement;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import javax.swing.*;
@@ -26,6 +27,7 @@ public class Accueil extends javax.swing.JFrame {
     private Reclamations reclamations = new Reclamations();
     private ChangePassword changePassword = new ChangePassword();
     private Coordonne coordonne = new Coordonne();
+    private Virement virement = new Virement();
 
     public Accueil() {
         new Dao();
@@ -68,6 +70,9 @@ public class Accueil extends javax.swing.JFrame {
         Button5 = new javax.swing.JPanel();
         Indicator5 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
+        Button6 = new javax.swing.JPanel();
+        Indicator6 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
@@ -117,7 +122,7 @@ public class Accueil extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Demandes ");
+        jLabel1.setText("Confirmer un Compte");
 
         javax.swing.GroupLayout Button1Layout = new javax.swing.GroupLayout(Button1);
         Button1.setLayout(Button1Layout);
@@ -127,7 +132,7 @@ public class Accueil extends javax.swing.JFrame {
                 .addComponent(Indicator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
-                .addGap(0, 137, Short.MAX_VALUE))
+                .addGap(0, 78, Short.MAX_VALUE))
         );
         Button1Layout.setVerticalGroup(
             Button1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,7 +169,7 @@ public class Accueil extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Coordonnees personnelles");
+        jLabel3.setText("Coordonnees Personnelles");
 
         javax.swing.GroupLayout Button3Layout = new javax.swing.GroupLayout(Button3);
         Button3.setLayout(Button3Layout);
@@ -182,7 +187,7 @@ public class Accueil extends javax.swing.JFrame {
             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel1.add(Button3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 232, 50));
+        jPanel1.add(Button3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 232, 50));
 
         Button4.setBackground(new java.awt.Color(15, 122, 122));
         Button4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -229,7 +234,7 @@ public class Accueil extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(Button4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 232, 50));
+        jPanel1.add(Button4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 232, 50));
         jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 39, -1, -1));
 
         jPanel14.setBackground(new java.awt.Color(0, 89, 102));
@@ -312,7 +317,54 @@ public class Accueil extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(Button5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 232, 50));
+        jPanel1.add(Button5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 232, 50));
+
+        Button6.setBackground(new java.awt.Color(15, 122, 122));
+        Button6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Button6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Button6MouseClicked(evt);
+            }
+        });
+
+        Indicator6.setBackground(new java.awt.Color(255, 255, 255));
+        Indicator6.setOpaque(false);
+
+        javax.swing.GroupLayout Indicator6Layout = new javax.swing.GroupLayout(Indicator6);
+        Indicator6.setLayout(Indicator6Layout);
+        Indicator6Layout.setHorizontalGroup(
+            Indicator6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 17, Short.MAX_VALUE)
+        );
+        Indicator6Layout.setVerticalGroup(
+            Indicator6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Effectuer un Virement ");
+
+        javax.swing.GroupLayout Button6Layout = new javax.swing.GroupLayout(Button6);
+        Button6.setLayout(Button6Layout);
+        Button6Layout.setHorizontalGroup(
+            Button6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Button6Layout.createSequentialGroup()
+                .addComponent(Indicator6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel8)
+                .addGap(0, 74, Short.MAX_VALUE))
+        );
+        Button6Layout.setVerticalGroup(
+            Button6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Indicator6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Button6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jPanel1.add(Button6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 232, 50));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 580));
 
@@ -526,18 +578,38 @@ public class Accueil extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jPanel5MouseClicked
 
+    private void Button6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button6MouseClicked
+        // TODO add your handling code here:
+        onClick(Button6);
+        onLeaveClick(Button3);
+        onLeaveClick(Button4);
+        onLeaveClick(Button5);
+        onLeaveClick(Button1);
+
+        // indicators
+        Indicator6.setOpaque(true);
+        Indicator3.setOpaque(false);
+        Indicator4.setOpaque(false);
+        Indicator5.setOpaque(false);
+        Indicator1.setOpaque(false);
+
+        show("virement");
+    }//GEN-LAST:event_Button6MouseClicked
+
     private void Button1MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_Button1MouseClicked
         // TODO add your handling code here:
         onClick(Button1);
         onLeaveClick(Button3);
         onLeaveClick(Button4);
         onLeaveClick(Button5);
+        onLeaveClick(Button6);
 
         // indicators
         Indicator1.setOpaque(true);
         Indicator3.setOpaque(false);
         Indicator4.setOpaque(false);
         Indicator5.setOpaque(false);
+        Indicator6.setOpaque(false);
 
         show("demandes");
 
@@ -549,12 +621,14 @@ public class Accueil extends javax.swing.JFrame {
         onLeaveClick(Button1);
         onLeaveClick(Button4);
         onLeaveClick(Button5);
+        onLeaveClick(Button6);
 
         // indicators
         Indicator1.setOpaque(false);
         Indicator3.setOpaque(true);
         Indicator4.setOpaque(false);
         Indicator5.setOpaque(false);
+        Indicator6.setOpaque(false);
 
         show("coordonne");
     }// GEN-LAST:event_Button3MouseClicked
@@ -565,10 +639,12 @@ public class Accueil extends javax.swing.JFrame {
         onLeaveClick(Button3);
         onLeaveClick(Button1);
         onLeaveClick(Button5);
+        onLeaveClick(Button6);
         // indicators
         Indicator1.setOpaque(false);
         Indicator3.setOpaque(false);
         Indicator5.setOpaque(false);
+        Indicator6.setOpaque(false);
         Indicator4.setOpaque(true);
 
         show("changePassword");
@@ -614,11 +690,13 @@ public class Accueil extends javax.swing.JFrame {
         onLeaveClick(Button4);
         onLeaveClick(Button3);
         onLeaveClick(Button1);
+        onLeaveClick(Button6);
 
         // indicators
         Indicator1.setOpaque(false);
         Indicator3.setOpaque(false);
         Indicator4.setOpaque(false);
+        Indicator6.setOpaque(false);
         Indicator5.setOpaque(true);
 
         show("reclamations");
@@ -656,6 +734,9 @@ public class Accueil extends javax.swing.JFrame {
         if (nom.equals("reclamations")) {
             panelToShow = new Reclamations();
         }
+        if (nom.equals("virement")) {
+            panelToShow = virement;
+        }
         this.container.removeAll();
         this.container.add(panelToShow);
         this.container.revalidate();
@@ -691,10 +772,12 @@ public class Accueil extends javax.swing.JFrame {
     private javax.swing.JPanel Button3;
     private javax.swing.JPanel Button4;
     private javax.swing.JPanel Button5;
+    private javax.swing.JPanel Button6;
     private javax.swing.JPanel Indicator1;
     private javax.swing.JPanel Indicator3;
     private javax.swing.JPanel Indicator4;
     private javax.swing.JPanel Indicator5;
+    private javax.swing.JPanel Indicator6;
     private javax.swing.JLabel btn_close;
     private javax.swing.JPanel container;
     private javax.swing.JLabel jLabel1;
@@ -706,6 +789,7 @@ public class Accueil extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;

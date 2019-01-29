@@ -83,7 +83,7 @@ public class Account {
 
     public static Boolean AccountActive(String numcompte) {
         connection = Dao.getConnection();
-        String req = "select * from compte where numcompte=" + numcompte;
+        String req = "select * from compte where numcompte=" + numcompte + " and active is true";
         try {
             st = connection.createStatement();
             ResultSet res = st.executeQuery(req);
@@ -95,7 +95,7 @@ public class Account {
     }
 
     public static void debiter(float mnt, int numCompte) throws AccountException {
-        if (Account.AccountActive("" + numCompte)) {
+        if (!Account.AccountActive("" + numCompte)) {
             throw new AccountException("Compte n'est pas active ");
         }
 
@@ -119,7 +119,7 @@ public class Account {
     }
 
     public static void crediter(float mnt, int numCompte) throws AccountException {
-        if (Account.AccountActive("" + numCompte)) {
+        if (!Account.AccountActive("" + numCompte)) {
             throw new AccountException("Compte n'est pas active ");
         }
 
