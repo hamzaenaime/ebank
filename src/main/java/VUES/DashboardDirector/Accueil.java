@@ -11,6 +11,7 @@ import MODELS.Employe;
 import MODELS.Personne;
 import VUES.AUTH.Login;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import javax.swing.*;
 import org.jfree.chart.ChartPanel;
@@ -822,6 +823,7 @@ public class Accueil extends javax.swing.JFrame {
         }
         if (nom.equals("statistiques")) {
             panelToShow = new ChartPanel(Charts.sexeChart());
+            panelToShow.setPreferredSize(new Dimension(560, 367));
         }
         this.container.removeAll();
         this.container.add(panelToShow);

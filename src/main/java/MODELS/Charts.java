@@ -5,6 +5,7 @@
  */
 package MODELS;
 
+import java.text.DecimalFormat;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.DefaultPieDataset;
@@ -26,9 +27,14 @@ public class Charts {
         double M = Personne.sexePourcentage("M.");
         double Mme = Personne.sexePourcentage("Mme");
         double Mlle = Personne.sexePourcentage("Mlle");
+
+        DecimalFormat numberFormat = new DecimalFormat("#.0");
+        String hommes = numberFormat.format(M * 100);
+        String femmes = numberFormat.format((Mlle + Mme) * 100);
+
         DefaultPieDataset dataset = new DefaultPieDataset();
-        dataset.setValue("hommes", M * 100);
-        dataset.setValue("femmes", (Mlle + Mme) * 100);
+        dataset.setValue("hommes " + hommes + "%", M * 100);
+        dataset.setValue("femmes " + femmes + "%", (Mlle + Mme) * 100);
         return dataset;
     }
 
