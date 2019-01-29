@@ -3,13 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package MODELS;
+package MODELS.Charts;
 
+import MODELS.Personne;
 import java.text.DecimalFormat;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.general.PieDataset;
 
@@ -17,9 +16,9 @@ import org.jfree.data.general.PieDataset;
  *
  * @author hamza
  */
-public class Charts {
-
+public class SexeChart {
     //sexe chart
+
     public static JFreeChart sexeChart() {
         JFreeChart chart = createChart(sexeDataset());
         return chart;
@@ -50,27 +49,6 @@ public class Charts {
                 false);
 
         return chart;
-    }
-
-    //age chart
-    public static JFreeChart ageChart() {
-        JFreeChart lineChart = ChartFactory.createLineChart(
-                "Age chart",
-                "Ans", "Nombre de Clients",
-                ageDataset(),
-                PlotOrientation.VERTICAL,
-                true, true, false);
-
-        return lineChart;
-    }
-
-    //age dataset
-    private static DefaultCategoryDataset ageDataset() {
-        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-        for (int i = 2001; i > 1990; i -= 1) {
-            dataset.addValue(Personne.ageCount("" + i), "Age", "" + (2019 - i));
-        }
-        return dataset;
     }
 
 }
