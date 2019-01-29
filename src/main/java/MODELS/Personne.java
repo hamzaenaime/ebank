@@ -23,6 +23,7 @@ import java.util.logging.Logger;
  */
 public class Personne {
 
+    protected static Dao dao = new Dao();
     protected static String cin;
     protected static String title;
     protected static String nom;
@@ -338,4 +339,35 @@ public class Personne {
         return false;
     }
 
+    public static int personneCount() {
+        conn = dao.getConnection();
+        String req = "select count(*) from personne";
+        try {
+            st = conn.createStatement();
+            ResultSet res = st.executeQuery(req);
+            if (res.next()) {
+                System.out.println("count : " + res.getInt(1));
+                return res.getInt(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Personne.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 1;
+    }
+
+    public static double sexePourcentage(String sexe) {
+        conn = dao.getConnection();
+        String req = "select count(*) from personne where title='" + sexe + "'";
+        try {
+            double count = new Double(Personne.personneCount());
+            Statement st = conn.createStatement();
+            ResultSet res = st.executeQuery(req);
+            if (res.next()) {
+                return res.getInt(1) / count;
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return 0;
+    }
 }
