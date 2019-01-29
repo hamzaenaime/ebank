@@ -12,6 +12,11 @@ import VUES.AUTH.Login;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import javax.swing.*;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.general.DefaultPieDataset;
+import org.jfree.data.general.PieDataset;
 
 /**
  *
@@ -818,6 +823,10 @@ public class Accueil extends javax.swing.JFrame {
         if (nom.equals("employees")) {
             panelToShow = new Employees();
         }
+        if (nom.equals("statistiques")) {
+            JFreeChart chart = createChart(createDataset());
+            panelToShow = new ChartPanel(chart);
+        }
         this.container.removeAll();
         this.container.add(panelToShow);
         this.container.revalidate();
@@ -846,6 +855,28 @@ public class Accueil extends javax.swing.JFrame {
 
             }
         });
+    }
+
+    private static PieDataset createDataset() {
+        double M = Personne.sexePourcentage("M.");
+        double Mme = Personne.sexePourcentage("Mme");
+        double Mlle = Personne.sexePourcentage("Mlle");
+        DefaultPieDataset dataset = new DefaultPieDataset();
+        dataset.setValue("hommes", M * 100);
+        dataset.setValue("mademoiselles", Mlle * 100);
+        dataset.setValue("madames", Mme * 100);
+        return dataset;
+    }
+
+    private static JFreeChart createChart(PieDataset dataset) {
+        JFreeChart chart = ChartFactory.createPieChart(
+                "sexe pourcentage", // chart title
+                dataset, // data
+                true, // include legend
+                true,
+                false);
+
+        return chart;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

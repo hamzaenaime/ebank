@@ -5,6 +5,12 @@
  */
 package VUES.DashboardDirector.Statistiques;
 
+import MODELS.Personne;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.general.DefaultPieDataset;
+import org.jfree.data.general.PieDataset;
+
 /**
  *
  * @author hamza
@@ -15,7 +21,33 @@ public class Sexe extends javax.swing.JPanel {
      * Creates new form Sexe
      */
     public Sexe() {
+        this(createChart(createDataset()));
+    }
+
+    public Sexe(JFreeChart chart) {
         initComponents();
+    }
+
+    private static PieDataset createDataset() {
+        double M = Personne.sexePourcentage("M.");
+        double Mme = Personne.sexePourcentage("Mme");
+        double Mlle = Personne.sexePourcentage("Mlle");
+        DefaultPieDataset dataset = new DefaultPieDataset();
+        dataset.setValue("hommes", M * 100);
+        dataset.setValue("mademoiselles", Mlle * 100);
+        dataset.setValue("madames", Mme * 100);
+        return dataset;
+    }
+
+    private static JFreeChart createChart(PieDataset dataset) {
+        JFreeChart chart = ChartFactory.createPieChart(
+                "sexe pourcentage", // chart title
+                dataset, // data
+                true, // include legend
+                true,
+                false);
+
+        return chart;
     }
 
     /**

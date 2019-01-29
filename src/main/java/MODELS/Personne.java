@@ -346,7 +346,6 @@ public class Personne {
             st = conn.createStatement();
             ResultSet res = st.executeQuery(req);
             if (res.next()) {
-                System.out.println("count : " + res.getInt(1));
                 return res.getInt(1);
             }
         } catch (SQLException ex) {
