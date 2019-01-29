@@ -6,6 +6,7 @@
 package MODELS.Charts;
 
 import MODELS.Compte;
+import OUTILS.Outils;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
@@ -32,9 +33,9 @@ public class NbCompteChart {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         for (int i = 12; i > 0; i -= 1) {
             if (i < 10) {
-                dataset.addValue(Compte.nbCompte("0" + i), "Age", "" + i);
+                dataset.addValue(Compte.nbCompte("0" + i), "Age", Outils.numToString(i));
             } else {
-                dataset.addValue(Compte.nbCompte("" + i), "Age", "" + i);
+                dataset.addValue(Compte.nbCompte("" + i), "Age", Outils.numToString(i));
             }
         }
         return dataset;

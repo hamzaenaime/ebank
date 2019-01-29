@@ -6,6 +6,7 @@
 package MODELS.Charts;
 
 import MODELS.Operation;
+import OUTILS.Outils;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
@@ -33,11 +34,12 @@ public class TransactionChart {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         for (int i = 12; i > 0; i -= 1) {
             if (i < 10) {
-                dataset.addValue(Operation.transactionMontant("0" + i), "Montant (DH)", "" + i);
+                dataset.addValue(Operation.transactionMontant("0" + i), "Montant (DH)", Outils.numToString(i));
             } else {
-                dataset.addValue(Operation.transactionMontant("" + i), "Montant (DH)", "" + i);
+                dataset.addValue(Operation.transactionMontant("" + i), "Montant (DH)", Outils.numToString(i));
             }
         }
         return dataset;
     }
+
 }
