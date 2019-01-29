@@ -857,14 +857,14 @@ public class Accueil extends javax.swing.JFrame {
         });
     }
 
+    //sexe dataset
     private static PieDataset createDataset() {
         double M = Personne.sexePourcentage("M.");
         double Mme = Personne.sexePourcentage("Mme");
         double Mlle = Personne.sexePourcentage("Mlle");
         DefaultPieDataset dataset = new DefaultPieDataset();
         dataset.setValue("hommes", M * 100);
-        dataset.setValue("mademoiselles", Mlle * 100);
-        dataset.setValue("madames", Mme * 100);
+        dataset.setValue("mademoiselles", (Mlle + Mme) * 100);
         return dataset;
     }
 
