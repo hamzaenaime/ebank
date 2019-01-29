@@ -231,7 +231,9 @@ public class Virement extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private Boolean allFieldsSet() {
-        if (Account.AccountActive(numcompte.getText())
+        if (    !numcompte.getText().isEmpty() 
+                && Account.AccountActive(numcompte.getText())
+                && !montant.getText().isEmpty()
                 && Integer.parseInt(montant.getText()) >= 0
                 && cin.getText().length() != 0
                 && nom.getText().length() != 0
@@ -276,21 +278,34 @@ public class Virement extends javax.swing.JPanel {
 
     private void numcompteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_numcompteFocusLost
         // TODO add your handling code here:
-        if (!Account.AccountActive(numcompte.getText())) {
-            err1.setText("numero de compte invalide!");
-        } else {
-            err1.setText("");
+        if (numcompte.getText().isEmpty()){
+        err1.setText("* Champ obligatoire !");
         }
+        else{
+            System.err.println("hh");
+                if (!Account.AccountActive(numcompte.getText())) {
+                        err1.setText("numero de compte invalide!");
+                }  else {
+                        err1.setText("");
+                }
+        }
+        
 
     }//GEN-LAST:event_numcompteFocusLost
 
     private void montantFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_montantFocusLost
         // TODO add your handling code here:
-        if (Integer.parseInt(montant.getText()) < 0) {
-            err2.setText("montant doit etre positive non nul !");
-        } else {
-            err2.setText("");
+        if (montant.getText().isEmpty()){
+            err2.setText("* Champ obligatoire !");
         }
+        else {
+            if (Integer.parseInt(montant.getText()) < 0) {
+            err2.setText("montant doit etre positive non nul !");
+            } else {
+            err2.setText("");
+            }
+        }
+        
     }//GEN-LAST:event_montantFocusLost
 
     private void cinFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cinFocusLost
