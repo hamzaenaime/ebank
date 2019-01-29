@@ -282,7 +282,7 @@ public class Virement extends javax.swing.JPanel {
         err1.setText("* Champ obligatoire !");
         }
         else{
-            System.err.println("hh");
+            
                 if (!Account.AccountActive(numcompte.getText())) {
                         err1.setText("numero de compte invalide!");
                 }  else {

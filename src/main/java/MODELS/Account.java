@@ -83,11 +83,15 @@ public class Account {
 
     public static Boolean AccountActive(String numcompte) {
         connection = Dao.getConnection();
-        String req = "select * from compte where numcompte=" + numcompte + " and active is true";
+        
         try {
-            st = connection.createStatement();
-            ResultSet res = st.executeQuery(req);
-            return res.next();
+            if (numcompte.matches("[0-9]+")){
+                String req = "select * from compte where numcompte=" + numcompte + " and active is true";
+                st = connection.createStatement();
+                ResultSet res = st.executeQuery(req);
+                return res.next();
+            }
+            
         } catch (SQLException ex) {
             Logger.getLogger(Account.class.getName()).log(Level.SEVERE, null, ex);
         }
