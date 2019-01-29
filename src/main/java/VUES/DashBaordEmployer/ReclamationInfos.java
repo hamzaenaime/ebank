@@ -208,6 +208,8 @@ public class ReclamationInfos extends javax.swing.JFrame {
         if (!body.isEmpty()){
             String email = Personne.getEmail() ;
             new SendEmail(email, "Reponse de votre Reclamation", body) ;
+            System.err.println(body);
+            System.err.println(email);
         }
         Employe.ReclamationTraiter(reclaId);
         dispose();
