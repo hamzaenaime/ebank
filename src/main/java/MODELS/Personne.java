@@ -369,4 +369,19 @@ public class Personne {
         }
         return 0;
     }
+
+    public static int ageCount(String year) {
+        conn = dao.getConnection();
+        String req = "select  count(p.*) from personne p where to_char(p.date_naissance, 'YYYY') = '" + year + "';";
+        try {
+            st = conn.createStatement();
+            ResultSet res = st.executeQuery(req);
+            if (res.next()) {
+                return res.getInt(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Personne.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
 }

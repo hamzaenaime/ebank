@@ -822,6 +822,11 @@ public class Accueil extends javax.swing.JFrame {
             panelToShow = new Employees();
         }
         if (nom.equals("statistiques")) {
+            panelToShow = new ChartPanel(Charts.ageChart());
+            panelToShow.setPreferredSize(new Dimension(560, 367));
+        }
+
+        if (nom.equals("sexe")) {
             panelToShow = new ChartPanel(Charts.sexeChart());
             panelToShow.setPreferredSize(new Dimension(560, 367));
         }
