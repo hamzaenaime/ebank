@@ -41,6 +41,7 @@ public class Accueil extends javax.swing.JFrame {
             container.add(demandes);
             name.setText("M. " + Employe.getPrenom() + " " + Employe.getNom());
             last_login.setText(Employe.getLast_login());
+            sideBar.setVisible(false);
             // jLabel6.setVisible(false);
         } else {
             new Login().setVisible(true);
@@ -96,6 +97,20 @@ public class Accueil extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         container = new javax.swing.JPanel();
+        sideB = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        jPanel11 = new javax.swing.JPanel();
+        jPanel12 = new javax.swing.JPanel();
+        sideBar = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        comptes = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        sexe = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        transaction = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        age = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 204));
@@ -623,6 +638,241 @@ public class Accueil extends javax.swing.JFrame {
 
         jPanel2.add(container, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
 
+        sideB.setBackground(new java.awt.Color(255, 255, 255));
+        sideB.setForeground(new java.awt.Color(2, 2, 2));
+
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel9.setForeground(new java.awt.Color(2, 2, 2));
+
+        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel11.setForeground(new java.awt.Color(2, 2, 2));
+
+        jPanel12.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel12.setForeground(new java.awt.Color(2, 2, 2));
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 154, Short.MAX_VALUE)
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 709, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 24, Short.MAX_VALUE))
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(281, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 24, Short.MAX_VALUE))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(281, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout sideBLayout = new javax.swing.GroupLayout(sideB);
+        sideB.setLayout(sideBLayout);
+        sideBLayout.setHorizontalGroup(
+            sideBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(sideBLayout.createSequentialGroup()
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 24, Short.MAX_VALUE))
+        );
+        sideBLayout.setVerticalGroup(
+            sideBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(sideBLayout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(281, Short.MAX_VALUE))
+        );
+
+        jPanel2.add(sideB, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, -1, -1));
+
+        sideBar.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+
+        comptes.setBackground(new java.awt.Color(255, 255, 255));
+        comptes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                comptesMouseClicked(evt);
+            }
+        });
+
+        jLabel13.setForeground(new java.awt.Color(2, 2, 2));
+        jLabel13.setText("Compte Créer ");
+
+        javax.swing.GroupLayout comptesLayout = new javax.swing.GroupLayout(comptes);
+        comptes.setLayout(comptesLayout);
+        comptesLayout.setHorizontalGroup(
+            comptesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(comptesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel13)
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+        comptesLayout.setVerticalGroup(
+            comptesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, comptesLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel13)
+                .addContainerGap())
+        );
+
+        sexe.setBackground(new java.awt.Color(255, 255, 255));
+        sexe.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sexeMouseClicked(evt);
+            }
+        });
+
+        jLabel14.setForeground(new java.awt.Color(2, 2, 2));
+        jLabel14.setText("Sexe % ");
+
+        javax.swing.GroupLayout sexeLayout = new javax.swing.GroupLayout(sexe);
+        sexe.setLayout(sexeLayout);
+        sexeLayout.setHorizontalGroup(
+            sexeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(sexeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel14)
+                .addContainerGap(44, Short.MAX_VALUE))
+        );
+        sexeLayout.setVerticalGroup(
+            sexeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(sexeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel14)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        transaction.setBackground(new java.awt.Color(200, 255, 255));
+        transaction.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                transactionMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                transactionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                transactionMouseExited(evt);
+            }
+        });
+
+        jLabel2.setForeground(new java.awt.Color(2, 2, 2));
+        jLabel2.setText("Transactions ");
+
+        javax.swing.GroupLayout transactionLayout = new javax.swing.GroupLayout(transaction);
+        transaction.setLayout(transactionLayout);
+        transactionLayout.setHorizontalGroup(
+            transactionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(transactionLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+        transactionLayout.setVerticalGroup(
+            transactionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(transactionLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        age.setBackground(new java.awt.Color(255, 255, 255));
+        age.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ageMouseClicked(evt);
+            }
+        });
+
+        jLabel15.setForeground(new java.awt.Color(2, 2, 2));
+        jLabel15.setText("Age Chart ");
+
+        javax.swing.GroupLayout ageLayout = new javax.swing.GroupLayout(age);
+        age.setLayout(ageLayout);
+        ageLayout.setHorizontalGroup(
+            ageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ageLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel15)
+                .addContainerGap(33, Short.MAX_VALUE))
+        );
+        ageLayout.setVerticalGroup(
+            ageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ageLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel15)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(comptes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sexe, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(transaction, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(age, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap(24, Short.MAX_VALUE)
+                .addComponent(transaction, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
+                .addComponent(comptes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(sexe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(age, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(120, 120, 120))
+        );
+
+        javax.swing.GroupLayout sideBarLayout = new javax.swing.GroupLayout(sideBar);
+        sideBar.setLayout(sideBarLayout);
+        sideBarLayout.setHorizontalGroup(
+            sideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(sideBarLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        sideBarLayout.setVerticalGroup(
+            sideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sideBarLayout.createSequentialGroup()
+                .addContainerGap(19, Short.MAX_VALUE)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
+        );
+
+        jPanel2.add(sideBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 150, -1, 410));
+
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 830, 580));
 
         pack();
@@ -644,9 +894,54 @@ public class Accueil extends javax.swing.JFrame {
         Indicator5.setOpaque(false);
         Indicator7.setOpaque(true);
         Indicator6.setOpaque(false);
+        sideBar.setVisible(true);
 
         show("transactions");
     }//GEN-LAST:event_Button7MouseClicked
+
+    private void transactionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transactionMouseClicked
+        // TODO add your handling code here:
+        transaction.setBackground(new Color(200, 255, 255));
+        comptes.setBackground(new Color(255, 255, 255));
+        sexe.setBackground(new Color(255, 255, 255));
+        age.setBackground(new Color(255, 255, 255));
+        show("transactions");
+    }//GEN-LAST:event_transactionMouseClicked
+
+    private void transactionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transactionMouseEntered
+
+    }//GEN-LAST:event_transactionMouseEntered
+
+    private void transactionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transactionMouseExited
+
+    }//GEN-LAST:event_transactionMouseExited
+
+    private void comptesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comptesMouseClicked
+        // TODO add your handling code here:
+        comptes.setBackground(new Color(200, 255, 255));
+        transaction.setBackground(new Color(255, 255, 255));
+        sexe.setBackground(new Color(255, 255, 255));
+        age.setBackground(new Color(255, 255, 255));
+        show("comptes");
+    }//GEN-LAST:event_comptesMouseClicked
+
+    private void sexeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sexeMouseClicked
+        // TODO add your handling code here:
+        sexe.setBackground(new Color(200, 255, 255));
+        comptes.setBackground(new Color(255, 255, 255));
+        transaction.setBackground(new Color(255, 255, 255));
+        age.setBackground(new Color(255, 255, 255));
+        show("sexe");
+    }//GEN-LAST:event_sexeMouseClicked
+
+    private void ageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ageMouseClicked
+        // TODO add your handling code here:
+        age.setBackground(new Color(200, 255, 255));
+        comptes.setBackground(new Color(255, 255, 255));
+        sexe.setBackground(new Color(255, 255, 255));
+        transaction.setBackground(new Color(255, 255, 255));
+        show("age");
+    }//GEN-LAST:event_ageMouseClicked
 
     private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jPanel5MouseClicked
         // TODO add your handling code here:
@@ -671,6 +966,7 @@ public class Accueil extends javax.swing.JFrame {
         Indicator5.setOpaque(false);
         Indicator7.setOpaque(false);
         Indicator6.setOpaque(true);
+        sideBar.setVisible(false);
 
         show("employees");
     }// GEN-LAST:event_Button6MouseClicked
@@ -691,6 +987,7 @@ public class Accueil extends javax.swing.JFrame {
         Indicator5.setOpaque(false);
         Indicator6.setOpaque(false);
         Indicator7.setOpaque(false);
+        sideBar.setVisible(false);
 
         show("demandes");
 
@@ -712,6 +1009,7 @@ public class Accueil extends javax.swing.JFrame {
         Indicator5.setOpaque(false);
         Indicator6.setOpaque(false);
         Indicator7.setOpaque(false);
+        sideBar.setVisible(false);
 
         show("coordonne");
     }// GEN-LAST:event_Button3MouseClicked
@@ -731,6 +1029,7 @@ public class Accueil extends javax.swing.JFrame {
         Indicator7.setOpaque(false);
         Indicator4.setOpaque(true);
         Indicator6.setOpaque(false);
+        sideBar.setVisible(false);
 
         show("changePassword");
     }// GEN-LAST:event_Button4MouseClicked
@@ -777,6 +1076,7 @@ public class Accueil extends javax.swing.JFrame {
         onLeaveClick(Button1);
         onLeaveClick(Button6);
         onLeaveClick(Button7);
+        sideBar.setVisible(false);
 
         // indicators
         Indicator1.setOpaque(false);
@@ -834,7 +1134,7 @@ public class Accueil extends javax.swing.JFrame {
             panelToShow.setPreferredSize(new Dimension(560, 367));
         }
 
-        if (nom.equals("nbcomptes")) {
+        if (nom.equals("comptes")) {
             panelToShow = new ChartPanel(NbCompteChart.nbCompteChart());
             panelToShow.setPreferredSize(new Dimension(560, 367));
         }
@@ -885,12 +1185,18 @@ public class Accueil extends javax.swing.JFrame {
     private javax.swing.JPanel Indicator5;
     private javax.swing.JPanel Indicator6;
     private javax.swing.JPanel Indicator7;
+    private javax.swing.JPanel age;
     private javax.swing.JLabel btn_close;
+    private javax.swing.JPanel comptes;
     private javax.swing.JPanel container;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -901,6 +1207,8 @@ public class Accueil extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
@@ -908,9 +1216,15 @@ public class Accueil extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JLabel last_login;
     private javax.swing.JLabel name;
+    private javax.swing.JPanel sexe;
+    private javax.swing.JPanel sideB;
+    private javax.swing.JPanel sideBar;
+    private javax.swing.JPanel transaction;
     // End of variables declaration//GEN-END:variables
 
 }
