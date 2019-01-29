@@ -298,6 +298,9 @@ public class Virement extends javax.swing.JPanel {
         if (montant.getText().isEmpty()){
             err2.setText("* Champ obligatoire !");
         }
+        if (!montant.getText().matches("[0-9]+")){
+            err2.setText("* Montant doit etrer integer !") ;
+        }
         else {
             if (Integer.parseInt(montant.getText()) < 0) {
             err2.setText("montant doit etre positive non nul !");
