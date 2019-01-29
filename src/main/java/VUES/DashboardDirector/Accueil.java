@@ -7,6 +7,7 @@ package VUES.DashboardDirector;
 
 import DAO.Dao;
 import MODELS.Charts.AgeChart;
+import MODELS.Charts.NbCompteChart;
 import MODELS.Charts.SexeChart;
 import MODELS.Employe;
 import MODELS.Personne;
@@ -643,7 +644,7 @@ public class Accueil extends javax.swing.JFrame {
         Indicator7.setOpaque(true);
         Indicator6.setOpaque(false);
 
-        show("age");
+        show("nbcomptes");
     }//GEN-LAST:event_Button7MouseClicked
 
     private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jPanel5MouseClicked
@@ -822,13 +823,18 @@ public class Accueil extends javax.swing.JFrame {
         if (nom.equals("employees")) {
             panelToShow = new Employees();
         }
-        if (nom.equals("statistiques")) {
+        if (nom.equals("sexe")) {
             panelToShow = new ChartPanel(SexeChart.sexeChart());
             panelToShow.setPreferredSize(new Dimension(560, 367));
         }
 
         if (nom.equals("age")) {
             panelToShow = new ChartPanel(AgeChart.ageChart());
+            panelToShow.setPreferredSize(new Dimension(560, 367));
+        }
+
+        if (nom.equals("nbcomptes")) {
+            panelToShow = new ChartPanel(NbCompteChart.nbCompteChart());
             panelToShow.setPreferredSize(new Dimension(560, 367));
         }
         this.container.removeAll();
