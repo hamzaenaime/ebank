@@ -7,7 +7,11 @@ package VUES.DashBaordEmployer;
 
 import MODELS.Employe;
 import MODELS.Table.EmployeeTable;
+import java.io.IOException;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -127,7 +131,13 @@ public class Demandes extends javax.swing.JPanel implements ListSelectionListene
             String tel = model.getValueAt(demandes.getSelectedRow(), 7).toString();
             String email = model.getValueAt(demandes.getSelectedRow(), 8).toString();
             String date_creation = model.getValueAt(demandes.getSelectedRow(), 9).toString();
-            new DemandeInfos(numcompte, cin, nom, prenom, email, tel, ville, address, date_nais, date_creation).setVisible(true);
+            try {
+                new DemandeInfos(numcompte, cin, nom, prenom, email, tel, ville, address, date_nais, date_creation).setVisible(true);
+            } catch (IOException ex) {
+                Logger.getLogger(Demandes.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(Demandes.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 }
