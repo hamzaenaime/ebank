@@ -20,7 +20,7 @@ public class Coordonne extends javax.swing.JPanel {
     public Coordonne() {
         initComponents();
         nom.setEditable(false);
-        nom.setText(Client.getNom()+" "+Client.getPrenom());
+        nom.setText(Client.getNom() + " " + Client.getPrenom());
         adresse.setText(Client.getAdresse());
         ville.setText(Client.getVille());
         phone.setText(Client.getTel());
@@ -50,14 +50,22 @@ public class Coordonne extends javax.swing.JPanel {
         adresse = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+        setForeground(new java.awt.Color(2, 2, 2));
+
+        jLabel1.setForeground(new java.awt.Color(2, 2, 2));
         jLabel1.setText("Nom & Prénom");
 
+        jLabel2.setForeground(new java.awt.Color(2, 2, 2));
         jLabel2.setText("E-mail");
 
+        jLabel5.setForeground(new java.awt.Color(2, 2, 2));
         jLabel5.setText("Adresse");
 
+        jLabel6.setForeground(new java.awt.Color(2, 2, 2));
         jLabel6.setText("Ville");
 
+        jLabel8.setForeground(new java.awt.Color(2, 2, 2));
         jLabel8.setText("Téléphone");
 
         nom.setText("nom");
@@ -90,6 +98,7 @@ public class Coordonne extends javax.swing.JPanel {
 
         adresse.setText("adresse");
 
+        jButton1.setBackground(new java.awt.Color(4, 96, 96));
         jButton1.setText("Save change");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -113,14 +122,11 @@ public class Coordonne extends javax.swing.JPanel {
                             .addComponent(jLabel2))
                         .addGap(40, 40, 40)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(phone, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                                        .addComponent(ville, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                                        .addComponent(nom))
-                                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(phone, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                                .addComponent(ville, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                                .addComponent(nom))
+                            .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(adresse)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(454, Short.MAX_VALUE)
@@ -176,23 +182,21 @@ public class Coordonne extends javax.swing.JPanel {
         // TODO add your handling code here:
         String address = adresse.getText();
         String ville_ = ville.getText();
-        
-        if(!address.isEmpty() && !address.equals(Client.getAdresse()) ){
-            if(Client.setAdresse(address)){
+
+        if (!address.isEmpty() && !address.equals(Client.getAdresse())) {
+            if (Client.setAdresse(address)) {
                 JOptionPane.showMessageDialog(this, "Votre adresse a été modifiée");
                 new Coordonne().setVisible(true);
-            }
-            else{
+            } else {
                 JOptionPane.showMessageDialog(this, "Echec de l'opération");
             }
         }
-        
-        if(!ville_.isEmpty() && !ville_.equals(Client.getVille())){
-            if(Client.setVille(ville.getText())){
+
+        if (!ville_.isEmpty() && !ville_.equals(Client.getVille())) {
+            if (Client.setVille(ville.getText())) {
                 JOptionPane.showMessageDialog(this, "Votre ville a été modifiée");
                 new Coordonne().setVisible(true);
-            }
-            else{
+            } else {
                 JOptionPane.showMessageDialog(this, "Echec de l'opération");
             }
         }

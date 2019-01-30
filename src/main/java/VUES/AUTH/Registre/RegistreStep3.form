@@ -37,8 +37,24 @@
               </Group>
               <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="create" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
+                  <Component id="emailError" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="cinError" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="error" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="c1Path" pref="138" max="32767" attributes="0"/>
+                          <Component id="c2Path" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="c2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="c1" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="Conirmation" alignment="0" max="32767" attributes="0"/>
                           <Component id="password" alignment="0" max="32767" attributes="0"/>
                           <Component id="email" alignment="0" max="32767" attributes="0"/>
                           <Component id="ville" alignment="0" max="32767" attributes="0"/>
@@ -46,29 +62,6 @@
                           <Component id="datePicker" alignment="1" pref="168" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="167" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="create" alignment="0" max="32767" attributes="0"/>
-                              <Component id="emailError" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="cinError" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="error" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="Conirmation" alignment="0" pref="204" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="c1Path" pref="138" max="32767" attributes="0"/>
-                                  <Component id="c2Path" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="c2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="c1" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -168,7 +161,7 @@
     <Component class="javax.swing.JButton" name="create">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+          <Color blue="60" green="60" red="4" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Cr&#xe9;er"/>
       </Properties>
@@ -229,6 +222,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="c1">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="7a" green="7a" red="f" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="choisir"/>
       </Properties>
       <Events>
@@ -239,6 +235,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="c2">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="7a" green="7a" red="f" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="choisir"/>
       </Properties>
       <Events>

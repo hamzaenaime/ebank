@@ -38,14 +38,19 @@ public class reclamation extends javax.swing.JPanel {
         send = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         description.setColumns(20);
         description.setRows(5);
         jScrollPane1.setViewportView(description);
 
+        jLabel1.setForeground(new java.awt.Color(2, 2, 2));
         jLabel1.setText("Objet");
 
+        jLabel2.setForeground(new java.awt.Color(2, 2, 2));
         jLabel2.setText("Description");
 
+        send.setBackground(new java.awt.Color(4, 96, 96));
         send.setText("Envoyer");
         send.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -53,16 +58,13 @@ public class reclamation extends javax.swing.JPanel {
             }
         });
 
+        jLabel3.setForeground(new java.awt.Color(2, 2, 2));
         jLabel3.setText("Réclamation");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(send)
-                .addGap(61, 61, 61))
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -73,9 +75,13 @@ public class reclamation extends javax.swing.JPanel {
                             .addComponent(jLabel2))
                         .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(objet, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(127, Short.MAX_VALUE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(objet, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(99, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(send)
+                .addGap(34, 34, 34))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,33 +90,34 @@ public class reclamation extends javax.swing.JPanel {
                 .addComponent(jLabel3)
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(objet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(objet, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addComponent(send)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addGap(18, 18, 18))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void sendMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sendMouseClicked
         // TODO add your handling code here:
-        String objetTxt=objet.getText();
-        String desc=description.getText();
-        
-        if(!objetTxt.isEmpty() && !desc.isEmpty()){
-            if(Reclamation.create(objetTxt, desc))
-                JOptionPane.showMessageDialog( this, "votre demande a bien été prise en compte","Réclamation envoyée",JOptionPane.ERROR_MESSAGE);
-            else JOptionPane.showMessageDialog( this, "Echec de l'envoie de votre réclamation","Echec de l'envoie",JOptionPane.ERROR_MESSAGE);
-        }else{
-            JOptionPane.showMessageDialog( this, "L'ebjet et la desciption ne peuvent pas être vide","Invalide input",JOptionPane.ERROR_MESSAGE);
+        String objetTxt = objet.getText();
+        String desc = description.getText();
+
+        if (!objetTxt.isEmpty() && !desc.isEmpty()) {
+            if (Reclamation.create(objetTxt, desc)) {
+                JOptionPane.showMessageDialog(this, "votre demande a bien été prise en compte", "Réclamation envoyée", JOptionPane.ERROR_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(this, "Echec de l'envoie de votre réclamation", "Echec de l'envoie", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "L'ebjet et la desciption ne peuvent pas être vide", "Invalide input", JOptionPane.ERROR_MESSAGE);
 
         }
     }//GEN-LAST:event_sendMouseClicked
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea description;

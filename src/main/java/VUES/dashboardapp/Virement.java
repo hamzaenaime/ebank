@@ -6,7 +6,6 @@
 package VUES.dashboardapp;
 
 import MODELS.Account;
-import MODELS.Client;
 import MODELS.ClientOperation;
 import javax.swing.JOptionPane;
 
@@ -21,7 +20,7 @@ public class Virement extends javax.swing.JPanel {
      */
     public Virement() {
         initComponents();
-    //    jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(Account.getAccounts(Client.getCin())));
+        //    jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(Account.getAccounts(Client.getCin())));
     }
 
     /**
@@ -43,14 +42,21 @@ public class Virement extends javax.swing.JPanel {
         mnt = new javax.swing.JTextField();
         num = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setForeground(new java.awt.Color(2, 2, 2));
         jLabel1.setText("Compte du Bénéficiaire  (*)");
 
+        jLabel2.setForeground(new java.awt.Color(2, 2, 2));
         jLabel2.setText("Motif  (*)");
 
+        jLabel4.setForeground(new java.awt.Color(2, 2, 2));
         jLabel4.setText("Montant  (*)");
 
+        jLabel3.setForeground(new java.awt.Color(2, 2, 2));
         jLabel3.setText("* Indique un champ obligatoire");
 
+        valider.setBackground(new java.awt.Color(4, 96, 96));
         valider.setText("Valider");
         valider.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -131,47 +137,47 @@ public class Virement extends javax.swing.JPanel {
     }
 
     private void validerMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_validerMouseClicked
-        
-        if(inputFieldIsEmpty()){
+
+        if (inputFieldIsEmpty()) {
             JOptionPane.showMessageDialog(this, "Veuliiez vérifier les champs", "Input invalide",
                     JOptionPane.ERROR_MESSAGE);
-        }else{
-        String numCompte = num.getText();
-        float montant = Float.parseFloat(mnt.getText());
-        String mot = motif.getText();
-        
-        
-        if (Account.AccountExist(numCompte) && Integer.parseInt(numCompte)!=(int)Account.getNumAccount()) {
-            if(montant > 0){
+        } else {
+            String numCompte = num.getText();
+            float montant = Float.parseFloat(mnt.getText());
+            String mot = motif.getText();
+
+            if (Account.AccountExist(numCompte) && Integer.parseInt(numCompte) != (int) Account.getNumAccount()) {
+                if (montant > 0) {
                     // tous les données sont valides
                     // verifier que le client à le solde pour effectuer le virement
-                    if (Account.getSolde()>=montant) {// if le client a le solde on finalise l'operation
-                        if(confirm()){
-                        ClientOperation.createClientOperation((int) Account.getNumAccount(), Integer.parseInt(numCompte), mot, montant);
-                        JOptionPane.showMessageDialog(this, "Virement effectué", "Opération terminée",JOptionPane.ERROR_MESSAGE);
+                    if (Account.getSolde() >= montant) {// if le client a le solde on finalise l'operation
+                        if (confirm()) {
+                            ClientOperation.createClientOperation((int) Account.getNumAccount(), Integer.parseInt(numCompte), mot, montant);
+                            JOptionPane.showMessageDialog(this, "Virement effectué", "Opération terminée", JOptionPane.ERROR_MESSAGE);
                         }
                     } else {
                         JOptionPane.showMessageDialog(this,
                                 "Votre fond est insuffisant pour réaliser l'opération, Merci d'allimenter votre compte",
                                 "Fond insuffisant", JOptionPane.ERROR_MESSAGE);
                     }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Le montant ne peut pas être négative ou nulle", "Montant invalide",
+                            JOptionPane.ERROR_MESSAGE);
+                }
             } else {
-                JOptionPane.showMessageDialog(this, "Le montant ne peut pas être négative ou nulle", "Montant invalide",
+                JOptionPane.showMessageDialog(this, "Numero de compte invalide", "compte invalide",
                         JOptionPane.ERROR_MESSAGE);
             }
-        }else {
-            JOptionPane.showMessageDialog(this, "Numero de compte invalide", "compte invalide",
-                    JOptionPane.ERROR_MESSAGE);
         }
-    }
     }// GEN-LAST:event_validerMouseClicked
-    public boolean confirm(){
+
+    public boolean confirm() {
         int code = (int) (Math.random() * 10000);
-        System.out.println("code de verififcation :"+ code);
+        System.out.println("code de verififcation :" + code);
         int codeInput = Integer.parseInt(JOptionPane.showInputDialog(this, "Entrer le code de confirmation :"));
-        if(codeInput==code){
+        if (codeInput == code) {
             return true;
-        }else{
+        } else {
             confirm();
         }
         return false;

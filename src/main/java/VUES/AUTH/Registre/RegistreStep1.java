@@ -37,10 +37,10 @@ public class RegistreStep1 extends javax.swing.JPanel {
         String tel = telephone.getText();
         String title_ = title.getSelectedItem().toString();
         String cin_ = cin.getText();
-        
+
         if (Personne.cinExist(cin_)) {
             cinError.setText("Vous avez déja un compte ");
-        }else{
+        } else {
             cinError.setText("");
             if (!nom_.isEmpty() && !prenom_.isEmpty() && tel.length() == 10) {
                 State.setNom(nom_);
@@ -50,7 +50,7 @@ public class RegistreStep1 extends javax.swing.JPanel {
                 State.setCin(cin_);
                 return true;
             } else {
-                JOptionPane.showMessageDialog(this, "verifier que vous avez rempli les champs correctement!","Input invalide", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(this, "verifier que vous avez rempli les champs correctement!", "Input invalide", JOptionPane.WARNING_MESSAGE);
             }
         }
         return false;
@@ -100,6 +100,8 @@ public class RegistreStep1 extends javax.swing.JPanel {
 
         jLabel5.setText("Titre :");
 
+        title.setBackground(new java.awt.Color(255, 255, 255));
+        title.setForeground(new java.awt.Color(2, 2, 2));
         title.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M.", "Mme", "Mlle"}));
 
         jLabel4.setText("Ex : 0612345678");
@@ -157,13 +159,13 @@ public class RegistreStep1 extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cin1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addComponent(cin1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(cinError, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(telephone, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))

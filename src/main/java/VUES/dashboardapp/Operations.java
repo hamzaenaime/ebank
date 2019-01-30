@@ -43,10 +43,19 @@ public class Operations extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel5.setForeground(new java.awt.Color(2, 2, 2));
         jLabel5.setText("Opérations du");
 
+        jXDatePick.setBackground(new java.awt.Color(4, 96, 96));
+
+        jXDatePick2.setBackground(new java.awt.Color(4, 96, 96));
+
+        jLabel1.setForeground(new java.awt.Color(2, 2, 2));
         jLabel1.setText("au");
 
+        jButton1.setBackground(new java.awt.Color(4, 96, 96));
         jButton1.setText("generer");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -59,8 +68,13 @@ public class Operations extends javax.swing.JPanel {
             }
         });
 
+        jTable1.setBackground(new java.awt.Color(255, 255, 255));
         jTable1.setModel(new OperationTable(Operation.getAllOperation(Client.getCin())));
         jTable1.setColumnSelectionAllowed(true);
+        jTable1.setGridColor(new java.awt.Color(255, 255, 255));
+        jTable1.setRowHeight(32);
+        jTable1.setShowHorizontalLines(false);
+        jTable1.setShowVerticalLines(false);
         jScrollPane1.setViewportView(jTable1);
         jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 

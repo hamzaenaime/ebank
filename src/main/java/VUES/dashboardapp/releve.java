@@ -5,34 +5,35 @@
  */
 package VUES.dashboardapp;
 
-import MODELS.Operation;
 import MODELS.Client;
+import MODELS.Operation;
 import MODELS.ReleveBancaire;
 import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.DocumentException;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JFileChooser;
-
-import java.awt.Graphics;
-import java.awt.Image;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author dell
  */
-public class releve extends javax.swing.JPanel{
+public class releve extends javax.swing.JPanel {
 
     String path;
     JFileChooser chooser;
+
     /**
      * Creates new form releve
      */
@@ -79,7 +80,7 @@ public class releve extends javax.swing.JPanel{
             }
         });
 
-        btnGenerate.setBackground(new java.awt.Color(255, 255, 255));
+        btnGenerate.setBackground(new java.awt.Color(4, 96, 96));
         btnGenerate.setText("Enregistrer sous");
         btnGenerate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,7 +88,7 @@ public class releve extends javax.swing.JPanel{
             }
         });
 
-        btnGenerate1.setBackground(new java.awt.Color(255, 255, 255));
+        btnGenerate1.setBackground(new java.awt.Color(4, 96, 96));
         btnGenerate1.setText("Enregistrer sous");
         btnGenerate1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,103 +156,104 @@ public class releve extends javax.swing.JPanel{
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtPathActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPathActionPerformed
-        
+
     }//GEN-LAST:event_txtPathActionPerformed
 
     private void btnGenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateActionPerformed
         // TODO add your handling code here:
-        
+
         try {
-            if(!SaveAs()) throw new Exception();
+            if (!SaveAs()) {
+                throw new Exception();
+            }
             Date To = jXDatePicker1.getDate();
             Date From = jXDatePicker2.getDate();
-            
+
             System.out.println(To.toString());
-            
+
             DateFormat oDateFormat = new SimpleDateFormat("yyyy-MM-dd");
             String from = oDateFormat.format(From);
             String to = oDateFormat.format(To);
-            
-            int periode =0;
-            if(To.after(From) || To.equals(From)){
-                
-                periode = (int)( (To.getTime() - From.getTime())/ (1000 * 60 * 60 * 24) );
-                
+
+            int periode = 0;
+            if (To.after(From) || To.equals(From)) {
+
+                periode = (int) ((To.getTime() - From.getTime()) / (1000 * 60 * 60 * 24));
+
                 ReleveBancaire relv = new ReleveBancaire();
                 LocalDate date = LocalDate.now();
-                this.path = this.path+date.getDayOfMonth()+"_"+date.getMonth()+"_"+date.getYear()+"_"+Client.getNom()+"_"+Client.getPrenom()+".pdf";
+                this.path = this.path + date.getDayOfMonth() + "_" + date.getMonth() + "_" + date.getYear() + "_" + Client.getNom() + "_" + Client.getPrenom() + ".pdf";
                 //System.out.println("PATH:\t"+path);
                 Operation operations = new Operation();
-                relv.GeneratePDF(path,Client.getNom()+" "+Client.getPrenom(),Client.getCin(),operations,periode,from,to);
+                relv.GeneratePDF(path, Client.getNom() + " " + Client.getPrenom(), Client.getCin(), operations, periode, from, to);
                 info.setText("pdf généraré avec Succes :D !");
                 //jTable1.setModel(new OperationTable(Operation.getOperationFromTo(Client.getCin(),d1,d2)));
-                System.out.println("Operation de "+from+" au "+to);
-            }else{
-                JOptionPane.showMessageDialog( this, "Intervalle de date invalide","Date invalide",JOptionPane.ERROR_MESSAGE);
+                System.out.println("Operation de " + from + " au " + to);
+            } else {
+                JOptionPane.showMessageDialog(this, "Intervalle de date invalide", "Date invalide", JOptionPane.ERROR_MESSAGE);
             }
-        }catch (FileNotFoundException ex) {
-                Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (BadElementException ex) {
-                Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
-                Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
-            }
-         catch (DocumentException ex) {
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (BadElementException ex) {
+            Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DocumentException ex) {
             Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {
-            System.out.println("PAS DE CHEMIN!!"+ex.getMessage());
+            System.out.println("PAS DE CHEMIN!!" + ex.getMessage());
         }
     }//GEN-LAST:event_btnGenerateActionPerformed
 
     private void btnGenerate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerate1ActionPerformed
         // TODO add your handling code here:
-        
+
         try {
-            if(!SaveAs()) throw new Exception();
+            if (!SaveAs()) {
+                throw new Exception();
+            }
             Date To = jXDatePicker1.getDate();
             Date From = jXDatePicker2.getDate();
-            
+
             System.out.println(To.toString());
-            
+
             DateFormat oDateFormat = new SimpleDateFormat("yyyy-MM-dd");
             String from = oDateFormat.format(From);
             String to = oDateFormat.format(To);
-            
+
             int periode = 0;
-            if(To.after(From) || To.equals(From)){
-                
-                periode = (int)( (To.getTime() - From.getTime())/ (1000 * 60 * 60 * 24) );
-                
+            if (To.after(From) || To.equals(From)) {
+
+                periode = (int) ((To.getTime() - From.getTime()) / (1000 * 60 * 60 * 24));
+
                 ReleveBancaire relv = new ReleveBancaire();
                 LocalDate date = LocalDate.now();
-                this.path = this.path+date.getDayOfMonth()+"_"+date.getMonth()+"_"+date.getYear()+"_"+Client.getNom()+"_"+Client.getPrenom()+".pdf";
+                this.path = this.path + date.getDayOfMonth() + "_" + date.getMonth() + "_" + date.getYear() + "_" + Client.getNom() + "_" + Client.getPrenom() + ".pdf";
                 //System.out.println("PATH:\t"+path);
                 Operation operations = new Operation();
-                relv.GenerateExcel(path,Client.getNom()+" "+Client.getPrenom(),Client.getCin(),operations,periode,from,to);
+                relv.GenerateExcel(path, Client.getNom() + " " + Client.getPrenom(), Client.getCin(), operations, periode, from, to);
                 info.setText("Excel généraré avec Succes :D ! ");
                 //jTable1.setModel(new OperationTable(Operation.getOperationFromTo(Client.getCin(),d1,d2)));
-                System.out.println("Operation de "+from+" au "+to);
-            }else{
-                JOptionPane.showMessageDialog( this, "Intervalle de date invalide","Date invalide",JOptionPane.ERROR_MESSAGE);
+                System.out.println("Operation de " + from + " au " + to);
+            } else {
+                JOptionPane.showMessageDialog(this, "Intervalle de date invalide", "Date invalide", JOptionPane.ERROR_MESSAGE);
             }
-        }catch (FileNotFoundException ex) {
-                Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (BadElementException ex) {
-                Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
-                Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
-            }
-         catch (DocumentException ex) {
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (BadElementException ex) {
+            Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DocumentException ex) {
             Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {
-            System.out.println("PAS DE CHEMIN!!"+ex.getMessage());
+            System.out.println("PAS DE CHEMIN!!" + ex.getMessage());
         }
     }//GEN-LAST:event_btnGenerate1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGenerate;
@@ -263,31 +265,29 @@ public class releve extends javax.swing.JPanel{
     private javax.swing.JTextField txtPath;
     // End of variables declaration//GEN-END:variables
 
-    
-    
     //Methode for opening frame where we can get path os save as 
-    public boolean SaveAs(){
-            chooser = new JFileChooser(); 
-            chooser.setCurrentDirectory(new java.io.File("."));
-            chooser.setDialogTitle(path);
-            chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-            //
-            // disable the "All files" option.
-            //
-            chooser.setAcceptAllFileFilterUsed(false);
-            if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) { 
-                //System.out.println("getCurrentDirectory(): "+  chooser.getCurrentDirectory());
-                //System.out.println("getSelectedFile() : "+  chooser.getSelectedFile());
-                this.setPath(chooser.getSelectedFile().toString()+"/");
-                System.out.println("Path:"+this.getPath());
-                this.txtPath.setText(path);
-                return true;
-            }else{
-                System.out.println("No Selection ");
-                this.setPath("Pas de chemin séléctionner!");
-            }
+    public boolean SaveAs() {
+        chooser = new JFileChooser();
+        chooser.setCurrentDirectory(new java.io.File("."));
+        chooser.setDialogTitle(path);
+        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        //
+        // disable the "All files" option.
+        //
+        chooser.setAcceptAllFileFilterUsed(false);
+        if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+            //System.out.println("getCurrentDirectory(): "+  chooser.getCurrentDirectory());
+            //System.out.println("getSelectedFile() : "+  chooser.getSelectedFile());
+            this.setPath(chooser.getSelectedFile().toString() + "/");
+            System.out.println("Path:" + this.getPath());
             this.txtPath.setText(path);
-            return false;
+            return true;
+        } else {
+            System.out.println("No Selection ");
+            this.setPath("Pas de chemin séléctionner!");
+        }
+        this.txtPath.setText(path);
+        return false;
     }
 
     public String getPath() {
@@ -297,6 +297,5 @@ public class releve extends javax.swing.JPanel{
     public void setPath(String path) {
         this.path = path;
     }
-    
-    
+
 }

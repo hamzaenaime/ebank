@@ -5,7 +5,6 @@
  */
 package VUES.AUTH.Registre;
 
-import MODELS.SendSMS;
 import VUES.State;
 import javax.swing.JOptionPane;
 
@@ -58,8 +57,8 @@ public class RegistreStep2 extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Code :");
 
-        jButton3.setBackground(new java.awt.Color(255, 255, 255));
-        jButton3.setForeground(new java.awt.Color(0, 0, 0));
+        jButton3.setBackground(new java.awt.Color(4, 96, 96));
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Réenvoyer le code");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
