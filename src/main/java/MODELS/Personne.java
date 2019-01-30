@@ -23,7 +23,6 @@ import java.util.logging.Logger;
  */
 public class Personne {
 
-    protected static Dao dao = new Dao();
     protected static String cin;
     protected static String title;
     protected static String nom;
@@ -340,7 +339,7 @@ public class Personne {
     }
 
     public static int personneCount() {
-        conn = dao.getConnection();
+        conn = Dao.getConnection();
         String req = "select count(*) from personne";
         try {
             st = conn.createStatement();
@@ -355,7 +354,7 @@ public class Personne {
     }
 
     public static double sexePourcentage(String sexe) {
-        conn = dao.getConnection();
+        conn = Dao.getConnection();
         String req = "select count(*) from personne where title='" + sexe + "'";
         try {
             double count = new Double(Personne.personneCount());
@@ -371,7 +370,7 @@ public class Personne {
     }
 
     public static int ageCount(String year) {
-        conn = dao.getConnection();
+        conn = Dao.getConnection();
         String req = "select  count(p.*) from personne p where to_char(p.date_naissance, 'YYYY') = '" + year + "';";
         try {
             st = conn.createStatement();

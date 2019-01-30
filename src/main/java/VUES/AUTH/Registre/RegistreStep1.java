@@ -43,15 +43,14 @@ public class RegistreStep1 extends javax.swing.JPanel {
         }else{
             cinError.setText("");
             if (!nom_.isEmpty() && !prenom_.isEmpty() && tel.length() == 10) {
-            State.setNom(nom_);
-            State.setPrenom(prenom_);
-            State.setTel(tel);
-            State.setTitle(title_);
-            State.setCin(cin_);
-            return true;
+                State.setNom(nom_);
+                State.setPrenom(prenom_);
+                State.setTel(tel);
+                State.setTitle(title_);
+                State.setCin(cin_);
+                return true;
             } else {
-                JOptionPane.showMessageDialog(this, "verifier que vous avez rempli les champs correctement!",
-                        "Input invalide", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(this, "verifier que vous avez rempli les champs correctement!","Input invalide", JOptionPane.WARNING_MESSAGE);
             }
         }
         return false;
