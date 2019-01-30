@@ -47,10 +47,10 @@ public class Employs extends javax.swing.JPanel implements ListSelectionListener
             String naissance = model.getValueAt(employees.getSelectedRow(), 3).toString();
             String email = model.getValueAt(employees.getSelectedRow(), 7).toString();
             String tel = model.getValueAt(employees.getSelectedRow(), 6).toString();
-            String salaire = model.getValueAt(employees.getSelectedRow(), 9).toString();
-            String agence = model.getValueAt(employees.getSelectedRow(), 10).toString();
+            String salaire = model.getValueAt(employees.getSelectedRow(), 8).toString();
+            String agence = model.getValueAt(employees.getSelectedRow(), 9).toString();
             String adresse = model.getValueAt(employees.getSelectedRow(), 4).toString();
-            new VUES.DashboardDirector.EmployeInfos(cin, nom, prenom, email, tel, ville, adresse, agence, salaire, naissance);
+            new VUES.DashboardDirector.EmployeInfos(cin, nom, prenom, email, tel, ville, adresse, agence, salaire, naissance).setVisible(true);
         }
     }
 
