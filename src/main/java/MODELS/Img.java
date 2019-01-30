@@ -12,15 +12,15 @@ import javax.swing.JOptionPane;
 public class Img{
     private static Connection con;
     
-    public static void store(String path, JFrame frame) throws FileNotFoundException, SQLException, IOException{
+    public static void store(String path, String cin){
+        if(path.equals(null)) return;
         con = Dao.getConnection();
             try{
-                PreparedStatement pstmt=con.prepareStatement("insert into image values(?,?)");
+                PreparedStatement pstmt=con.prepareStatement("insert into cin(cin,image) values(?,?)");
                 FileInputStream fis=new FileInputStream(path);
-                pstmt.setInt(1,27);
+                pstmt.setString(1,cin);
                 pstmt.setBinaryStream(2,fis,fis.available());
                 pstmt.executeUpdate();
-                JOptionPane.showMessageDialog( frame, "image uploaded", "cc", JOptionPane.PLAIN_MESSAGE);
             }catch(IOException | SQLException e){
                 System.out.println("exception"+e.getMessage());
             }
