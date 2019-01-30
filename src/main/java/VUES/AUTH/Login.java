@@ -11,6 +11,9 @@ import VUES.AUTH.Registre.RegistreStep3;
 import VUES.dashboardapp.*;
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 /**
@@ -36,16 +39,14 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Home
      */
-    public Login() {
+    public Login(){
         initComponents();
         steps();
         container.setLayout(new FlowLayout());
         container.add(connecter);
-
     }
 
     private void steps() {
-        tostep3.disable();
         step3.disable();
         step2.disable();
         hideSteps();
@@ -55,16 +56,12 @@ public class Login extends javax.swing.JFrame {
         step1.hide();
         step2.hide();
         step3.hide();
-        tostep2.hide();
-        tostep3.hide();
     }
 
     private void showSteps() {
         step1.show();
         step2.show();
         step3.show();
-        tostep2.show();
-        tostep3.show();
     }
 
     /**
@@ -104,9 +101,8 @@ public class Login extends javax.swing.JFrame {
         step1 = new javax.swing.JLabel();
         step2 = new javax.swing.JLabel();
         step3 = new javax.swing.JLabel();
-        tostep3 = new javax.swing.JLabel();
-        tostep2 = new javax.swing.JLabel();
         container = new javax.swing.JPanel();
+        suivant = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 204));
@@ -434,6 +430,7 @@ public class Login extends javax.swing.JFrame {
         jLabel6.setToolTipText("");
 
         step1.setText("Etape 1");
+        step1.setToolTipText("");
         step1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 step1MouseClicked(evt);
@@ -446,30 +443,11 @@ public class Login extends javax.swing.JFrame {
                 step2MouseClicked(evt);
             }
         });
-        step2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                step2KeyPressed(evt);
-            }
-        });
 
         step3.setText("Etape 3");
         step3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 step3MouseClicked(evt);
-            }
-        });
-
-        tostep3.setText(">>");
-        tostep3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tostep3MouseClicked(evt);
-            }
-        });
-
-        tostep2.setText(">>");
-        tostep2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tostep2MouseClicked(evt);
             }
         });
 
@@ -485,13 +463,9 @@ public class Login extends javax.swing.JFrame {
             .addGroup(jPanel15Layout.createSequentialGroup()
                 .addGap(74, 74, 74)
                 .addComponent(step1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(69, 69, 69)
-                .addComponent(tostep2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 200, Short.MAX_VALUE)
                 .addComponent(step2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
-                .addComponent(tostep3)
-                .addGap(126, 126, 126)
+                .addGap(214, 214, 214)
                 .addComponent(step3, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(72, 72, 72))
         );
@@ -503,9 +477,7 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(step1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(step2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(step3, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tostep3)
-                    .addComponent(tostep2))
+                    .addComponent(step3, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(59, 59, 59)
                 .addComponent(jLabel6)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -529,10 +501,36 @@ public class Login extends javax.swing.JFrame {
 
         jPanel2.add(container, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 730, -1));
 
+        suivant.setText("suivant");
+        suivant.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                suivantActionPerformed(evt);
+            }
+        });
+        jPanel2.add(suivant, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 500, -1, -1));
+
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 750, 580));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void suivantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suivantActionPerformed
+        // TODO add your handling code here:
+        if(container.getComponent(container.getComponentCount()-1).equals(registreStep1) && registreStep1.getInfos()) {
+            container.removeAll();
+            container.add(registreStep2);
+            step2.enable();
+            this.container.revalidate();
+            this.container.repaint();
+        }else if (container.getComponent(container.getComponentCount()-1).equals(registreStep2) && registreStep2.codeValid()) {
+            labelShow("step3");
+            container.removeAll();
+            container.add(registreStep3);
+            suivant.setVisible(false);
+            this.container.revalidate();
+            this.container.repaint();
+        }
+    }//GEN-LAST:event_suivantActionPerformed
 
     private void createMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_createMouseClicked
         // TODO add your handling code here:
@@ -641,6 +639,7 @@ public class Login extends javax.swing.JFrame {
     private void step1MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_step1MouseClicked
         // TODO add your handling code here:
         container.removeAll();
+        suivant.setVisible(true);
         if (panel.equals("Registre")) {
             container.add(registreStep1);
         } else if (panel.equals("PasswordReset")) {
@@ -650,13 +649,10 @@ public class Login extends javax.swing.JFrame {
         this.container.repaint();
     }// GEN-LAST:event_step1MouseClicked
 
-    private void step2KeyPressed(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_step2KeyPressed
-        // TODO add your handling code here:
-
-    }// GEN-LAST:event_step2KeyPressed
-
     private void step2MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_step2MouseClicked
         // TODO add your handling code here:
+        //System.out.println("step2 cliecked");
+        suivant.setVisible(true);
         if (step2.isEnabled()) {
             container.removeAll();
             container.add(registreStep2);
@@ -667,6 +663,7 @@ public class Login extends javax.swing.JFrame {
 
     private void step3MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_step3MouseClicked
         // TODO add your handling code here:
+        suivant.setVisible(false);
         if (step3.isEnabled()) {
             container.removeAll();
             container.add(registreStep3);
@@ -748,9 +745,6 @@ public class Login extends javax.swing.JFrame {
             step2.revalidate();
         }
         if (lable.equals("tostep2")) {
-            tostep2.enable();
-            tostep2.repaint();
-            tostep2.revalidate();
         }
         if (lable.equals("step3")) {
             step3.enable();
@@ -758,9 +752,6 @@ public class Login extends javax.swing.JFrame {
             step3.revalidate();
         }
         if (lable.equals("tostep3")) {
-            tostep3.enable();
-            tostep3.repaint();
-            tostep3.revalidate();
         }
     }
 
@@ -842,8 +833,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel step1;
     private javax.swing.JLabel step2;
     private javax.swing.JLabel step3;
-    private javax.swing.JLabel tostep2;
-    private javax.swing.JLabel tostep3;
+    private javax.swing.JButton suivant;
     // End of variables declaration//GEN-END:variables
 
 }

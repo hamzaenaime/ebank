@@ -16,6 +16,7 @@ import VUES.AUTH.Login;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.io.IOException;
 import javax.swing.*;
 import org.jfree.chart.ChartPanel;
 
@@ -33,7 +34,7 @@ public class Accueil extends javax.swing.JFrame {
     private ChangePassword changePassword = new ChangePassword();
     private Coordonne coordonne = new Coordonne();
 
-    public Accueil() {
+    public Accueil(){
         new Dao();
         if (Personne.isLogin()) {
             initComponents();
