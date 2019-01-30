@@ -10,6 +10,7 @@ import MODELS.Director;
 import MODELS.MailBoxLayer;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -34,11 +35,30 @@ public class NewEmployee extends javax.swing.JFrame {
         }
     }
 
-    private String getDate() {
+    private String getDate() throws Exception {
         if (datePicker.getDate() != null) {
+            Date d = new Date();
+            int annee = d.getYear() + 1900;
+            int mois = d.getMonth() + 1;
+            int jour = d.getDate();
+            int year = datePicker.getDate().getYear() + 1900;
+            int month = datePicker.getDate().getMonth() + 1;
+            int day = datePicker.getDate().getDate();
+
+            if (annee - year < 18) {
+                throw new Exception("Verifier que vous etes Inserer une date de naissance valide ");
+            } else if (annee - year == 18) {
+                if (mois - month < 0) {
+                    throw new Exception("Verifier que vous etes Inserer une date de naissance valide ");
+                } else if (mois == month) {
+                    if (jour - day < 0) {
+                        throw new Exception("Verifier que vous etes Inserer une date de naissance valide ");
+                    }
+                }
+            }
             return (datePicker.getDate().getYear() + 1900) + "-" + (datePicker.getDate().getMonth() + 1) + "-" + datePicker.getDate().getDate();
         }
-        return "";
+        throw new Exception("Verifier que vous etes Inserer une date de naissance valide ");
     }
 
     private void isEmailOk() throws Exception {
@@ -57,6 +77,24 @@ public class NewEmployee extends javax.swing.JFrame {
         } else {
             telmsg.setText("");
         }
+    }
+
+    private void allFieldsSet() throws Exception {
+        String Nom = nom.getText();
+        String Prenom = prenom.getText();
+        String Cin = cin.getText();
+        String Ville = ville.getText();
+        String Adresse = adresse.getText();
+        String Tel = tel.getText();
+        String Email = email.getText();
+        String Salaire = salaire.getText();
+        String title = sexe.getSelectedItem().toString();
+        String Agence = agences.getSelectedItem().toString();
+        String Password = password.getText();
+        if (!Nom.isEmpty() && !Prenom.isEmpty() && !Cin.isEmpty() && !Ville.isEmpty() && !Adresse.isEmpty() && !Tel.isEmpty() && !Email.isEmpty() && !Salaire.isEmpty() && !title.isEmpty() && !Agence.isEmpty() && !Password.isEmpty()) {
+            return;
+        }
+        throw new Exception("Verifier que vous avez remplir tous les champs");
     }
 
     /**
@@ -340,11 +378,12 @@ public class NewEmployee extends javax.swing.JFrame {
         String Salaire = salaire.getText();
         String title = sexe.getSelectedItem().toString();
         String Agence = agences.getSelectedItem().toString();
-        String date_naissance = getDate();
         String Password = password.getText();
         try {
+            String date_naissance = getDate();
             isEmailOk();
             isTelOk();
+            allFieldsSet();
             Director.addEmploye(Cin, Nom, Prenom, date_naissance, Adresse, Ville, Tel, Email, Password, title, Agence, Salaire);
             // TODO :envoyer login et password a l'employer X via email or sms here
             dispose();
@@ -353,7 +392,7 @@ public class NewEmployee extends javax.swing.JFrame {
             msg.setText(ex.getMessage());
 
         } catch (Exception ex) {
-
+            javax.swing.JOptionPane.showMessageDialog(this, ex.getMessage());
         }
     }//GEN-LAST:event_jButton4MouseClicked
 
