@@ -36,7 +36,7 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Home
      */
-    public Login(){
+    public Login() {
         initComponents();
         suivant.setVisible(false);
         steps();
@@ -499,6 +499,7 @@ public class Login extends javax.swing.JFrame {
 
         jPanel2.add(container, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 730, -1));
 
+        suivant.setBackground(new java.awt.Color(4, 96, 96));
         suivant.setText("suivant");
         suivant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -514,13 +515,13 @@ public class Login extends javax.swing.JFrame {
 
     private void suivantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suivantActionPerformed
         // TODO add your handling code here:
-        if(container.getComponent(container.getComponentCount()-1).equals(registreStep1) && registreStep1.getInfos()) {
+        if (container.getComponent(container.getComponentCount() - 1).equals(registreStep1) && registreStep1.getInfos()) {
             container.removeAll();
             container.add(registreStep2);
             step2.enable();
             this.container.revalidate();
             this.container.repaint();
-        }else if (container.getComponent(container.getComponentCount()-1).equals(registreStep2) && registreStep2.codeValid()) {
+        } else if (container.getComponent(container.getComponentCount() - 1).equals(registreStep2) && registreStep2.codeValid()) {
             labelShow("step3");
             container.removeAll();
             container.add(registreStep3);
