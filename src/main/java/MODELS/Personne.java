@@ -105,7 +105,7 @@ public class Personne {
             prep.execute();
 
         } catch (ParseException ex) {
-            System.err.println(ex.getMessage());
+            System.err.println("errour  :" + ex.getMessage());
         } catch (SQLException ex) {
             System.err.println("Echec de la création du nouveau personne" + ex.getMessage());
         }
@@ -174,17 +174,19 @@ public class Personne {
     }
 
     public static boolean cinExist(String cin) {
-        String req = "select * from Personne where cin ='" + cin + "'";
+        String req = "select * from personne where cin ='" + cin + "'";
         conn = Dao.getConnection();
         try {
             st = conn.createStatement();
             ResultSet res = st.executeQuery(req);
             if (res.next()) {
+                System.out.println(cin + " exist");
                 return true;
             }
         } catch (SQLException ex) {
             Logger.getLogger(Account.class.getName()).log(Level.SEVERE, null, ex);
         }
+        System.out.println(cin + " not exist");
         return false;
     }
 

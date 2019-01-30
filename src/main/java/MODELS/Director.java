@@ -46,6 +46,7 @@ public class Director extends Employe {
 //        con = dao.getConnection();
         if (!Personne.cinExist(cin)) {
             Personne.createPersonne(cin, nom, prenom, date_naissance, address, ville, tel, email, password, title, "");
+            System.out.println(" executed");
         }
         Employe.addEmployee(cin, cin, agance, salaire);
 
