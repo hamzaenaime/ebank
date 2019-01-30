@@ -337,21 +337,21 @@ public class RegistreStep3 extends javax.swing.JPanel {
     private void c1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_c1MouseClicked
         // TODO add your handling code here:
         String path=getPath();    
-        if(!path.equals(null)) { 
-                c1Path.setText(path);
-            }else{
-                c1Path.setText("");
-            }    
+        try{    
+            c1Path.setText(path);
+        }catch(Exception ex){
+            c1Path.setText("");
+        }     
     }//GEN-LAST:event_c1MouseClicked
 
     private void c2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_c2MouseClicked
         // TODO add your handling code here:
         String path=getPath();    
-        if(!path.equals(null)) { 
-                c2Path.setText(path);
-            }else{
-                c2Path.setText("");
-            } 
+        try{    
+            c2Path.setText(path);
+        }catch(Exception ex){
+            c2Path.setText("");
+        } 
     }//GEN-LAST:event_c2MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
