@@ -535,11 +535,11 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
-                      <Component id="step1" min="-2" pref="88" max="-2" attributes="0"/>
-                      <EmptySpace pref="119" max="32767" attributes="0"/>
+                      <Component id="step1" min="-2" pref="105" max="-2" attributes="0"/>
+                      <EmptySpace pref="103" max="32767" attributes="0"/>
                       <Component id="step2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="214" max="-2" attributes="0"/>
-                      <Component id="step3" min="-2" pref="46" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
+                      <Component id="step3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -618,7 +618,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="step1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Etape 1"/>
+                <Property name="text" type="java.lang.String" value="Information de base"/>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
               <Events>
@@ -627,7 +627,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="step2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Valider num&#xe9;ro de telephone"/>
+                <Property name="text" type="java.lang.String" value="Valider mon num&#xe9;ro de telephone"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="step2MouseClicked"/>
@@ -635,7 +635,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="step3">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Etape 3"/>
+                <Property name="text" type="java.lang.String" value="Information compl&#xe9;mentaire"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="step3MouseClicked"/>

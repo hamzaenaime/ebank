@@ -17,12 +17,12 @@ import javax.swing.JOptionPane;
  *
  * @author taoufik
  */
-public class home extends javax.swing.JPanel {
+public class Operations extends javax.swing.JPanel {
 
     /**
      * Creates new form home
      */
-    public home() {
+    public Operations() {
         initComponents();
     }
 
