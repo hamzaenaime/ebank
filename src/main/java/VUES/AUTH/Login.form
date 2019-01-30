@@ -536,8 +536,8 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
                       <Component id="step1" min="-2" pref="88" max="-2" attributes="0"/>
-                      <EmptySpace pref="200" max="32767" attributes="0"/>
-                      <Component id="step2" min="-2" pref="56" max="-2" attributes="0"/>
+                      <EmptySpace pref="119" max="32767" attributes="0"/>
+                      <Component id="step2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="214" max="-2" attributes="0"/>
                       <Component id="step3" min="-2" pref="46" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
@@ -627,7 +627,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="step2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Etape 2"/>
+                <Property name="text" type="java.lang.String" value="Valider num&#xe9;ro de telephone"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="step2MouseClicked"/>
