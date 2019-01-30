@@ -61,22 +61,24 @@
                           <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="75" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="sexe" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="agences" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="nom" alignment="0" pref="129" max="32767" attributes="0"/>
-                                  <Component id="cin" alignment="0" pref="129" max="32767" attributes="0"/>
-                                  <Component id="tel" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="ville" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="adresse" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="email" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="datePicker" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="salaire" alignment="0" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="sexe" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="agences" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="datePicker" alignment="0" pref="129" max="32767" attributes="0"/>
+                                          <Component id="salaire" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="nom" max="32767" attributes="0"/>
+                                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace pref="95" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -89,11 +91,16 @@
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="telmsg" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="cin" alignment="0" pref="200" max="32767" attributes="0"/>
+                                  <Component id="tel" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="ville" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="telmsg" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="emailmsg" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="adresse" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="email" alignment="0" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="273" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -120,12 +127,12 @@
                   <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cin" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="sexe" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="63" max="32767" attributes="0"/>
+              <EmptySpace pref="30" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel3" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="tel" alignment="1" min="-2" max="-2" attributes="0"/>
