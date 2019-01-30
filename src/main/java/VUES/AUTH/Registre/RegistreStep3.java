@@ -64,9 +64,7 @@ public class RegistreStep3 extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        profession = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         cin = new javax.swing.JTextField();
         create = new javax.swing.JButton();
@@ -93,8 +91,6 @@ public class RegistreStep3 extends javax.swing.JPanel {
         jLabel2.setText("Ville :");
 
         jLabel3.setText("Adresse : ");
-
-        jLabel8.setText("Profession : ");
 
         jLabel4.setText("Date de naissance :");
 
@@ -153,7 +149,6 @@ public class RegistreStep3 extends javax.swing.JPanel {
                         .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -169,7 +164,6 @@ public class RegistreStep3 extends javax.swing.JPanel {
                             .addComponent(email, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(ville, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(address, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(profession, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(datePicker, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(167, 167, 167))
                     .addGroup(layout.createSequentialGroup()
@@ -219,11 +213,7 @@ public class RegistreStep3 extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addComponent(datePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(profession, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addGap(59, 59, 59)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9))
@@ -376,10 +366,8 @@ public class RegistreStep3 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPasswordField password;
-    private javax.swing.JTextField profession;
     private javax.swing.JTextField ville;
     // End of variables declaration//GEN-END:variables
 }

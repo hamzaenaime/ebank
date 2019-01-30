@@ -28,7 +28,6 @@
                       <Component id="jLabel4" max="32767" attributes="0"/>
                       <Component id="jLabel10" alignment="0" max="32767" attributes="0"/>
                       <Component id="jLabel9" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jLabel8" alignment="0" max="32767" attributes="0"/>
                       <Component id="jLabel3" alignment="0" max="32767" attributes="0"/>
                       <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
                       <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
@@ -46,7 +45,6 @@
                           <Component id="email" alignment="0" max="32767" attributes="0"/>
                           <Component id="ville" alignment="0" max="32767" attributes="0"/>
                           <Component id="address" alignment="0" max="32767" attributes="0"/>
-                          <Component id="profession" alignment="0" max="32767" attributes="0"/>
                           <Component id="datePicker" alignment="1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="167" max="-2" attributes="0"/>
@@ -112,12 +110,7 @@
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                           <Component id="datePicker" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="profession" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="password" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -174,17 +167,10 @@
         <Property name="text" type="java.lang.String" value="Adresse : "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel8">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Profession : "/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
         <Property name="text" type="java.lang.String" value="Date de naissance :"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="profession">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
