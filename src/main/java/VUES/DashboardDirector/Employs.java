@@ -40,12 +40,17 @@ public class Employs extends javax.swing.JPanel implements ListSelectionListener
     public void valueChanged(ListSelectionEvent event) {
         if (event.getSource() == employees.getSelectionModel() && event.getValueIsAdjusting()) {
             EmployeeTable model = (EmployeeTable) employees.getModel();
-            String id = model.getValueAt(employees.getSelectedRow(), 0).toString();
-            String owner = model.getValueAt(employees.getSelectedRow(), 1).toString();
-            String objet = model.getValueAt(employees.getSelectedRow(), 2).toString();
-            String description = model.getValueAt(employees.getSelectedRow(), 3).toString();
-            String date = model.getValueAt(employees.getSelectedRow(), 5).toString();
-            new VUES.DashboardDirector.ReclamationInfos(id, owner, objet, description, date).setVisible(true);
+            String cin = model.getValueAt(employees.getSelectedRow(), 0).toString();
+            String nom = model.getValueAt(employees.getSelectedRow(), 1).toString();
+            String prenom = model.getValueAt(employees.getSelectedRow(), 2).toString();
+            String ville = model.getValueAt(employees.getSelectedRow(), 5).toString();
+            String naissance = model.getValueAt(employees.getSelectedRow(), 3).toString();
+            String email = model.getValueAt(employees.getSelectedRow(), 7).toString();
+            String tel = model.getValueAt(employees.getSelectedRow(), 6).toString();
+            String salaire = model.getValueAt(employees.getSelectedRow(), 9).toString();
+            String agence = model.getValueAt(employees.getSelectedRow(), 10).toString();
+            String adresse = model.getValueAt(employees.getSelectedRow(), 4).toString();
+            new VUES.DashboardDirector.EmployeInfos(cin, nom, prenom, email, tel, ville, adresse, agence, salaire, naissance);
         }
     }
 
