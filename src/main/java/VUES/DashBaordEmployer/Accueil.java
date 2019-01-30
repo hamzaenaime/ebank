@@ -322,7 +322,7 @@ public class Accueil extends javax.swing.JFrame {
         jPanel1.add(Button5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 232, 50));
 
         Button6.setBackground(new java.awt.Color(15, 122, 122));
-        Button6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Button6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Button6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Button6MouseClicked(evt);
