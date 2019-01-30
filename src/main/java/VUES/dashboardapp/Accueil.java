@@ -28,7 +28,7 @@ public class Accueil extends javax.swing.JFrame {
             initComponents();
             new Account();
             container.setLayout(new FlowLayout());
-            container.add(new home());
+            container.add(new Operations());
             name.setText(Client.getTitle() + " " + Client.getPrenom() + " " + Client.getNom());
             System.out.println(Account.getSolde());
             solde.setText(String.valueOf(Account.getSolde()));
@@ -381,20 +381,26 @@ public class Accueil extends javax.swing.JFrame {
         Indicator6.setBackground(new java.awt.Color(255, 255, 255));
         Indicator6.setOpaque(false);
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Relevé Bancaire");
+
         javax.swing.GroupLayout Indicator6Layout = new javax.swing.GroupLayout(Indicator6);
         Indicator6.setLayout(Indicator6Layout);
         Indicator6Layout.setHorizontalGroup(
             Indicator6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 22, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Indicator6Layout.createSequentialGroup()
+                .addContainerGap(19, Short.MAX_VALUE)
+                .addComponent(jLabel8)
+                .addContainerGap())
         );
         Indicator6Layout.setVerticalGroup(
             Indicator6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(Indicator6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Relevé Bancaire");
 
         javax.swing.GroupLayout Button6Layout = new javax.swing.GroupLayout(Button6);
         Button6.setLayout(Button6Layout);
@@ -402,17 +408,11 @@ public class Accueil extends javax.swing.JFrame {
             Button6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Button6Layout.createSequentialGroup()
                 .addComponent(Indicator6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8)
-                .addGap(0, 85, Short.MAX_VALUE))
+                .addGap(0, 113, Short.MAX_VALUE))
         );
         Button6Layout.setVerticalGroup(
             Button6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Indicator6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Button6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
         );
 
         jPanel1.add(Button6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 466, 232, 50));
@@ -779,7 +779,7 @@ public class Accueil extends javax.swing.JFrame {
         Indicator6.setOpaque(false);
 
         container.removeAll();
-        this.container.add(new home());
+        this.container.add(new Operations());
         this.container.revalidate();
         validate();
 
@@ -917,7 +917,7 @@ public class Accueil extends javax.swing.JFrame {
         javax.swing.JPanel panelToShow = new javax.swing.JPanel();
 
         if (nom.equals("home")) {
-            panelToShow = new home();
+            panelToShow = new Operations();
         }
 
         if (nom.equals("coordonne")) {

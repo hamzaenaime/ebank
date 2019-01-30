@@ -11,9 +11,6 @@ import VUES.AUTH.Registre.RegistreStep3;
 import VUES.dashboardapp.*;
 import java.awt.Color;
 import java.awt.FlowLayout;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.*;
 
 /**
@@ -430,7 +427,7 @@ public class Login extends javax.swing.JFrame {
 
         jLabel6.setToolTipText("");
 
-        step1.setText("Etape 1");
+        step1.setText("Information de base");
         step1.setToolTipText("");
         step1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -438,14 +435,14 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        step2.setText("Valider numéro de telephone");
+        step2.setText("Valider mon numéro de telephone");
         step2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 step2MouseClicked(evt);
             }
         });
 
-        step3.setText("Etape 3");
+        step3.setText("Information complémentaire");
         step3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 step3MouseClicked(evt);
@@ -463,11 +460,11 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel15Layout.createSequentialGroup()
                 .addGap(74, 74, 74)
-                .addComponent(step1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
+                .addComponent(step1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
                 .addComponent(step2)
-                .addGap(214, 214, 214)
-                .addComponent(step3, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67)
+                .addComponent(step3)
                 .addGap(72, 72, 72))
         );
         jPanel15Layout.setVerticalGroup(
@@ -535,7 +532,6 @@ public class Login extends javax.swing.JFrame {
 
     private void createMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_createMouseClicked
         // TODO add your handling code here:
-        suivant.setVisible(true);
         steps();
         showSteps();
         onClick(create);
@@ -551,6 +547,7 @@ public class Login extends javax.swing.JFrame {
         Indicator4.setOpaque(false);
         Indicator5.setOpaque(false);
         panel = "Registre";
+        suivant.setVisible(true);
         show("Registre");
     }// GEN-LAST:event_createMouseClicked
 
@@ -588,7 +585,7 @@ public class Login extends javax.swing.JFrame {
         Indicator5.setOpaque(false);
 
         container.removeAll();
-        this.container.add(new home());
+        this.container.add(new Operations());
         this.container.revalidate();
         validate();
 
@@ -598,6 +595,7 @@ public class Login extends javax.swing.JFrame {
 
     private void resetMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_resetMouseClicked
         // TODO add your handling code here:
+        suivant.setVisible(false);
         hideSteps();
         onClick(reset);
         onLeaveClick(connect);
@@ -674,34 +672,6 @@ public class Login extends javax.swing.JFrame {
         }
 
     }// GEN-LAST:event_step3MouseClicked
-
-    private void tostep2MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_tostep2MouseClicked
-        // TODO add your handling code here:
-        // SendAnSMS()
-
-        if (registreStep1.getInfos()) {
-            labelShow("step2");
-            labelShow("tostep3");
-            container.removeAll();
-            container.add(registreStep2);
-
-            this.container.revalidate();
-            this.container.repaint();
-        }
-    }// GEN-LAST:event_tostep2MouseClicked
-
-    private void tostep3MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_tostep3MouseClicked
-
-        // TODO add your handling code here:
-        if (registreStep2.codeValid()) {
-            labelShow("step3");
-            container.removeAll();
-            container.add(registreStep3);
-            this.container.revalidate();
-            this.container.repaint();
-        }
-
-    }// GEN-LAST:event_tostep3MouseClicked
 
     private void passwordResetMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_passwordResetMouseClicked
         // TODO add your handling code here:

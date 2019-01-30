@@ -49,7 +49,7 @@ public class Operation {
             Statement st = con.createStatement();
             String req;
             req = "select date_operation::date,description,montant from operation inner join operation_client o on operation.id_operation = o.id_operation "
-                    + "where o.id_client='" + cin + "' and date_operation >= TO_DATE('" + d1 + "','YYYY-mm-dd') and date_operation <= TO_DATE('" + d2 + "','YYYY-mm-dd') order by date_operation desc";
+                    + "where o.id_client='" + cin + "' and date_operation >= TO_DATE('" + d1 + "','YYYY-mm-dd') and date_operation <= TO_DATE('" + d2 + "','YYYY-mm-dd')+interval '24 hours' order by date_operation desc";
             ResultSet rs = st.executeQuery(req);
             return rs;
         } catch (SQLException ex) {
