@@ -28,7 +28,7 @@ public class Director extends Employe {
         dao = new Dao();
         con = dao.getConnection();
         String req = "select\n"
-                + "	p.cin,p.nom,p.prenom,p.date_naissance,p.address,p.ville,p.tel,p.email,p.last_login,em.salaire,ag.nom,ag.adresse,ag.ville\n"
+                + "	p.cin,p.nom,p.prenom,p.date_naissance,p.address,p.ville,p.tel,p.email,em.salaire,ag.nom\n"
                 + "	from agence ag, personne p,employe em where em.id=p.cin and em.id_agence=ag.id and em.id_employeur is not null ;";
         try {
             st = con.createStatement();
