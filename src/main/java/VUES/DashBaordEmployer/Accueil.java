@@ -35,7 +35,7 @@ public class Accueil extends javax.swing.JFrame {
             initComponents();
             container.setLayout(new FlowLayout());
             container.add(demandes);
-            name.setText("M. " + Employe.getPrenom() + " " + Employe.getNom());
+            name.setText(Personne.getTitle() + " " + Employe.getPrenom() + " " + Employe.getNom());
             last_login.setText(Employe.getLast_login());
             // jLabel6.setVisible(false);
         } else {
