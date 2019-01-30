@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package VUES.DashBaordEmployer.Virement;
+package VUES.DashBaordEmployer;
 
 import MODELS.Account;
 import MODELS.EmployeeOperation;
@@ -73,8 +73,8 @@ public class Virement extends javax.swing.JPanel {
         jLabel6.setForeground(new java.awt.Color(2, 2, 2));
         jLabel6.setText("Montant :");
 
-        valider.setBackground(new java.awt.Color(255, 255, 255));
-        valider.setForeground(new java.awt.Color(2, 2, 2));
+        valider.setBackground(new java.awt.Color(4, 96, 96));
+        valider.setForeground(new java.awt.Color(255, 255, 255));
         valider.setText("Valider");
         valider.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -173,13 +173,10 @@ public class Virement extends javax.swing.JPanel {
                     .addComponent(prenom))
                 .addGap(292, 292, 292))
             .addGroup(layout.createSequentialGroup()
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel6))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel5)))
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel5))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -231,7 +228,7 @@ public class Virement extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private Boolean allFieldsSet() {
-        if (    !numcompte.getText().isEmpty() 
+        if (!numcompte.getText().isEmpty()
                 && Account.AccountActive(numcompte.getText())
                 && !montant.getText().isEmpty()
                 && Integer.parseInt(montant.getText()) >= 0
@@ -278,37 +275,34 @@ public class Virement extends javax.swing.JPanel {
 
     private void numcompteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_numcompteFocusLost
         // TODO add your handling code here:
-        if (numcompte.getText().isEmpty()){
-        err1.setText("* Champ obligatoire !");
+        if (numcompte.getText().isEmpty()) {
+            err1.setText("* Champ obligatoire !");
+        } else {
+
+            if (!Account.AccountActive(numcompte.getText())) {
+                err1.setText("numero de compte invalide!");
+            } else {
+                err1.setText("");
+            }
         }
-        else{
-            
-                if (!Account.AccountActive(numcompte.getText())) {
-                        err1.setText("numero de compte invalide!");
-                }  else {
-                        err1.setText("");
-                }
-        }
-        
 
     }//GEN-LAST:event_numcompteFocusLost
 
     private void montantFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_montantFocusLost
         // TODO add your handling code here:
-        if (montant.getText().isEmpty()){
+        if (montant.getText().isEmpty()) {
             err2.setText("* Champ obligatoire !");
         }
-        if (!montant.getText().matches("[0-9]+")){
-            err2.setText("* Montant doit etrer integer !") ;
-        }
-        else {
+        if (!montant.getText().matches("[0-9]+")) {
+            err2.setText("* Montant doit etrer integer !");
+        } else {
             if (Integer.parseInt(montant.getText()) < 0) {
-            err2.setText("montant doit etre positive non nul !");
+                err2.setText("montant doit etre positive non nul !");
             } else {
-            err2.setText("");
+                err2.setText("");
             }
         }
-        
+
     }//GEN-LAST:event_montantFocusLost
 
     private void cinFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cinFocusLost
