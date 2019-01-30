@@ -8,9 +8,12 @@ package VUES.AUTH.Registre;
 import MODELS.Account;
 import MODELS.Img;
 import MODELS.MailBoxLayer;
-import MODELS.Personne;
 import MODELS.SendEmail;
 import VUES.State;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -252,8 +255,14 @@ public class RegistreStep3 extends javax.swing.JPanel {
                         if (password.getText().matches("[0-9]+")) {
                             State.setPassword(password.getText());
                             State.store();
-                            Img.store(c1Path.getText(),State.getCin());
-                            Img.store(c2Path.getText(),State.getCin());
+                            try{
+                                Img.store(c1Path.getText(),State.getCin());
+                                Img.store(c2Path.getText(),State.getCin());
+                            } catch (SQLException ex) {
+                                Logger.getLogger(RegistreStep3.class.getName()).log(Level.SEVERE, null, ex);
+                            } catch (IOException ex) {
+                                Logger.getLogger(RegistreStep3.class.getName()).log(Level.SEVERE, null, ex);
+                            }
                             JOptionPane.showMessageDialog(this, "Votre compte a été crée avec success", "Success", JOptionPane.INFORMATION_MESSAGE);
                             topFrameDispose();
                             new SendEmail(State.getCin(), "Creation d'un compte", "votre demande de Creer un compte e été envoyer avec succès\n"
