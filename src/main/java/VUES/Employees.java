@@ -56,7 +56,7 @@ public class Employees extends javax.swing.JPanel implements ListSelectionListen
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -68,11 +68,14 @@ public class Employees extends javax.swing.JPanel implements ListSelectionListen
 
         employees.setBackground(new java.awt.Color(255, 255, 255));
         employees.setForeground(new java.awt.Color(2, 2, 2));
-        employees.setModel(new javax.swing.table.DefaultTableModel(new Object[][] {
+        employees.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        }, new String[] {
+            },
+            new String [] {
 
-        }));
+            }
+        ));
         employees.setRowHeight(32);
         employees.setSelectionBackground(new java.awt.Color(255, 255, 255));
         employees.setSelectionForeground(new java.awt.Color(2, 2, 2));
@@ -80,8 +83,8 @@ public class Employees extends javax.swing.JPanel implements ListSelectionListen
         employees.setShowVerticalLines(false);
         jScrollPane1.setViewportView(employees);
 
-        jButton2.setBackground(new java.awt.Color(10, 110, 200));
-        jButton2.setForeground(new java.awt.Color(2, 2, 2));
+        jButton2.setBackground(new java.awt.Color(4, 96, 96));
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Nouveau Employe");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -91,17 +94,21 @@ public class Employees extends javax.swing.JPanel implements ListSelectionListen
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
-        layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
-                        layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton2).addContainerGap()));
-        layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(jScrollPane1,
-                                javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)));
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jButton2MouseClicked

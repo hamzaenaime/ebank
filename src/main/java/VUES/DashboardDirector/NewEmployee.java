@@ -176,8 +176,8 @@ public class NewEmployee extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(10, 110, 200));
-        jButton4.setForeground(new java.awt.Color(2, 2, 2));
+        jButton4.setBackground(new java.awt.Color(4, 96, 96));
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Ajouter");
         jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

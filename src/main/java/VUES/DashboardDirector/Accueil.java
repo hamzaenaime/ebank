@@ -1119,10 +1119,10 @@ public class Accueil extends javax.swing.JFrame {
         }
 
         if (nom.equals("reclamations")) {
-            panelToShow = new Reclamations();
+            panelToShow = new VUES.DashboardDirector.Reclamations();
         }
         if (nom.equals("employees")) {
-            panelToShow = new Employees();
+            panelToShow = new Employs();
         }
         if (nom.equals("sexe")) {
             panelToShow = new ChartPanel(SexeChart.sexeChart());
