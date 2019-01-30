@@ -80,8 +80,8 @@ public class Demandes extends javax.swing.JPanel implements ListSelectionListene
         demandes.setSurrendersFocusOnKeystroke(true);
         jScrollPane1.setViewportView(demandes);
 
-        jButton1.setBackground(new java.awt.Color(14, 110, 193));
-        jButton1.setForeground(new java.awt.Color(2, 2, 2));
+        jButton1.setBackground(new java.awt.Color(4, 96, 96));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Actualiser");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

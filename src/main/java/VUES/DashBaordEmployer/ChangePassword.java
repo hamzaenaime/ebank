@@ -53,8 +53,8 @@ public class ChangePassword extends javax.swing.JPanel {
 
         jLabel5.setText("NB : Votre mot de passe ne doit pas contenir des chiffres.");
 
-        jButton2.setBackground(new java.awt.Color(10, 110, 200));
-        jButton2.setForeground(new java.awt.Color(2, 2, 2));
+        jButton2.setBackground(new java.awt.Color(4, 96, 96));
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Valider");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

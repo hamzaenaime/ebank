@@ -113,8 +113,8 @@ public class Coordonne extends javax.swing.JPanel {
         adresse.setForeground(new java.awt.Color(2, 2, 2));
         adresse.setText("adresse");
 
-        jButton1.setBackground(new java.awt.Color(10, 110, 200));
-        jButton1.setForeground(new java.awt.Color(2, 2, 2));
+        jButton1.setBackground(new java.awt.Color(4, 96, 96));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Save change");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

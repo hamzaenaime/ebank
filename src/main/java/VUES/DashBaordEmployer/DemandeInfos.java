@@ -40,28 +40,28 @@ public class DemandeInfos extends javax.swing.JFrame {
         naiss.setText(Date_Nais);
         creation.setText(Date_Creation);
         num = numCompte;
-        byte[] img= null;
-        ResultSet res = Img.get(Cin);       
-        if(res.next()){
-            img=res.getBytes(1);
+        byte[] img = null;
+        ResultSet res = Img.get(Cin);
+        if (res.next()) {
+            img = res.getBytes(1);
             ImageIcon image = new ImageIcon(img);
             Image im = image.getImage();
             Image myImg = im.getScaledInstance(cinImg1.getWidth(), cinImg1.getHeight(), Image.SCALE_SMOOTH);
             ImageIcon newImage = new ImageIcon(myImg);
             cinImg2.setIcon(newImage);
-        }else{
-            
+        } else {
+
         }
-        
-        if(res.next()){
-            img=res.getBytes(1);
+
+        if (res.next()) {
+            img = res.getBytes(1);
             ImageIcon image = new ImageIcon(img);
             Image im = image.getImage();
             Image myImg = im.getScaledInstance(cinImg1.getWidth(), cinImg1.getHeight(), Image.SCALE_SMOOTH);
             ImageIcon newImage = new ImageIcon(myImg);
             cinImg1.setIcon(newImage);
         }
-        
+
     }
 
     /**
@@ -147,7 +147,7 @@ public class DemandeInfos extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(80, 80, 80));
         jLabel11.setText("Date de demande :");
 
-        jButton1.setBackground(new java.awt.Color(14, 110, 193));
+        jButton1.setBackground(new java.awt.Color(4, 96, 96));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Confirmer");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -300,16 +300,16 @@ public class DemandeInfos extends javax.swing.JFrame {
                 .addGap(65, 65, 65)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(nom))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nom, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(cin)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(prenom))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
