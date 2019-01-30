@@ -11,6 +11,15 @@ import VUES.AUTH.Registre.RegistreStep3;
 import VUES.dashboardapp.*;
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 /**
@@ -36,12 +45,13 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Home
      */
-    public Login() {
+    public Login() throws FileNotFoundException, IOException {
         initComponents();
         steps();
         container.setLayout(new FlowLayout());
         container.add(connecter);
-
+        ImageIcon i=new ImageIcon(((new ImageIcon("E:\\Downloads\\fleche.png")).getImage()).getScaledInstance(jButton1.getWidth(), jButton1.getHeight(), java.awt.Image.SCALE_SMOOTH));
+        jButton1 = new JButton(i);
     }
 
     private void steps() {
@@ -107,6 +117,7 @@ public class Login extends javax.swing.JFrame {
         tostep3 = new javax.swing.JLabel();
         tostep2 = new javax.swing.JLabel();
         container = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 204));
@@ -434,6 +445,7 @@ public class Login extends javax.swing.JFrame {
         jLabel6.setToolTipText("");
 
         step1.setText("Etape 1");
+        step1.setToolTipText("");
         step1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 step1MouseClicked(evt);
@@ -487,7 +499,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(step1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(69, 69, 69)
                 .addComponent(tostep2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
                 .addComponent(step2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(72, 72, 72)
                 .addComponent(tostep3)
@@ -528,6 +540,9 @@ public class Login extends javax.swing.JFrame {
         );
 
         jPanel2.add(container, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 730, -1));
+
+        jButton1.setText("jButton1");
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 500, 200, 30));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 750, 580));
 
@@ -808,7 +823,11 @@ public class Login extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                try {
+                    new Login().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -826,6 +845,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel connect;
     private javax.swing.JPanel container;
     private javax.swing.JPanel create;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel5;
