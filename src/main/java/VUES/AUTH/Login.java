@@ -41,6 +41,7 @@ public class Login extends javax.swing.JFrame {
      */
     public Login(){
         initComponents();
+        suivant.setVisible(false);
         steps();
         container.setLayout(new FlowLayout());
         container.add(connecter);
@@ -534,6 +535,7 @@ public class Login extends javax.swing.JFrame {
 
     private void createMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_createMouseClicked
         // TODO add your handling code here:
+        suivant.setVisible(true);
         steps();
         showSteps();
         onClick(create);
@@ -703,6 +705,7 @@ public class Login extends javax.swing.JFrame {
 
     private void passwordResetMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_passwordResetMouseClicked
         // TODO add your handling code here:
+        suivant.setVisible(false);
         hideSteps();
         onClick(reset);
         onLeaveClick(connect);
@@ -721,6 +724,7 @@ public class Login extends javax.swing.JFrame {
     }// GEN-LAST:event_passwordResetMouseClicked
 
     private void administrateurMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_administrateurMouseClicked
+        suivant.setVisible(false);
         hideSteps();
         onClick(administrateur);
         onLeaveClick(connect);

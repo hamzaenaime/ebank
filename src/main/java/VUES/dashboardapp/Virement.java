@@ -163,8 +163,10 @@ public class Virement extends javax.swing.JPanel {
                     // tous les données sont valides
                     // verifier que le client à le solde pour effectuer le virement
                     if (Account.getSolde()>=montant) {// if le client a le solde on finalise l'operation
+                        if(confirm()){
                         ClientOperation.createClientOperation((int) Account.getNumAccount(), Integer.parseInt(numCompte), mot, montant);
                         JOptionPane.showMessageDialog(this, "Virement effectué", "Opération terminée",JOptionPane.ERROR_MESSAGE);
+                        }
                     } else {
                         JOptionPane.showMessageDialog(this,
                                 "Votre fond est insuffisant pour réaliser l'opération, Merci d'allimenter votre compte",
@@ -180,7 +182,17 @@ public class Virement extends javax.swing.JPanel {
         }
     }
     }// GEN-LAST:event_validerMouseClicked
-
+    public boolean confirm(){
+        int code = (int) (Math.random() * 10000);
+        System.out.println("code de verififcation :"+ code);
+        int codeInput = Integer.parseInt(JOptionPane.showInputDialog(this, "Entrer le code de confirmation :"));
+        if(codeInput==code){
+            return true;
+        }else{
+            confirm();
+        }
+        return false;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
