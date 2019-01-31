@@ -6,8 +6,11 @@
 package VUES.AUTH.Registre;
 
 import MODELS.Account;
+import static MODELS.Client.createClient;
 import MODELS.MailBoxLayer;
 import MODELS.Personne;
+import java.sql.SQLException;
+import java.text.ParseException;
 import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -88,6 +91,7 @@ public class RegistreStep3 extends javax.swing.JPanel {
         jLabel4.setText("Date de naissance :");
 
         jButton1.setBackground(new java.awt.Color(4, 96, 96));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Créer");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -248,9 +252,14 @@ public class RegistreStep3 extends javax.swing.JPanel {
                     //verification si le mot de passe entrer contient que les chifres
                     if (password.getText().matches("[0-9]+")) {
                         Personne.setPassword(password.getText());
-                        //Client.store();
-                        JOptionPane.showMessageDialog(this, "Votre compte a été crée avec success", "Success", JOptionPane.INFORMATION_MESSAGE);
-                        topFrameDispose();
+                        try{
+                            long numAccount = Account.createAccount();
+                            createClient(numAccount);
+                            JOptionPane.showMessageDialog(this, "Votre compte a été crée avec success", "Success", JOptionPane.INFORMATION_MESSAGE);
+                            topFrameDispose();
+                        }catch(SQLException|ParseException ex){
+                            JOptionPane.showInputDialog("Erreur lors de création du compte");
+                        }
                         //new SendEmail(cin_, "Creation d'un compte", "votre demande de Creer un compte e été envoyer avec succès\n nous allons vous contacter le plutot possible");
                     } else {
                         error.setText("Mot de pass doit contient que des chifres !!!");
@@ -275,11 +284,10 @@ public class RegistreStep3 extends javax.swing.JPanel {
         //Attaching Filter to JFileChooser object
         chooser.setFileFilter(imageFilter);
         chooser.setDialogTitle("Choisir CIN");
-
         chooser.setAcceptAllFileFilterUsed(false);
-        if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+        if(chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
             //System.out.println("getCurrentDirectory(): "+  chooser.getCurrentDirectory());
-            System.out.println("getSelectedFile() : " + chooser.getSelectedFile());
+            //System.out.println("getSelectedFile() : " + chooser.getSelectedFile());
             return chooser.getSelectedFile().getAbsolutePath();
         } else {
             return null;

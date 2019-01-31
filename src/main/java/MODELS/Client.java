@@ -24,7 +24,7 @@ public class Client extends Personne {
             return true;
         }
         return false;
-    }*/
+    }
     //select * from compte cp inner join client cl on cp.numcompte=cl.numcompte where cl.id='tt' and active is false;
 
     public static void store() {
@@ -35,7 +35,7 @@ public class Client extends Personne {
             JOptionPane.showInputDialog("Erreur lors de création du compte");
         }
     }    
-    
+    */
     public static void createClient(String cin, String nom, String prenom, String date_naissance, String address, String ville, String tel, String email, String password, String profession, String title, long numAccount) throws SQLException {
         try{
             createPersonne(cin, nom, prenom, date_naissance, address, ville, tel, email, password, title, profession);
