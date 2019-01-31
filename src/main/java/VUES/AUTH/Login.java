@@ -460,8 +460,8 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel15Layout.createSequentialGroup()
                 .addGap(74, 74, 74)
-                .addComponent(step1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
+                .addComponent(step1, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                .addGap(123, 123, 123)
                 .addComponent(step2)
                 .addGap(67, 67, 67)
                 .addComponent(step3)
@@ -500,6 +500,7 @@ public class Login extends javax.swing.JFrame {
         jPanel2.add(container, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 730, -1));
 
         suivant.setBackground(new java.awt.Color(4, 96, 96));
+        suivant.setForeground(new java.awt.Color(255, 255, 255));
         suivant.setText("suivant");
         suivant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

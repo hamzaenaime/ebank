@@ -99,9 +99,8 @@ public class RegistreStep1 extends javax.swing.JPanel {
 
         jLabel3.setText("Téléphone :");
 
-        jLabel5.setText("Titre :");
+        jLabel5.setText("Civilité :");
 
-        title.setBackground(new java.awt.Color(255, 255, 255));
         title.setForeground(new java.awt.Color(2, 2, 2));
         title.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M.", "Mme", "Mlle"}));
 
@@ -142,7 +141,9 @@ public class RegistreStep1 extends javax.swing.JPanel {
                         .addComponent(title, 0, 159, Short.MAX_VALUE)
                         .addComponent(telephone, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
                         .addComponent(cin1))
-                    .addComponent(cinError, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(cinError, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
+                        .addGap(85, 85, 85)))
                 .addGap(95, 95, 95))
         );
         layout.setVerticalGroup(

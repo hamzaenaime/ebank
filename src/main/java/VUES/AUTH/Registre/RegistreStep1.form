@@ -65,7 +65,10 @@
                       <Component id="telephone" pref="159" max="32767" attributes="0"/>
                       <Component id="cin1" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="cinError" min="-2" pref="74" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="cinError" pref="74" max="32767" attributes="0"/>
+                      <EmptySpace min="85" pref="85" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
           </Group>
@@ -130,7 +133,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Titre :"/>
+        <Property name="text" type="java.lang.String" value="Civilit&#xe9; :"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="nom">

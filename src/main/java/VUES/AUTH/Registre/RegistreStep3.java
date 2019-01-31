@@ -95,6 +95,7 @@ public class RegistreStep3 extends javax.swing.JPanel {
         jLabel4.setText("Date de naissance :");
 
         create.setBackground(new java.awt.Color(4, 96, 96));
+        create.setForeground(new java.awt.Color(255, 255, 255));
         create.setText("Créer");
         create.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,6 +118,7 @@ public class RegistreStep3 extends javax.swing.JPanel {
         jLabel7.setText("CIN 2:");
 
         c1.setBackground(new java.awt.Color(15, 122, 122));
+        c1.setForeground(new java.awt.Color(255, 255, 255));
         c1.setText("choisir");
         c1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -125,6 +127,7 @@ public class RegistreStep3 extends javax.swing.JPanel {
         });
 
         c2.setBackground(new java.awt.Color(15, 122, 122));
+        c2.setForeground(new java.awt.Color(255, 255, 255));
         c2.setText("choisir");
         c2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
