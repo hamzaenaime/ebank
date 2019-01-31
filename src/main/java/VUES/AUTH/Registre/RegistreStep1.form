@@ -137,9 +137,6 @@
     </Component>
     <Component class="javax.swing.JComboBox" name="title">
       <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-        </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="2" green="2" red="2" type="rgb"/>
         </Property>

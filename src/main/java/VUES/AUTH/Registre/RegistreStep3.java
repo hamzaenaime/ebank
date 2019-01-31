@@ -6,10 +6,11 @@
 package VUES.AUTH.Registre;
 
 import MODELS.Account;
+import MODELS.Client;
 import MODELS.Img;
 import MODELS.MailBoxLayer;
 import MODELS.SendEmail;
-import VUES.State;
+import VUES.AUTH.State;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -39,9 +40,9 @@ public class RegistreStep3 extends javax.swing.JPanel {
     }
 
     private void setFields() {
-        email.setText(State.getEmail());
-        ville.setText(State.getVille());
-        address.setText(State.getAdresse());
+        email.setText(Client.getEmail());
+        ville.setText(Client.getVille());
+        address.setText(Client.getAdresse());
     }
 
     private String getDate() {
@@ -238,30 +239,34 @@ public class RegistreStep3 extends javax.swing.JPanel {
 
         if (!email_.isEmpty() && !ville_.isEmpty() && !address_.isEmpty()) {
 
-            State.setVille(ville_);
-            State.setAdresse(address_);
-            State.setDate_naissance(d);
+            Client.setVille(ville_);
+            Client.setAdresse(address_);
+            Client.setDate_naissance(d);
             //verification cin disponibilité
             cinError.setText("");
             //verification si l'email est valide réelement
             if (MailBoxLayer.checkSMTP(email_)) {
                 emailError.setText("");
-                State.setEmail(email_);
+                Client.setEmail(email_);
                 //verification que les mots de passes entrer sont egaux
                 if (password.getText().equals(Conirmation.getText())) {
                     //verification si le mot de passe entrer contient que les chifres
                     if (password.getText().matches("[0-9]+")) {
-                        State.setPassword(password.getText());
-                        State.store();
+                        Client.setPassword(password.getText());
+                        long numAccount = Account.createAccount();
+                        if (numAccount == -1) {
+                            JOptionPane.showInputDialog("Error, lors de création du compte");
+                        } else  Client.createClient((int) numAccount);
+                        
                         try {
-                            Img.store(c1Path.getText(), State.getCin());
-                            Img.store(c2Path.getText(), State.getCin());
+                            Img.store(c1Path.getText(), Client.getCin());
+                            Img.store(c2Path.getText(), Client.getCin());
                         } catch (SQLException | IOException ex) {
                             Logger.getLogger(RegistreStep3.class.getName()).log(Level.SEVERE, null, ex);
                         }
                         JOptionPane.showMessageDialog(this, "Votre compte a été crée avec success", "Success", JOptionPane.INFORMATION_MESSAGE);
                         topFrameDispose();
-                        new SendEmail(State.getCin(), "Creation d'un compte", "votre demande de Creer un compte e été envoyer avec succès\n"
+                        new SendEmail(Client.getCin(), "Creation d'un compte", "votre demande de Creer un compte e été envoyer avec succès\n"
                                 + " nous allons vous contacter le plutot possible");
                     } else {
                         error.setText("Mot de pass doit contient que des chifres !!!");

@@ -5,8 +5,9 @@
  */
 package VUES.AUTH.Registre;
 
+import MODELS.Client;
 import MODELS.Personne;
-import VUES.State;
+import VUES.AUTH.State;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,9 +25,9 @@ public class RegistreStep1 extends javax.swing.JPanel {
     }
 
     private void setFields() {
-        nom.setText(State.getNom());
-        prenom.setText(State.getPrenom());
-        telephone.setText(State.getTel());
+        nom.setText(Client.getNom());
+        prenom.setText(Client.getPrenom());
+        telephone.setText(Client.getTel());
     }
 
     public Boolean getInfos() {
@@ -43,11 +44,11 @@ public class RegistreStep1 extends javax.swing.JPanel {
         } else {
             cinError.setText("");
             if (!nom_.isEmpty() && !prenom_.isEmpty() && tel.length() == 10) {
-                State.setNom(nom_);
-                State.setPrenom(prenom_);
-                State.setTel(tel);
-                State.setTitle(title_);
-                State.setCin(cin_);
+                Client.setNom(nom_);
+                Client.setPrenom(prenom_);
+                Client.setTel(tel);
+                Client.setTitle(title_);
+                Client.setCin(cin_);
                 return true;
             } else {
                 JOptionPane.showMessageDialog(this, "verifier que vous avez rempli les champs correctement!", "Input invalide", JOptionPane.WARNING_MESSAGE);

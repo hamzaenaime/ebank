@@ -32,6 +32,7 @@ public class Personne {
     protected static String ville;
     protected static String tel;
     protected static String email;
+    protected static String password;
     protected static String date_creation;
     protected static String last_login;
     protected static Connection conn;
@@ -102,7 +103,32 @@ public class Personne {
             prep.setString(10, title);
             //prep.setString(10, profession);
             prep.execute();
-
+        }catch (ParseException ex) {
+            System.err.println("errour  :" + ex.getMessage());
+        }catch (SQLException ex) {
+            System.err.println("Echec de la création du nouveau personne" + ex.getMessage());
+        }
+    }
+    
+    public static void createPersonne() {
+        conn = Dao.getConnection();
+        String req = "insert into personne (cin,nom,prenom,date_naissance,address,ville,tel,email,password,title,last_login)"
+                + "values (?,?,?,?,?,?,?,?,?,?::titleenum,now())";
+        try {
+            Date formate = new SimpleDateFormat("yyyy-MM-dd").parse(date_naissance);
+            java.sql.Date aDate = new java.sql.Date(formate.getTime());
+            PreparedStatement prep = conn.prepareStatement(req);
+            prep.setString(1, cin);
+            prep.setString(2, nom);
+            prep.setString(3, prenom);
+            prep.setDate(4, aDate);
+            prep.setString(5, address);
+            prep.setString(6, ville);
+            prep.setString(7, tel);
+            prep.setString(8, email);
+            prep.setString(9, password);
+            prep.setString(10, title);
+            prep.execute();
         } catch (ParseException ex) {
             System.err.println("errour  :" + ex.getMessage());
         } catch (SQLException ex) {
@@ -158,7 +184,7 @@ public class Personne {
 
     public static boolean isEmploye() {
         //this function will be executed after isDirector() to ensure that employe found in this table is a normal employee not a director 
-        String req = "select * from employe where id ='" + cin + "'";
+        String req = "select * from employe where id ='" + cin + "' and id_employeur is not null";
         conn = Dao.getConnection();
         try {
             Statement st = conn.createStatement();
@@ -280,6 +306,38 @@ public class Personne {
 
     public static String getTitle() {
         return title;
+    }
+
+    public static void setAddress(String address) {
+        Personne.address = address;
+    }
+
+    public static void setDate_naissance(String date_naissance) {
+        Personne.date_naissance = date_naissance;
+    }
+
+    public static void setEmail(String email) {
+        Personne.email = email;
+    }
+
+    public static void setNom(String nom) {
+        Personne.nom = nom;
+    }
+
+    public static void setPrenom(String prenom) {
+        Personne.prenom = prenom;
+    }
+
+    public static void setTel(String tel) {
+        Personne.tel = tel;
+    }
+    
+    public static void setTitle(String title_) {
+      Personne.title=title;
+    }
+    
+    public static void setCin(String cin_) {
+      Personne.cin=cin_;
     }
 
     public static boolean setAdresse(String address) {
