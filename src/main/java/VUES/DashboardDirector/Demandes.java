@@ -121,25 +121,19 @@ public class Demandes extends javax.swing.JPanel implements ListSelectionListene
     @Override
     public void valueChanged(ListSelectionEvent event) {
         if (event.getSource() == demandes.getSelectionModel() && event.getValueIsAdjusting()) {
-            try {
-                EmployeeTable model = (EmployeeTable) demandes.getModel();
-                String numcompte = model.getValueAt(demandes.getSelectedRow(), 0).toString();
-                String cin = model.getValueAt(demandes.getSelectedRow(), 1).toString();
-                String nom = model.getValueAt(demandes.getSelectedRow(), 2).toString();
-                String prenom = model.getValueAt(demandes.getSelectedRow(), 3).toString();
-                String date_nais = model.getValueAt(demandes.getSelectedRow(), 4).toString();
-                String address = model.getValueAt(demandes.getSelectedRow(), 5).toString();
-                String ville = model.getValueAt(demandes.getSelectedRow(), 6).toString();
-                String tel = model.getValueAt(demandes.getSelectedRow(), 7).toString();
-                String email = model.getValueAt(demandes.getSelectedRow(), 8).toString();
-                String date_creation = model.getValueAt(demandes.getSelectedRow(), 9).toString();
+            EmployeeTable model = (EmployeeTable) demandes.getModel();
+            String numcompte = model.getValueAt(demandes.getSelectedRow(), 0).toString();
+            String cin = model.getValueAt(demandes.getSelectedRow(), 1).toString();
+            String nom = model.getValueAt(demandes.getSelectedRow(), 2).toString();
+            String prenom = model.getValueAt(demandes.getSelectedRow(), 3).toString();
+            String date_nais = model.getValueAt(demandes.getSelectedRow(), 4).toString();
+            String address = model.getValueAt(demandes.getSelectedRow(), 5).toString();
+            String ville = model.getValueAt(demandes.getSelectedRow(), 6).toString();
+            String tel = model.getValueAt(demandes.getSelectedRow(), 7).toString();
+            String email = model.getValueAt(demandes.getSelectedRow(), 8).toString();
+            String date_creation = model.getValueAt(demandes.getSelectedRow(), 9).toString();
                 new VUES.DashboarDirector.DemandeInfos(numcompte, cin, nom, prenom, email, tel, ville, address,
-                        date_nais, date_creation).setVisible(true);
-            } catch (IOException ex) {
-                Logger.getLogger(Demandes.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
-                Logger.getLogger(Demandes.class.getName()).log(Level.SEVERE, null, ex);
-            }
+                    date_nais, date_creation).setVisible(true);
 
         }
     }

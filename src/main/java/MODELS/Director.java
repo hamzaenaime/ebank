@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -41,7 +42,7 @@ public class Director extends Employe {
     }
     //createPersonne() {
 
-    public static void addEmploye(String cin, String nom, String prenom, String date_naissance, String address, String ville, String tel, String email, String password, String title, String agance, String salaire) throws EmployeException {
+    public static void addEmploye(String cin, String nom, String prenom, String date_naissance, String address, String ville, String tel, String email, String password, String title, String agance, String salaire) throws EmployeException, SQLException, ParseException {
 //        dao = new Dao();
 //        con = dao.getConnection();
         if (!Personne.cinExist(cin)) {

@@ -93,7 +93,7 @@ public class ConnectionFailed extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setForeground(new java.awt.Color(2, 2, 2));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Réessayer");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -120,7 +120,7 @@ public class ConnectionFailed extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setForeground(new java.awt.Color(2, 2, 2));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Fermer");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);

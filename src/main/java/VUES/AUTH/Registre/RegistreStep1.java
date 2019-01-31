@@ -5,8 +5,9 @@
  */
 package VUES.AUTH.Registre;
 
+import MODELS.Client;
 import MODELS.Personne;
-import VUES.State;
+import VUES.AUTH.State;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,14 +23,14 @@ public class RegistreStep1 extends javax.swing.JPanel {
         initComponents();
         setFields();
     }
-    
+
     private void setFields() {
         nom.setText(State.getNom());
         prenom.setText(State.getPrenom());
         telephone.setText(State.getTel());
         cin1.setText(State.getCin());
     }
-    
+
     public Boolean getInfos() {
         // if the function .getText() is used multitime store the returned value to
         // reduce execution time
@@ -38,20 +39,21 @@ public class RegistreStep1 extends javax.swing.JPanel {
         String tel = telephone.getText();
         String title_ = title.getSelectedItem().toString();
         String cin_ = cin1.getText();
-        
+
         if (Personne.cinExist(cin_)) {
             cinError.setText("Vous avez déja un compte ");
         } else {
             cinError.setText("");
             if (!nom_.isEmpty() && !prenom_.isEmpty() && tel.length() == 10) {
-                State.setNom(nom_);
-                State.setPrenom(prenom_);
-                State.setTel(tel);
-                State.setTitle(title_);
-                State.setCin(cin_);
+                Client.setNom(nom_);
+                Client.setPrenom(prenom_);
+                Client.setTel(tel);
+                Client.setTitle(title_);
+                Client.setCin(cin_);
                 return true;
             } else {
-                JOptionPane.showMessageDialog(this, "verifier que vous avez rempli les champs correctement!", "Input invalide", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(this, "verifier que vous avez rempli les champs correctement!",
+                        "Input invalide", JOptionPane.WARNING_MESSAGE);
             }
         }
         return false;
@@ -64,7 +66,8 @@ public class RegistreStep1 extends javax.swing.JPanel {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jLabel6 = new javax.swing.JLabel();
@@ -99,11 +102,10 @@ public class RegistreStep1 extends javax.swing.JPanel {
 
         jLabel3.setText("Téléphone :");
 
-        jLabel5.setText("Titre :");
+        jLabel5.setText("Civilité :");
 
-        title.setBackground(new java.awt.Color(255, 255, 255));
         title.setForeground(new java.awt.Color(2, 2, 2));
-        title.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M.", "Mme", "Mlle"}));
+        title.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M.", "Mme", "Mlle" }));
 
         jLabel4.setText("Ex : 0612345678");
 
@@ -117,70 +119,82 @@ public class RegistreStep1 extends javax.swing.JPanel {
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
-                        .addGap(52, 52, 52))
-                    .addGroup(layout.createSequentialGroup()
+        layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup().addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel4)
-                        .addComponent(prenom)
-                        .addComponent(nom)
-                        .addComponent(title, 0, 159, Short.MAX_VALUE)
-                        .addComponent(telephone, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
-                        .addComponent(cin1))
-                    .addComponent(cinError, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(95, 95, 95))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nom, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cin1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cinError, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(telephone, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
-                .addGap(34, 34, 34))
-        );
+                                .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 109,
+                                                Short.MAX_VALUE)
+                                        .addGap(52, 52, 52))
+                                .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 57,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabel2).addComponent(jLabel7,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE, 105,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56,
+                                                Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jLabel4).addComponent(prenom).addComponent(nom)
+                                        .addComponent(title, 0, 159, Short.MAX_VALUE)
+                                        .addComponent(telephone, javax.swing.GroupLayout.DEFAULT_SIZE, 159,
+                                                Short.MAX_VALUE)
+                                        .addComponent(cin1))
+                                .addGroup(layout
+                                        .createSequentialGroup().addComponent(cinError,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
+                                        .addGap(85, 85, 85)))
+                        .addGap(95, 95, 95)));
+        layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup().addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 39,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(nom, javax.swing.GroupLayout.PREFERRED_SIZE, 39,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 41,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 41,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(cin1, javax.swing.GroupLayout.PREFERRED_SIZE, 36,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 13,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cinError, javax.swing.GroupLayout.PREFERRED_SIZE, 16,
+                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(telephone, javax.swing.GroupLayout.PREFERRED_SIZE, 39,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED).addComponent(jLabel4)
+                        .addGap(34, 34, 34)));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cinActionPerformed
+    private void cinActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_cinActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cinActionPerformed
-    
-    private void cin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cin1ActionPerformed
+    }// GEN-LAST:event_cinActionPerformed
+
+    private void cin1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_cin1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cin1ActionPerformed
+    }// GEN-LAST:event_cin1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cin;

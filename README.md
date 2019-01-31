@@ -28,6 +28,8 @@ Contributors names and contact info
 
 ## Version History
 
+* 1.0
+    * Something To Show To People
 * 0.1
     * Initial Release
 

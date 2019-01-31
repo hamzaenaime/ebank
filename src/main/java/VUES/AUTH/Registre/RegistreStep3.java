@@ -6,10 +6,10 @@
 package VUES.AUTH.Registre;
 
 import MODELS.Account;
+import MODELS.Client;
 import MODELS.Img;
 import MODELS.MailBoxLayer;
 import MODELS.SendEmail;
-import VUES.State;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -39,14 +39,15 @@ public class RegistreStep3 extends javax.swing.JPanel {
     }
 
     private void setFields() {
-        email.setText(State.getEmail());
-        ville.setText(State.getVille());
-        address.setText(State.getAdresse());
+        email.setText(Client.getEmail());
+        ville.setText(Client.getVille());
+        address.setText(Client.getAdresse());
     }
 
     private String getDate() {
         if (datePicker.getDate() != null) {
-            return (datePicker.getDate().getYear() + 1900) + "-" + (datePicker.getDate().getMonth() + 1) + "-" + datePicker.getDate().getDate();
+            return (datePicker.getDate().getYear() + 1900) + "-" + (datePicker.getDate().getMonth() + 1) + "-"
+                    + datePicker.getDate().getDate();
         }
         return "";
     }
@@ -94,6 +95,7 @@ public class RegistreStep3 extends javax.swing.JPanel {
         jLabel4.setText("Date de naissance :");
 
         create.setBackground(new java.awt.Color(4, 96, 96));
+        create.setForeground(new java.awt.Color(255, 255, 255));
         create.setText("Créer");
         create.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,11 +113,12 @@ public class RegistreStep3 extends javax.swing.JPanel {
 
         emailError.setForeground(new java.awt.Color(222, 0, 0));
 
-        jLabel5.setText("CIN 1:");
+        jLabel5.setText("CIN face 1:");
 
-        jLabel7.setText("CIN 2:");
+        jLabel7.setText("CIN face 2:");
 
         c1.setBackground(new java.awt.Color(15, 122, 122));
+        c1.setForeground(new java.awt.Color(255, 255, 255));
         c1.setText("choisir");
         c1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -124,6 +127,7 @@ public class RegistreStep3 extends javax.swing.JPanel {
         });
 
         c2.setBackground(new java.awt.Color(15, 122, 122));
+        c2.setForeground(new java.awt.Color(255, 255, 255));
         c2.setText("choisir");
         c2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -139,15 +143,16 @@ public class RegistreStep3 extends javax.swing.JPanel {
                 .addGap(113, 113, 113)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jLabel7)
                     .addComponent(jLabel5))
-                .addGap(72, 72, 72)
+                .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -179,23 +184,25 @@ public class RegistreStep3 extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(cinError)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(emailError)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(37, 37, 37)
+                        .addComponent(emailError)
+                        .addGap(124, 124, 124))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(ville, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
-                        .addGap(12, 12, 12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(datePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addComponent(datePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -209,56 +216,27 @@ public class RegistreStep3 extends javax.swing.JPanel {
                             .addComponent(Conirmation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(c1Path, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(c1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addComponent(error)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel5)))
+                .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(c2Path, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(c2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(create)
-                .addGap(15, 15, 15))
-        );
-    }// </editor-fold>//GEN-END:initComponents
-
-    private void topFrameDispose() {
-        JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
-        topFrame.dispose();
-    }
-    private void createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createActionPerformed
-
-        String d = getDate();
-        String email_ = email.getText();
-        String ville_ = ville.getText();
+                .addGap(16, 16, 16)
+                .addComponent(error)
         String address_ = address.getText();
-
-        if (!email_.isEmpty() && !ville_.isEmpty() && !address_.isEmpty()) {
-
-            State.setVille(ville_);
-            State.setAdresse(address_);
-            State.setDate_naissance(d);
-            //verification cin disponibilité
-            cinError.setText("");
-            //verification si l'email est valide réelement
-            if (MailBoxLayer.checkSMTP(email_)) {
-                emailError.setText("");
-                State.setEmail(email_);
-                //verification que les mots de passes entrer sont egaux
-                if (password.getText().equals(Conirmation.getText())) {
-                    //verification si le mot de passe entrer contient que les chifres
                     if (password.getText().matches("[0-9]+")) {
-                        State.setPassword(password.getText());
-                        State.store();
+                        Client.setPassword(password.getText());
+                        long numAccount = Account.createAccount();
+                        if (numAccount == -1) {
+                            JOptionPane.showInputDialog("Error, lors de création du compte");
+                        } else  Client.createClient((int) numAccount);
+                        
                         try {
-                            Img.store(c1Path.getText(), State.getCin());
-                            Img.store(c2Path.getText(), State.getCin());
+                            Img.store(c1Path.getText(), Client.getCin());
+                            Img.store(c2Path.getText(), Client.getCin());
                         } catch (SQLException | IOException ex) {
                             Logger.getLogger(RegistreStep3.class.getName()).log(Level.SEVERE, null, ex);
                         }
@@ -269,37 +247,37 @@ public class RegistreStep3 extends javax.swing.JPanel {
                     } else {
                         error.setText("Mot de pass doit contient que des chifres !!!");
                     }
-                } else {
-                    error.setText("Your password and confirmation password do not match");
-                }
-            } else { // si l'email n'est pas valide
-                emailError.setText("email n'existe pas,entrer un email valide");
-            }
-        }
-    }//GEN-LAST:event_createActionPerformed
+                }else
+
+    {
+        error.setText("Your password and confirmation password do not match");
+    }
+    }else{ // si l'email n'est pas valide
+    emailError.setText("email n'existe pas,entrer un email valide");}}}// GEN-LAST:event_createActionPerformed
 
     public String getPath() {
         JFileChooser chooser = new JFileChooser();
-        //chooser.setCurrentDirectory(new java.io.File("."));
-        //Setting Up The Filter
+        // chooser.setCurrentDirectory(new java.io.File("."));
+        // Setting Up The Filter
         FileFilter imageFilter = new FileNameExtensionFilter("Image files", ImageIO.getReaderFileSuffixes());
-        //Attaching Filter to JFileChooser object
+        // Attaching Filter to JFileChooser object
         chooser.setFileFilter(imageFilter);
         chooser.setDialogTitle("Choisir CIN");
 
-        //chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        // chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         //
         // disable the "All files" option.
         chooser.setAcceptAllFileFilterUsed(false);
         if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
-            //System.out.println("getCurrentDirectory(): "+  chooser.getCurrentDirectory());
+            // System.out.println("getCurrentDirectory(): "+ chooser.getCurrentDirectory());
             System.out.println("getSelectedFile() : " + chooser.getSelectedFile());
             return chooser.getSelectedFile().getAbsolutePath();
         } else {
             return null;
         }
     }
-    private void c1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_c1MouseClicked
+
+    private void c1MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_c1MouseClicked
         // TODO add your handling code here:
         String path = getPath();
         try {
@@ -307,9 +285,9 @@ public class RegistreStep3 extends javax.swing.JPanel {
         } catch (Exception ex) {
             c1Path.setText("");
         }
-    }//GEN-LAST:event_c1MouseClicked
+    }// GEN-LAST:event_c1MouseClicked
 
-    private void c2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_c2MouseClicked
+    private void c2MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_c2MouseClicked
         // TODO add your handling code here:
         String path = getPath();
         try {
@@ -317,7 +295,7 @@ public class RegistreStep3 extends javax.swing.JPanel {
         } catch (Exception ex) {
             c2Path.setText("");
         }
-    }//GEN-LAST:event_c2MouseClicked
+    }// GEN-LAST:event_c2MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField Conirmation;

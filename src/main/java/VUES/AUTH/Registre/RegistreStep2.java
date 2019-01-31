@@ -5,7 +5,7 @@
  */
 package VUES.AUTH.Registre;
 
-import VUES.State;
+import VUES.AUTH.State;
 import javax.swing.JOptionPane;
 
 /**
