@@ -806,7 +806,7 @@ public class SendEmail {
                 "<div style=\"text-align: center;\"><strong>"+eType+"</strong></div>\n" +
                 "\n" +
                 "<div style=\"text-align: left;\">EBank et la premiere solution première solution de transférer vous argents très rapidement.<br>\n" +
-                "<span class=\"st\">"+Content+"</span><br/>"+"<center><h1>"+ SendEmail.code +"</h1></center></div>\n" +
+                "<span class=\"st\">"+Content+"</span><br/>"+
                 "\n" +
                 "                        </td>\n" +
                 "                    </tr>\n" +
