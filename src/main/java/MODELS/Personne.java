@@ -322,6 +322,10 @@ public class Personne {
         Personne.ville=ville_;        
     }
     
+    public static void setPassword(String pass) {
+        Personne.password=pass;
+    }
+    
     public static boolean updateAdresse(String address) {
         String req = "update Personne set address='" + address + "' where cin='" + cin + "'";
         try {
@@ -366,7 +370,7 @@ public class Personne {
         return false;
     }
 
-    public static boolean setPassword(String pass) {
+    public static boolean updatePassword(String pass) {
         String req = "update Personne set password='" + pass + "' where cin='" + cin + "'";
         try {
             Statement st = conn.createStatement();

@@ -154,7 +154,7 @@ public class changePassword extends javax.swing.JPanel {
                 //old password is valide
                 if (newPass.getText().equals(cPass.getText())) {
                     //set the new pass
-                    if (Client.setPassword(newPass.getText())) {
+                    if (Client.updatePassword(newPass.getText())) {
                         //password updated successfully
                         JOptionPane.showMessageDialog(this, "Votre mot de passe a été modifiée", "", JOptionPane.WARNING_MESSAGE);
                     } else {
