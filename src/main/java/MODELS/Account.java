@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+import java.lang.NullPointerException;
 /**
  *
  * @author hamza
@@ -33,8 +33,8 @@ public class Account {
             if (res.next()) {
                 numAccount = res.getLong(1);
             }
-        } catch (SQLException ex) {
-            System.err.println("Probleme" + ex.getMessage());
+        } catch (SQLException | NullPointerException ex) {
+            System.err.println("Probleme " + ex.getMessage());
         }
     }
 
