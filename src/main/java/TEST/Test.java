@@ -5,39 +5,14 @@
  */
 package TEST;
 
-import DAO.Dao;
-import MODELS.Operation;
-import javax.swing.*;
-import java.awt.event.*;
-import java.awt.*;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.*;
+import MODELS.SendEmail;
 
 
-public class Test extends JPanel
+public class Test
 {
    
-  public static void main(String s[]) throws SQLException {
-      DateFormat oDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-      Date date = new Date();
-      String D= oDateFormat.format(date);
-      System.out.println(D);
-      
-      Connection Con;
-      Dao dao = new Dao();
-      Con =   dao.getConnection();
-      Statement St = Con.createStatement();
-      ResultSet Res;
-           Operation operations = new Operation();
-           Res = operations.Operation_From_To("id84901", "2019-01-01", "2019-01-31");
-           while(Res.next()){
-               System.out.println(Res.getString(1));
-           }
+  public static void main(String s[]){
+      new SendEmail("ayoub10hamaoui@gmail.com","M.","Ayoub","Hamaoui",1);
 
     }
 }

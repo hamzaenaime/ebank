@@ -39,8 +39,7 @@ public class Personne {
     protected static boolean login;
     protected static Statement st;
 
-    public static boolean login(String id, String password) {
-        try {
+    public static boolean login(String id, String password) throws SQLException {
             conn = Dao.getConnection();
             Statement p = conn.createStatement();
             String req = "select * from personne where cin='" + id + "'and password='" + password + "'";
@@ -60,9 +59,6 @@ public class Personne {
                 login = true;
                 return true;
             }
-        } catch (SQLException ex) {
-            System.err.println("SQl error " + ex.getMessage());
-        }
         return false;
     }
 
@@ -82,12 +78,10 @@ public class Personne {
         }
     }
 
-    public static void createPersonne(String cin, String nom, String prenom, String date_naissance, String address, String ville, String tel, String email, String password, String title, String profession) {
+    public static void createPersonne(String cin, String nom, String prenom, String date_naissance, String address, String ville, String tel, String email, String password, String title, String profession) throws SQLException, ParseException {
         conn = Dao.getConnection();
         String req = "insert into personne (cin,nom,prenom,date_naissance,address,ville,tel,email,password,title,last_login)"
                 + "values (?,?,?,?,?,?,?,?,?,?::titleenum,now())";
-
-        try {
             Date formate = new SimpleDateFormat("yyyy-MM-dd").parse(date_naissance);
             java.sql.Date aDate = new java.sql.Date(formate.getTime());
             PreparedStatement prep = conn.prepareStatement(req);
@@ -101,20 +95,13 @@ public class Personne {
             prep.setString(8, email);
             prep.setString(9, password);
             prep.setString(10, title);
-            //prep.setString(10, profession);
-            prep.execute();
-        }catch (ParseException ex) {
-            System.err.println("errour  :" + ex.getMessage());
-        }catch (SQLException ex) {
-            System.err.println("Echec de la création du nouveau personne" + ex.getMessage());
-        }
+            prep.execute();        
     }
     
-    public static void createPersonne() {
+    public static void createPersonne() throws ParseException, SQLException {
         conn = Dao.getConnection();
         String req = "insert into personne (cin,nom,prenom,date_naissance,address,ville,tel,email,password,title,last_login)"
                 + "values (?,?,?,?,?,?,?,?,?,?::titleenum,now())";
-        try {
             Date formate = new SimpleDateFormat("yyyy-MM-dd").parse(date_naissance);
             java.sql.Date aDate = new java.sql.Date(formate.getTime());
             PreparedStatement prep = conn.prepareStatement(req);
@@ -129,11 +116,6 @@ public class Personne {
             prep.setString(9, password);
             prep.setString(10, title);
             prep.execute();
-        } catch (ParseException ex) {
-            System.err.println("errour  :" + ex.getMessage());
-        } catch (SQLException ex) {
-            System.err.println("Echec de la création du nouveau personne" + ex.getMessage());
-        }
     }
 
     public static int getPoste() {
@@ -149,18 +131,14 @@ public class Personne {
         }
     }
 
-    public static String getNomPrenom(String cin) {
+    public static String getNomPrenom(String cin) throws SQLException {
         conn = Dao.getConnection();
         String req = "select * from personne where cin='" + cin + "'";
         String nomprenom = "";
-        try {
-            st = conn.createStatement();
-            ResultSet res = st.executeQuery(req);
-            if (res.next()) {
-                return res.getString(2) + " " + res.getString(3);
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Personne.class.getName()).log(Level.SEVERE, null, ex);
+        st = conn.createStatement();
+        ResultSet res = st.executeQuery(req);
+        if (res.next()) {
+            return res.getString(2) + " " + res.getString(3);
         }
         return "nothing";
     }
