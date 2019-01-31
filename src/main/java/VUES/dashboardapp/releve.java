@@ -71,6 +71,9 @@ public class releve extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtPath.setBackground(new java.awt.Color(4, 96, 96));
         txtPath.setForeground(new java.awt.Color(51, 51, 51));
         txtPath.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtPath.setCaretColor(new java.awt.Color(255, 255, 255));

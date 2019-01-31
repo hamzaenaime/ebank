@@ -743,10 +743,6 @@ public class Accueil extends javax.swing.JFrame {
         Indicator4.setOpaque(false);
         Indicator5.setOpaque(false);
         Indicator7.setOpaque(true);
-        container.removeAll();
-        this.container.add(new comptes());
-        this.container.revalidate();
-        validate();
 
         show("releve");
     }// GEN-LAST:event_Button7MouseClicked
