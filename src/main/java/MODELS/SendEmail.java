@@ -50,14 +50,16 @@ public class SendEmail {
         this.subject = subject;
         Ct=new LinkedHashMap<>();
         /* Populate */
-        Ct.put( "Réclamation,","Nous avons bien reçu votre réclamation du"+new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime())+" relatif à une erreur dans notre application.\n" +
+        Ct.put( "Réclamation,","Nous avons bien reçu votre réclamation du"+new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime())+" relatif à une erreur dans notre application.\n" +
                 " Nous sommes désolés de cet incident et nous vous prions de bien vouloir nous en excuser. \n" +
                 " Nous tenons à vous remercier de votre confiance et à vous assurer que nous prenons des mesures auprès de notre société pour nous assurer que ce problème ne se reproduise plus.\n" +
                 " Nous vous prions de croire, Madame, Monsieur, à l’assurance de nos sentiments les meilleurs.");
-        Ct.put("<strong>Merci </strong><strong>d’avoir</strong><strong> rejoint EBank</strong>","Ebank est aussi un service de <em>transfert</em> international simple, associant qualité et fiabilité pour envoyer ou recevoir de l'<em>argent</em> partout dans le Monde");
+        Ct.put("Merci d'avoir rejoint EBank","Ebank est aussi un service de <em>transfert</em> international simple, associant qualité et fiabilité pour envoyer ou recevoir de l'<em>argent</em> partout dans le Monde");
         Ct.put("Confirmez votre adresse email,","Merci pour votre inscription à Ebank. Nous sommes heureux que vous soyez là!\n"
                 + " Entrez le code suivant dans la fenêtre où vous avez commencé à créer votre nouvel espace de travail Ebank:\n");
         Ct.put("Opérations,", "Veuillez trouver ci-joint la liste des opérations.");
+        Ct.put("changement de mot de passe avec succès", "votre demande de changement de mot de passe a été approuvée avec succès");
+        Ct.put("Creation d'un compte", "votre demande de Creer un compte e été envoyer avec succès nous allons vous contacter le plutot possible.");
         
         this.to=to;
         body=GenererBody(title,Nom,Prenom,subject);
