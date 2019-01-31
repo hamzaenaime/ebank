@@ -83,6 +83,7 @@ public class Accueil extends javax.swing.JFrame {
         Button7 = new javax.swing.JPanel();
         Indicator7 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
@@ -438,6 +439,15 @@ public class Accueil extends javax.swing.JFrame {
         );
 
         jPanel1.add(Button7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 232, 50));
+
+        jButton1.setForeground(new java.awt.Color(255, 0, 51));
+        jButton1.setText("Cloturer mon compte");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 510, 140, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 580));
 
@@ -944,6 +954,10 @@ public class Accueil extends javax.swing.JFrame {
         show("age");
     }//GEN-LAST:event_ageMouseClicked
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jPanel5MouseClicked
         // TODO add your handling code here:
         Personne.logout();
@@ -1190,6 +1204,7 @@ public class Accueil extends javax.swing.JFrame {
     private javax.swing.JLabel btn_close;
     private javax.swing.JPanel comptes;
     private javax.swing.JPanel container;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

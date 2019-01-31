@@ -51,6 +51,7 @@ public class reclamation extends javax.swing.JPanel {
         jLabel2.setText("Description");
 
         send.setBackground(new java.awt.Color(4, 96, 96));
+        send.setForeground(new java.awt.Color(255, 255, 255));
         send.setText("Envoyer");
         send.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
