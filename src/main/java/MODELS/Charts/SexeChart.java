@@ -42,7 +42,7 @@ public class SexeChart {
 
     private static JFreeChart createChart(PieDataset dataset) {
         JFreeChart chart = ChartFactory.createPieChart(
-                "sexe pourcentage", // chart title
+                "Total : " + Personne.personneCount() + " Clients", // chart title
                 dataset, // data
                 true, // include legend
                 true,
