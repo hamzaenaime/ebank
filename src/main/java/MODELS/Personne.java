@@ -317,8 +317,12 @@ public class Personne {
     public static void setCin(String cin_) {
         Personne.cin = cin_;
     }
-
-    public static boolean setAdresse(String address) {
+    
+    public static void setVille(String ville_) {
+        Personne.ville=ville_;        
+    }
+    
+    public static boolean updateAdresse(String address) {
         String req = "update Personne set address='" + address + "' where cin='" + cin + "'";
         try {
             Statement st = conn.createStatement();
@@ -333,7 +337,7 @@ public class Personne {
         }
     }
 
-    public static boolean setVille(String ville) {
+    public static boolean updateVille(String ville) {
         String req = "update Personne set ville='" + ville + "' where cin='" + cin + "'";
         try {
             Statement st = conn.createStatement();

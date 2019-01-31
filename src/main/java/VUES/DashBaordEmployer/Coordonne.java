@@ -200,7 +200,7 @@ public class Coordonne extends javax.swing.JPanel {
         String ville_ = ville.getText();
 
         if (!address.isEmpty() && !address.equals(Client.getAdresse())) {
-            if (Client.setAdresse(address)) {
+            if (Client.updateAdresse(address)) {
                 JOptionPane.showMessageDialog(this, "Votre adresse a été modifiée");
                 new Coordonne().setVisible(true);
             } else {
@@ -209,7 +209,7 @@ public class Coordonne extends javax.swing.JPanel {
         }
 
         if (!ville_.isEmpty() && !ville_.equals(Client.getVille())) {
-            if (Client.setVille(ville.getText())) {
+            if (Client.updateVille(ville.getText())) {
                 JOptionPane.showMessageDialog(this, "Votre ville a été modifiée");
                 new Coordonne().setVisible(true);
             } else {

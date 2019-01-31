@@ -238,7 +238,7 @@ public class RegistreStep3 extends javax.swing.JPanel {
         if (!email_.isEmpty() && !ville_.isEmpty() && !address_.isEmpty()) {
 
             Personne.setVille(ville_);
-            Personne.setAdresse(address_);
+            Personne.setAddress(address_);
             Personne.setDate_naissance(d);
             //verification cin disponibilité
 
