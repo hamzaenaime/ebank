@@ -5,8 +5,6 @@ import java.io.*;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 public class Img {
 
@@ -14,15 +12,11 @@ public class Img {
 
     public static void store(String path, String cin) throws FileNotFoundException, SQLException, IOException {
         con = Dao.getConnection();
-        try {
             PreparedStatement pstmt = con.prepareStatement("insert into cin values(?,?)");
             FileInputStream fis = new FileInputStream(path);
             pstmt.setString(1, cin);
             pstmt.setBinaryStream(2, fis, fis.available());
             pstmt.executeUpdate();
-        } catch (IOException | SQLException e) {
-            System.out.println("exception" + e.getMessage());
-        }
     }
 
     public static ResultSet get(String cin) throws IOException {
