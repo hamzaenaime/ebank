@@ -7,7 +7,6 @@ package VUES.AUTH.Registre;
 
 import MODELS.Client;
 import MODELS.Personne;
-import VUES.AUTH.State;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,10 +24,10 @@ public class RegistreStep1 extends javax.swing.JPanel {
     }
 
     private void setFields() {
-        nom.setText(State.getNom());
-        prenom.setText(State.getPrenom());
-        telephone.setText(State.getTel());
-        cin1.setText(State.getCin());
+        nom.setText(Personne.getNom());
+        prenom.setText(Personne.getPrenom());
+        telephone.setText(Personne.getTel());
+        cin1.setText(Personne.getCin());
     }
 
     public Boolean getInfos() {
