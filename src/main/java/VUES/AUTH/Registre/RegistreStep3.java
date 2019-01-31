@@ -12,6 +12,7 @@ import MODELS.MailBoxLayer;
 import MODELS.SendEmail;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -263,21 +264,18 @@ public class RegistreStep3 extends javax.swing.JPanel {
                     //verification si le mot de passe entrer contient que les chifres
                     if (password.getText().matches("[0-9]+")) {
                         Client.setPassword(password.getText());
-                        long numAccount = Account.createAccount();
-                        if (numAccount == -1) {
-                            JOptionPane.showInputDialog("Error, lors de création du compte");
-                        } else  Client.createClient((int) numAccount);
-                        
-                        try {
+                        try{
+                            long numAccount = Account.createAccount();
+                            Client.createClient(numAccount);
                             Img.store(c1Path.getText(), Client.getCin());
                             Img.store(c2Path.getText(), Client.getCin());
-                        } catch (SQLException | IOException ex) {
-                            Logger.getLogger(RegistreStep3.class.getName()).log(Level.SEVERE, null, ex);
+                            JOptionPane.showMessageDialog(this, "Votre compte a été crée avec success", "Success", JOptionPane.INFORMATION_MESSAGE);
+                            topFrameDispose();
+                            //new SendEmail(Client.getCin(), "Creation d'un compte", "votre demande de Creer un compte e été envoyer avec succès\n"
+                              //  + " nous allons vous contacter le plutot possible");
+                        }catch(SQLException | IOException | ParseException ex){
+                            JOptionPane.showInputDialog("Error, lors de création du compte");
                         }
-                        JOptionPane.showMessageDialog(this, "Votre compte a été crée avec success", "Success", JOptionPane.INFORMATION_MESSAGE);
-                        topFrameDispose();
-                        new SendEmail(Client.getCin(), "Creation d'un compte", "votre demande de Creer un compte e été envoyer avec succès\n"
-                                + " nous allons vous contacter le plutot possible");
                     } else {
                         error.setText("Mot de pass doit contient que des chifres !!!");
                     }
