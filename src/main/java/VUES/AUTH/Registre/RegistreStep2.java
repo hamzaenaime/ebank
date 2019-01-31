@@ -5,6 +5,8 @@
  */
 package VUES.AUTH.Registre;
 
+import MODELS.Personne;
+import MODELS.SendSMS;
 import VUES.AUTH.State;
 import javax.swing.JOptionPane;
 
@@ -26,7 +28,7 @@ public class RegistreStep2 extends javax.swing.JPanel {
         int code = (int) (Math.random() * 10000);
         State.setCheck(code);
         System.out.println(code);
-        //SendSMS sms = new SendSMS("+212" + State.getTel(), "code de verification est : " + code);
+        SendSMS sms = new SendSMS("+212" + Personne.getTel().substring(1, 10), "code de verification est : " + code);
     }
 
     public Boolean codeValid() {

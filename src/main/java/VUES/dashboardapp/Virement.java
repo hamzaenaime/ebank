@@ -7,6 +7,9 @@ package VUES.dashboardapp;
 
 import MODELS.Account;
 import MODELS.ClientOperation;
+import MODELS.Personne;
+import MODELS.SendSMS;
+import VUES.AUTH.State;
 import javax.swing.JOptionPane;
 
 /**
@@ -172,9 +175,16 @@ public class Virement extends javax.swing.JPanel {
         }
     }// GEN-LAST:event_validerMouseClicked
 
-    public boolean confirm() {
+    public int sendAnSMS() {
         int code = (int) (Math.random() * 10000);
-        System.out.println("code de verififcation :" + code);
+        State.setCheck(code);
+        System.out.println(code);
+        SendSMS sms = new SendSMS("+212" + Personne.getTel().substring(1, 10), "code de verification est : " + code);
+        return code;
+    }
+
+    public boolean confirm() {
+        int code = sendAnSMS();
         int codeInput = Integer.parseInt(JOptionPane.showInputDialog(this, "Entrer le code de confirmation :"));
         if (codeInput == code) {
             return true;
