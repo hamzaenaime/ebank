@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 /**
  *
  * @author hamza
@@ -22,8 +23,8 @@ public class Account {
     private static Connection connection;
     private static Statement st;
     private static long numAccount;
-    private Dao Dao = new Dao();
-    
+    private static Dao Dao = new Dao();
+
     public Account() {
         connection = Dao.getConnection();
         try {
@@ -39,12 +40,12 @@ public class Account {
 
     public static long createAccount() throws SQLException {
         connection = Dao.getConnection();
-            st = connection.createStatement();
-            ResultSet res = st.executeQuery("insert into compte default values RETURNING numcompte");
-            if (res.next()) {
-                numAccount = res.getLong(1);
-                return numAccount;
-            }
+        st = connection.createStatement();
+        ResultSet res = st.executeQuery("insert into compte default values RETURNING numcompte");
+        if (res.next()) {
+            numAccount = res.getLong(1);
+            return numAccount;
+        }
         return 0;
     }
 
@@ -63,15 +64,15 @@ public class Account {
 
     public static Boolean AccountActive(String numcompte) {
         connection = Dao.getConnection();
-        
+
         try {
-            if (numcompte.matches("[0-9]+")){
+            if (numcompte.matches("[0-9]+")) {
                 String req = "select * from compte where numcompte=" + numcompte + " and active is true";
                 st = connection.createStatement();
                 ResultSet res = st.executeQuery(req);
                 return res.next();
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(Account.class.getName()).log(Level.SEVERE, null, ex);
         }

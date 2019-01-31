@@ -99,6 +99,7 @@ public class PasswordReset extends javax.swing.JPanel {
         jLabel7.setText("Nouveau Mot de Passe :");
 
         Valider.setBackground(new java.awt.Color(4, 96, 96));
+        Valider.setForeground(new java.awt.Color(255, 255, 255));
         Valider.setText("Valider");
         Valider.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Valider.addMouseListener(new java.awt.event.MouseAdapter() {
