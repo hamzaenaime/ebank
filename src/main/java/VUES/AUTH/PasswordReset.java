@@ -3,7 +3,6 @@ package VUES.AUTH;
 import MODELS.Account;
 import MODELS.Client;
 import MODELS.Personne;
-import MODELS.SendEmail;
 
 /**
  *
@@ -153,16 +152,8 @@ public class PasswordReset extends javax.swing.JPanel {
                                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(48, 48, 48)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(telError, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(cin, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(tel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(telError2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(checkcode, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -176,7 +167,14 @@ public class PasswordReset extends javax.swing.JPanel {
                                                         .addComponent(codeError, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(newPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                             .addComponent(resend1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(6, 6, 6))))
+                                        .addGap(6, 6, 6))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(48, 48, 48)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(telError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(cin, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                                            .addComponent(tel, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                                            .addComponent(telError2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                             .addComponent(jLabel7)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(250, 250, 250)
@@ -189,7 +187,7 @@ public class PasswordReset extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cin, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(telError, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -229,7 +227,7 @@ public class PasswordReset extends javax.swing.JPanel {
 
     private void sendMeCode() {
         if (cin.getText().length() != 0 && Personne.cinExist(cin.getText())) {
-            if (tel.getText().length() == 9) {
+            if (tel.getText().length() == 10) {
                 telError2.setText("");
                 if (Personne.cinMatchTel(cin.getText(), tel.getText())) {
                     sendAnSMS();
@@ -238,7 +236,7 @@ public class PasswordReset extends javax.swing.JPanel {
                     telError.setText("Numero de telephone est ne correspond pas à cette compte !!!");
                 }
             } else {
-                telError2.setText("n'est pas valide . longueur doit être égale à 9 chifres");
+                telError2.setText("n'est pas valide . longueur doit être égale à 10 chifres");
             }
         } else {
             telError.setText("cin n'est pas enregistrer dans aucun compte !!!");
@@ -265,7 +263,7 @@ public class PasswordReset extends javax.swing.JPanel {
                     // Reset the password
                     Personne.passwordReset(cin.getText(), newPassword.getText());
                     //new SendEmail(Personne.getEmail(cin.getText()), "changement de mot de passe avec succès", "votre demande de changement de mot de passe a été approuvée avec succès\n"
-                      //      + "votre nouveau mot de passe est: " + newPassword.getText());
+                    //      + "votre nouveau mot de passe est: " + newPassword.getText());
                     javax.swing.JOptionPane.showMessageDialog(this, "Mot de passe Modifier !!!");
                 } else {
                     error.setText("Mot de pass doit contient que des chifres !!!");

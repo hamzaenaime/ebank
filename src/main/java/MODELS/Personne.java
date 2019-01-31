@@ -317,15 +317,15 @@ public class Personne {
     public static void setCin(String cin_) {
         Personne.cin = cin_;
     }
-    
+
     public static void setVille(String ville_) {
-        Personne.ville=ville_;        
+        Personne.ville = ville_;
     }
-    
+
     public static void setPassword(String pass) {
-        Personne.password=pass;
+        Personne.password = pass;
     }
-    
+
     public static boolean updateAdresse(String address) {
         String req = "update Personne set address='" + address + "' where cin='" + cin + "'";
         try {
