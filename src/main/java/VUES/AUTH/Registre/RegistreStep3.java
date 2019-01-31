@@ -258,9 +258,9 @@ public class RegistreStep3 extends javax.swing.JPanel {
                         Personne.setPassword(password.getText());
                         try{
                             long numAccount = Account.createAccount();
+                            createClient(numAccount);
                             Img.store(c1Path.getText(), Personne.getCin());
                             Img.store(c2Path.getText(), Personne.getCin());
-                            createClient(numAccount);
                             JOptionPane.showMessageDialog(this, "Votre compte a été crée avec success", "Success", JOptionPane.INFORMATION_MESSAGE);
                         }catch(SQLException|ParseException ex){
                             JOptionPane.showMessageDialog(this, "Erreur lors de création de compte\n"+ex.getMessage(), "fatal erreur", JOptionPane.ERROR_MESSAGE);
