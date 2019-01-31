@@ -59,6 +59,7 @@ public class Admin extends javax.swing.JPanel implements ActionListener {
         id.setForeground(new java.awt.Color(2, 2, 2));
 
         connecter.setBackground(new java.awt.Color(4, 96, 96));
+        connecter.setForeground(new java.awt.Color(255, 255, 255));
         connecter.setText("Se Connecter");
         connecter.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

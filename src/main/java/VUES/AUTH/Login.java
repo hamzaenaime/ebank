@@ -506,7 +506,7 @@ public class Login extends javax.swing.JFrame {
                 suivantActionPerformed(evt);
             }
         });
-        jPanel2.add(suivant, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 500, -1, -1));
+        jPanel2.add(suivant, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 520, -1, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 750, 580));
 
