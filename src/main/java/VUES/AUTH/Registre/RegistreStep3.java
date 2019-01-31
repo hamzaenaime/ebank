@@ -29,7 +29,6 @@ public class RegistreStep3 extends javax.swing.JPanel {
     }
 
     private void setFields() {
-        cin.setText(Personne.getCin());
         email.setText(Personne.getEmail());
         ville.setText(Personne.getVille());
         address.setText(Personne.getAdresse());
@@ -174,45 +173,39 @@ public class RegistreStep3 extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         String d = getDate();
-        String cin_ = cin.getText();
         String email_ = email.getText();
         String ville_ = ville.getText();
         String address_ = address.getText();
 
-        if (!cin_.isEmpty() && !email_.isEmpty() && !ville_.isEmpty() && !address_.isEmpty()) {
-
-            Personne.setCin(cin_);
+        if (!email_.isEmpty() && !ville_.isEmpty() && !address_.isEmpty()) {
 
             Personne.setVille(ville_);
             Personne.setAdresse(address_);
             Personne.setDate_naissance(d);
             //verification cin disponibilité
-            if (Personne.cinExist(cin_)) {
-                cinError.setText("Cin deja existe  !!");
-            } else {
-                cinError.setText("");
-                //verification si l'email est valide réelement
-                if (MailBoxLayer.checkSMTP(email_)) {
-                    emailError.setText("");
-                    Personne.setEmail(email_);
-                    //verification que les mots de passes entrer sont egaux
-                    if (password.getText().equals(Conirmation.getText())) {
-                        //verification si le mot de passe entrer contient que les chifres
-                        if (password.getText().matches("[0-9]+")) {
-                            Personne.setPassword(password.getText());
-                            //Client.store();
-                            JOptionPane.showMessageDialog(this, "Votre compte a été crée avec success", "Success", JOptionPane.INFORMATION_MESSAGE);
-                            topFrameDispose();
-                            //new SendEmail(cin_, "Creation d'un compte", "votre demande de Creer un compte e été envoyer avec succès\n nous allons vous contacter le plutot possible");
-                        } else {
-                            error.setText("Mot de pass doit contient que des chifres !!!");
-                        }
+
+            cinError.setText("");
+            //verification si l'email est valide réelement
+            if (MailBoxLayer.checkSMTP(email_)) {
+                emailError.setText("");
+                Personne.setEmail(email_);
+                //verification que les mots de passes entrer sont egaux
+                if (password.getText().equals(Conirmation.getText())) {
+                    //verification si le mot de passe entrer contient que les chifres
+                    if (password.getText().matches("[0-9]+")) {
+                        Personne.setPassword(password.getText());
+                        //Client.store();
+                        JOptionPane.showMessageDialog(this, "Votre compte a été crée avec success", "Success", JOptionPane.INFORMATION_MESSAGE);
+                        topFrameDispose();
+                        //new SendEmail(cin_, "Creation d'un compte", "votre demande de Creer un compte e été envoyer avec succès\n nous allons vous contacter le plutot possible");
                     } else {
-                        error.setText("les mots de passes ne sont pas egaux !!");
+                        error.setText("Mot de pass doit contient que des chifres !!!");
                     }
-                } else { // si l'email n'est pas valide
-                    emailError.setText("email n'existe pas,entrer un email valide");
+                } else {
+                    error.setText("les mots de passes ne sont pas egaux !!");
                 }
+            } else { // si l'email n'est pas valide
+                emailError.setText("email n'existe pas,entrer un email valide");
             }
 
         } else {
