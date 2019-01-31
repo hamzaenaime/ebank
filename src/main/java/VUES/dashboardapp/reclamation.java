@@ -110,7 +110,7 @@ public class reclamation extends javax.swing.JPanel {
 
         if (!objetTxt.isEmpty() && !desc.isEmpty()) {
             if (Reclamation.create(objetTxt, desc)) {
-                JOptionPane.showMessageDialog(this, "votre demande a bien été prise en compte", "Réclamation envoyée", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "votre demande a bien été prise en compte", "Réclamation envoyée", JOptionPane.INFORMATION_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(this, "Echec de l'envoie de votre réclamation", "Echec de l'envoie", JOptionPane.ERROR_MESSAGE);
             }
