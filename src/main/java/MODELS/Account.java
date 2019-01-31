@@ -38,19 +38,15 @@ public class Account {
         }
     }
 
-    public static long createAccount() {
+    public static long createAccount() throws SQLException {
         connection = Dao.getConnection();
-        try {
             st = connection.createStatement();
             ResultSet res = st.executeQuery("insert into compte default values RETURNING numcompte");
             if (res.next()) {
                 numAccount = res.getLong(1);
                 return numAccount;
             }
-        } catch (SQLException ex) {
-            System.err.println("probleme dans la requette d'ajouter un client !! " + ex.getMessage());
-        }
-        return -1;
+        return 0;
     }
 
     public static Boolean AccountExist(String cin) {

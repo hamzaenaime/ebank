@@ -92,9 +92,13 @@ public class SendEmail {
              Multipart multipart = new MimeMultipart();
              // Set text message part
              multipart.addBodyPart(messageBodyPart);
+             String filename="./img/Ebank.png";
+             if(subject==3){
+                filename = "./21_JANUARY_2019_nafar_bill.pdf";
+             }
              // Part two is attachment
              messageBodyPart = new MimeBodyPart();
-             String filename = "./21_JANUARY_2019_nafar_bill.pdf";
+             
              DataSource source = new FileDataSource(filename);
              messageBodyPart.setDataHandler(new DataHandler(source));
              messageBodyPart.setFileName(filename);
