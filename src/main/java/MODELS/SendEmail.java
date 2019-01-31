@@ -116,6 +116,70 @@ public class SendEmail {
         }
     }
     
+    public SendEmail(String to,String nom,String prenom,String mdp,String login){
+        this.to=to;
+        String Body;
+        Body = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n" +
+                "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n" +
+                "    <head>\n" +
+                "        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n" +
+                "        <title>Un Email Responsive</title>\n" +
+                "        <style type=\"text/css\">\n" +
+                "        body {margin: 0; padding: 0; min-width: 100%!important;}\n" +
+                "        .content {width: 100%; max-width: 600px;}  \n" +
+                "        </style>\n" +
+                "    </head>\n" +
+                "    <body yahoo bgcolor=\"#f6f8f1\">\n" +
+                "        \n" +"<center><h2>Bonjour "+nom+" "+prenom+","+"</h2></center><br/>"+
+                "<h2>Voici votre identifiant:</h2><br/>"+
+                "<h4>Login:<strong> "+login+"</strong></h4>"+
+                "<h4>Mot de passe:<strong> "+mdp+"</strong></h4>"+
+                "    </body>\n" +
+                "</html>";
+        
+        
+        
+        
+        Properties props = new Properties();
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.port", "587");
+
+        Session session = Session.getInstance(props,
+          new javax.mail.Authenticator() {
+                protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(username, password);
+                }
+          });
+
+        try {
+// Create a default MimeMessage object.
+         Message message = new MimeMessage(session);
+
+         // Set From: header field of the header.
+         message.setFrom(new InternetAddress(from));
+
+         // Set To: header field of the header.
+         message.setRecipients(Message.RecipientType.TO,
+         InternetAddress.parse(to));
+
+         // Set Subject: header field
+         message.setSubject("Nouveau Employee");
+
+         // Now set the actual message
+         message.setContent(Body,"text/html");
+
+         // Send message
+         Transport.send(message);
+
+         System.out.println("Sent message successfully....");
+
+      } catch (MessagingException e) {
+            throw new RuntimeException(e);
+      }
+    }
+    
     
     //eType here for define the subject of email
     public String GenererBody(String title,String Nom,String Prenom,int subPos){
