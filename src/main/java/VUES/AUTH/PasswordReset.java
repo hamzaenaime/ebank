@@ -264,8 +264,8 @@ public class PasswordReset extends javax.swing.JPanel {
                     error.setText("");
                     // Reset the password
                     Personne.passwordReset(cin.getText(), newPassword.getText());
-                    new SendEmail(Personne.getEmail(cin.getText()), "changement de mot de passe avec succès", "votre demande de changement de mot de passe a été approuvée avec succès\n"
-                            + "votre nouveau mot de passe est: " + newPassword.getText());
+                    //new SendEmail(Personne.getEmail(cin.getText()), "changement de mot de passe avec succès", "votre demande de changement de mot de passe a été approuvée avec succès\n"
+                      //      + "votre nouveau mot de passe est: " + newPassword.getText());
                     javax.swing.JOptionPane.showMessageDialog(this, "Mot de passe Modifier !!!");
                 } else {
                     error.setText("Mot de pass doit contient que des chifres !!!");

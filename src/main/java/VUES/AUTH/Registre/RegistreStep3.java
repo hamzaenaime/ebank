@@ -272,9 +272,9 @@ public class RegistreStep3 extends javax.swing.JPanel {
                             JOptionPane.showMessageDialog(this, "Votre compte a été crée avec success", "Success", JOptionPane.INFORMATION_MESSAGE);
                             topFrameDispose();
                             //new SendEmail(Client.getCin(), "Creation d'un compte", "votre demande de Creer un compte e été envoyer avec succès\n"
-                              //  + " nous allons vous contacter le plutot possible");
+                            //  + " nous allons vous contacter le plutot possible");
                         }catch(SQLException | IOException | ParseException ex){
-                            JOptionPane.showInputDialog("Error, lors de création du compte");
+                            JOptionPane.showInputDialog("Erreurr, lors de création du compte");
                         }
                     } else {
                         error.setText("Mot de pass doit contient que des chifres !!!");

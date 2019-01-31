@@ -8,6 +8,10 @@ package VUES.DashBaordEmployer;
 import MODELS.Employe;
 import MODELS.Personne;
 import MODELS.SendEmail;
+import java.security.acl.Owner;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -20,14 +24,20 @@ public class ReclamationInfos extends javax.swing.JFrame {
      */
     String reclaId;
 
-    public ReclamationInfos(String id, String reclaOwner, String ob, String desc, String d) {
+    public ReclamationInfos(String id, String reclaOwner, String ob, String desc, String d){
         this();
-        String ow = Personne.getNomPrenom(reclaOwner);
-        owner.setText(ow);
-        objet.setText(ob);
-        description.setText(desc);
-        date.setText(d);
-        reclaId = id;
+        String ow;
+        try {
+            ow = Personne.getNomPrenom(reclaOwner);
+            owner.setText(ow);
+            objet.setText(ob);
+            description.setText(desc);
+            date.setText(d);
+            reclaId = id;
+        } catch (SQLException ex) {
+            Logger.getLogger(ReclamationInfos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     public ReclamationInfos() {
@@ -203,7 +213,7 @@ public class ReclamationInfos extends javax.swing.JFrame {
         String body = jTextArea1.getText();
         if (!body.isEmpty()) {
             String email = Personne.getEmail();
-            new SendEmail(email, "Reponse de votre Reclamation", body);
+            //new SendEmail(email, "Reponse de votre Reclamation", body);
             System.err.println(body);
             System.err.println(email);
         }

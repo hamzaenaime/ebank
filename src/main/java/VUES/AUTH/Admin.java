@@ -3,6 +3,9 @@ package VUES.AUTH;
 import MODELS.Personne;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
@@ -258,16 +261,20 @@ public class Admin extends javax.swing.JPanel implements ActionListener {
         // TODO add your handling code here:
         String id_ = id.getText();
         String pass = password.getText();
-        if (!pass.isEmpty() && !id_.isEmpty() && Personne.login(id_, pass)) {
-            // int type = Personne.getPoste(); //1 for client 2 for cashier 3 for director
-            if (Personne.getPoste() == 2) {
-                new VUES.DashBaordEmployer.Accueil().setVisible(true);
+        try {
+            if (!pass.isEmpty() && !id_.isEmpty() && Personne.login(id_, pass)) {
+                // int type = Personne.getPoste(); //1 for client 2 for cashier 3 for director
+                if (Personne.getPoste() == 2) {
+                    new VUES.DashBaordEmployer.Accueil().setVisible(true);
+                } else {
+                    new VUES.DashboardDirector.Accueil().setVisible(true);
+                }
+                topFrameDispose();
             } else {
-                new VUES.DashboardDirector.Accueil().setVisible(true);
+                JOptionPane.showMessageDialog(this, "Error, code d'acces ou mot de passe incorrect");
             }
-            topFrameDispose();
-        } else {
-            JOptionPane.showMessageDialog(this, "Error, code d'acces ou mot de passe incorrect");
+        } catch (SQLException ex) {
+            Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }// GEN-LAST:event_connecterMouseClicked
 

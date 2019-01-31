@@ -5,6 +5,9 @@ import MODELS.Personne;
 import VUES.dashboardapp.Accueil;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
@@ -262,21 +265,25 @@ public class Connecter extends javax.swing.JPanel implements ActionListener {
         topFrame.dispose();
     }
     private void connecterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_connecterMouseClicked
-        // TODO add your handling code here:
-        String id_ = id.getText();
-        String pass = password.getText();
-        //if (!pass.isEmpty() && !id_.isEmpty() && Personne.login(id_, pass) && Personne.getPoste() == 1) {
-        if (!pass.isEmpty() && !id_.isEmpty() && Personne.login(id_, pass) && Personne.getPoste() == 1) {
-            if (!Account.isActive(id_)) {
-                JOptionPane.showMessageDialog(this, "votre compte n'est pas actif!!!");
-                return;
+        try {
+            // TODO add your handling code here:
+            String id_ = id.getText();
+            String pass = password.getText();
+            //if (!pass.isEmpty() && !id_.isEmpty() && Personne.login(id_, pass) && Personne.getPoste() == 1) {
+            if (!pass.isEmpty() && !id_.isEmpty() && Personne.login(id_, pass) && Personne.getPoste() == 1) {
+                if (!Account.isActive(id_)) {
+                    JOptionPane.showMessageDialog(this, "votre compte n'est pas actif!!!");
+                    return;
+                }
+                //int type = Personne.getPoste(); //1 for client 2 for cashier 3 for director
+                new Accueil().setVisible(true);
+                topFrameDispose();
+                
+            } else {
+                JOptionPane.showMessageDialog(this, "Error, numero de compte ou mot de passe incorrect");
             }
-            //int type = Personne.getPoste(); //1 for client 2 for cashier 3 for director
-            new Accueil().setVisible(true);
-            topFrameDispose();
-
-        } else {
-            JOptionPane.showMessageDialog(this, "Error, numero de compte ou mot de passe incorrect");
+        } catch (SQLException ex) {
+            Logger.getLogger(Connecter.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_connecterMouseClicked
 
