@@ -147,7 +147,7 @@ public class Virement extends javax.swing.JPanel {
             float montant = Float.parseFloat(mnt.getText());
             String mot = motif.getText();
 
-            if (Account.isActive(numCompte) && Long.parseLong(numCompte) != (long) Account.getNumAccount()) {
+            if (Account.AccountActive(numCompte) && Long.parseLong(numCompte) != (long) Account.getNumAccount()) {
                 if (montant > 0) {
                     // tous les données sont valides
                     // verifier que le client à le solde pour effectuer le virement
