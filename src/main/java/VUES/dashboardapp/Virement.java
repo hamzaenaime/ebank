@@ -154,7 +154,7 @@ public class Virement extends javax.swing.JPanel {
                     if (Account.getSolde() >= montant) {// if le client a le solde on finalise l'operation
                         if (confirm()) {
                             ClientOperation.createClientOperation((int) Account.getNumAccount(), Integer.parseInt(numCompte), mot, montant);
-                            JOptionPane.showMessageDialog(this, "Virement effectué", "Opération terminée", JOptionPane.ERROR_MESSAGE);
+                            JOptionPane.showMessageDialog(this, "Virement effectué", "Opération terminée", JOptionPane.INFORMATION_MESSAGE);
                         }
                     } else {
                         JOptionPane.showMessageDialog(this,

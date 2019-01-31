@@ -36,6 +36,9 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="2" green="2" red="2" type="rgb"/>
+        </Property>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JPanel(){&#xa;&#xa;    public void paintComponent(Graphics g){&#xa;        ImageIcon img = new ImageIcon(&quot;releve.png&quot;);&#xa;        Image i = img.getImage();&#xa;&#xa;        g.drawImage(i, 0, 0, this.getSize().width,this.getSize().height,this);&#xa;    }&#xa;&#xa;}"/>

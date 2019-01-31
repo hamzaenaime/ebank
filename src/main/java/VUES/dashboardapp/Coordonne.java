@@ -99,6 +99,7 @@ public class Coordonne extends javax.swing.JPanel {
         adresse.setText("adresse");
 
         jButton1.setBackground(new java.awt.Color(4, 96, 96));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Save change");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

@@ -60,6 +60,7 @@ public class changePassword extends javax.swing.JPanel {
         jLabel5.setText("NB : Votre mot de passe ne doit pas contenir des chiffres.");
 
         jButton2.setBackground(new java.awt.Color(4, 96, 96));
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Valider");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -156,7 +157,7 @@ public class changePassword extends javax.swing.JPanel {
                     //set the new pass
                     if (Client.updatePassword(newPass.getText())) {
                         //password updated successfully
-                        JOptionPane.showMessageDialog(this, "Votre mot de passe a été modifiée", "", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(this, "Votre mot de passe a été modifiée", "", JOptionPane.INFORMATION_MESSAGE);
                     } else {
                         //eched de maj de mot de pass
                         JOptionPane.showMessageDialog(this, "Echec de mise a jour du mot de passe", "", JOptionPane.WARNING_MESSAGE);

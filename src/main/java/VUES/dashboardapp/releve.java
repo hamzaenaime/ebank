@@ -72,6 +72,7 @@ public class releve extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setForeground(new java.awt.Color(2, 2, 2));
 
         txtPath.setBackground(new java.awt.Color(4, 96, 96));
         txtPath.setForeground(new java.awt.Color(51, 51, 51));
