@@ -56,6 +56,7 @@ public class Operations extends javax.swing.JPanel {
         jLabel1.setText("au");
 
         jButton1.setBackground(new java.awt.Color(4, 96, 96));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("generer");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -68,7 +69,6 @@ public class Operations extends javax.swing.JPanel {
             }
         });
 
-        jTable1.setBackground(new java.awt.Color(255, 255, 255));
         jTable1.setModel(new OperationTable(Operation.getAllOperation(Client.getCin())));
         jTable1.setColumnSelectionAllowed(true);
         jTable1.setGridColor(new java.awt.Color(255, 255, 255));

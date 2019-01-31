@@ -13,7 +13,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.lang.NullPointerException;
 /**
  *
  * @author hamza
@@ -23,10 +22,9 @@ public class Account {
     private static Connection connection;
     private static Statement st;
     private static long numAccount;
-    private static Dao dao = new Dao();
-
+    
     public Account() {
-        connection = dao.getConnection();
+        connection = Dao.getConnection();
         try {
             st = connection.createStatement();
             ResultSet res = st.executeQuery("select numcompte from client where id= '" + Client.getCin() + "'");

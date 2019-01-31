@@ -40,8 +40,7 @@ public class Personne {
     protected static Statement st;
 
     public static boolean login(String id, String password) throws SQLException {
-        Dao doa = new Dao();
-        conn = doa.getConnection();
+        conn = Dao.getConnection();
         Statement p = conn.createStatement();
         String req = "select * from personne where cin='" + id + "'and password='" + password + "'";
         ResultSet res = p.executeQuery(req);
@@ -79,7 +78,7 @@ public class Personne {
         }
     }
 
-    public static void createPersonne(String cin, String nom, String prenom, String date_naissance, String address, String ville, String tel, String email, String password, String title, String profession) throws SQLException, ParseException {
+    public static void createPersonne(String cin, String nom, String prenom, String date_naissance, String address, String ville, String tel, String email, String password, String title) throws SQLException, ParseException {
         conn = Dao.getConnection();
         String req = "insert into personne (cin,nom,prenom,date_naissance,address,ville,tel,email,password,title,last_login)"
                 + "values (?,?,?,?,?,?,?,?,?,?::titleenum,now())";

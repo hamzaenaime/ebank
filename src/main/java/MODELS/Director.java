@@ -43,10 +43,8 @@ public class Director extends Employe {
     //createPersonne() {
 
     public static void addEmploye(String cin, String nom, String prenom, String date_naissance, String address, String ville, String tel, String email, String password, String title, String agance, String salaire) throws EmployeException, SQLException, ParseException {
-//        dao = new Dao();
-//        con = dao.getConnection();
         if (!Personne.cinExist(cin)) {
-            Personne.createPersonne(cin, nom, prenom, date_naissance, address, ville, tel, email, password, title, "");
+            Personne.createPersonne(cin, nom, prenom, date_naissance, address, ville, tel, email, password, title);
             System.out.println(" executed");
         }
         Employe.addEmployee(cin, cin, agance, salaire);
