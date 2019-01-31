@@ -36,14 +36,10 @@ public class Client extends Personne {
         }
     }    
     */
-    public static void createClient(String cin, String nom, String prenom, String date_naissance, String address, String ville, String tel, String email, String password, String profession, String title, long numAccount) throws SQLException {
-        try{
-            createPersonne(cin, nom, prenom, date_naissance, address, ville, tel, email, password, title, profession);
-            st = conn.createStatement();
-            st.executeUpdate("insert into client values ('" + cin + "','" + numAccount + "')");
-        } catch (ParseException ex) {
-            JOptionPane.showInputDialog("Erreur lors de création du compte");
-        }
+    public static void createClient(String cin, String nom, String prenom, String date_naissance, String address, String ville, String tel, String email, String password, String title, long numAccount) throws SQLException, ParseException {
+        createPersonne(cin, nom, prenom, date_naissance, address, ville, tel, email, password, title);
+        st = conn.createStatement();
+        st.executeUpdate("insert into client values ('" + cin + "','" + numAccount + "')");
     }
 
     public static void createClient(long numAccount) throws SQLException, ParseException {

@@ -57,6 +57,7 @@ public class Virement extends javax.swing.JPanel {
         jLabel3.setText("* Indique un champ obligatoire");
 
         valider.setBackground(new java.awt.Color(4, 96, 96));
+        valider.setForeground(new java.awt.Color(255, 255, 255));
         valider.setText("Valider");
         valider.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -146,7 +147,7 @@ public class Virement extends javax.swing.JPanel {
             float montant = Float.parseFloat(mnt.getText());
             String mot = motif.getText();
 
-            if (Account.AccountExist(numCompte) && Integer.parseInt(numCompte) != (int) Account.getNumAccount()) {
+            if (Account.isActive(numCompte) && Long.parseLong(numCompte) != (long) Account.getNumAccount()) {
                 if (montant > 0) {
                     // tous les données sont valides
                     // verifier que le client à le solde pour effectuer le virement

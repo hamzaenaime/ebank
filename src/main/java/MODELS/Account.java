@@ -13,7 +13,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.lang.NullPointerException;
 /**
  *
  * @author hamza
@@ -23,10 +22,10 @@ public class Account {
     private static Connection connection;
     private static Statement st;
     private static long numAccount;
-    private static Dao dao = new Dao();
-
+    private Dao Dao = new Dao();
+    
     public Account() {
-        connection = dao.getConnection();
+        connection = Dao.getConnection();
         try {
             st = connection.createStatement();
             ResultSet res = st.executeQuery("select numcompte from client where id= '" + Client.getCin() + "'");
@@ -47,21 +46,6 @@ public class Account {
                 return numAccount;
             }
         return 0;
-    }
-
-    public static Boolean AccountExist(String cin) {
-        connection = Dao.getConnection();
-        String req = "select * from compte cp inner join client cl on cp.numcompte=cl.numcompte where cl.id='" + cin + "' and active is true";
-        try {
-            st = connection.createStatement();
-            ResultSet res = st.executeQuery(req);
-            if (res.next()) {
-                return true;
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Account.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return false;
     }
 
     public static Boolean isActive(String cin) {
