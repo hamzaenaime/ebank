@@ -36,16 +36,12 @@ public class Demandes extends javax.swing.JPanel implements ListSelectionListene
     public void afficher() {
         ResultSet res;
         res = Employe.getDemandes();
-        try {
-            if (res.next()) {
-                demandes.removeAll();
-                EmployeeTable employeModel = new EmployeeTable(res);
-                demandes.setModel(employeModel);
-            } else {
-                new javax.swing.JOptionPane("error");
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Demandes.class.getName()).log(Level.SEVERE, null, ex);
+        if (res != null) {
+            demandes.removeAll();
+            EmployeeTable employeModel = new EmployeeTable(res);
+            demandes.setModel(employeModel);
+        } else {
+            new javax.swing.JOptionPane("error");
         }
 
     }

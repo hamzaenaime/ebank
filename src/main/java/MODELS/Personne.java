@@ -40,25 +40,26 @@ public class Personne {
     protected static Statement st;
 
     public static boolean login(String id, String password) throws SQLException {
-            conn = Dao.getConnection();
-            Statement p = conn.createStatement();
-            String req = "select * from personne where cin='" + id + "'and password='" + password + "'";
-            ResultSet res = p.executeQuery(req);
-            if (res.next()) {
-                cin = res.getString("cin");
-                nom = res.getString("nom");
-                prenom = res.getString("prenom");
-                date_naissance = res.getString("date_naissance");
-                address = res.getString("address");
-                ville = res.getString("ville");
-                tel = res.getString("tel");
-                email = res.getString("email");
-                title = res.getString("title");
-                date_creation = res.getString("date_creation");
-                last_login = res.getString("last_login");
-                login = true;
-                return true;
-            }
+        Dao doa = new Dao();
+        conn = doa.getConnection();
+        Statement p = conn.createStatement();
+        String req = "select * from personne where cin='" + id + "'and password='" + password + "'";
+        ResultSet res = p.executeQuery(req);
+        if (res.next()) {
+            cin = res.getString("cin");
+            nom = res.getString("nom");
+            prenom = res.getString("prenom");
+            date_naissance = res.getString("date_naissance");
+            address = res.getString("address");
+            ville = res.getString("ville");
+            tel = res.getString("tel");
+            email = res.getString("email");
+            title = res.getString("title");
+            date_creation = res.getString("date_creation");
+            last_login = res.getString("last_login");
+            login = true;
+            return true;
+        }
         return false;
     }
 
@@ -82,40 +83,40 @@ public class Personne {
         conn = Dao.getConnection();
         String req = "insert into personne (cin,nom,prenom,date_naissance,address,ville,tel,email,password,title,last_login)"
                 + "values (?,?,?,?,?,?,?,?,?,?::titleenum,now())";
-            Date formate = new SimpleDateFormat("yyyy-MM-dd").parse(date_naissance);
-            java.sql.Date aDate = new java.sql.Date(formate.getTime());
-            PreparedStatement prep = conn.prepareStatement(req);
-            prep.setString(1, cin);
-            prep.setString(2, nom);
-            prep.setString(3, prenom);
-            prep.setDate(4, aDate);
-            prep.setString(5, address);
-            prep.setString(6, ville);
-            prep.setString(7, tel);
-            prep.setString(8, email);
-            prep.setString(9, password);
-            prep.setString(10, title);
-            prep.execute();        
+        Date formate = new SimpleDateFormat("yyyy-MM-dd").parse(date_naissance);
+        java.sql.Date aDate = new java.sql.Date(formate.getTime());
+        PreparedStatement prep = conn.prepareStatement(req);
+        prep.setString(1, cin);
+        prep.setString(2, nom);
+        prep.setString(3, prenom);
+        prep.setDate(4, aDate);
+        prep.setString(5, address);
+        prep.setString(6, ville);
+        prep.setString(7, tel);
+        prep.setString(8, email);
+        prep.setString(9, password);
+        prep.setString(10, title);
+        prep.execute();
     }
-    
+
     public static void createPersonne() throws ParseException, SQLException {
         conn = Dao.getConnection();
         String req = "insert into personne (cin,nom,prenom,date_naissance,address,ville,tel,email,password,title,last_login)"
                 + "values (?,?,?,?,?,?,?,?,?,?::titleenum,now())";
-            Date formate = new SimpleDateFormat("yyyy-MM-dd").parse(date_naissance);
-            java.sql.Date aDate = new java.sql.Date(formate.getTime());
-            PreparedStatement prep = conn.prepareStatement(req);
-            prep.setString(1, cin);
-            prep.setString(2, nom);
-            prep.setString(3, prenom);
-            prep.setDate(4, aDate);
-            prep.setString(5, address);
-            prep.setString(6, ville);
-            prep.setString(7, tel);
-            prep.setString(8, email);
-            prep.setString(9, password);
-            prep.setString(10, title);
-            prep.execute();
+        Date formate = new SimpleDateFormat("yyyy-MM-dd").parse(date_naissance);
+        java.sql.Date aDate = new java.sql.Date(formate.getTime());
+        PreparedStatement prep = conn.prepareStatement(req);
+        prep.setString(1, cin);
+        prep.setString(2, nom);
+        prep.setString(3, prenom);
+        prep.setDate(4, aDate);
+        prep.setString(5, address);
+        prep.setString(6, ville);
+        prep.setString(7, tel);
+        prep.setString(8, email);
+        prep.setString(9, password);
+        prep.setString(10, title);
+        prep.execute();
     }
 
     public static int getPoste() {
@@ -309,13 +310,13 @@ public class Personne {
     public static void setTel(String tel) {
         Personne.tel = tel;
     }
-    
+
     public static void setTitle(String title_) {
-      Personne.title=title;
+        Personne.title = title;
     }
-    
+
     public static void setCin(String cin_) {
-      Personne.cin=cin_;
+        Personne.cin = cin_;
     }
 
     public static boolean setAdresse(String address) {
