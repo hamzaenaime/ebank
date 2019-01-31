@@ -114,10 +114,13 @@ public class RegistreStep1 extends javax.swing.JPanel {
             }
         });
 
-        title.setBackground(new java.awt.Color(255, 255, 255));
-        title.setForeground(new java.awt.Color(2, 2, 2));
+        title.setBackground(new java.awt.Color(4, 69, 69));
+        title.setForeground(new java.awt.Color(255, 255, 255));
         title.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M.", "Mme", "Mlle" }));
         title.setToolTipText("");
+        title.setAlignmentX(0.0F);
+        title.setAlignmentY(0.0F);
+        title.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

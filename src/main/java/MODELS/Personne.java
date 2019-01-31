@@ -120,16 +120,17 @@ public class Personne {
     }
 
     public static int getPoste() {
-        if (isDirector()) {
+        if (isClient()) {
+            new Client();
+            return 1;
+        } else if (isDirector()) {
             new Director();
             return 3;
         } else if (isEmploye()) {
             new Employe();
             return 2;
-        } else {
-            new Client();
-            return 1;//isClient for sure
         }
+        return 0;
     }
 
     public static String getNomPrenom(String cin) throws SQLException {
@@ -148,6 +149,23 @@ public class Personne {
         //no table for directors
         //in table agence there is a field id_director to identify director from employee 
         String req = "select * from agence where id_directeur='" + cin + "'";
+        conn = Dao.getConnection();
+        try {
+            Statement st = conn.createStatement();
+            ResultSet res = st.executeQuery(req);
+            if (res.next()) {
+                return true;
+            }
+        } catch (SQLException ex) {
+            return false;
+        }
+        return false;
+    }
+
+    public static boolean isClient() {
+        //no table for directors
+        //in table agence there is a field id_director to identify director from employee
+        String req = "select * from client where id='" + cin + "'";
         conn = Dao.getConnection();
         try {
             Statement st = conn.createStatement();
