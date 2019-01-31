@@ -252,12 +252,12 @@ public class RegistreStep3 extends javax.swing.JPanel {
                     //verification si le mot de passe entrer contient que les chifres
                     if (password.getText().matches("[0-9]+")) {
                         Personne.setPassword(password.getText());
-                        try{
+                        try {
                             long numAccount = Account.createAccount();
                             createClient(numAccount);
                             JOptionPane.showMessageDialog(this, "Votre compte a été crée avec success", "Success", JOptionPane.INFORMATION_MESSAGE);
-                            topFrameDispose();
-                        }catch(SQLException|ParseException ex){
+
+                        } catch (SQLException | ParseException ex) {
                             JOptionPane.showInputDialog("Erreur lors de création du compte");
                         }
                         //new SendEmail(cin_, "Creation d'un compte", "votre demande de Creer un compte e été envoyer avec succès\n nous allons vous contacter le plutot possible");
@@ -276,6 +276,7 @@ public class RegistreStep3 extends javax.swing.JPanel {
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
+
     public String getPath() {
         JFileChooser chooser = new JFileChooser();
         //chooser.setCurrentDirectory(new java.io.File("."));
@@ -285,7 +286,7 @@ public class RegistreStep3 extends javax.swing.JPanel {
         chooser.setFileFilter(imageFilter);
         chooser.setDialogTitle("Choisir CIN");
         chooser.setAcceptAllFileFilterUsed(false);
-        if(chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+        if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
             //System.out.println("getCurrentDirectory(): "+  chooser.getCurrentDirectory());
             //System.out.println("getSelectedFile() : " + chooser.getSelectedFile());
             return chooser.getSelectedFile().getAbsolutePath();

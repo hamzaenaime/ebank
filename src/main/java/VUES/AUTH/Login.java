@@ -197,7 +197,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(Indicator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
-                .addGap(0, 113, Short.MAX_VALUE))
+                .addGap(0, 130, Short.MAX_VALUE))
         );
         connectLayout.setVerticalGroup(
             connectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,7 +208,7 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(connect, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 175, 232, -1));
+        jPanel1.add(connect, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 175, 230, -1));
 
         create.setBackground(new java.awt.Color(15, 122, 122));
         create.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -244,7 +244,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(Indicator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(registre)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
         createLayout.setVerticalGroup(
             createLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,7 +255,7 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(create, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 232, 50));
+        jPanel1.add(create, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 230, 50));
 
         Button4.setBackground(new java.awt.Color(252, 230, 252));
         Button4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
