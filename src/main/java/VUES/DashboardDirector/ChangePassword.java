@@ -51,7 +51,7 @@ public class ChangePassword extends javax.swing.JPanel {
 
         jLabel4.setText("* Indique un champ obligatoire ");
 
-        jLabel5.setText("NB : Votre mot de passe ne doit pas contenir des chiffres.");
+        jLabel5.setText("NB : Votre mot de passe ne doit  contenir que des chiffres.");
 
         jButton2.setBackground(new java.awt.Color(4, 96, 96));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
@@ -67,7 +67,6 @@ public class ChangePassword extends javax.swing.JPanel {
             }
         });
 
-        oldPass.setBackground(new java.awt.Color(255, 255, 255));
         oldPass.setForeground(new java.awt.Color(2, 2, 2));
         oldPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,10 +74,8 @@ public class ChangePassword extends javax.swing.JPanel {
             }
         });
 
-        cPass.setBackground(new java.awt.Color(255, 255, 255));
         cPass.setForeground(new java.awt.Color(2, 2, 2));
 
-        newPass.setBackground(new java.awt.Color(255, 255, 255));
         newPass.setForeground(new java.awt.Color(2, 2, 2));
 
         jLabel6.setText("Changement de mot de passe");
