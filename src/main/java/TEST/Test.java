@@ -12,7 +12,7 @@ public class Test
 {
    
   public static void main(String s[]){
-      new SendEmail("ayoub10hamaoui@gmail.com","M.","Ayoub","Hamaoui",1);
+      new SendEmail("ayoub10hamaoui@gmail.com","Hamaoui","Ayoub","test123456","Ayoubh");
 
     }
 }
