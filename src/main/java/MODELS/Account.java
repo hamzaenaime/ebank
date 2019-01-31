@@ -22,6 +22,7 @@ public class Account {
     private static Connection connection;
     private static Statement st;
     private static long numAccount;
+    private Dao Dao = new Dao();
     
     public Account() {
         connection = Dao.getConnection();
@@ -45,21 +46,6 @@ public class Account {
                 return numAccount;
             }
         return 0;
-    }
-
-    public static Boolean AccountExist(String cin) {
-        connection = Dao.getConnection();
-        String req = "select * from compte cp inner join client cl on cp.numcompte=cl.numcompte where cl.id='" + cin + "' and active is true";
-        try {
-            st = connection.createStatement();
-            ResultSet res = st.executeQuery(req);
-            if (res.next()) {
-                return true;
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Account.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return false;
     }
 
     public static Boolean isActive(String cin) {

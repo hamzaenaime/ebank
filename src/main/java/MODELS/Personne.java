@@ -38,7 +38,9 @@ public class Personne {
     protected static Connection conn;
     protected static boolean login;
     protected static Statement st;
-
+    private static Dao Dao = new Dao();
+    
+    
     public static boolean login(String id, String password) throws SQLException {
         conn = Dao.getConnection();
         Statement p = conn.createStatement();
