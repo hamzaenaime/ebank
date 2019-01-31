@@ -21,14 +21,14 @@ public class RegistreStep2 extends javax.swing.JPanel {
      */
     public RegistreStep2() {
         initComponents();
-        sendAnSMS();
     }
 
     public void sendAnSMS() {
         int code = (int) (Math.random() * 10000);
         State.setCheck(code);
         System.out.println(code);
-        SendSMS sms = new SendSMS("+212" + Personne.getTel().substring(1, 10), "code de verification est : " + code);
+        String num = Personne.getTel().substring(1, 10);
+        SendSMS sms = new SendSMS("+212" + num, "code de verification est : " + code);
     }
 
     public Boolean codeValid() {

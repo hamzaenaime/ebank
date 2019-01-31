@@ -518,6 +518,7 @@ public class Login extends javax.swing.JFrame {
     private void suivantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suivantActionPerformed
         // TODO add your handling code here:
         if (container.getComponent(container.getComponentCount() - 1).equals(registreStep1) && registreStep1.getInfos()) {
+            registreStep2.sendAnSMS();
             container.removeAll();
             container.add(registreStep2);
             step2.enable();

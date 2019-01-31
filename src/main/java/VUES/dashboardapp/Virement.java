@@ -178,20 +178,19 @@ public class Virement extends javax.swing.JPanel {
     public int sendAnSMS() {
         int code = (int) (Math.random() * 10000);
         State.setCheck(code);
-        System.out.println(code);
         SendSMS sms = new SendSMS("+212" + Personne.getTel().substring(1, 10), "code de verification est : " + code);
         return code;
     }
 
     public boolean confirm() {
         int code = sendAnSMS();
-        int codeInput = Integer.parseInt(JOptionPane.showInputDialog(this, "Entrer le code de confirmation :"));
-        if (codeInput == code) {
-            return true;
-        } else {
-            confirm();
-        }
-        return false;
+        int codeInput;
+
+        do {
+            codeInput = Integer.parseInt(JOptionPane.showInputDialog(this, "Entrer le code de confirmation :"));
+        } while (codeInput != code);
+
+        return true;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
