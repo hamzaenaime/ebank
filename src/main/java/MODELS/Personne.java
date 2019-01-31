@@ -39,8 +39,7 @@ public class Personne {
     protected static boolean login;
     protected static Statement st;
     private static Dao Dao = new Dao();
-    
-    
+
     public static boolean login(String id, String password) throws SQLException {
         conn = Dao.getConnection();
         Statement p = conn.createStatement();
@@ -195,7 +194,7 @@ public class Personne {
     }
 
     public static boolean cinMatchTel(String cin, String tel) {
-        String req = "select * from Personne where cin ='" + cin + "' and tel='0" + tel + "'";
+        String req = "select * from Personne where cin ='" + cin + "' and tel='" + tel + "'";
         conn = Dao.getConnection();
         try {
             st = conn.createStatement();
