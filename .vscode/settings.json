@@ -13,5 +13,6 @@
     "background-size": "auto 100%",
     "background-repeat": "no-repeat",
     "opacity": 0.5
-  }
+  },
+  "java.configuration.updateBuildConfiguration": "automatic"
 }

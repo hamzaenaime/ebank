@@ -190,7 +190,6 @@ public class Personne {
         } catch (SQLException ex) {
             Logger.getLogger(Account.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println(cin + " not exist");
         return false;
     }
 
