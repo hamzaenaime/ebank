@@ -21,8 +21,9 @@ public class RegistreStep1 extends javax.swing.JPanel {
     public RegistreStep1() {
         initComponents();
         setFields();
+        title.setSelectedItem("M.");
     }
-    
+
     private void setFields() {
         nom.setText(Personne.getNom());
         prenom.setText(Personne.getPrenom());
@@ -30,7 +31,7 @@ public class RegistreStep1 extends javax.swing.JPanel {
         cin1.setText(Personne.getCin());
         title.setSelectedItem(Personne.getTitle());
     }
-    
+
     public Boolean getInfos() {
         // if the function .getText() is used multitime store the returned value to
         // reduce execution time
@@ -39,24 +40,22 @@ public class RegistreStep1 extends javax.swing.JPanel {
         String tel = telephone.getText();
         String title_ = title.getSelectedItem().toString();
         String cin_ = cin1.getText();
-        
+
         if (Personne.cinExist(cin_)) {
             cinError.setText("Vous avez déja un compte ");
         } else {
             cinError.setText("");
             if (!nom_.isEmpty() && !prenom_.isEmpty() && tel.length() == 10) {
-                System.out.println(title.getSelectedItem().toString());
                 Client.setNom(nom_);
                 Client.setPrenom(prenom_);
                 Client.setTel(tel);
                 Client.setTitle(title_);
                 Client.setCin(cin_);
                 return true;
-            } else {
-                JOptionPane.showMessageDialog(this, "verifier que vous avez rempli les champs correctement!",
-                        "Input invalide", JOptionPane.WARNING_MESSAGE);
             }
         }
+        JOptionPane.showMessageDialog(this, "verifier que vous avez rempli les champs correctement!",
+                "Input invalide", JOptionPane.WARNING_MESSAGE);
         return false;
     }
 
@@ -118,6 +117,7 @@ public class RegistreStep1 extends javax.swing.JPanel {
         title.setBackground(new java.awt.Color(255, 255, 255));
         title.setForeground(new java.awt.Color(2, 2, 2));
         title.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M.", "Mme", "Mlle" }));
+        title.setToolTipText("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

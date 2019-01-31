@@ -42,6 +42,7 @@ public class Login extends javax.swing.JFrame {
         steps();
         container.setLayout(new FlowLayout());
         container.add(connecter);
+
     }
 
     private void steps() {
@@ -151,7 +152,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(Indicator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(passwordReset)
-                .addGap(0, 45, Short.MAX_VALUE))
+                .addGap(0, 81, Short.MAX_VALUE))
         );
         resetLayout.setVerticalGroup(
             resetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,7 +163,7 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 232, 50));
+        jPanel1.add(reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 230, 50));
 
         connect.setBackground(new java.awt.Color(0, 18, 18));
         connect.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
