@@ -22,14 +22,15 @@ public class RegistreStep1 extends javax.swing.JPanel {
         initComponents();
         setFields();
     }
-
+    
     private void setFields() {
         nom.setText(Personne.getNom());
         prenom.setText(Personne.getPrenom());
         telephone.setText(Personne.getTel());
         cin1.setText(Personne.getCin());
+        title.setSelectedItem(Personne.getTitle());
     }
-
+    
     public Boolean getInfos() {
         // if the function .getText() is used multitime store the returned value to
         // reduce execution time
@@ -38,7 +39,7 @@ public class RegistreStep1 extends javax.swing.JPanel {
         String tel = telephone.getText();
         String title_ = title.getSelectedItem().toString();
         String cin_ = cin1.getText();
-
+        
         if (Personne.cinExist(cin_)) {
             cinError.setText("Vous avez déja un compte ");
         } else {
