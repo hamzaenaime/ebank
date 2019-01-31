@@ -7,7 +7,6 @@ package VUES.DashboardDirector;
 
 import MODELS.Employe;
 import MODELS.Personne;
-import MODELS.SendEmail;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -156,11 +155,11 @@ public class ReclamationInfos extends javax.swing.JFrame {
                         .addGap(120, 120, 120))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton2)
                                 .addGap(33, 33, 33)
-                                .addComponent(jButton1))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jButton1)))
                         .addGap(22, 22, 22))))
         );
         layout.setVerticalGroup(

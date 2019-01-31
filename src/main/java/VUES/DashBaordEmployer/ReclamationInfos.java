@@ -7,8 +7,6 @@ package VUES.DashBaordEmployer;
 
 import MODELS.Employe;
 import MODELS.Personne;
-import MODELS.SendEmail;
-import java.security.acl.Owner;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,7 +22,7 @@ public class ReclamationInfos extends javax.swing.JFrame {
      */
     String reclaId;
 
-    public ReclamationInfos(String id, String reclaOwner, String ob, String desc, String d){
+    public ReclamationInfos(String id, String reclaOwner, String ob, String desc, String d) {
         this();
         String ow;
         try {
@@ -37,7 +35,7 @@ public class ReclamationInfos extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(ReclamationInfos.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     public ReclamationInfos() {
@@ -148,7 +146,7 @@ public class ReclamationInfos extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(jLabel4)
                             .addComponent(jLabel5))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,11 +157,11 @@ public class ReclamationInfos extends javax.swing.JFrame {
                         .addGap(120, 120, 120))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton2)
                                 .addGap(33, 33, 33)
-                                .addComponent(jButton1))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jButton1)))
                         .addGap(22, 22, 22))))
         );
         layout.setVerticalGroup(
