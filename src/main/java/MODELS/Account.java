@@ -22,7 +22,7 @@ public class Account {
     private static Connection connection;
     private static Statement st;
     private static long numAccount;
-    private Dao Dao = new Dao();
+    private static Dao Dao = new Dao();
     
     public Account() {
         connection = Dao.getConnection();
