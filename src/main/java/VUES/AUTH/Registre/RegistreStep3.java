@@ -7,10 +7,14 @@ package VUES.AUTH.Registre;
 
 import MODELS.Account;
 import static MODELS.Client.createClient;
+import MODELS.Img;
 import MODELS.MailBoxLayer;
 import MODELS.Personne;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -254,11 +258,15 @@ public class RegistreStep3 extends javax.swing.JPanel {
                         Personne.setPassword(password.getText());
                         try{
                             long numAccount = Account.createAccount();
+                            Img.store(c1Path.getText(), Personne.getCin());
+                            Img.store(c2Path.getText(), Personne.getCin());
                             createClient(numAccount);
                             JOptionPane.showMessageDialog(this, "Votre compte a été crée avec success", "Success", JOptionPane.INFORMATION_MESSAGE);
                             topFrameDispose();
                         }catch(SQLException|ParseException ex){
-                            JOptionPane.showInputDialog("Erreur lors de création du compte");
+                            JOptionPane.showMessageDialog(this, "Erreur lors de création de compte", "fatal erreur", JOptionPane.ERROR_MESSAGE);
+                        } catch (IOException ex) {
+                            Logger.getLogger(RegistreStep3.class.getName()).log(Level.SEVERE, null, ex);
                         }
                         //new SendEmail(cin_, "Creation d'un compte", "votre demande de Creer un compte e été envoyer avec succès\n nous allons vous contacter le plutot possible");
                     } else {
