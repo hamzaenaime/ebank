@@ -5,9 +5,7 @@
  */
 package MODELS;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.LinkedHashMap;
 import java.util.Properties;
 import javax.activation.DataHandler;
@@ -46,7 +44,7 @@ public class SendEmail {
         this.subject = subject;
         Ct = new LinkedHashMap<>();
         /* Populate */
-        Ct.put("Réclamation,", "Nous avons bien reçu votre réclamation du " + new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime()) + " relatif à une erreur dans notre application.\n"
+        Ct.put("Réclamation,", "Nous avons bien reçu votre réclamation  relatif à une erreur dans notre application.\n"
                 + " Nous sommes désolés de cet incident et nous vous prions de bien vouloir nous en excuser. \n"
                 + " Nous tenons à vous remercier de votre confiance et à vous assurer que nous prenons des mesures auprès de notre société pour nous assurer que ce problème ne se reproduise plus.\n"
                 + " Nous vous prions de croire, Madame, Monsieur, à l’assurance de nos sentiments les meilleurs.");
@@ -969,6 +967,10 @@ public class SendEmail {
                 + "</html>";
 
         return Body;
+    }
+
+    public static void main(String a[]) {
+        new SendEmail("hamzaenaime1997@gmail.com", "M.", "enaime", "hamza", 1);
     }
 
 }

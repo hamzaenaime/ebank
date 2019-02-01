@@ -23,9 +23,15 @@ public class ReclamationInfos extends javax.swing.JFrame {
      */
     String reclaId;
 
+    String ow;
+    String email;
+
     public ReclamationInfos(String id, String reclaOwner, String ob, String desc, String d) {
         this();
         try {
+
+            ow = Personne.getNomPrenom(reclaOwner);
+            email = Personne.getEmail(reclaOwner);
             String ow = Personne.getNomPrenom(reclaOwner);
             owner.setText(ow);
             objet.setText(ob);
@@ -152,7 +158,7 @@ public class ReclamationInfos extends javax.swing.JFrame {
                                             .addGap(238, 238, 238)
                                             .addComponent(objet))))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
-                .addGap(36, 36, 36)
+                .addGap(45, 45, 45)
                 .addComponent(jButton2)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
@@ -172,12 +178,12 @@ public class ReclamationInfos extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(date)
                     .addComponent(jLabel4))
-                .addGap(18, 129, Short.MAX_VALUE)
+                .addGap(18, 100, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(traiter, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -197,8 +203,7 @@ public class ReclamationInfos extends javax.swing.JFrame {
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
-        String email = Personne.getEmail();
-        new SendEmail(email, Personne.getTitle(), Personne.getNom(), Personne.getPrenom(), 0);
+        new SendEmail(email, Personne.getTitle(), ow, "", 0);
         Employe.ReclamationTraiter(reclaId);
         dispose();
     }//GEN-LAST:event_jButton2MouseClicked

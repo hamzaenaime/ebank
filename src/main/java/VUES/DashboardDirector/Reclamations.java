@@ -105,7 +105,7 @@ public class Reclamations extends javax.swing.JPanel implements ListSelectionLis
             if (traiter.equals("false")) {
                 new VUES.DashBaordEmployer.ReclamationInfos(id, owner, objet, description, date).setVisible(true);
             } else {
-                JOptionPane.showMessageDialog(this, "Reclamation Deja Traiter \n", "Message", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Reclamation Déja Traiter \n", "Message", JOptionPane.INFORMATION_MESSAGE);
             }
         }
     }

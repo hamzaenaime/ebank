@@ -136,13 +136,12 @@ public class Personne {
     public static String getNomPrenom(String cin) throws SQLException {
         conn = Dao.getConnection();
         String req = "select * from personne where cin='" + cin + "'";
-        String nomprenom = "";
         st = conn.createStatement();
         ResultSet res = st.executeQuery(req);
-        if (res.next()) {
+        if (res != null) {
             return res.getString(2) + " " + res.getString(3);
         }
-        return "nothing";
+        return "";
     }
 
     public static boolean isDirector() {

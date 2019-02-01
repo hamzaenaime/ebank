@@ -7,6 +7,7 @@ package VUES.DashBaordEmployer;
 
 import MODELS.Account;
 import MODELS.Img;
+import MODELS.SendEmail;
 import java.awt.Image;
 import java.io.IOException;
 import java.sql.ResultSet;
@@ -400,6 +401,7 @@ public class DemandeInfos extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
         Account.confirmer(num);
+        new SendEmail(email.getText(), "", nom.getText(), prenom.getText(), 1);
         dispose();
         javax.swing.JOptionPane.showMessageDialog(this, "Compte Confirmer");
     }//GEN-LAST:event_jButton1MouseClicked

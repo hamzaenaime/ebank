@@ -22,12 +22,15 @@ public class ReclamationInfos extends javax.swing.JFrame {
      * Creates new form ReclamationInfos
      */
     String reclaId;
+    String ow;
+    String email;
 
     public ReclamationInfos(String id, String reclaOwner, String ob, String desc, String d) {
         this();
         String ow;
         try {
             ow = Personne.getNomPrenom(reclaOwner);
+            email = Personne.getEmail(reclaOwner);
             owner.setText(ow);
             objet.setText(ob);
             description.setText(desc);
@@ -173,12 +176,12 @@ public class ReclamationInfos extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(date))
-                .addGap(30, 141, Short.MAX_VALUE)
+                .addGap(30, 109, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(traiter, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -198,8 +201,7 @@ public class ReclamationInfos extends javax.swing.JFrame {
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
-        String email = Personne.getEmail();
-        new SendEmail(email, Personne.getTitle(), Personne.getNom(), Personne.getPrenom(), 0);
+        new SendEmail(email, Personne.getTitle(), ow, "", 0);
         Employe.ReclamationTraiter(reclaId);
         dispose();
     }//GEN-LAST:event_jButton2MouseClicked
