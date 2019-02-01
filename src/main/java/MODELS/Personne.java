@@ -212,7 +212,8 @@ public class Personne {
 
     public static boolean cinMatchTel(String cin, String tel) {
         String req = "select * from Personne where cin ='" + cin + "' and tel='" + tel + "'";
-        conn = Dao.getConnection();
+        Dao dao = new Dao();
+        conn = dao.getConnection();
         try {
             st = conn.createStatement();
             ResultSet res = st.executeQuery(req);
