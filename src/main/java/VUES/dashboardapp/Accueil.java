@@ -123,7 +123,7 @@ public class Accueil extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Virements");
+        jLabel2.setText("Virer");
 
         javax.swing.GroupLayout Button2Layout = new javax.swing.GroupLayout(Button2);
         Button2.setLayout(Button2Layout);
@@ -133,7 +133,7 @@ public class Accueil extends javax.swing.JFrame {
                 .addComponent(Indicator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addGap(0, 128, Short.MAX_VALUE))
+                .addGap(0, 172, Short.MAX_VALUE))
         );
         Button2Layout.setVerticalGroup(
             Button2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

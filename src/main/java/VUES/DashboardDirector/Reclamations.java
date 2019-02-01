@@ -33,12 +33,9 @@ public class Reclamations extends javax.swing.JPanel implements ListSelectionLis
     public void afficher() {
         ResultSet res;
         res = Employe.getReclamation();
-        if (res != null) {
-            EmployeeTable employeModel = new EmployeeTable(res);
-            reclamations.setModel(employeModel);
-        } else {
-            new javax.swing.JOptionPane("No reclamations");
-        }
+        EmployeeTable employeModel = new EmployeeTable(res);
+        reclamations.setModel(employeModel);
+
     }
 
     /**

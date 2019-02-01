@@ -32,6 +32,7 @@ public class Employe extends Personne {
             st = con.createStatement();
             ResultSet res = st.executeQuery(req);
             return res;
+
         } catch (SQLException ex) {
             Logger.getLogger(Employe.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -46,7 +47,9 @@ public class Employe extends Personne {
         try {
             st = con.createStatement();
             ResultSet res = st.executeQuery(req);
-            return res;
+            if (res != null) {
+                return res;
+            }
         } catch (SQLException ex) {
             Logger.getLogger(Employe.class.getName()).log(Level.SEVERE, null, ex);
         }

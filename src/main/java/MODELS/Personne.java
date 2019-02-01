@@ -138,7 +138,7 @@ public class Personne {
         String req = "select * from personne where cin='" + cin + "'";
         st = conn.createStatement();
         ResultSet res = st.executeQuery(req);
-        if (res != null) {
+        if (res.next()) {
             return res.getString(2) + " " + res.getString(3);
         }
         return "xxx";
@@ -201,7 +201,6 @@ public class Personne {
             st = conn.createStatement();
             ResultSet res = st.executeQuery(req);
             if (res.next()) {
-                System.out.println(cin + " exist");
                 return true;
             }
         } catch (SQLException ex) {

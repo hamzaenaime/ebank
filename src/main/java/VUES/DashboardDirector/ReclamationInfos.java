@@ -32,7 +32,6 @@ public class ReclamationInfos extends javax.swing.JFrame {
 
             ow = Personne.getNomPrenom(reclaOwner);
             email = Personne.getEmail(reclaOwner);
-            String ow = Personne.getNomPrenom(reclaOwner);
             owner.setText(ow);
             objet.setText(ob);
             description.setText(desc);
@@ -122,6 +121,7 @@ public class ReclamationInfos extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(2, 2, 2));
         jLabel4.setText("Date de reclamation :");
 
+        description.setEditable(false);
         description.setBackground(new java.awt.Color(255, 255, 255));
         description.setForeground(new java.awt.Color(2, 2, 2));
         jScrollPane1.setViewportView(description);
