@@ -8,6 +8,7 @@ package VUES.DashboardDirector;
 import Exceptions.EmployeException;
 import MODELS.Director;
 import MODELS.MailBoxLayer;
+import MODELS.SendEmail;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
@@ -389,7 +390,7 @@ public class NewEmployee extends javax.swing.JFrame {
             isTelOk();
             allFieldsSet();
             Director.addEmploye(Cin, Nom, Prenom, date_naissance, Adresse, Ville, Tel, Email, Password, title, Agence, Salaire);
-            // TODO :envoyer login et password a l'employer X via email or sms here
+            new SendEmail(Email, Nom, Prenom, Password, Cin);
             dispose();
 
         } catch (EmployeException ex) {

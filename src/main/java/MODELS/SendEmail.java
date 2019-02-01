@@ -970,7 +970,7 @@ public class SendEmail {
     }
 
     public static void main(String a[]) {
-        new SendEmail("hamzaenaime1997@gmail.com", "M.", "enaime", "hamza", 4);
+        new SendEmail("hamzaenaime1997@gmail.com", "enaime", "hamza", "1234", "id84901");
     }
 
 }
