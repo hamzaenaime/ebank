@@ -290,7 +290,6 @@ public class ReleveBancaire {
         FileOutputStream fos = new FileOutputStream(new File(path + "cp.xlsx"));
         workbook.write(fos);
         fos.close();
-        System.out.println("Done");
 
     }
 
