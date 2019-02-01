@@ -6,6 +6,8 @@
 package VUES.dashboardapp;
 
 import MODELS.Client;
+import MODELS.Personne;
+import MODELS.SendEmail;
 import javax.swing.JOptionPane;
 
 /**
@@ -158,6 +160,7 @@ public class changePassword extends javax.swing.JPanel {
                     if (Client.updatePassword(newPass.getText())) {
                         //password updated successfully
                         JOptionPane.showMessageDialog(this, "Votre mot de passe a été modifiée", "", JOptionPane.INFORMATION_MESSAGE);
+                        new SendEmail(Personne.getEmail(), Personne.getTitle(), Personne.getNom(), Personne.getPrenom(), 4);
                     } else {
                         //eched de maj de mot de pass
                         JOptionPane.showMessageDialog(this, "Echec de mise a jour du mot de passe", "", JOptionPane.WARNING_MESSAGE);

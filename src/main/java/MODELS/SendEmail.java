@@ -52,7 +52,7 @@ public class SendEmail {
         Ct.put("Confirmez votre adresse email,", "Merci pour votre inscription à Ebank. Nous sommes heureux que vous soyez là!\n"
                 + " Entrez le code suivant dans la fenêtre où vous avez commencé à créer votre nouvel espace de travail Ebank:\n");
         Ct.put("Opérations,", "Veuillez trouver ci-joint la liste des opérations.");
-        Ct.put("changement de mot de passe avec succès", "votre demande de changement de mot de passe a été approuvée avec succès");
+        Ct.put("changement de mot de passe Changé avec succès", "changement de mot de passe Changé avec succès");
         Ct.put("Creation d'un compte", "votre demande de Creer un compte e été envoyer avec succès nous allons vous contacter le plutot possible.");
 
         this.to = to;
@@ -970,7 +970,7 @@ public class SendEmail {
     }
 
     public static void main(String a[]) {
-        new SendEmail("hamzaenaime1997@gmail.com", "M.", "enaime", "hamza", 1);
+        new SendEmail("hamzaenaime1997@gmail.com", "M.", "enaime", "hamza", 4);
     }
 
 }

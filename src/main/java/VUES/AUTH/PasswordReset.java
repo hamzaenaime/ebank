@@ -3,7 +3,11 @@ package VUES.AUTH;
 import MODELS.Account;
 import MODELS.Client;
 import MODELS.Personne;
+import MODELS.SendEmail;
 import MODELS.SendSMS;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -259,12 +263,18 @@ public class PasswordReset extends javax.swing.JPanel {
             codeError.setText("");
             if (newPassword.getText().equals(confirmationNewPassword.getText())) {
                 if (newPassword.getText().matches("[0-9]+")) {
-                    error.setText("");
-                    // Reset the password
-                    Personne.passwordReset(cin.getText(), newPassword.getText());
-                    //new SendEmail(Personne.getEmail(cin.getText()), "changement de mot de passe avec succès", "votre demande de changement de mot de passe a été approuvée avec succès\n"
-                    //      + "votre nouveau mot de passe est: " + newPassword.getText());
-                    javax.swing.JOptionPane.showMessageDialog(this, "Mot de passe Modifier !!!");
+                    try {
+                        error.setText("");
+                        // Reset the password
+                        Personne.passwordReset(cin.getText(), newPassword.getText());
+                        //new SendEmail(Personne.getEmail(cin.getText()), "changement de mot de passe avec succès", "votre demande de changement de mot de passe a été approuvée avec succès\n"
+                        //      + "votre nouveau mot de passe est: " + newPassword.getText());
+                        javax.swing.JOptionPane.showMessageDialog(this, "Mot de passe Modifier !!!");
+
+                        new SendEmail(Personne.getEmail(cin.getText()), "", Personne.getNomPrenom(cin.getText()), "", 4);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(PasswordReset.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 } else {
                     error.setText("Mot de pass doit contient que des chifres !!!");
                 }

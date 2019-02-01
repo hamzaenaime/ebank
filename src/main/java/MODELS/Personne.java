@@ -141,7 +141,7 @@ public class Personne {
         if (res != null) {
             return res.getString(2) + " " + res.getString(3);
         }
-        return "";
+        return "xxx";
     }
 
     public static boolean isDirector() {
