@@ -27,7 +27,8 @@ Contributors names and contact info
 * AJAANIT TAOUFIK
 
 ## Version History
-
+* 2.0
+    * After Presentaion
 * 1.0
     * Something To Show To People
 * 0.1
