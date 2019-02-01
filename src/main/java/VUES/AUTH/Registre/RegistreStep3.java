@@ -10,6 +10,7 @@ import static MODELS.Client.createClient;
 import MODELS.Img;
 import MODELS.MailBoxLayer;
 import MODELS.Personne;
+import MODELS.SendEmail;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -276,6 +277,7 @@ public class RegistreStep3 extends javax.swing.JPanel {
                             Img.store(c2Path.getText(), Personne.getCin());
                             JOptionPane.showMessageDialog(this, "Votre compte a été crée avec success", "Success", JOptionPane.INFORMATION_MESSAGE);
                             //envoyer email
+                            new SendEmail(email_, Personne.getTitle(), Personne.getNom(), Personne.getPrenom(), 5);
                         } catch (SQLException | ParseException ex) {
                             JOptionPane.showMessageDialog(this, "Erreur lors de création de compte\n" + ex.getMessage(), "fatal erreur", JOptionPane.ERROR_MESSAGE);
                         } catch (IOException ex) {

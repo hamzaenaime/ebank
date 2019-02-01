@@ -7,6 +7,7 @@ package VUES.DashBaordEmployer;
 
 import MODELS.Employe;
 import MODELS.Personne;
+import MODELS.SendEmail;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -53,7 +54,6 @@ public class ReclamationInfos extends javax.swing.JFrame {
 
         owner = new javax.swing.JLabel();
         objet = new javax.swing.JLabel();
-        description = new javax.swing.JLabel();
         date = new javax.swing.JLabel();
         traiter = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -62,9 +62,8 @@ public class ReclamationInfos extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        description = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Reclamation");
@@ -80,10 +79,6 @@ public class ReclamationInfos extends javax.swing.JFrame {
         objet.setBackground(new java.awt.Color(255, 255, 255));
         objet.setForeground(new java.awt.Color(2, 2, 2));
         objet.setText("jLabel2");
-
-        description.setBackground(new java.awt.Color(255, 255, 255));
-        description.setForeground(new java.awt.Color(2, 2, 2));
-        description.setText("jLabel3");
 
         date.setBackground(new java.awt.Color(255, 255, 255));
         date.setForeground(new java.awt.Color(2, 2, 2));
@@ -123,11 +118,9 @@ public class ReclamationInfos extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(2, 2, 2));
         jLabel4.setText("Date de reclamation :");
 
-        jLabel5.setText("Reponse :");
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        description.setBackground(new java.awt.Color(255, 255, 255));
+        description.setForeground(new java.awt.Color(2, 2, 2));
+        jScrollPane1.setViewportView(description);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -142,29 +135,27 @@ public class ReclamationInfos extends javax.swing.JFrame {
                         .addGap(55, 55, 55)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel5)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2)
-                            .addComponent(description)
                             .addComponent(jLabel3))
                         .addGap(15, 15, 15)))
+                .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton2)
-                                .addGap(33, 33, 33)
-                                .addComponent(jButton1)))
-                        .addGap(22, 22, 22))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(owner)
                             .addComponent(objet)
                             .addComponent(date))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
+                                .addComponent(jButton2)
+                                .addGap(33, 33, 33)
+                                .addComponent(jButton1)))
+                        .addGap(22, 22, 22))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,22 +171,17 @@ public class ReclamationInfos extends javax.swing.JFrame {
                         .addGap(28, 28, 28)
                         .addComponent(objet)))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel3)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(description)
-                .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(date))
-                .addGap(30, 30, 30)
+                .addGap(30, 141, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(traiter))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                    .addComponent(traiter, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton2)
                             .addComponent(jButton1))
@@ -212,13 +198,8 @@ public class ReclamationInfos extends javax.swing.JFrame {
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
-        String body = jTextArea1.getText();
-        if (!body.isEmpty()) {
-            String email = Personne.getEmail();
-            //new SendEmail(email, "Reponse de votre Reclamation", body);
-            System.err.println(body);
-            System.err.println(email);
-        }
+        String email = Personne.getEmail();
+        new SendEmail(email, Personne.getTitle(), Personne.getNom(), Personne.getPrenom(), 0);
         Employe.ReclamationTraiter(reclaId);
         dispose();
     }//GEN-LAST:event_jButton2MouseClicked
@@ -261,16 +242,14 @@ public class ReclamationInfos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel date;
-    private javax.swing.JLabel description;
+    private javax.swing.JTextPane description;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel objet;
     private javax.swing.JLabel owner;
     private javax.swing.JLabel traiter;

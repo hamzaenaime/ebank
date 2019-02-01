@@ -31,11 +31,5 @@ public class SendSMS {
                 new com.twilio.type.PhoneNumber(FromNumber.toString()),
                 Body.toString())
                 .create();
-
-        System.out.println(message.getSid());
-    }
-
-    static public void main(String argc[]) {
-        SendSMS sms = new SendSMS("+212605646568", "hello from ebank");
     }
 }

@@ -8,6 +8,7 @@ package VUES.DashBaordEmployer;
 import MODELS.Employe;
 import MODELS.Table.EmployeeTable;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -98,9 +99,15 @@ public class Reclamations extends javax.swing.JPanel implements ListSelectionLis
             String id = model.getValueAt(reclamations.getSelectedRow(), 0).toString();
             String owner = model.getValueAt(reclamations.getSelectedRow(), 1).toString();
             String objet = model.getValueAt(reclamations.getSelectedRow(), 2).toString();
+
             String description = model.getValueAt(reclamations.getSelectedRow(), 3).toString();
+            String traiter = model.getValueAt(reclamations.getSelectedRow(), 4).toString();
             String date = model.getValueAt(reclamations.getSelectedRow(), 5).toString();
-            new ReclamationInfos(id, owner, objet, description, date).setVisible(true);
+            if (traiter.equals("false")) {
+                new ReclamationInfos(id, owner, objet, description, date).setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(this, "Reclamation Deja Traiter \n", "Message", JOptionPane.INFORMATION_MESSAGE);
+            }
         }
     }
 }
