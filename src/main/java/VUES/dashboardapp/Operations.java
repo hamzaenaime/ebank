@@ -8,6 +8,7 @@ package VUES.dashboardapp;
 import MODELS.Client;
 import MODELS.Operation;
 import MODELS.Table.OperationTable;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -23,7 +24,12 @@ public class Operations extends javax.swing.JPanel {
      * Creates new form home
      */
     public Operations() {
-        initComponents();
+        try {
+            initComponents();
+            jTable1.setModel(new OperationTable(Operation.getAllOperation(Client.getCin())));
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Échec lors de la lecture de la base de données. Veuillez réessayer plus tard", "Server error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     /**
@@ -69,7 +75,6 @@ public class Operations extends javax.swing.JPanel {
             }
         });
 
-        jTable1.setModel(new OperationTable(Operation.getAllOperation(Client.getCin())));
         jTable1.setColumnSelectionAllowed(true);
         jTable1.setGridColor(new java.awt.Color(255, 255, 255));
         jTable1.setRowHeight(32);
@@ -122,8 +127,12 @@ public class Operations extends javax.swing.JPanel {
             DateFormat oDateFormat = new SimpleDateFormat("yyyy-MM-dd");
             String d1 = oDateFormat.format(oDate);
             String d2 = oDateFormat.format(oDate2);
-            jTable1.setModel(new OperationTable(Operation.getOperationFromTo(Client.getCin(), d1, d2)));
-            System.out.println("Operation de " + d1 + " au " + d2);
+            try {
+                jTable1.setModel(new OperationTable(Operation.getOperationFromTo(Client.getCin(), d1, d2)));
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, "Échec lors de l'écriture dans la base de données. "
+                    + "Une erreur s'est produite lors de l'écriture dans notre base de données. Veuillez réessayer plus tard", "Echec de l'envoie", JOptionPane.ERROR_MESSAGE);
+            }
         } else {
             JOptionPane.showMessageDialog(this, "Intervalle de date invalide", "Date invalide", JOptionPane.ERROR_MESSAGE);
         }

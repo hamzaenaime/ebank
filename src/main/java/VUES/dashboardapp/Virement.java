@@ -156,8 +156,16 @@ public class Virement extends javax.swing.JPanel {
                     // verifier que le client à le solde pour effectuer le virement
                     if (Account.getSolde() >= montant) {// if le client a le solde on finalise l'operation
                         if (confirm()) {
-                            ClientOperation.createClientOperation((int) Account.getNumAccount(), Integer.parseInt(numCompte), mot, montant);
-                            JOptionPane.showMessageDialog(this, "Virement effectué", "Opération terminée", JOptionPane.INFORMATION_MESSAGE);
+                            try{
+                                ClientOperation.createClientOperation((int) Account.getNumAccount(), Integer.parseInt(numCompte), mot, montant);
+                                JOptionPane.showMessageDialog(this, "Virement effectué", "Opération terminée", JOptionPane.INFORMATION_MESSAGE);
+                            }catch(Exception ex){
+                                JOptionPane.showMessageDialog(this, "Échec lors de l'écriture dans la base de données. "
+                    + "Une erreur s'est produite lors de l'écriture dans notre base de données. Veuillez réessayer plus tard", "Echec de l'envoie", JOptionPane.ERROR_MESSAGE);
+                            }
+                        }else{
+                            //employee press cancel
+                            JOptionPane.showMessageDialog(this, "Transaction Annuler");
                         }
                     } else {
                         JOptionPane.showMessageDialog(this,
@@ -184,10 +192,14 @@ public class Virement extends javax.swing.JPanel {
 
     public boolean confirm() {
         int code = sendAnSMS();
-        int codeInput;
+        int codeInput=0;
 
         do {
-            codeInput = Integer.parseInt(JOptionPane.showInputDialog(this, "Entrer le code de confirmation :"));
+            try{
+                codeInput = Integer.parseInt(JOptionPane.showInputDialog(this, "Entrer le code de confirmation :"));                
+            }catch(NumberFormatException ex){
+                return false;
+            }
         } while (codeInput != code);
 
         return true;

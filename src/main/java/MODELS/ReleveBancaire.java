@@ -60,7 +60,7 @@ public class ReleveBancaire {
         }
 
         Document document = new Document();
-        PdfWriter.getInstance(document, new FileOutputStream(path));
+        PdfWriter.getInstance(document, new FileOutputStream(path+".pdf"));
         document.open();
         Image image2 = Image.getInstance("./img/header.png");
         image2.scaleAbsolute(520f, 90f);
@@ -89,11 +89,11 @@ public class ReleveBancaire {
          */
         PdfPTable table = new PdfPTable(5);
         table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
-        table.addCell("Nom Prénom");
-        table.addCell("Compte Destination");
-        table.addCell("Libellé opeartion");
+        table.addCell("Nom complet");
+        table.addCell("Compte Destinataire");
+        table.addCell("Libellé opération");
         table.addCell("Montant");
-        table.addCell("Date Operation");
+        table.addCell("Date Opération");
 
         table.setHeaderRows(1);
         PdfPCell[] cells = table.getRow(0).getCells();
@@ -114,7 +114,6 @@ public class ReleveBancaire {
         document.add(table);
 
         document.close();
-        System.out.println("Done");
     }
 
     public void GenerateExcel(String path, String NomPrenom, String cin, Operation operations, int periode, String from, String to) throws FileNotFoundException, DocumentException, BadElementException, IOException, SQLException, ParseException {
@@ -287,7 +286,7 @@ public class ReleveBancaire {
             j++;
 
         }
-        FileOutputStream fos = new FileOutputStream(new File(path + "cp.xlsx"));
+        FileOutputStream fos = new FileOutputStream(new File(path + ".xlsx"));
         workbook.write(fos);
         fos.close();
 

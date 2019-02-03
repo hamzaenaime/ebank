@@ -8,19 +8,15 @@ package VUES.dashboardapp;
 import MODELS.Client;
 import MODELS.Operation;
 import MODELS.ReleveBancaire;
-import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.DocumentException;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -33,7 +29,13 @@ public class releve extends javax.swing.JPanel {
 
     String path;
     JFileChooser chooser;
-
+    Date From;
+    Date To;
+    String from;
+    String to;
+    private int periode;
+    private ReleveBancaire relv;
+    private Operation operations;
     /**
      * Creates new form releve
      */
@@ -63,11 +65,10 @@ public class releve extends javax.swing.JPanel {
 
         };
         txtPath = new javax.swing.JTextField();
-        btnGenerate = new javax.swing.JButton();
+        pdf = new javax.swing.JButton();
         jXDatePicker1 = new org.jdesktop.swingx.JXDatePicker();
         jXDatePicker2 = new org.jdesktop.swingx.JXDatePicker();
-        btnGenerate1 = new javax.swing.JButton();
-        info = new javax.swing.JLabel();
+        excel = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -84,23 +85,23 @@ public class releve extends javax.swing.JPanel {
             }
         });
 
-        btnGenerate.setBackground(new java.awt.Color(4, 96, 96));
-        btnGenerate.setText("Enregistrer sous");
-        btnGenerate.addActionListener(new java.awt.event.ActionListener() {
+        pdf.setBackground(new java.awt.Color(4, 96, 96));
+        pdf.setForeground(new java.awt.Color(255, 255, 255));
+        pdf.setText("Enregistrer sous");
+        pdf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGenerateActionPerformed(evt);
+                pdfActionPerformed(evt);
             }
         });
 
-        btnGenerate1.setBackground(new java.awt.Color(4, 96, 96));
-        btnGenerate1.setText("Enregistrer sous");
-        btnGenerate1.addActionListener(new java.awt.event.ActionListener() {
+        excel.setBackground(new java.awt.Color(4, 96, 96));
+        excel.setForeground(new java.awt.Color(255, 255, 255));
+        excel.setText("Enregistrer sous");
+        excel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGenerate1ActionPerformed(evt);
+                excelActionPerformed(evt);
             }
         });
-
-        info.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -111,21 +112,16 @@ public class releve extends javax.swing.JPanel {
                 .addComponent(txtPath, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(162, 162, 162)
-                .addComponent(btnGenerate)
+                .addComponent(pdf)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnGenerate1)
+                .addComponent(excel)
                 .addGap(95, 95, 95))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jXDatePicker2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
-                        .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(224, 224, 224)
-                        .addComponent(info, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(198, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(jXDatePicker2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(466, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,11 +134,9 @@ public class releve extends javax.swing.JPanel {
                     .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 215, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnGenerate, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnGenerate1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(info, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                    .addComponent(pdf, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(excel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(72, 72, 72))
         );
 
         txtPath.getAccessibleContext().setAccessibleDescription("");
@@ -163,109 +157,72 @@ public class releve extends javax.swing.JPanel {
 
     }//GEN-LAST:event_txtPathActionPerformed
 
-    private void btnGenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateActionPerformed
+    private boolean interval_isValid(){
+            To = jXDatePicker1.getDate();
+            From = jXDatePicker2.getDate();
+
+            if(To != null && From != null){
+                DateFormat oDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                from = oDateFormat.format(From);
+                to = oDateFormat.format(To);
+            
+                if (To.after(From) || To.equals(From)) {
+                    periode = (int) ((To.getTime() - From.getTime()) / (1000 * 60 * 60 * 24));
+                    return true;
+                }
+            }
+            JOptionPane.showMessageDialog(this, "Veuillez choisir un intervalle de date valide", "Date invalide", JOptionPane.ERROR_MESSAGE);
+            return false;
+            
+    }
+    
+    private void prepareFile(){
+            if (!SaveAs()) return;
+
+            if(!interval_isValid()) return;
+
+            relv = new ReleveBancaire();
+            
+            LocalDate date = LocalDate.now();
+            
+            this.path = this.path +" relevé du "+ date.getDayOfMonth() + "_" + date.getMonth() + "_" + date.getYear() + "_" + Client.getNom() + "_" + Client.getPrenom();
+            
+            operations = new Operation();
+    }
+    private void pdfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pdfActionPerformed
         // TODO add your handling code here:
 
-        try {
-            if (!SaveAs()) {
-                throw new Exception();
-            }
-            Date To = jXDatePicker1.getDate();
-            Date From = jXDatePicker2.getDate();
-
-            System.out.println(To.toString());
-
-            DateFormat oDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-            String from = oDateFormat.format(From);
-            String to = oDateFormat.format(To);
-
-            int periode = 0;
-            if (To.after(From) || To.equals(From)) {
-
-                periode = (int) ((To.getTime() - From.getTime()) / (1000 * 60 * 60 * 24));
-
-                ReleveBancaire relv = new ReleveBancaire();
-                LocalDate date = LocalDate.now();
-                this.path = this.path + date.getDayOfMonth() + "_" + date.getMonth() + "_" + date.getYear() + "_" + Client.getNom() + "_" + Client.getPrenom() + ".pdf";
-                //System.out.println("PATH:\t"+path);
-                Operation operations = new Operation();
-                relv.GeneratePDF(path, Client.getNom() + " " + Client.getPrenom(), Client.getCin(), operations, periode, from, to);
-                info.setText("pdf généraré avec Succes :D !");
-                //jTable1.setModel(new OperationTable(Operation.getOperationFromTo(Client.getCin(),d1,d2)));
-                System.out.println("Operation de " + from + " au " + to);
-            } else {
-                JOptionPane.showMessageDialog(this, "Intervalle de date invalide", "Date invalide", JOptionPane.ERROR_MESSAGE);
-            }
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (BadElementException ex) {
-            Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (DocumentException ex) {
-            Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
+       try{
+            prepareFile();
+            relv.GeneratePDF(path, Client.getNom() + " " + Client.getPrenom(), Client.getCin(), operations, periode, from, to);
+            JOptionPane.showMessageDialog(this,"Votre relevé en format PDF a été généré avec Succes","Succes", JOptionPane.INFORMATION_MESSAGE);            
+       } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Échec lors de l'écriture dans la base de données. Veuillez réessayer plus tard", "Echec de l'opération", JOptionPane.ERROR_MESSAGE);
         } catch (Exception ex) {
-            System.out.println("PAS DE CHEMIN!!" + ex.getMessage());
-        }
-    }//GEN-LAST:event_btnGenerateActionPerformed
+            System.out.println("error "+ex.getMessage());
+        } 
+    }//GEN-LAST:event_pdfActionPerformed
 
-    private void btnGenerate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerate1ActionPerformed
+    private void excelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excelActionPerformed
         // TODO add your handling code here:
-
-        try {
-            if (!SaveAs()) {
-                throw new Exception();
-            }
-            Date To = jXDatePicker1.getDate();
-            Date From = jXDatePicker2.getDate();
-
-            System.out.println(To.toString());
-
-            DateFormat oDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-            String from = oDateFormat.format(From);
-            String to = oDateFormat.format(To);
-
-            int periode = 0;
-            if (To.after(From) || To.equals(From)) {
-
-                periode = (int) ((To.getTime() - From.getTime()) / (1000 * 60 * 60 * 24));
-
-                ReleveBancaire relv = new ReleveBancaire();
-                LocalDate date = LocalDate.now();
-                this.path = this.path + date.getDayOfMonth() + "_" + date.getMonth() + "_" + date.getYear() + "_" + Client.getNom() + "_" + Client.getPrenom() + ".pdf";
-                //System.out.println("PATH:\t"+path);
-                Operation operations = new Operation();
-                relv.GenerateExcel(path, Client.getNom() + " " + Client.getPrenom(), Client.getCin(), operations, periode, from, to);
-                info.setText("Excel généraré avec Succes :D ! ");
-                //jTable1.setModel(new OperationTable(Operation.getOperationFromTo(Client.getCin(),d1,d2)));
-                System.out.println("Operation de " + from + " au " + to);
-            } else {
-                JOptionPane.showMessageDialog(this, "Intervalle de date invalide", "Date invalide", JOptionPane.ERROR_MESSAGE);
-            }
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (BadElementException ex) {
-            Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (DocumentException ex) {
-            Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(releve.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception ex) {
-            System.out.println("PAS DE CHEMIN!!" + ex.getMessage());
+        try{
+            prepareFile();
+            relv.GenerateExcel(path, Client.getNom() + " " + Client.getPrenom(), Client.getCin(), operations, periode, from, to);
+            JOptionPane.showMessageDialog(this,"Votre relevé en format PDF a été généré avec Succes","Succes", JOptionPane.INFORMATION_MESSAGE);                
+        } catch (SQLException  ex) {
+            JOptionPane.showMessageDialog(this, "Échec lors de l'écriture dans la base de données. "
+                + "Une erreur s'est produite lors de l'écriture dans notre base de données. Veuillez réessayer plus tard", "Echec de l'envoie", JOptionPane.ERROR_MESSAGE);
+        } catch ( Exception ex) {
+            System.out.println("error "+ex.getMessage());
         }
-    }//GEN-LAST:event_btnGenerate1ActionPerformed
+    }//GEN-LAST:event_excelActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnGenerate;
-    private javax.swing.JButton btnGenerate1;
-    private javax.swing.JLabel info;
+    private javax.swing.JButton excel;
     private javax.swing.JPanel jPanel1;
     private org.jdesktop.swingx.JXDatePicker jXDatePicker1;
     private org.jdesktop.swingx.JXDatePicker jXDatePicker2;
+    private javax.swing.JButton pdf;
     private javax.swing.JTextField txtPath;
     // End of variables declaration//GEN-END:variables
 
@@ -282,16 +239,18 @@ public class releve extends javax.swing.JPanel {
         if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
             //System.out.println("getCurrentDirectory(): "+  chooser.getCurrentDirectory());
             //System.out.println("getSelectedFile() : "+  chooser.getSelectedFile());
-            this.setPath(chooser.getSelectedFile().toString() + "/");
-            System.out.println("Path:" + this.getPath());
-            this.txtPath.setText(path);
-            return true;
-        } else {
-            System.out.println("No Selection ");
-            this.setPath("Pas de chemin séléctionner!");
+            try{
+                this.setPath(chooser.getSelectedFile().toString() + "/");
+                this.txtPath.setText(path);
+                return true;
+                }catch(Exception ex){
+                    JOptionPane.showMessageDialog(this,"Veuillez choisir un emplacement de fichier valide","Emplacement invalide", JOptionPane.ERROR_MESSAGE);
+                    return false;  
+                } 
+        }else{
+            JOptionPane.showMessageDialog(this,"Veuillez choisir un emplacement de fichier valide","Emplacement invalide", JOptionPane.ERROR_MESSAGE);
+            return false;
         }
-        this.txtPath.setText(path);
-        return false;
     }
 
     public String getPath() {

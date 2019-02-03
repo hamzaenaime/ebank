@@ -22,52 +22,38 @@ public class Operation {
 
     protected static Connection conn;
 
-    public static int createOperation(int compte_src, int compte_dst, String motif, float montant) {
+    public static int createOperation(int compte_src, int compte_dst, String motif, float montant) throws SQLException {
         conn = Dao.getConnection();//id_client,
         String req = "insert into operation (id_compte_src,id_compte_dst,description,montant) values (?,?,?,?) returning id_operation";
-        try {
-            PreparedStatement prep = conn.prepareStatement(req, PreparedStatement.RETURN_GENERATED_KEYS);
-            prep.setInt(1, compte_src);//Client.getCin()
-            prep.setInt(2, compte_dst);
-            prep.setString(3, motif);
-            prep.setFloat(4, montant);
-            prep.executeUpdate();
-            ResultSet rs = prep.getGeneratedKeys();
-            if (rs.next()) {
-                return rs.getInt(1);
-            }
-            return 0;
-        } catch (SQLException ex) {
-            System.out.print("error lors de l'insertion dans la table operation_client :" + ex.getMessage());
-            return 0;
-        }
+        PreparedStatement prep = conn.prepareStatement(req, PreparedStatement.RETURN_GENERATED_KEYS);
+        prep.setInt(1, compte_src);//Client.getCin()
+        prep.setInt(2, compte_dst);
+        prep.setString(3, motif);
+        prep.setFloat(4, montant);
+        prep.executeUpdate();
+        ResultSet rs = prep.getGeneratedKeys();
+        if (rs.next()) {
+            return rs.getInt(1);
+        }else throw new SQLException();
     }
 
-    public static ResultSet getOperationFromTo(String cin, String d1, String d2) {
-        Connection con = Dao.getConnection();
-        try {
-            Statement st = con.createStatement();
-            String req;
-            req = "select date_operation::date,description,montant from operation inner join operation_client o on operation.id_operation = o.id_operation "
-                    + "where o.id_client='" + cin + "' and date_operation >= TO_DATE('" + d1 + "','YYYY-mm-dd') and date_operation <= TO_DATE('" + d2 + "','YYYY-mm-dd')+interval '24 hours' order by date_operation desc";
-            ResultSet rs = st.executeQuery(req);
-            return rs;
-        } catch (SQLException ex) {
-            return null;
-        }
+    public static ResultSet getOperationFromTo(String cin, String d1, String d2) throws SQLException {
+        con = Dao.getConnection();
+        st = con.createStatement();
+        String req;
+        req = "select date_operation::date,description,montant from operation inner join operation_client o on operation.id_operation = o.id_operation "
+                + "where o.id_client='" + cin + "' and date_operation >= TO_DATE('" + d1 + "','YYYY-mm-dd') and date_operation <= TO_DATE('" + d2 + "','YYYY-mm-dd')+interval '24 hours' order by date_operation desc";
+        ResultSet rs = st.executeQuery(req);
+        return rs;
     }
 
-    public static ResultSet getAllOperation(String cin) {
-        Connection con = Dao.getConnection();
-        try {
-            Statement st = con.createStatement();
-            String req;
-            req = "select date_operation::date,description,montant from operation inner join operation_client o on operation.id_operation = o.id_operation where o.id_client='" + cin + "' order by date_operation desc";
-            ResultSet rs = st.executeQuery(req);
-            return rs;
-        } catch (SQLException ex) {
-            return null;
-        }
+    public static ResultSet getAllOperation(String cin) throws SQLException {
+        con = Dao.getConnection();
+        st = con.createStatement();
+        String req;
+        req = "select date_operation::date,description,montant from operation inner join operation_client o on operation.id_operation = o.id_operation where o.id_client='" + cin + "' order by date_operation desc";
+        ResultSet rs = st.executeQuery(req);
+        return rs;
     }
 
     /*Ayoub Methodes*/
@@ -77,21 +63,15 @@ public class Operation {
 
     //Constructor 
     public Operation() {
-        con = dao.getConnection();
+        con = Dao.getConnection();
     }
 
-    public ResultSet Operation_From_To(String cin, String From, String To) {
-        ResultSet res = null;
-        try {
-            this.st = this.con.createStatement();
+    public ResultSet Operation_From_To(String cin, String From, String To) throws SQLException {
+            ResultSet res = null;
+            Operation.st = Operation.con.createStatement();
             res = st.executeQuery("select OP.id_compte_dst,OP.description,OP.montant,OP.date_operation,P.nom,P.prenom FROM operation AS OP INNER JOIN operation_client AS OPC ON OP.id_operation=OPC.id_operation INNER JOIN personne AS P ON P.cin = OPC.id_client "
                     + "where OPC.id_client='" + cin + "' and OP.date_operation >= TO_DATE('" + From + "','YYYY-mm-dd') and OP.date_operation <= TO_DATE('" + To + "','YYYY-mm-dd') order by OP.date_operation desc");
-            System.err.println("testt");
-            return res;
-        } catch (SQLException ex) {
-            System.err.println("testt");
-            return null;
-        }
+            return res; 
     }
 
     public static double transactionMontant(String mois) {

@@ -184,22 +184,24 @@ public class Coordonne extends javax.swing.JPanel {
         String address = adresse.getText();
         String ville_ = ville.getText();
 
+        try{
+            
         if (!address.isEmpty() && !address.equals(Client.getAdresse())) {
-            if (Client.updateAdresse(address)) {
+                Client.updateAdresse(address);
                 JOptionPane.showMessageDialog(this, "Votre adresse a été modifiée");
                 new Coordonne().setVisible(true);
-            } else {
-                JOptionPane.showMessageDialog(this, "Echec de l'opération");
-            }
         }
+        
 
         if (!ville_.isEmpty() && !ville_.equals(Client.getVille())) {
             if (Client.updateVille(ville.getText())) {
                 JOptionPane.showMessageDialog(this, "Votre ville a été modifiée");
                 new Coordonne().setVisible(true);
-            } else {
-                JOptionPane.showMessageDialog(this, "Echec de l'opération");
             }
+        }
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(this, "Échec lors de l'écriture dans la base de données. "
+                    + "Une erreur s'est produite lors de l'écriture dans notre base de données. Veuillez réessayer plus tard", "Echec de l'envoie", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton1MouseClicked
 

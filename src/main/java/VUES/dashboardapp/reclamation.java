@@ -109,13 +109,14 @@ public class reclamation extends javax.swing.JPanel {
         String desc = description.getText();
 
         if (!objetTxt.isEmpty() && !desc.isEmpty()) {
-            if (Reclamation.create(objetTxt, desc)) {
+            try{
+                Reclamation.create(objetTxt, desc);
                 JOptionPane.showMessageDialog(this, "votre demande a bien été prise en compte", "Réclamation envoyée", JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                JOptionPane.showMessageDialog(this, "Echec de l'envoie de votre réclamation", "Echec de l'envoie", JOptionPane.ERROR_MESSAGE);
-            }
+            }catch(Exception ex){
+                JOptionPane.showMessageDialog(this, "Échec lors de l'écriture dans la base de données. Veuillez réessayer plus tard", "Echec de l'envoie", JOptionPane.ERROR_MESSAGE);
+            } 
         } else {
-            JOptionPane.showMessageDialog(this, "L'ebjet et la desciption ne peuvent pas être vide", "Invalide input", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Le champ objet et la desciption ne peuvent pas être vide", "Invalide input", JOptionPane.ERROR_MESSAGE);
 
         }
     }//GEN-LAST:event_sendMouseClicked
