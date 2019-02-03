@@ -79,7 +79,7 @@ public class Account {
         return false;
     }
 
-    public static void debiter(float mnt, int numCompte) throws AccountException {
+    public static void debiter(float mnt, int numCompte) throws AccountException, SQLException {
         if (!Account.AccountActive("" + numCompte)) {
             throw new AccountException("Compte n'est pas active ");
         }
@@ -95,12 +95,8 @@ public class Account {
 
         connection = Dao.getConnection();
         String req = "update compte set solde=solde-" + mnt + " where numcompte='" + numAccount + "'";
-        try {
-            st = connection.createStatement();
-            st.executeUpdate(req);
-        } catch (SQLException ex) {
-            System.out.println("probleme dans la requtte de mise à jour => " + ex.getMessage());
-        }
+        st = connection.createStatement();
+        st.executeUpdate(req);
     }
 
     public static void crediter(float mnt, int numCompte) throws AccountException {

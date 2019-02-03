@@ -5,9 +5,14 @@
  */
 package VUES.DashBaordEmployer;
 
+import Exceptions.AccountException;
 import MODELS.Account;
 import MODELS.EmployeeOperation;
+import MODELS.Operation;
 import MODELS.Personne;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -228,16 +233,13 @@ public class Virement extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private Boolean allFieldsSet() {
-        if (!numcompte.getText().isEmpty()
+        return !numcompte.getText().isEmpty()
                 && Account.AccountActive(numcompte.getText())
                 && !montant.getText().isEmpty()
-                && Integer.parseInt(montant.getText()) >= 0
+                && Float.parseFloat(montant.getText()) >= 0
                 && cin.getText().length() != 0
                 && nom.getText().length() != 0
-                && prenom.getText().length() != 0) {
-            return true;
-        }
-        return false;
+                && prenom.getText().length() != 0;
     }
 
     private void validerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_validerMouseClicked
@@ -250,18 +252,29 @@ public class Virement extends javax.swing.JPanel {
             int input = JOptionPane.showConfirmDialog(this, message, "Virement Confirmation", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
             //0 ok , 2 cancel
             if (input == 0) {
-                //ajouter operation
-                EmployeeOperation.createEmployerOperation(
-                        Integer.parseInt(numcompte.getText()),
-                        "virement",
-                        Personne.getCin(),
-                        cin.getText(),
-                        nom.getText(),
-                        prenom.getText(),
-                        Float.parseFloat(montant.getText()));
-                JOptionPane.showMessageDialog(this, "virement effectuer");
-            } else {
-                //nothing
+                //user press ok
+                try{
+                    Account.crediter(Float.parseFloat(montant.getText()), Integer.parseInt(numcompte.getText()));
+                    //15 à changer when changing compte_src can be null in operation table !!!
+                    int numoperation = Operation.createOperation(15, Integer.parseInt(numcompte.getText()), "Virement de "+nom.getText()+" "+prenom.getText(), Float.parseFloat(montant.getText()));
+                    //ajouter operation
+                    EmployeeOperation.createEmployerOperation(
+                            Integer.parseInt(numcompte.getText()),
+                            "virement",
+                            Personne.getCin(),
+                            cin.getText(),
+                            nom.getText(),
+                            prenom.getText(),
+                            Float.parseFloat(montant.getText()),
+                            numoperation
+                    );
+                    JOptionPane.showMessageDialog(this, "virement effectuer");
+                }catch(SQLException|AccountException ex){
+                JOptionPane.showMessageDialog(this, "Échec lors de l'écriture dans la base de données. "
+                    + "Une erreur s'est produite lors de l'écriture dans notre base de données. Veuillez réessayer plus tard", "Echec de l'envoie", JOptionPane.ERROR_MESSAGE);
+                }
+            }else{
+                //employee press cancel
                 JOptionPane.showMessageDialog(this, "Transaction Annuler");
             }
         } else {

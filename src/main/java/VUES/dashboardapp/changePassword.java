@@ -157,11 +157,12 @@ public class changePassword extends javax.swing.JPanel {
                 //old password is valide
                 if (newPass.getText().equals(cPass.getText())) {
                     //set the new pass
-                    if (Client.updatePassword(newPass.getText())) {
+                    try{
+                        Client.updatePassword(newPass.getText());
                         //password updated successfully
                         JOptionPane.showMessageDialog(this, "Votre mot de passe a été modifiée", "", JOptionPane.INFORMATION_MESSAGE);
                         new SendEmail(Personne.getEmail(), Personne.getTitle(), Personne.getNom(), Personne.getPrenom(), 4);
-                    } else {
+                    } catch(Exception ex) {
                         //eched de maj de mot de pass
                         JOptionPane.showMessageDialog(this, "Echec de mise a jour du mot de passe", "", JOptionPane.WARNING_MESSAGE);
                     }

@@ -10,6 +10,7 @@ import static MODELS.Client.createClient;
 import MODELS.Img;
 import MODELS.MailBoxLayer;
 import MODELS.Personne;
+import static MODELS.Personne.createPersonne;
 import MODELS.SendEmail;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -278,11 +279,9 @@ public class RegistreStep3 extends javax.swing.JPanel {
                             JOptionPane.showMessageDialog(this, "Votre compte a été crée avec success", "Success", JOptionPane.INFORMATION_MESSAGE);
                             //envoyer email
                             new SendEmail(email_, Personne.getTitle(), Personne.getNom(), Personne.getPrenom(), 5);
-                        } catch (SQLException | ParseException ex) {
+                        } catch (SQLException | ParseException | IOException ex) {
                             JOptionPane.showMessageDialog(this, "Erreur lors de création de compte\n" + ex.getMessage(), "fatal erreur", JOptionPane.ERROR_MESSAGE);
-                        } catch (IOException ex) {
-                            Logger.getLogger(RegistreStep3.class.getName()).log(Level.SEVERE, null, ex);
-                        }
+                        } 
                         // new SendEmail(cin_, "Creation d'un compte", "votre demande de Creer un compte
                         // e été envoyer avec succès\n nous allons vous contacter le plutot possible");
                     } else {
@@ -304,7 +303,6 @@ public class RegistreStep3 extends javax.swing.JPanel {
 
     public String getPath() {
         JFileChooser chooser = new JFileChooser();
-        // chooser.setCurrentDirectory(new java.io.File("."));
         // Setting Up The Filter
         FileFilter imageFilter = new FileNameExtensionFilter("Image files", ImageIO.getReaderFileSuffixes());
         // Attaching Filter to JFileChooser object
@@ -312,8 +310,6 @@ public class RegistreStep3 extends javax.swing.JPanel {
         chooser.setDialogTitle("Choisir CIN");
         chooser.setAcceptAllFileFilterUsed(false);
         if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
-            // System.out.println("getCurrentDirectory(): "+ chooser.getCurrentDirectory());
-            // System.out.println("getSelectedFile() : " + chooser.getSelectedFile());
             return chooser.getSelectedFile().getAbsolutePath();
         } else {
             return null;
