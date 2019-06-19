@@ -22,7 +22,7 @@ a school's project made with java/swing.
 Contributors names and contact info
 
 * ENAIME HAMZA
-* NAFAR BILAL
+* NAFAR BELAL
 * HAMAOUI AYOUB
 * AJAANIT TAOUFIK
 
